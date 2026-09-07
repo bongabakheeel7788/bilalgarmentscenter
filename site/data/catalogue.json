@@ -1,0 +1,183 @@
+{
+ "store": {
+  "site_url": "https://bilalgarments.center",
+  "name": "Bilal Garments Center",
+  "tagline": "Children's wear, delivered all over Pakistan",
+  "whatsapp": "03030410303",
+  "whatsapp_intl": "923030410303",
+  "address": "Larri Adda Road, Near Sahulat Bazar, Tandlianwala, Faisalabad ",
+  "hours": "",
+  "map_url": "",
+  "phone": "03030410303",
+  "new_days": 30,
+  "free_delivery_above": 0,
+  "delivery_charge": 0,
+  "show_stock": true,
+  "payment_note": "",
+  "pixel_id": ""
+ },
+ "categories": [
+  {
+   "name": "Boys SML",
+   "parent": "Boys",
+   "slug": "boys-boys-sml"
+  }
+ ],
+ "products": [
+  {
+   "code": "STY-1078",
+   "slug": "boys-1-4-years-sty-1078",
+   "name": "Boys 1-4 Years",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "price_min": 700,
+   "price_max": 700,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1078/61c90237-7ae9-403d-a1c5-df1d07d927e4.webp",
+   "variants": [
+    {
+     "id": 263,
+     "size": "S",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    },
+    {
+     "id": 264,
+     "size": "M",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 265,
+     "size": "L",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-07",
+   "is_new": true
+  },
+  {
+   "code": "STY-1077",
+   "slug": "boys-1-4-years-sty-1077",
+   "name": "Boys 1-4 Years",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "price_min": 950,
+   "price_max": 950,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1077/5a01c909-a8a7-4ff3-b5b5-20cc917cfd82.webp",
+   "variants": [
+    {
+     "id": 260,
+     "size": "S",
+     "colour": "Standard",
+     "price": 950,
+     "availability": "out"
+    },
+    {
+     "id": 261,
+     "size": "M",
+     "colour": "Standard",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 262,
+     "size": "L",
+     "colour": "Standard",
+     "price": 950,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-07",
+   "is_new": true
+  },
+  {
+   "code": "STY-1076",
+   "slug": "boys-1-4-years-sty-1076",
+   "name": "Boys 1-4 Years",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "price_min": 700,
+   "price_max": 700,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1076/6170bf8a-1f67-4db0-b406-0608843def62.webp",
+   "variants": [
+    {
+     "id": 257,
+     "size": "S",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 258,
+     "size": "M",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 259,
+     "size": "L",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-07",
+   "is_new": true
+  }
+ ],
+ "collections": [],
+ "agent_codes": []
+}
