@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /checkout/
+Disallow: /thanks/
+Disallow: /track/
+Disallow: /api/
+Sitemap: https://bilalgarments.center/sitemap.xml
