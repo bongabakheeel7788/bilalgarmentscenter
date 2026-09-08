@@ -125,6 +125,10 @@ $$('.filters').forEach(bar => {
   if (!grid) return;
   const items = JSON.parse(grid.dataset.items || '[]');
   const cards = new Map($$('.card', grid).map(c => [c.dataset.code, c]));
+  // a link from the shop can pre-filter: /c/boys/?size=24 (the "Send new arrivals" message)
+  const want = new URLSearchParams(location.search).get('size');
+  const sizeSel = bar.querySelector('[data-f=size]');
+  if (want && sizeSel && [...sizeSel.options].some(o => o.value === want)) sizeSel.value = want;
   const apply = () => {
     const size = (bar.querySelector('[data-f=size]') || {}).value || '', colour = (bar.querySelector('[data-f=colour]') || {}).value || '', sort = (bar.querySelector('[data-f=sort]') || {}).value || 'new', instock = !!(bar.querySelector('[data-f=instock]') || {}).checked;
     let shown = items.filter(i => (!size || i.sizes.includes(size)) && (!colour || i.colours.includes(colour)) && (!instock || i.av !== 'out'));
