@@ -6,7 +6,10 @@
 //   GET  /api/pos/ping                                       are we configured, how many waiting
 import { ensureSchema, json, normalisePhone, posAuthorised } from '../../_lib/db.js';
 
-const STATUSES = new Set(['NEW', 'CONFIRMED', 'PACKED', 'DISPATCHED', 'DELIVERED', 'RTO', 'CANCELLED', 'READY', 'COLLECTED']);
+// P51 — the POS types the courier's own steps by hand (no API on the shop's
+// plan), and the customer should see the same words her parcel is at.
+const STATUSES = new Set(['NEW', 'CONFIRMED', 'PACKED', 'DISPATCHED', 'AT_STATION', 'OUT_FOR_DELIVERY', 'ON_HOLD',
+  'RETURN_STARTED', 'RETURN_BOOKED', 'RETURN_SHIPPED', 'RETURN_RECEIVED', 'DELIVERED', 'RTO', 'CANCELLED', 'READY', 'COLLECTED']);
 
 export async function onRequest(context) {
   const { env, request, params } = context;

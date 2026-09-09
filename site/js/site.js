@@ -232,18 +232,29 @@ const tf = $('#trackForm');
 if (tf) {
   const out = $('#trackOut');
   const last = store.get('bgc_last_order'); if (last && !tf.no.value) { tf.no.value = last.no; tf.phone.value = last.phone || ''; }
-  const ORDER = ['NEW', 'CONFIRMED', 'PACKED', 'DISPATCHED', 'DELIVERED'], COLLECT = ['NEW', 'CONFIRMED', 'READY', 'COLLECTED'];
-  const LABEL = { NEW: 'Order received', CONFIRMED: 'Confirmed by phone', PACKED: 'Packed', DISPATCHED: 'With the courier', DELIVERED: 'Delivered', READY: 'Ready to collect', COLLECTED: 'Collected', RTO: 'Returned to the shop', CANCELLED: 'Cancelled' };
+  // P51 — the shop types each courier step by hand, so the customer can see
+  // exactly where her parcel is instead of "with the courier" for four days.
+  const ORDER = ['NEW', 'CONFIRMED', 'PACKED', 'DISPATCHED', 'AT_STATION', 'OUT_FOR_DELIVERY', 'DELIVERED'], COLLECT = ['NEW', 'CONFIRMED', 'READY', 'COLLECTED'];
+  const LABEL = { NEW: 'Order received', CONFIRMED: 'Confirmed by phone', PACKED: 'Packed', DISPATCHED: 'With the courier',
+    AT_STATION: 'At your city\'s station', OUT_FOR_DELIVERY: 'Out for delivery today', ON_HOLD: 'On hold with the courier',
+    RETURN_STARTED: 'Could not be delivered', RETURN_BOOKED: 'Coming back to the shop', RETURN_SHIPPED: 'On its way back to the shop',
+    RETURN_RECEIVED: 'Back at the shop', DELIVERED: 'Delivered', READY: 'Ready to collect', COLLECTED: 'Collected',
+    RTO: 'Returned to the shop', CANCELLED: 'Cancelled' };
+  const COMING_BACK = ['RETURN_STARTED', 'RETURN_BOOKED', 'RETURN_SHIPPED', 'RETURN_RECEIVED'];
   tf.onsubmit = async ev => {
     ev.preventDefault(); out.innerHTML = '<p class="muted">Looking it up…</p>';
     const q = new URLSearchParams({ no: tf.no.value.trim(), phone: tf.phone.value.trim() });
     const res = await fetch('/api/track?' + q); const j = await res.json().catch(() => ({}));
     if (!res.ok) { out.innerHTML = `<div class="empty">${esc(j.message || 'Not found.')}</div>`; return; }
     const steps = j.delivery === 'COLLECT' ? COLLECT : ORDER;
-    const idx = steps.indexOf(j.status);
+    // a parcel that is on hold or coming back is not "somewhere along the road":
+    // it is its own state, said plainly, with the shop's number to ring
+    const aside = j.status === 'ON_HOLD' || COMING_BACK.includes(j.status);
+    const idx = aside ? steps.indexOf('DISPATCHED') : steps.indexOf(j.status);
     const terminal = ['RTO', 'CANCELLED'].includes(j.status);
     out.innerHTML = `<h2 style="margin:22px 0 6px">${esc(j.no)}</h2><p class="muted">${esc(j.status_text)}${j.status_updated_at ? ' · ' + new Date(j.status_updated_at).toLocaleString('en-PK') : ''}</p>
       ${j.tracking_no ? `<p><strong>Courier:</strong> ${esc(j.courier || 'Leopards')} · tracking number <strong>${esc(j.tracking_no)}</strong> ${j.tracking_url ? `— <a href="${esc(j.tracking_url)}" target="_blank" rel="noopener" style="color:var(--accent)">track on the courier's site ↗</a>` : ''}</p>` : ''}
+      ${aside ? `<div class="soldout" style="margin:10px 0;">${esc(LABEL[j.status])} — please call us on ${esc(S.whatsapp || '')} and we will sort it out.</div>` : ''}
       ${terminal ? `<div class="soldout">${esc(LABEL[j.status])}</div>` : `<div class="timeline">${steps.map((s, i) => `<div class="tl ${i < idx ? 'done' : i === idx ? 'now' : ''}"><i>${i < idx ? '✓' : ''}</i><span>${esc(LABEL[s])}</span></div>`).join('')}</div>`}
       <div class="order-box">${j.lines.map(l => `<div class="row"><span>${esc(l.name)} · ${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''} × ${l.qty}</span><strong>${money(l.price * l.qty)}</strong></div>`).join('')}<div class="row total"><span>Total</span><strong>${money(j.total)}</strong></div></div>`;
   };
