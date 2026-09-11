@@ -11,7 +11,7 @@
 // The rule:
 //   • words, in any order — every word must match SOMETHING about the product
 //     ("royal navy 26": supplier + colour + size);
-//   • what a product IS: name, STY code, supplier, category (and its parent),
+//   • what a product IS: name, STY code, supplier, shopkeeper (P54), category (and its parent),
 //     size group, fabric, set contents — and, per variant: SKU, colour, size;
 //   • case does not matter; "3piece" finds "Nadeem 3 Piece" (spaces ignored too);
 //   • a word that only matches a colour, a size or a SKU narrows to THOSE
@@ -30,7 +30,7 @@ const norm = s => String(s == null ? '' : s).toLowerCase();
 const squash = s => norm(s).replace(/[\s\-_./]+/g, '');
 const has = (field, tok, tokSq) => { const f = norm(field); return !!f && (f.includes(tok) || squash(f).includes(tokSq)); };
 
-const PRODUCT_FIELDS = ['name', 'code', 'supplier_name', 'supplier', 'category_name', 'category_parent', 'category', 'size_group', 'size_group_name', 'fabric', 'set_contents'];
+const PRODUCT_FIELDS = ['name', 'code', 'supplier_name', 'supplier', 'shopkeeper_name', 'category_name', 'category_parent', 'category', 'size_group', 'size_group_name', 'fabric', 'set_contents'];
 const VARIANT_FIELDS = ['sku', 'colour', 'size'];
 
 /** split a query into words; returns [] for nothing to search */
