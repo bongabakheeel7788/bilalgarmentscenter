@@ -18,6 +18,11 @@
  },
  "categories": [
   {
+   "name": "Full Size Shirts",
+   "parent": null,
+   "slug": "full-size-shirts"
+  },
+  {
    "name": "Girls 30-34",
    "parent": "Girls",
    "slug": "girls-girls-30-34"
@@ -29,6 +34,187 @@
   }
  ],
  "products": [
+  {
+   "code": "STY-1235",
+   "slug": "boys-premium-4-way-stretch-china-shirts-sty-1235",
+   "name": "Boys Premium 4 Way Stretch China Shirts",
+   "category": "Full Size Shirts",
+   "category_parent": null,
+   "size_group": "Full Size Shirts",
+   "gender": "boys",
+   "fabric": "China",
+   "set_contents": "Shirt",
+   "price_min": 750,
+   "price_max": 750,
+   "sizes": [
+    "Medium",
+    "Large",
+    "X-Large"
+   ],
+   "colours": [
+    {
+     "name": "Black",
+     "hex": "#000000",
+     "photo": null
+    },
+    {
+     "name": "Brown",
+     "hex": "#92400E",
+     "photo": null
+    },
+    {
+     "name": "Camel",
+     "hex": "#C19A6B",
+     "photo": null
+    },
+    {
+     "name": "Green",
+     "hex": "#16A34A",
+     "photo": null
+    },
+    {
+     "name": "Light Grey",
+     "hex": "#D1D5DB",
+     "photo": null
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#7DD3FC",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1235/b5e95e90-3eb1-4150-b8d7-196c8d53c299.webp",
+   "variants": [
+    {
+     "id": 1087,
+     "size": "Medium",
+     "colour": "Black",
+     "price": 750,
+     "availability": "out"
+    },
+    {
+     "id": 1093,
+     "size": "Medium",
+     "colour": "Brown",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1096,
+     "size": "Medium",
+     "colour": "Camel",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1099,
+     "size": "Medium",
+     "colour": "Green",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1102,
+     "size": "Medium",
+     "colour": "Light Grey",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1090,
+     "size": "Medium",
+     "colour": "Sky Blue",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1088,
+     "size": "Large",
+     "colour": "Black",
+     "price": 750,
+     "availability": "out"
+    },
+    {
+     "id": 1094,
+     "size": "Large",
+     "colour": "Brown",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1097,
+     "size": "Large",
+     "colour": "Camel",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1100,
+     "size": "Large",
+     "colour": "Green",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1103,
+     "size": "Large",
+     "colour": "Light Grey",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1091,
+     "size": "Large",
+     "colour": "Sky Blue",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1089,
+     "size": "X-Large",
+     "colour": "Black",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1095,
+     "size": "X-Large",
+     "colour": "Brown",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1098,
+     "size": "X-Large",
+     "colour": "Camel",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1101,
+     "size": "X-Large",
+     "colour": "Green",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1104,
+     "size": "X-Large",
+     "colour": "Light Grey",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 1092,
+     "size": "X-Large",
+     "colour": "Sky Blue",
+     "price": 750,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-11",
+   "is_new": true
+  },
   {
    "code": "STY-1165",
    "slug": "aiman-koleksi-sty-1165",
