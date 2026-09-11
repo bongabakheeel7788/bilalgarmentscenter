@@ -106,10 +106,19 @@ export function grid(products, { id = 'grid', filters = true, empty = 'Nothing h
   if (!products.length) return `<div class="empty">${esc(empty)}</div>`;
   const sizes = [...new Set(products.flatMap(p => p.sizes || []))];
   const colours = [...new Set(products.flatMap(p => (p.colours || []).map(c => c.name).filter(n => n.toLowerCase() !== 'standard')))];
-  const data = products.map(p => ({ code: p.code, sizes: (p.variants || []).filter(v => v.availability !== 'out').map(v => v.size), colours: (p.colours || []).map(c => c.name), price: p.price_min, at: p.first_published || '', av: productAvailability(p) }));
+  // P56a — age, type and season: a dropdown each, only when the grid has more than one value
+  const SEASON = { SUMMER: 'Summer', WINTER: 'Winter', ALL: 'All seasons' };
+  const ages = [...new Set(products.map(p => p.age_group).filter(Boolean))];
+  const types = [...new Set(products.map(p => p.product_type).filter(Boolean))];
+  const seasons = [...new Set(products.map(p => p.season).filter(Boolean))];
+  const data = products.map(p => ({ code: p.code, sizes: (p.variants || []).filter(v => v.availability !== 'out').map(v => v.size), colours: (p.colours || []).map(c => c.name), price: p.price_min, at: p.first_published || '', av: productAvailability(p),
+    age: p.age_group || '', type: p.product_type || '', season: p.season || '' }));
   return `${filters ? `<div class="filters" data-grid="${attr(id)}">
+    ${ages.length > 1 ? `<select data-f="age" aria-label="Age"><option value="">Any age</option>${ages.map(s => `<option>${esc(s)}</option>`).join('')}</select>` : ''}
+    ${types.length > 1 ? `<select data-f="type" aria-label="Type"><option value="">Any type</option>${types.map(s => `<option>${esc(s)}</option>`).join('')}</select>` : ''}
     <select data-f="size" aria-label="Size"><option value="">Any size</option>${sizes.map(s => `<option>${esc(s)}</option>`).join('')}</select>
     ${colours.length ? `<select data-f="colour" aria-label="Colour"><option value="">Any colour</option>${colours.map(s => `<option>${esc(s)}</option>`).join('')}</select>` : ''}
+    ${seasons.length > 1 ? `<select data-f="season" aria-label="Season"><option value="">Any season</option>${seasons.map(s => `<option value="${attr(s)}">${esc(SEASON[s] || s)}</option>`).join('')}</select>` : ''}
     <select data-f="sort" aria-label="Sort"><option value="new">Newest first</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select>
     <label class="chk"><input type="checkbox" data-f="instock"> In stock only</label>
     <span class="count" data-count></span>

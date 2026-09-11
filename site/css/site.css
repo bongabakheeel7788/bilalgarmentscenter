@@ -213,3 +213,8 @@ details summary { cursor: pointer; font-weight: 600; }
 .ftr p { margin: 6px 0; } .ftr a { color: var(--accent); font-weight: 600; }
 .wa-float { position: fixed; right: 16px; bottom: 16px; width: 54px; height: 54px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; font-size: 26px; box-shadow: 0 8px 24px -8px rgba(0,0,0,.4); z-index: 20; }
 .toast { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 999px; font-weight: 600; z-index: 50; box-shadow: var(--shadow); }
+
+/* P56a — the age a size fits, under the size label ("24 / 5–6 yrs") */
+.size { height: auto; min-height: 40px; padding: 6px 12px; display: inline-flex; flex-direction: column; align-items: center; line-height: 1.15; }
+.size small { display: block; font-size: 10px; font-weight: 500; color: var(--ink-3); margin-top: 2px; white-space: nowrap; }
+.size.active small { color: inherit; opacity: .8; }

@@ -131,7 +131,9 @@ $$('.filters').forEach(bar => {
   if (want && sizeSel && [...sizeSel.options].some(o => o.value === want)) sizeSel.value = want;
   const apply = () => {
     const size = (bar.querySelector('[data-f=size]') || {}).value || '', colour = (bar.querySelector('[data-f=colour]') || {}).value || '', sort = (bar.querySelector('[data-f=sort]') || {}).value || 'new', instock = !!(bar.querySelector('[data-f=instock]') || {}).checked;
-    let shown = items.filter(i => (!size || i.sizes.includes(size)) && (!colour || i.colours.includes(colour)) && (!instock || i.av !== 'out'));
+    const age = (bar.querySelector('[data-f=age]') || {}).value || '', type = (bar.querySelector('[data-f=type]') || {}).value || '', season = (bar.querySelector('[data-f=season]') || {}).value || '';   // P56a
+    let shown = items.filter(i => (!size || i.sizes.includes(size)) && (!colour || i.colours.includes(colour)) && (!instock || i.av !== 'out')
+      && (!age || i.age === age) && (!type || i.type === type) && (!season || i.season === season || i.season === 'ALL'));
     shown.sort((a, b) => sort === 'low' ? a.price - b.price : sort === 'high' ? b.price - a.price : String(b.at).localeCompare(String(a.at)));
     const keep = new Set(shown.map(i => i.code));
     cards.forEach((el, code) => { el.hidden = !keep.has(code); });

@@ -76,7 +76,7 @@ export function product(cat, slug) {
     <div class="buy-price" id="price">${esc(priceLabel(p))}</div>
     ${av === 'out' ? '<div class="soldout">Sold out — ask on WhatsApp when it is back.</div>' : ''}
     ${colours.length > 1 ? `<div class="opt"><div class="opt-label">Colour <span id="colourName"></span></div><div class="swatches" id="colours">${colours.map((c, i) => `<button class="swatch${i === 0 ? ' active' : ''}" data-colour="${attr(c.name)}" data-photo="${attr(c.photo || '')}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><span style="background:${attr(c.hex || '#ddd')}"></span></button>`).join('')}</div></div>` : colours.length === 1 ? `<div class="opt"><div class="opt-label">Colour: ${esc(colours[0].name)}</div></div>` : ''}
-    <div class="opt"><div class="opt-label">Size</div><div class="sizes" id="sizes">${sizes.map(s => `<button class="size" data-size="${attr(s)}">${esc(s)}</button>`).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div></div>
+    <div class="opt"><div class="opt-label">Size</div><div class="sizes" id="sizes">${sizes.map(s => `<button class="size" data-size="${attr(s)}" title="${attr(p.size_ages && p.size_ages[s] ? `fits ${p.size_ages[s]}` : '')}">${esc(s)}${p.size_ages && p.size_ages[s] ? `<small>${esc(p.size_ages[s])}</small>` : ''}</button>`).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div></div>
     <div class="qty-row"><label>Qty <input type="number" id="qty" value="1" min="1" max="10"></label>
       <button class="btn btn-primary" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button></div>
     <div class="buy-actions">
@@ -86,7 +86,10 @@ export function product(cat, slug) {
     <dl class="details">
       ${p.fabric ? `<dt>Fabric</dt><dd>${esc(p.fabric)}</dd>` : ''}
       ${p.set_contents ? `<dt>In the set</dt><dd>${esc(p.set_contents)}</dd>` : ''}
-      ${p.size_group ? `<dt>Size range</dt><dd>${esc(sizes.join(' · '))}</dd>` : ''}
+      ${p.size_group ? `<dt>Size range</dt><dd>${esc(sizes.map(z => p.size_ages && p.size_ages[z] ? `${z} (${p.size_ages[z]})` : z).join(' · '))}</dd>` : ''}
+      ${p.age_group ? `<dt>Age</dt><dd>${esc(p.age_group)}</dd>` : ''}
+      ${p.product_type ? `<dt>Type</dt><dd>${esc(p.product_type)}</dd>` : ''}
+      ${p.season ? `<dt>Season</dt><dd>${esc({ SUMMER: 'Summer', WINTER: 'Winter', ALL: 'All seasons' }[p.season] || p.season)}</dd>` : ''}
       <dt>Delivery</dt><dd>${esc(deliveryLine(store))}</dd>
       <dt>Exchange</dt><dd>Within 15 days of delivery, unworn with the tag.</dd>
     </dl>
