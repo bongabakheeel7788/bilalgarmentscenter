@@ -18,12 +18,68 @@
  },
  "categories": [
   {
+   "name": "Girls 30-34",
+   "parent": "Girls",
+   "slug": "girls-girls-30-34"
+  },
+  {
    "name": "Boys SML",
    "parent": "Boys",
    "slug": "boys-boys-sml"
   }
  ],
  "products": [
+  {
+   "code": "STY-1165",
+   "slug": "aiman-koleksi-sty-1165",
+   "name": "Aiman Koleksi",
+   "category": "Girls 30-34",
+   "category_parent": "Girls",
+   "size_group": "Girls 30-34",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "price_min": 1400,
+   "price_max": 1400,
+   "sizes": [
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1165/3c459a34-a67b-41a3-9828-3d3c0f48e09d.webp",
+   "variants": [
+    {
+     "id": 573,
+     "size": "30",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "out"
+    },
+    {
+     "id": 574,
+     "size": "32",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 575,
+     "size": "34",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-11",
+   "is_new": true
+  },
   {
    "code": "STY-1078",
    "slug": "boys-1-4-years-sty-1078",
