@@ -24,7 +24,7 @@ h1, h2, h3 { margin: 0; letter-spacing: -.01em; line-height: 1.2; }
 
 /* header */
 .hdr { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: saturate(160%) blur(10px); border-bottom: 1px solid var(--line); }
-.hdr-row { display: flex; align-items: center; gap: 14px; height: 60px; }
+.hdr-row { display: flex; align-items: center; gap: 14px; height: 60px; flex-wrap: wrap; }
 .brand { font-weight: 800; font-size: 18px; letter-spacing: -.02em; white-space: nowrap; }
 .brand::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: var(--accent); margin-right: 8px; vertical-align: 1px; }
 .hdr-search { flex: 1; display: flex; max-width: 520px; margin-left: auto; }
@@ -36,6 +36,15 @@ h1, h2, h3 { margin: 0; letter-spacing: -.01em; line-height: 1.2; }
 .nav::-webkit-scrollbar { display: none; }
 .nav a { flex: 0 0 auto; padding: 6px 12px; border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--ink-2); background: var(--bg-3); }
 .nav a:hover { color: var(--ink); }
+@media (max-width: 620px) {
+  /* P68a — measured at 390px: the search box and the cart ran 148px off the
+     right edge and the whole site scrolled sideways. The search gets its own
+     full-width row under the brand; nothing is hidden, nothing overflows. */
+  .hdr-row { height: auto; padding-top: 10px; padding-bottom: 10px; gap: 10px; }
+  .brand { flex: 1; }
+  .hdr-search { order: 3; flex: 1 0 100%; max-width: none; margin-left: 0; }
+  .cart-btn { order: 2; }
+}
 .strip { background: var(--accent); color: var(--accent-ink); font-size: 13px; font-weight: 600; text-align: center; padding: 7px 0; }
 main { padding: 22px var(--pad) 40px; min-height: 60vh; }
 
@@ -65,27 +74,71 @@ main { padding: 22px var(--pad) 40px; min-height: 60vh; }
 .page-head { margin: 4px 0 18px; }
 .page-head h1 { font-size: clamp(24px, 3.5vw, 34px); font-weight: 800; letter-spacing: -.02em; }
 .page-head p { color: var(--ink-2); margin: 6px 0 0; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px 16px; }
 .grid-row { grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 760px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } .grid-row { grid-template-columns: repeat(2, 1fr); } }
-.card { display: block; border-radius: var(--radius); background: var(--bg-2); border: 1px solid var(--line); overflow: hidden; transition: transform .12s, box-shadow .15s; }
-.card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-.card-img { position: relative; aspect-ratio: 4/5; background: var(--bg-3); overflow: hidden; }
-.card-img img { width: 100%; height: 100%; object-fit: cover; }
+/* two per row on a phone (Fahad, 2026-09-14) — the range stays visible */
+@media (max-width: 760px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 18px 10px; } .grid-row { grid-template-columns: repeat(2, 1fr); }
+  .sw { width: 28px; height: 28px; } .card-sizes { gap: 6px; font-size: 11.5px; } }
+/* ── P68a — the card ──────────────────────────────────────────────────────
+   Photo first, then the colours you can have it in, then the name, the price
+   and the size range. Borderless on a pale ground: the picture is the product,
+   and a box around every one of them turns a rail of clothes into a spreadsheet. */
+.card { display: block; border-radius: var(--radius); background: transparent; overflow: hidden; }
+.card-img { position: relative; display: block; aspect-ratio: 4/5; background: var(--bg-3);
+  overflow: hidden; border-radius: var(--radius); }
+.card-img img { width: 100%; height: 100%; object-fit: cover; transition: opacity .35s, transform .5s; }
+.card-photo-alt { position: absolute; inset: 0; opacity: 0; }
+/* the second photograph on hover — most of what makes a card feel expensive */
+@media (hover: hover) {
+  .card:hover .card-photo-alt { opacity: 1; }
+  .card:hover .card-img img { transform: scale(1.03); }
+}
 .noimg { width: 100%; height: 100%; background: linear-gradient(135deg, var(--bg-3), var(--line)); }
-.badge { position: absolute; top: 10px; left: 10px; background: var(--accent); color: var(--accent-ink); font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; padding: 4px 8px; border-radius: 999px; }
+.badge { position: absolute; top: 10px; left: 10px; background: var(--bg-2); color: var(--ink);
+  font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+  padding: 4px 9px; border-radius: 999px; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
 .badge-out { left: auto; right: 10px; background: var(--ink); color: var(--bg); }
 .badge-few { left: auto; right: 10px; background: var(--warn-soft); color: var(--warn); }
 .card.is-out .card-img img { opacity: .55; filter: grayscale(.4); }
-.card-body { padding: 10px 12px 12px; }
-.card-name { font-weight: 700; font-size: 14px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.card-meta { color: var(--ink-3); font-size: 12px; margin-top: 2px; }
-.card-price { font-weight: 800; margin-top: 6px; font-size: 15px; }
+
+/* the colours, as the reference has them: the garment in each colour where it
+   has been photographed, a clean dot where it has not */
+.card-sw { display: flex; align-items: center; gap: 6px; margin: 9px 0 0; flex-wrap: wrap; }
+.sw { width: 34px; height: 34px; border-radius: 50%; padding: 0; border: 1px solid var(--line);
+  background: var(--bg-2); overflow: hidden; cursor: pointer; flex: none; display: grid; place-items: center; }
+.sw-img img { width: 100%; height: 100%; object-fit: cover; }
+.sw.on { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+.sw-dot { cursor: default; }
+.sw-dot i { width: 20px; height: 20px; border-radius: 50%; display: block; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.sw-more { font-size: 12px; color: var(--ink-3); }
+
+.card-body { display: block; padding: 10px 2px 4px; }
+.card-name { font-weight: 600; font-size: 14.5px; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-price { font-weight: 800; margin-top: 4px; font-size: 15px; }
+/* the size range, sold-out sizes greyed rather than hidden */
+.card-sizes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 7px; font-size: 12.5px; color: var(--ink-2); }
+.card-sizes .is-gone { color: var(--ink-3); text-decoration: line-through; text-decoration-thickness: 1px; }
 .card[hidden] { display: none; }
-.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+/* P68a — the filter row. On a desktop it is one line above the grid; on a phone
+   four dropdowns and a checkbox ate half the first screen before a customer saw
+   a single garment, so they fold behind one Filter button. */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+.f-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.f-toggle { display: none; height: 38px; padding: 0 14px; border: 1px solid var(--line);
+  border-radius: 10px; background: var(--bg-2); font-weight: 700; font-size: 13.5px; cursor: pointer; }
+@media (max-width: 620px) {
+  .f-toggle { display: inline-flex; align-items: center; gap: 8px; }
+  .f-controls { display: none; flex: 1 0 100%; padding: 12px; border: 1px solid var(--line);
+    border-radius: 12px; background: var(--bg-2); }
+  .f-controls.open { display: flex; }
+  .f-controls select, .f-controls .chk { flex: 1 0 45%; }
+  .filters .f-count { margin-left: auto; }
+}
 .filters select { height: 36px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); color: var(--ink); padding: 0 10px; font-size: 13.5px; }
 .filters .chk { display: inline-flex; gap: 6px; align-items: center; font-size: 13.5px; color: var(--ink-2); }
-.filters .count { margin-left: auto; color: var(--ink-3); font-size: 13px; }
+.filters .f-count { font-weight: 700; font-size: 14px; margin-right: 4px; }
+.filters select { margin-left: 0; }
 .empty { padding: 50px 20px; text-align: center; color: var(--ink-2); background: var(--bg-2); border: 1px dashed var(--line); border-radius: var(--radius); }
 .empty h1 { font-size: 22px; margin-bottom: 8px; }
 .coll-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }

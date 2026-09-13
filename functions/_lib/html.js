@@ -92,13 +92,59 @@ ${body}
 </html>`;
 }
 
+// ── P68a — the product card ─────────────────────────────────────────────────
+// Fahad, 2026-09-14, with a competitor's page: "on the products page show
+// available colours and sizes just like the one in the image."
+//
+// Everything here was already in the published catalogue and simply never drawn:
+// each colour with its hex and (once Photo mode has been round the racks) its
+// own photograph, every size, and whether each variant is in stock.
+//
+// A swatch is the COLOUR'S PHOTO where one exists and a clean dot where it does
+// not, so the card is right today and gets better every time a colourway is
+// photographed — no second design, no empty circles in the meantime.
+//
+// No struck-through "was" price anywhere (Fahad, 2026-09-14). A strike-through
+// against a price nobody ever paid is a lie that costs more than it earns on a
+// cash-on-delivery shop, where the whole business runs on the customer trusting
+// what they read.
+const SWATCH_CAP = 4;
+
+function swatches(p) {
+  const cs = (p.colours || []).filter(c => c && String(c.name || '').toLowerCase() !== 'standard');
+  if (cs.length < 2) return '';
+  const shown = cs.slice(0, SWATCH_CAP), rest = cs.length - shown.length;
+  return `<div class="card-sw">${shown.map((c, i) => c.photo
+    ? `<button type="button" class="sw sw-img${i === 0 ? ' on' : ''}" data-photo="/${attr(c.photo)}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><img src="/${attr(c.photo)}" alt="" loading="lazy" width="56" height="56"></button>`
+    : `<span class="sw sw-dot" title="${attr(c.name)}" aria-label="${attr(c.name)}"><i style="background:${attr(c.hex || '#ddd')}"></i></span>`).join('')}${
+    rest > 0 ? `<span class="sw-more">+${rest} more</span>` : ''}</div>`;
+}
+
+function sizeRow(p) {
+  const sizes = p.sizes || [];
+  if (!sizes.length) return '';
+  // a size that is gone is GREYED, never hidden: a mother needs to see that the
+  // range goes to 32 even when 32 is out, or she assumes you do not stock it
+  const live = new Set((p.variants || []).filter(v => v.availability !== 'out').map(v => v.size));
+  return `<div class="card-sizes">${sizes.map(z =>
+    `<span class="${live.has(z) ? '' : 'is-gone'}"${p.size_ages && p.size_ages[z] ? ` title="fits ${attr(p.size_ages[z])}"` : ''}>${esc(z)}</span>`).join('')}</div>`;
+}
+
 export function card(p) {
   const av = productAvailability(p);
-  return `<a class="card${av === 'out' ? ' is-out' : ''}" href="/p/${attr(p.slug)}/" data-code="${attr(p.code)}">
-  <div class="card-img">${p.cover ? `<img src="/${attr(p.cover)}" alt="${attr(p.name)}" loading="lazy" width="600" height="750">` : '<div class="noimg"></div>'}
-    ${p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : av === 'few' ? '<span class="badge badge-few">Few left</span>' : ''}</div>
-  <div class="card-body"><div class="card-name">${esc(p.name)}</div><div class="card-meta">${esc(p.category_parent ? p.category_parent + ' · ' : '')}${esc(p.category)}</div><div class="card-price">${esc(priceLabel(p))}</div></div>
-</a>`;
+  const alt = (p.colours || []).map(c => c.photo).filter(Boolean).filter(x => x !== p.cover)[0] || null;
+  return `<div class="card${av === 'out' ? ' is-out' : ''}" data-code="${attr(p.code)}">
+  <a class="card-img" href="/p/${attr(p.slug)}/" aria-label="${attr(p.name)}">
+    ${p.cover ? `<img class="card-photo" src="/${attr(p.cover)}" alt="${attr(p.name)}" loading="lazy" width="600" height="750">` : '<div class="noimg"></div>'}
+    ${alt ? `<img class="card-photo-alt" src="/${attr(alt)}" alt="" loading="lazy" width="600" height="750">` : ''}
+    ${p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : av === 'few' ? '<span class="badge badge-few">Few left</span>' : ''}</a>
+  ${swatches(p)}
+  <a class="card-body" href="/p/${attr(p.slug)}/">
+    <div class="card-name">${esc(p.name)}</div>
+    <div class="card-price">${esc(priceLabel(p))}</div>
+    ${sizeRow(p)}
+  </a>
+</div>`;
 }
 
 /** a grid with the filter bar the script drives; each card carries what the filters need */
@@ -114,6 +160,9 @@ export function grid(products, { id = 'grid', filters = true, empty = 'Nothing h
   const data = products.map(p => ({ code: p.code, sizes: (p.variants || []).filter(v => v.availability !== 'out').map(v => v.size), colours: (p.colours || []).map(c => c.name), price: p.price_min, at: p.first_published || '', av: productAvailability(p),
     age: p.age_group || '', type: p.product_type || '', season: p.season || '' }));
   return `${filters ? `<div class="filters" data-grid="${attr(id)}">
+    <button type="button" class="f-toggle" data-ftoggle aria-expanded="false">&#9776; Filter</button>
+    <span class="f-count" data-count>${products.length} product${products.length === 1 ? '' : 's'}</span>
+    <div class="f-controls">
     ${ages.length > 1 ? `<select data-f="age" aria-label="Age"><option value="">Any age</option>${ages.map(s => `<option>${esc(s)}</option>`).join('')}</select>` : ''}
     ${types.length > 1 ? `<select data-f="type" aria-label="Type"><option value="">Any type</option>${types.map(s => `<option>${esc(s)}</option>`).join('')}</select>` : ''}
     <select data-f="size" aria-label="Size"><option value="">Any size</option>${sizes.map(s => `<option>${esc(s)}</option>`).join('')}</select>
@@ -121,7 +170,7 @@ export function grid(products, { id = 'grid', filters = true, empty = 'Nothing h
     ${seasons.length > 1 ? `<select data-f="season" aria-label="Season"><option value="">Any season</option>${seasons.map(s => `<option value="${attr(s)}">${esc(SEASON[s] || s)}</option>`).join('')}</select>` : ''}
     <select data-f="sort" aria-label="Sort"><option value="new">Newest first</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select>
     <label class="chk"><input type="checkbox" data-f="instock"> In stock only</label>
-    <span class="count" data-count></span>
+    </div>
   </div>` : ''}
   <div class="grid" id="${attr(id)}" data-items='${attr(JSON.stringify(data))}'>${products.map(card).join('')}</div>`;
 }

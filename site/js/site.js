@@ -138,7 +138,7 @@ $$('.filters').forEach(bar => {
     const keep = new Set(shown.map(i => i.code));
     cards.forEach((el, code) => { el.hidden = !keep.has(code); });
     shown.forEach(i => grid.appendChild(cards.get(i.code)));
-    const c = bar.querySelector('[data-count]'); if (c) c.textContent = `${shown.length} of ${items.length}`;
+    const c = bar.querySelector('[data-count]'); if (c) c.textContent = shown.length + ' product' + (shown.length === 1 ? '' : 's');
   };
   bar.addEventListener('change', apply); apply();
 });
@@ -262,3 +262,28 @@ if (tf) {
   };
   if (tf.no.value && tf.phone.value && new URLSearchParams(location.search).get('no')) tf.requestSubmit();
 }
+
+
+// ── P68a — a colour swatch swaps the card's picture ─────────────────────────
+// Delegated on the document, so it keeps working after the filters re-sort the
+// grid and after a search paints new cards.
+document.addEventListener('click', e => {
+  const sw = e.target.closest && e.target.closest('.sw-img');
+  if (!sw) return;
+  e.preventDefault();
+  const card = sw.closest('.card');
+  const img = card && card.querySelector('.card-photo');
+  if (!img) return;
+  img.src = sw.dataset.photo;
+  card.querySelectorAll('.sw-img').forEach(x => x.classList.toggle('on', x === sw));
+});
+
+// P68a — the phone's Filter button
+document.addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('[data-ftoggle]');
+  if (!b) return;
+  const box = b.parentElement.querySelector('.f-controls');
+  if (!box) return;
+  const open = box.classList.toggle('open');
+  b.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
