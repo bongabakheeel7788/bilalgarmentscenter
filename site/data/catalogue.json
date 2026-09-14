@@ -1,5 +1,17 @@
 {
  "store": {
+  "logo": null,
+  "logo_style": "WORDMARK",
+  "logo_size": "M",
+  "hero_headline": "",
+  "hero_sub": "",
+  "hero_cta": null,
+  "menu": null,
+  "banner": null,
+  "promises": null,
+  "footer_note": "",
+  "seo_title": "",
+  "seo_description": "",
   "site_url": "https://bilalgarments.center",
   "name": "Bilal Garments Center",
   "tagline": "Children's wear, delivered all over Pakistan",

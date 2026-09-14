@@ -27,9 +27,25 @@ export function deliveryLine(store) {
  */
 export function layout(cat, { title, description, canonical, og = {}, head = '', page = '', body, store = cat.store, publicData }) {
   const site = String(store.site_url || '').replace(/\/$/, '');
-  const fullTitle = title ? `${title} — ${store.name}` : `${store.name} — ${store.tagline || ''}`.replace(/ — $/, '');
+  // P70 — the words a Google result and a forwarded WhatsApp link show. Only the
+  // HOME page takes the shop's own: a product page's title is the product's name,
+  // which is already the right answer and must not be overwritten by a slogan.
+  const fullTitle = title ? `${title} — ${store.name}`
+    : (store.seo_title || `${store.name} — ${store.tagline || ''}`.replace(/ — $/, ''));
   const ogImage = og.image ? (og.image.startsWith('http') ? og.image : `${site}/${og.image.replace(/^\//, '')}`) : `${site}/og-default.png`;
-  const nav = [{ href: '/new/', label: 'New' }, ...cat.parents.map(p => ({ href: `/c/${p.slug}/`, label: p.name })), ...cat.collections.slice(0, 3).map(c => ({ href: `/collection/${c.slug}/`, label: c.name }))];
+  // P70 — the menu Fahad arranged, or the generated one. An entry pointing at a
+  // category or collection that no longer exists is DROPPED, never published as
+  // a link that goes nowhere; if that empties the list, the generated menu comes
+  // back rather than leaving the site with no menu at all.
+  const auto = [{ href: '/new/', label: 'New' }, ...cat.parents.map(p => ({ href: `/c/${p.slug}/`, label: p.name })), ...cat.collections.slice(0, 3).map(c => ({ href: `/collection/${c.slug}/`, label: c.name }))];
+  const live = href => {
+    const cm = /^\/collection\/([^/]+)\//.exec(href); if (cm) return cat.collections.some(c => c.slug === cm[1]);
+    const km = /^\/c\/([^/]+)\//.exec(href);
+    if (km) return cat.parents.some(p => p.slug === km[1]) || (cat.categories || []).some(c => c.slug === km[1]);
+    return true;
+  };
+  const chosen = Array.isArray(store.menu) ? store.menu.filter(m => m && m.href && m.label && live(m.href)) : [];
+  const nav = chosen.length ? chosen : auto;
   const pixel = store.pixel_id ? `<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${esc(store.pixel_id)}');fbq('track','PageView');</script>` : '';
   return `<!doctype html>
 <html lang="en">
@@ -37,7 +53,7 @@ export function layout(cat, { title, description, canonical, og = {}, head = '',
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(fullTitle)}</title>
-<meta name="description" content="${attr(description || store.tagline || '')}">
+<meta name="description" content="${attr(description || (title ? '' : store.seo_description) || store.tagline || '')}">
 ${canonical ? `<link rel="canonical" href="${attr(site + canonical)}">` : ''}
 <meta property="og:site_name" content="${attr(store.name)}">
 <meta property="og:type" content="${attr(og.type || 'website')}">
@@ -58,13 +74,13 @@ ${head}
 <a class="skip" href="#main">Skip to content</a>
 <header class="hdr">
   <div class="wrap hdr-row">
-    <a class="brand" href="/">${esc(store.name)}</a>
+    ${brandMark(store)}
     <form class="hdr-search" action="/search/" role="search"><input type="search" name="q" placeholder="Search — boys shirt, 3 piece, navy…" aria-label="Search products" autocomplete="off"><button type="submit" aria-label="Search">⌕</button></form>
     <button class="cart-btn" id="cartBtn" aria-label="Cart"><span class="cart-ico">🛍</span><span class="cart-count" id="cartCount" hidden>0</span></button>
   </div>
   <nav class="wrap nav" aria-label="Categories">${nav.map(n => `<a href="${attr(n.href)}">${esc(n.label)}</a>`).join('')}<a href="/all/">Everything</a></nav>
 </header>
-<div class="strip"><div class="wrap">${esc(deliveryLine(store))}</div></div>
+${bannerStrip(store)}
 <main id="main" class="wrap">
 ${body}
 </main>
@@ -72,7 +88,7 @@ ${body}
   <div class="wrap ftr-grid">
     <div><div class="ftr-brand">${esc(store.name)}</div><p>${esc(store.tagline || '')}</p><p>${esc(store.address || '')}</p>${store.hours ? `<p>${esc(store.hours)}</p>` : ''}</div>
     <div><p><a href="${attr(waLink(store))}" target="_blank" rel="noopener">WhatsApp ${esc(store.whatsapp || '')}</a></p><p><a href="/track/">Track an order</a></p><p><a href="/visit/">Visit the shop</a></p><p><a href="/new/">New arrivals</a></p></div>
-    <div><p>${esc(deliveryLine(store))}</p><p>Exchange within 15 days of delivery — unworn, with the tag.</p><p>We call to confirm every order before it is dispatched.</p></div>
+    <div><p>${esc(deliveryLine(store))}</p><p>Exchange within 15 days of delivery — unworn, with the tag.</p><p>We call to confirm every order before it is dispatched.</p>${store.footer_note ? `<p>${esc(store.footer_note)}</p>` : ''}</div>
   </div>
 </footer>
 <a class="wa-float" href="${attr(waLink(store, `Hi ${store.name}, I have a question.`))}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
@@ -181,4 +197,101 @@ export function section(title, inner, more) {
 
 export function notFound(cat, what = 'That page is not here') {
   return layout(cat, { title: 'Not found', page: 'p-404', body: `<div class="empty"><h1>${esc(what)}</h1><p>It may have sold out or moved. <a href="/">Start from the home page</a> or <a href="/new/">see what is new</a>.</p></div>` });
+}
+
+// ── P68b — the home page's furniture ────────────────────────────────────────
+// Fahad, 2026-09-14: "we need to improve our website a lot &mdash; if you can make
+// it look more premium then please do that as well." Built with FALLBACKS on his
+// instruction ("build it now with fallbacks"), because 5 of 237 products have a
+// photograph today and the rest arrive as Photo mode walks the racks. Every
+// piece below degrades on its own: band of four → one picture → none, and the
+// page is never broken, only plainer.
+
+/** the hero picture band: four recent photographs, or one, or nothing at all */
+export function heroBand(products) {
+  const shots = [];
+  for (const p of products) {
+    if (p.cover && !shots.some(s => s.src === p.cover)) shots.push({ src: p.cover, slug: p.slug, name: p.name });
+    if (shots.length >= 4) break;
+  }
+  if (!shots.length) return '';
+  if (shots.length < 3) {
+    const h = shots[0];
+    return `<a class="hero-img" href="/p/${attr(h.slug)}/"><img src="/${attr(h.src)}" alt="${attr(h.name)}" width="800" height="1000" fetchpriority="high"></a>`;
+  }
+  return `<div class="hero-band">${shots.map((h, i) => `<a class="hb" href="/p/${attr(h.slug)}/"><img src="/${attr(h.src)}" alt="${attr(h.name)}" width="600" height="750"${i ? ' loading="lazy"' : ' fetchpriority="high"'}></a>`).join('')}</div>`;
+}
+
+/** the three things that actually sell a cash-on-delivery shop */
+export function promiseRow(store, { compact = false } = {}) {
+  const w = Array.isArray(store.promises) && store.promises.length === 3 ? store.promises : null;
+  const rows = [
+    // P70 — the FIRST one's words are always the delivery rules, never Fahad's
+    // free text: a promise that can be edited into disagreeing with what the
+    // checkout actually charges is a promise that will one day be a refund.
+    ['\u{1F4B5}', (w && w[0].title) || 'Cash on delivery', deliveryLine(store)],
+    ['\u{1F4DE}', (w && w[1].title) || 'We call first', (w && w[1].text) || 'Every order is confirmed by phone before it leaves the shop.'],
+    ['\u{1F501}', (w && w[2].title) || '15-day exchange', (w && w[2].text) || 'Wrong size? Exchange within 15 days of delivery, tag on.'],
+  ];
+  return `<section class="promise${compact ? ' promise-sm' : ''}">${rows.map(([ico, t, sub]) =>
+    `<div><span class="pr-ico" aria-hidden="true">${ico}</span><strong>${esc(t)}</strong>${compact ? '' : `<span>${esc(sub)}</span>`}</div>`).join('')}</section>`;
+}
+
+/** category tiles — a picture to point at, not a list of words to read */
+export function catTiles(cat) {
+  const shotFor = parent => {
+    const p = cat.products.find(x => x.cover && (x.category_parent || x.category) === parent.name);
+    return p ? p.cover : null;
+  };
+  return `<div class="cat-grid">${cat.parents.map(p => {
+    const shot = shotFor(p);
+    return `<div class="cat-block${shot ? ' has-img' : ''}">
+      <a class="cat-parent" href="/c/${attr(p.slug)}/">${shot ? `<span class="cat-img"><img src="/${attr(shot)}" alt="" loading="lazy" width="400" height="400"></span>` : ''}<span class="cat-name">${esc(p.name)}</span></a>
+      ${p.children.length ? `<div class="cat-kids">${p.children.map(c => `<a class="cat-child" href="/c/${attr(c.slug)}/">${esc(c.name)}</a>`).join('')}</div>` : ''}
+    </div>`;
+  }).join('')}</div>`;
+}
+
+// ── P68c — the product page's buy bar ───────────────────────────────────────
+// On a phone the Add to cart button scrolls away the moment you start reading,
+// and the reading is what decides the sale. This slim bar takes its place: the
+// price, the size you chose, and the same button. site.js shows it only once the
+// real one has gone, so on a laptop it never appears at all.
+export function buyBar(p) {
+  return `<div class="buybar" id="buyBar" hidden>
+    <div class="bb-text"><strong id="bbPrice">${esc(priceLabel(p))}</strong><span id="bbSize">Choose a size</span></div>
+    <button class="btn btn-primary" id="bbAdd">Add to cart</button>
+  </div>`;
+}
+
+// ── P70 — the header's mark, the banner ─────────────────────────────────────
+// Fahad chose PRESETS over free positioning, and this is why: a logo nudged 3px
+// on a laptop is 30px off on a phone, and nobody sees that before a customer
+// does. Three arrangements, three sizes, and every one of them laid out here
+// once, where it can be looked at.
+export function brandMark(store) {
+  const style = store.logo && ['LOGO', 'BOTH'].includes(store.logo_style) ? store.logo_style : 'WORDMARK';
+  const size = ['S', 'M', 'L'].includes(store.logo_size) ? store.logo_size : 'M';
+  if (style === 'WORDMARK') return `<a class="brand" href="/">${esc(store.name)}</a>`;
+  const img = `<img class="brand-logo" src="/${attr(store.logo)}" alt="${attr(store.name)}" height="40">`;
+  return `<a class="brand brand-has-logo br-${attr(size.toLowerCase())}${style === 'LOGO' ? ' brand-logo-only' : ''}" href="/">${img}${
+    style === 'BOTH' ? `<span class="brand-name">${esc(store.name)}</span>` : ''}</a>`;
+}
+
+/**
+ * The strip under the header: the shop's announcement while it is running, and
+ * the delivery line the rest of the time.
+ *
+ * The dates are read HERE, as the page is served — not baked in at publish. That
+ * is the whole point of the feature: "Eid sale until the 18th" takes itself down
+ * on the 19th whether or not anybody publishes anything, and a stale banner is
+ * worse than no banner at all.
+ */
+export function bannerStrip(store, today = null) {
+  const b = store.banner;
+  const day = today || new Date(Date.now() + 5 * 3600e3).toISOString().slice(0, 10);   // the shop's own day, Asia/Karachi
+  const running = b && b.text && b.on !== false && (!b.from || b.from <= day) && (!b.to || b.to >= day);
+  if (!running) return `<div class="strip"><div class="wrap">${esc(deliveryLine(store))}</div></div>`;
+  const inner = `<strong>${esc(b.text)}</strong>`;
+  return `<div class="strip strip-note"><div class="wrap">${b.href ? `<a href="${attr(b.href)}">${inner}</a>` : inner}</div></div>`;
 }

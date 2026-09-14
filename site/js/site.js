@@ -82,7 +82,7 @@ if (P && $('#sizes')) {
   let colour = ($('#colours .swatch.active') || {}).dataset ? $('#colours .swatch.active').dataset.colour : (P.colours[0] ? P.colours[0].name : (P.variants[0] || {}).colour);
   let size = null;
   const variantFor = (s, c) => P.variants.find(v => v.size === s && (c ? v.colour === c : true)) || P.variants.find(v => v.size === s);
-  const paintSizes = () => {
+  let paintSizes = () => {
     $$('#sizes .size').forEach(b => {
       const v = variantFor(b.dataset.size, colour);
       const av = v ? v.availability : 'out';
@@ -110,6 +110,71 @@ if (P && $('#sizes')) {
     pixel('AddToCart', { content_ids: [P.code], content_type: 'product', value: v.price * qty, currency: 'PKR' });
     openCart(true);
   };
+  // ── P68c — the buy bar ────────────────────────────────────────────────────
+  // The real Add to cart button scrolls away on a phone exactly when the reading
+  // that decides the sale begins. This shows a slim copy once it has gone, and
+  // only then: on a laptop the observer never fires because the button stays put.
+  const bar = $('#buyBar'), addBtn = $('#addBtn');
+  if (bar && addBtn && 'IntersectionObserver' in window) {
+    const showBar = on => { bar.hidden = !on; document.body.classList.toggle('has-buybar', on); };
+    // only once you have gone PAST the button, never before you have reached it:
+    // a buy bar sitting over the price on a page you have not scrolled yet is a
+    // shop shouting at a customer still walking through the door.
+    // The entry's rect is the one recorded at the crossing, which sits exactly ON
+    // the margin and rounds either way — so ask the button where it is NOW.
+    const decide = () => showBar(addBtn.getBoundingClientRect().bottom < 0);
+    new IntersectionObserver(decide, { rootMargin: '-72px 0px 0px 0px' }).observe(addBtn);
+    addEventListener('scroll', decide, { passive: true });
+    $('#bbAdd').onclick = () => addBtn.click();
+  }
+  const paintBar = () => {
+    if (!bar) return;
+    const v = size ? variantFor(size, colour) : null;
+    $('#bbPrice').textContent = v ? money(v.price) : $('#price').textContent;
+    $('#bbSize').textContent = v ? `Size ${v.size}${v.colour && v.colour.toLowerCase() !== 'standard' ? ' · ' + v.colour : ''}` : 'Choose a size';
+    $('#bbAdd').disabled = !!(v && v.availability === 'out');
+  };
+  const afterPaint = paintSizes;
+  paintSizes = () => { afterPaint(); paintBar(); };
+  paintSizes();
+
+  // ── P68c — the photograph, full screen ────────────────────────────────────
+  // Hand-written, like everything else here: a library for a lightbox is a
+  // blank screen on the morning the shop's internet is slow.
+  const lb = $('#lightbox'), photos = (P.photos || [P.cover]).filter(Boolean);
+  if (lb && photos.length) {
+    let at = 0;
+    const show = i => {
+      at = (i + photos.length) % photos.length;
+      $('#lbImg').src = '/' + photos[at];
+      $('#lbPrev').hidden = $('#lbNext').hidden = photos.length < 2;
+    };
+    const open = on => {
+      lb.hidden = !on;
+      document.body.style.overflow = on ? 'hidden' : '';
+      if (on) { const cur = ($('#mainImg').getAttribute('src') || '').replace(/^\//, ''); show(Math.max(0, photos.indexOf(cur))); }
+    };
+    $('#zoomOpen') && ($('#zoomOpen').onclick = () => open(true));
+    $('#lbClose').onclick = () => open(false);
+    $('#lbPrev').onclick = () => show(at - 1);
+    $('#lbNext').onclick = () => show(at + 1);
+    lb.addEventListener('click', e => { if (e.target === lb || e.target.id === 'lbImg') open(false); });
+    document.addEventListener('keydown', e => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') open(false);
+      if (e.key === 'ArrowLeft') show(at - 1);
+      if (e.key === 'ArrowRight') show(at + 1);
+    });
+    let x0 = null;
+    lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      if (x0 == null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 45) show(at + (dx < 0 ? 1 : -1));
+      x0 = null;
+    }, { passive: true });
+  }
+
   pixel('ViewContent', { content_ids: [P.code], content_type: 'product', value: (P.variants[0] || {}).price, currency: 'PKR' });
   const sh = $('#shareBtn');
   if (sh) sh.onclick = async () => {
@@ -287,3 +352,23 @@ document.addEventListener('click', e => {
   const open = box.classList.toggle('open');
   b.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
+
+// ── P68b — the header gets out of the way ───────────────────────────────────
+// Going down the page it slides away, so a phone screen is all shop. Coming back
+// up it returns at once, because coming up is what you do when you want search
+// or the cart. Never hidden at the very top, and never on a laptop.
+(function header() {
+  const hdr = document.querySelector('.hdr');
+  if (!hdr || !window.matchMedia('(max-width: 820px)').matches) return;
+  let last = window.scrollY, ticking = false;
+  addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (y > 140 && y > last + 6) document.body.classList.add('hdr-away');
+      else if (y < last - 6 || y < 120) document.body.classList.remove('hdr-away');
+      last = y; ticking = false;
+    });
+  }, { passive: true });
+})();

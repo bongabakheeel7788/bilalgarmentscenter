@@ -1,5 +1,5 @@
 // Every HTML page of the site, rendered from the catalogue.
-import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine } from './html.js';
+import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, heroBand, promiseRow, catTiles, buyBar } from './html.js';
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours } from './catalogue.js';
 
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
@@ -7,21 +7,34 @@ const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(
 export function home(cat) {
   const store = cat.store;
   const fresh = cat.products.filter(p => p.is_new).sort(byNewest);
-  const hero = fresh.find(p => p.cover) || cat.products.find(p => p.cover);
+  // P68b — the band is built from the NEWEST photographed pieces, not from
+  // whichever product happened to have a picture. Falls back to one image, then
+  // to none: on a catalogue with five photographs the page is plainer, never broken.
+  const banded = [...fresh, ...cat.products.slice().sort(byNewest)].filter(p => p.cover);
+  const band = heroBand(banded);
+  const hero = banded[0] || null;
+  const HOME_MAX = 12;                       // the front page is a shop window, not the stockroom
+  const everything = cat.products.slice().sort(byNewest);
   const body = `
-<section class="hero">
+<section class="hero${band ? '' : ' hero-solo'}">
   <div class="hero-text">
-    <h1>${esc(store.tagline || 'Children\'s wear, delivered all over Pakistan')}</h1>
-    <p>${esc(store.name)} — ${esc(store.address ? store.address.split(',').slice(-2).join(',').trim() : 'Tandlianwala')}. Browse, order in a minute, pay when it arrives.</p>
-    <div class="hero-cta"><a class="btn btn-primary" href="/new/">Shop new arrivals</a><a class="btn btn-outline" href="${attr(waLink(store, `Hi ${store.name}, I saw your website.`))}" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
+    ${/* P70 — Fahad's own words if he has written them, otherwise exactly what
+          this said before the editor existed. The tagline has to be both the
+          shop's one-line description AND its shop-window headline, and cannot be
+          good at both; now it only has to be one of them. */ ''}
+    <h1>${esc(store.hero_headline || store.tagline || 'Children\'s wear, delivered all over Pakistan')}</h1>
+    <p>${esc(store.hero_sub || `${store.name} — ${store.address ? store.address.split(',').slice(-2).join(',').trim() : 'Tandlianwala'}. Browse, order in a minute, pay the rider when it arrives.`)}</p>
+    <div class="hero-cta"><a class="btn btn-primary" href="${attr((store.hero_cta && store.hero_cta.href) || '/new/')}">${esc((store.hero_cta && store.hero_cta.label) || 'Shop new arrivals')}</a><a class="btn btn-outline" href="${attr(waLink(store, `Hi ${store.name}, I saw your website.`))}" target="_blank" rel="noopener">${esc((store.hero_cta && store.hero_cta.label2) || 'Ask on WhatsApp')}</a></div>
   </div>
-  ${hero ? `<a class="hero-img" href="/p/${attr(hero.slug)}/"><img src="/${attr(hero.cover)}" alt="${attr(hero.name)}" width="800" height="1000" fetchpriority="high"></a>` : ''}
+  ${band}
 </section>
+${promiseRow(store)}
 ${fresh.length ? section('New arrivals', `<div class="grid grid-row">${fresh.slice(0, 8).map(card).join('')}</div>`, { href: '/new/', label: 'See all new' }) : ''}
 ${cat.collections.length ? section('Collections', `<div class="coll-grid">${cat.collections.map(c => `<a class="coll" href="/collection/${attr(c.slug)}/">${c.cover ? `<img src="/${attr(c.cover)}" alt="" loading="lazy">` : '<div class="noimg"></div>'}<div class="coll-text"><strong>${esc(c.name)}</strong>${c.blurb ? `<span>${esc(c.blurb)}</span>` : ''}<em>${c.items.length} piece${c.items.length === 1 ? '' : 's'}</em></div></a>`).join('')}</div>`) : ''}
-${section('Shop by category', `<div class="cat-grid">${cat.parents.map(p => `<div class="cat-block"><a class="cat-parent" href="/c/${attr(p.slug)}/">${esc(p.name)}</a>${p.children.map(c => `<a class="cat-child" href="/c/${attr(c.slug)}/">${esc(c.name)}</a>`).join('')}</div>`).join('')}</div>`)}
-${section('Everything', grid(cat.products.slice().sort(byNewest), { id: 'grid-all' }))}
-<section class="promise"><div><strong>Cash on delivery</strong><span>${esc(deliveryLine(store))}</span></div><div><strong>We call first</strong><span>Every order is confirmed by phone before it leaves the shop.</span></div><div><strong>15-day exchange</strong><span>Wrong size? Exchange within 15 days of delivery, tag on.</span></div></section>`;
+${section('Shop by category', catTiles(cat))}
+${section('Everything', `<div class="grid">${everything.slice(0, HOME_MAX).map(card).join('')}</div>${
+  everything.length > HOME_MAX ? `<div class="more-row"><a class="btn btn-outline btn-lg" href="/all/">See everything (${everything.length} pieces)</a></div>` : ''}`,
+  everything.length > HOME_MAX ? { href: '/all/', label: 'See everything' } : null)}`;
   return layout(cat, { title: '', description: `${store.tagline || ''} Order online, cash on delivery.`, canonical: '/', page: 'p-home', body, og: { image: hero && hero.cover } });
 }
 
@@ -63,11 +76,18 @@ export function product(cat, slug) {
   const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name, productID: p.code, image: photos.map(x => `${String(store.site_url || '').replace(/\/$/, '')}/${x}`), description: [p.category_parent, p.category, p.fabric, p.set_contents].filter(Boolean).join(' · '), brand: { '@type': 'Brand', name: store.name },
     offers: { '@type': 'AggregateOffer', priceCurrency: 'PKR', lowPrice: p.price_min, highPrice: p.price_max, offerCount: (p.variants || []).length, availability: av === 'out' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url } };
   const related = cat.products.filter(x => x.code !== p.code && x.category === p.category && (x.category_parent || null) === (p.category_parent || null)).sort(byNewest).slice(0, 4);
+  // P68c — a second row by SIZE. On a children's shop the mother who is buying a
+  // 24 is very often buying a second 24, and she should not have to go and filter
+  // for it. Never repeats anything already in the row above.
+  const shown = new Set([p.code, ...related.map(x => x.code)]);
+  const alsoSize = sizes.length
+    ? cat.products.filter(x => !shown.has(x.code) && (x.variants || []).some(v => v.size === sizes[0] && v.availability !== 'out')).sort(byNewest).slice(0, 4)
+    : [];
   const body = `
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a>${p.category_parent ? ` › <a href="/c/${attr(cat.parents.find(x => x.name === p.category_parent)?.slug || '')}/">${esc(p.category_parent)}</a>` : ''} › <a href="/c/${attr((cat.categories.find(c => c.name === p.category && (c.parent || null) === (p.category_parent || null)) || {}).slug || '')}/">${esc(p.category)}</a></nav>
 <article class="prod" data-code="${attr(p.code)}">
   <div class="gallery">
-    <div class="gallery-main">${photos.length ? `<img id="mainImg" src="/${attr(photos[0])}" alt="${attr(p.name)}" width="800" height="1000">` : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}</div>
+    <div class="gallery-main">${photos.length ? `<button type="button" class="zoom-open" id="zoomOpen" aria-label="See the photo full screen"><img id="mainImg" src="/${attr(photos[0])}" alt="${attr(p.name)}" width="800" height="1000"></button>` : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}</div>
     ${photos.length > 1 ? `<div class="thumbs">${photos.map((x, i) => `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
   </div>
   <div class="buy">
@@ -76,13 +96,21 @@ export function product(cat, slug) {
     <div class="buy-price" id="price">${esc(priceLabel(p))}</div>
     ${av === 'out' ? '<div class="soldout">Sold out — ask on WhatsApp when it is back.</div>' : ''}
     ${colours.length > 1 ? `<div class="opt"><div class="opt-label">Colour <span id="colourName"></span></div><div class="swatches" id="colours">${colours.map((c, i) => `<button class="swatch${i === 0 ? ' active' : ''}" data-colour="${attr(c.name)}" data-photo="${attr(c.photo || '')}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><span style="background:${attr(c.hex || '#ddd')}"></span></button>`).join('')}</div></div>` : colours.length === 1 ? `<div class="opt"><div class="opt-label">Colour: ${esc(colours[0].name)}</div></div>` : ''}
-    <div class="opt"><div class="opt-label">Size</div><div class="sizes" id="sizes">${sizes.map(s => `<button class="size" data-size="${attr(s)}" title="${attr(p.size_ages && p.size_ages[s] ? `fits ${p.size_ages[s]}` : '')}">${esc(s)}${p.size_ages && p.size_ages[s] ? `<small>${esc(p.size_ages[s])}</small>` : ''}</button>`).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div></div>
+    <div class="opt"><div class="opt-label">Size</div><div class="sizes" id="sizes">${sizes.map(s => {
+      // P68c — rendered with its availability ALREADY on it. site.js refines this
+      // per colour, but a phone on a slow connection sees the truth immediately
+      // instead of every size looking buyable until the script arrives.
+      const live = (p.variants || []).filter(v => v.size === s && v.availability !== 'out');
+      const few = live.length && live.every(v => v.availability === 'few');
+      return `<button class="size${live.length ? (few ? ' is-few' : '') : ' is-out'}"${live.length ? '' : ' disabled'} data-size="${attr(s)}" title="${attr(p.size_ages && p.size_ages[s] ? `fits ${p.size_ages[s]}` : '')}">${esc(s)}${p.size_ages && p.size_ages[s] ? `<small>${esc(p.size_ages[s])}</small>` : ''}</button>`;
+    }).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div></div>
     <div class="qty-row"><label>Qty <input type="number" id="qty" value="1" min="1" max="10"></label>
       <button class="btn btn-primary" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button></div>
     <div class="buy-actions">
       <a class="btn btn-outline" href="${attr(waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
       <button class="btn btn-outline" id="shareBtn" data-url="${attr(url)}" data-title="${attr(p.name)}">Share</button>
     </div>
+    ${promiseRow(store, { compact: true })}
     <dl class="details">
       ${p.fabric ? `<dt>Fabric</dt><dd>${esc(p.fabric)}</dd>` : ''}
       ${p.set_contents ? `<dt>In the set</dt><dd>${esc(p.set_contents)}</dd>` : ''}
@@ -95,10 +123,18 @@ export function product(cat, slug) {
     </dl>
   </div>
 </article>
-${related.length ? section('More like this', `<div class="grid grid-row">${related.map(card).join('')}</div>`) : ''}`;
+${buyBar(p)}
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-x" id="lbClose" aria-label="Close">&#10005;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <img id="lbImg" src="" alt="${attr(p.name)}">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+</div>
+${related.length ? section('More like this', `<div class="grid grid-row">${related.map(card).join('')}</div>`) : ''}
+${alsoSize.length ? section(`Others in size ${esc(sizes[0] || '')}`, `<div class="grid grid-row">${alsoSize.map(card).join('')}</div>`) : ''}`;
   return layout(cat, { title: p.name, description: `${p.name} — ${priceLabel(p)}. ${[p.category_parent, p.category, p.fabric].filter(Boolean).join(', ')}. Cash on delivery all over Pakistan.`, canonical: `/p/${p.slug}/`, page: 'p-product', body,
     og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`,
-    publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
+    publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
 }
 
 export function search(cat, q) {
