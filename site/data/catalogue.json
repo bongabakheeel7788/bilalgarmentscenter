@@ -43,6 +43,11 @@
    "name": "Girls 30-34",
    "parent": "Girls",
    "slug": "girls-girls-30-34"
+  },
+  {
+   "name": "Shirts 20-26",
+   "parent": "Boys",
+   "slug": "boys-shirts-20-26"
   }
  ],
  "products": [
@@ -99,7 +104,7 @@
      "photo": "media/STY-1235/5c7d31e7-12da-4325-8a74-676666cfd288.webp"
     }
    ],
-   "cover": "media/STY-1235/b5e95e90-3eb1-4150-b8d7-196c8d53c299.webp",
+   "cover": "media/STY-1235/4ec55d79-ee25-436f-85b6-13f57cf715bf.webp",
    "variants": [
     {
      "id": 1087,
@@ -339,6 +344,101 @@
     }
    ],
    "first_published": "2026-09-11",
+   "is_new": true
+  },
+  {
+   "code": "STY-1152",
+   "slug": "boys-shirts-sty-1152",
+   "name": "Boys Shirts",
+   "category": "Shirts 20-26",
+   "category_parent": "Boys",
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 550,
+   "price_max": 750,
+   "sizes": [
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1152/120b4119-051f-4bc7-8839-11471a680b01.webp",
+   "variants": [
+    {
+     "id": 524,
+     "size": "16",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "in"
+    },
+    {
+     "id": 525,
+     "size": "18",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "in"
+    },
+    {
+     "id": 526,
+     "size": "20",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "in"
+    },
+    {
+     "id": 527,
+     "size": "22",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "in"
+    },
+    {
+     "id": 528,
+     "size": "24",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "in"
+    },
+    {
+     "id": 529,
+     "size": "26",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "in"
+    },
+    {
+     "id": 530,
+     "size": "28",
+     "colour": "Standard",
+     "price": 750,
+     "availability": "in"
+    },
+    {
+     "id": 531,
+     "size": "30",
+     "colour": "Standard",
+     "price": 750,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-15",
    "is_new": true
   },
   {
