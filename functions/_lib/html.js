@@ -62,8 +62,13 @@ ${canonical ? `<link rel="canonical" href="${attr(site + canonical)}">` : ''}
 <meta property="og:image" content="${attr(ogImage)}">
 ${canonical ? `<meta property="og:url" content="${attr(site + canonical)}">` : ''}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f766e">
+<meta name="theme-color" content="#fffdfb">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"></noscript>
 <link rel="preload" href="/css/site.css" as="style">
 <link rel="stylesheet" href="/css/site.css">
 <script>window.STORE=${json({ name: store.name, whatsapp: store.whatsapp, whatsapp_intl: store.whatsapp_intl, free_delivery_above: Number(store.free_delivery_above || 0), delivery_charge: Number(store.delivery_charge || 0), payment_note: store.payment_note || '', site_url: site, pixel: !!store.pixel_id, agent_codes: [...cat.agentCodes] })};${publicData ? `window.PAGE=${json(publicData)};` : ''}</script>
