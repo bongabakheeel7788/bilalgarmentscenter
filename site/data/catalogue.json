@@ -151,7 +151,7 @@
      "size": "Medium",
      "colour": "Sky Blue",
      "price": 750,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1088,
@@ -276,7 +276,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 1028,
