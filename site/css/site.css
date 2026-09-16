@@ -473,3 +473,34 @@ main { padding-top: 30px; padding-bottom: 72px; }
      a hole in the middle of the first screen. 3:4 brings them level. */
 @media (min-width: 761px) { .hero-band .hb { aspect-ratio: 1; } }
 @media (max-width: 620px) { .hdr-row { height: auto; } }
+
+/* ══ P81 — the product page was 516px wide on a 360px phone ════════════════
+   Fahad, 2026-09-16, with two photographs of the live page on his phone: the
+   header, the nav, the announcement strip and the product title all cut off
+   down the left, the whole page scrolled sideways.
+
+   MEASURED, not guessed: document.scrollWidth was 516px at viewport 360, 390
+   AND 412 — the same 516 every time, which is the signature of a fixed-width
+   child rather than anything responsive.
+
+   The child was the thumbnail strip. STY-1235 has SEVEN photographs (a cover
+   and one per colour); .thumbs lays them out as a flex row of `flex: 0 0 64px`
+   with 8px gaps = 496px, and .gallery is a GRID ITEM of .prod. A grid item
+   defaults to `min-width: auto`, which means it refuses to shrink below its
+   content's min-content width — so the grid column became 496px, and every
+   other item in that grid (the whole .buy column: the title, the price, the
+   sizes) was dragged to 496px with it. The `overflow-x: auto` already on
+   .thumbs never got a chance: it was handed 496px, so it had nothing to scroll.
+
+   Which is why the preview never showed it. The fixture products had NO colour
+   photographs, so there were no thumbnails, so there was no wide child. The
+   bug needed a product with several photographs — and until this week almost
+   nothing in the shop had even one.
+
+   The fix is `min-width: 0` on the items of every layout grid on the site, not
+   just this one: the same trap is waiting in the checkout, the hero and the
+   visit page the moment any of them gets a child that will not shrink. */
+.prod > *, .hero > *, .co > *, .visit > *, .promise > *, .details > * { min-width: 0; }
+/* and now that .thumbs is only as wide as the screen, let it actually scroll */
+.thumbs { scrollbar-width: thin; scroll-snap-type: x proximity; }
+.thumb { scroll-snap-align: start; }

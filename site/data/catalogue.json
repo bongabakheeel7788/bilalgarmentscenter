@@ -424,6 +424,133 @@
    "is_new": true
   },
   {
+   "code": "STY-1207",
+   "slug": "girls-fancy-frocks-sty-1207",
+   "name": "Girls Fancy Frocks",
+   "category": "Girls Fancy Frocks",
+   "category_parent": "Girls",
+   "size_group": "Girls Fancy Frocks",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 0,
+   "price_max": 2000,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1207/0bd5afd7-722e-467d-8f94-90994f30cfdf.webp",
+   "variants": [
+    {
+     "id": 797,
+     "size": "18",
+     "colour": "Standard",
+     "price": 0,
+     "availability": "out"
+    },
+    {
+     "id": 798,
+     "size": "20",
+     "colour": "Standard",
+     "price": 0,
+     "availability": "out"
+    },
+    {
+     "id": 799,
+     "size": "22",
+     "colour": "Standard",
+     "price": 0,
+     "availability": "out"
+    },
+    {
+     "id": 800,
+     "size": "24",
+     "colour": "Standard",
+     "price": 2000,
+     "availability": "few"
+    },
+    {
+     "id": 801,
+     "size": "26",
+     "colour": "Standard",
+     "price": 2000,
+     "availability": "few"
+    },
+    {
+     "id": 802,
+     "size": "28",
+     "colour": "Standard",
+     "price": 2000,
+     "availability": "few"
+    },
+    {
+     "id": 803,
+     "size": "30",
+     "colour": "Standard",
+     "price": 2000,
+     "availability": "few"
+    },
+    {
+     "id": 804,
+     "size": "32",
+     "colour": "Standard",
+     "price": 2000,
+     "availability": "few"
+    },
+    {
+     "id": 805,
+     "size": "34",
+     "colour": "Standard",
+     "price": 2000,
+     "availability": "few"
+    },
+    {
+     "id": 806,
+     "size": "36",
+     "colour": "Standard",
+     "price": 0,
+     "availability": "out"
+    },
+    {
+     "id": 807,
+     "size": "38",
+     "colour": "Standard",
+     "price": 0,
+     "availability": "out"
+    },
+    {
+     "id": 808,
+     "size": "40",
+     "colour": "Standard",
+     "price": 0,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-16",
+   "is_new": true
+  },
+  {
    "code": "STY-1165",
    "slug": "aiman-koleksi-sty-1165",
    "name": "Aiman Koleksi",
