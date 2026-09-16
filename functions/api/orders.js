@@ -28,13 +28,21 @@ export async function onRequestPost(context) {
   const address = clean(body.address, 400), city = clean(body.city, 60), province = clean(body.province, 40);
   if (delivery === 'DELIVERY') { if (address.length < 10) errors.address = 'The full address — house, street, area, a landmark.'; if (city.length < 2) errors.city = 'Which city?'; }
   const ref = clean(body.ref, 4).replace(/\D/g, ''); if (body.ref && !/^\d{3,4}$/.test(ref)) errors.ref = 'A referral code is 3 or 4 digits.';
-  const lines = Array.isArray(body.lines) ? body.lines.slice(0, 20) : [];
+  // P84 — a cart of 25 lines used to become 20 and a qty of 12 used to become
+  // 10, silently, and the customer was charged for what the shop decided rather
+  // than what she asked. The confirmation looked right to her and wrong to us.
+  // Every other field on this form REFUSES with a sentence; these two now do too.
+  const rawLines = Array.isArray(body.lines) ? body.lines : [];
+  if (rawLines.length > 20) errors.lines = `That is ${rawLines.length} different items — an order can carry up to 20. Split it into two orders, or ask us on WhatsApp.`;
+  const lines = rawLines.slice(0, 20);
   if (!lines.length) errors.lines = 'The cart is empty.';
   const out = [], soldOut = [];
   let subtotal = 0;
   for (const l of lines) {
     const hit = cat.byVariant.get(Number(l.variant_id));
-    const qty = Math.max(1, Math.min(10, Math.floor(Number(l.qty) || 1)));
+    const asked = Math.floor(Number(l.qty) || 1);
+    if (asked > 10) errors.lines = errors.lines || `Up to 10 of one size per order — you asked for ${asked}. For more, ask us on WhatsApp and we will arrange it.`;
+    const qty = Math.max(1, Math.min(10, asked));
     if (!hit) { soldOut.push({ variant_id: l.variant_id, reason: 'gone' }); continue; }
     if (hit.v.availability === 'out') { soldOut.push({ variant_id: l.variant_id, code: hit.p.code, name: hit.p.name, size: hit.v.size, reason: 'sold out' }); continue; }
     const price = paisa(hit.v.price);
