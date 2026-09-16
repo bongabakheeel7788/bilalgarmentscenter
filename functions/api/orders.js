@@ -25,6 +25,9 @@ export async function onRequestPost(context) {
   const phone = normalisePhone(body.phone); if (!phone) errors.phone = 'A Pakistani mobile number, like 0300 1234567.';
   const alt = body.alt_phone ? normalisePhone(body.alt_phone) : null; if (body.alt_phone && !alt) errors.alt_phone = 'Not a mobile number.';
   const delivery = body.delivery === 'COLLECT' ? 'COLLECT' : 'DELIVERY';
+  // P85 — an address longer than the courier slip can carry is REFUSED with a
+  // sentence, not cut at 400 and sent half-written to Leopards.
+  if (String(body.address || '').trim().length > 400) errors.address = 'That address is very long — keep it under 400 characters (about six lines). House, street, area, landmark is enough.';
   const address = clean(body.address, 400), city = clean(body.city, 60), province = clean(body.province, 40);
   if (delivery === 'DELIVERY') { if (address.length < 10) errors.address = 'The full address — house, street, area, a landmark.'; if (city.length < 2) errors.city = 'Which city?'; }
   const ref = clean(body.ref, 4).replace(/\D/g, ''); if (body.ref && !/^\d{3,4}$/.test(ref)) errors.ref = 'A referral code is 3 or 4 digits.';
