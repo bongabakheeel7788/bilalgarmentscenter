@@ -40,6 +40,11 @@
    "slug": "boys-boys-sml"
   },
   {
+   "name": "Girls Fancy Frocks",
+   "parent": "Girls",
+   "slug": "girls-girls-fancy-frocks"
+  },
+  {
    "name": "Girls 30-34",
    "parent": "Girls",
    "slug": "girls-girls-30-34"
@@ -289,6 +294,133 @@
     }
    ],
    "first_published": "2026-09-13",
+   "is_new": true
+  },
+  {
+   "code": "STY-1208",
+   "slug": "girls-fancy-frocks-sty-1208",
+   "name": "Girls Fancy Frocks",
+   "category": "Girls Fancy Frocks",
+   "category_parent": "Girls",
+   "size_group": "Girls Fancy Frocks",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1800,
+   "price_max": 1800,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1208/668eac8a-2909-4a34-b315-e828cad0563d.webp",
+   "variants": [
+    {
+     "id": 809,
+     "size": "18",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "out"
+    },
+    {
+     "id": 810,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "out"
+    },
+    {
+     "id": 811,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "out"
+    },
+    {
+     "id": 812,
+     "size": "24",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "few"
+    },
+    {
+     "id": 813,
+     "size": "26",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "few"
+    },
+    {
+     "id": 814,
+     "size": "28",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "few"
+    },
+    {
+     "id": 815,
+     "size": "30",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "few"
+    },
+    {
+     "id": 816,
+     "size": "32",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "few"
+    },
+    {
+     "id": 817,
+     "size": "34",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "few"
+    },
+    {
+     "id": 818,
+     "size": "36",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "out"
+    },
+    {
+     "id": 819,
+     "size": "38",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "out"
+    },
+    {
+     "id": 820,
+     "size": "40",
+     "colour": "Standard",
+     "price": 1800,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-16",
    "is_new": true
   },
   {
