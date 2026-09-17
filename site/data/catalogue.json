@@ -740,14 +740,14 @@
      "size": "24",
      "colour": "Standard",
      "price": 1400,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 402,
      "size": "26",
      "colour": "Standard",
      "price": 1400,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 403,
