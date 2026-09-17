@@ -53,6 +53,11 @@
    "name": "Shirts 20-26",
    "parent": "Boys",
    "slug": "boys-shirts-20-26"
+  },
+  {
+   "name": "Girls 24-28",
+   "parent": "Girls",
+   "slug": "girls-girls-24-28"
   }
  ],
  "products": [
@@ -698,6 +703,61 @@
     }
    ],
    "first_published": "2026-09-15",
+   "is_new": true
+  },
+  {
+   "code": "STY-1121",
+   "slug": "girls-5-7-years-sty-1121",
+   "name": "Girls 5-7 Years",
+   "category": "Girls 24-28",
+   "category_parent": "Girls",
+   "size_group": "Girls 24-28",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1400,
+   "price_max": 1400,
+   "sizes": [
+    "24",
+    "26",
+    "28"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1121/32a0f7a2-496b-4575-82dd-59e28292d139.webp",
+   "variants": [
+    {
+     "id": 401,
+     "size": "24",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 402,
+     "size": "26",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "out"
+    },
+    {
+     "id": 403,
+     "size": "28",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-17",
    "is_new": true
   },
   {
