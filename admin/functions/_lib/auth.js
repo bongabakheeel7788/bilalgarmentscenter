@@ -92,7 +92,10 @@ export async function login(context, db, { username, password }) {
   if (!username || !password) return refuse(400, 'BAD_LOGIN', 'Username and password, please.');
   // the lock: five misses on this username in fifteen minutes
   const since = new Date(Date.now() - LOCK_MINUTES * 60e3).toISOString();
-  const misses = await db.prepare(`SELECT COUNT(*) AS n FROM portal_logins WHERE username = ?1 AND ok = 0 AND at > ?2`).bind(username, since).first();
+  // only a wrong password (or a name nobody has) is a guess; "log in to the POS
+  // first" and "not a portal user" are answers, and answering five times must
+  // not lock the Owner out of finding out what was wrong (2026-09-18, Fahad)
+  const misses = await db.prepare(`SELECT COUNT(*) AS n FROM portal_logins WHERE username = ?1 AND ok = 0 AND why IN ('bad_password', 'no_user') AND at > ?2`).bind(username, since).first();
   if (misses && misses.n >= LOCK_AFTER) return refuse(423, 'LOCKED', `Too many tries — wait ${LOCK_MINUTES} minutes.`);
   const u = await userByName(db, username);
   if (!u) return refuse(401, 'BAD_LOGIN', 'That username and password do not match.', 'no_user');
