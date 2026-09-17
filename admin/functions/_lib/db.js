@@ -36,7 +36,9 @@ export function ensureSchema(db) {
       stmts.push(`CREATE INDEX IF NOT EXISTS ${TABLE(t)}_updated ON ${TABLE(t)}(updated_at)`);
     }
     for (const [t, col] of INDEXES) if (SPEC.tables[t]) stmts.push(`CREATE INDEX IF NOT EXISTS ${TABLE(t)}_${col} ON ${TABLE(t)}(json_extract(data, '$.${col}'))`);
-    for (const s of stmts) await db.prepare(s).run();
+    // one round trip, not ninety: every cold isolate runs this, and D1 is a
+    // network away — statement by statement it took 20 s on the live portal
+    await db.batch(stmts.map(s => db.prepare(s)));
   })().catch(e => { ready = null; throw e; });
   return ready;
 }
