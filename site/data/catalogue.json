@@ -40,6 +40,11 @@
    "slug": "boys-boys-sml"
   },
   {
+   "name": "Full Size Trousers",
+   "parent": null,
+   "slug": "full-size-trousers"
+  },
+  {
    "name": "Girls Fancy Frocks",
    "parent": "Girls",
    "slug": "girls-girls-fancy-frocks"
@@ -299,6 +304,367 @@
     }
    ],
    "first_published": "2026-09-13",
+   "is_new": true
+  },
+  {
+   "code": "STY-1218",
+   "slug": "china-trousers-sty-1218",
+   "name": "China Trousers",
+   "category": "Full Size Trousers",
+   "category_parent": null,
+   "size_group": "Boys Full Size Trousers",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1100,
+   "price_max": 1700,
+   "sizes": [
+    "Medium",
+    "Large",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL"
+   ],
+   "colours": [
+    {
+     "name": "Cotton Terry",
+     "hex": "#11ff00",
+     "photo": "media/STY-1218/f279d97f-2c2d-419f-96f7-5ce45ca055d2.webp"
+    },
+    {
+     "name": "Dry Fit",
+     "hex": "#2196f3",
+     "photo": null
+    },
+    {
+     "name": "F.B Sports",
+     "hex": "#2b00ff",
+     "photo": null
+    },
+    {
+     "name": "Fine Dry Fit",
+     "hex": "#ff0000",
+     "photo": null
+    },
+    {
+     "name": "Lycra Trouser",
+     "hex": "#fff700",
+     "photo": null
+    },
+    {
+     "name": "Nike",
+     "hex": "#ff9500",
+     "photo": null
+    },
+    {
+     "name": "Premium",
+     "hex": "#2196f3",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1218/f279d97f-2c2d-419f-96f7-5ce45ca055d2.webp",
+   "variants": [
+    {
+     "id": 971,
+     "size": "Medium",
+     "colour": "Cotton Terry",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 977,
+     "size": "Medium",
+     "colour": "Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 983,
+     "size": "Medium",
+     "colour": "F.B Sports",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 989,
+     "size": "Medium",
+     "colour": "Fine Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 995,
+     "size": "Medium",
+     "colour": "Lycra Trouser",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1001,
+     "size": "Medium",
+     "colour": "Nike",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1007,
+     "size": "Medium",
+     "colour": "Premium",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 972,
+     "size": "Large",
+     "colour": "Cotton Terry",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 978,
+     "size": "Large",
+     "colour": "Dry Fit",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 984,
+     "size": "Large",
+     "colour": "F.B Sports",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 990,
+     "size": "Large",
+     "colour": "Fine Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 996,
+     "size": "Large",
+     "colour": "Lycra Trouser",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1002,
+     "size": "Large",
+     "colour": "Nike",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1008,
+     "size": "Large",
+     "colour": "Premium",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 973,
+     "size": "XL",
+     "colour": "Cotton Terry",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 979,
+     "size": "XL",
+     "colour": "Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 985,
+     "size": "XL",
+     "colour": "F.B Sports",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 991,
+     "size": "XL",
+     "colour": "Fine Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 997,
+     "size": "XL",
+     "colour": "Lycra Trouser",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1003,
+     "size": "XL",
+     "colour": "Nike",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1009,
+     "size": "XL",
+     "colour": "Premium",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 974,
+     "size": "2XL",
+     "colour": "Cotton Terry",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 980,
+     "size": "2XL",
+     "colour": "Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 986,
+     "size": "2XL",
+     "colour": "F.B Sports",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 992,
+     "size": "2XL",
+     "colour": "Fine Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 998,
+     "size": "2XL",
+     "colour": "Lycra Trouser",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1004,
+     "size": "2XL",
+     "colour": "Nike",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1010,
+     "size": "2XL",
+     "colour": "Premium",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 975,
+     "size": "3XL",
+     "colour": "Cotton Terry",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 981,
+     "size": "3XL",
+     "colour": "Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 987,
+     "size": "3XL",
+     "colour": "F.B Sports",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 993,
+     "size": "3XL",
+     "colour": "Fine Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 999,
+     "size": "3XL",
+     "colour": "Lycra Trouser",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1005,
+     "size": "3XL",
+     "colour": "Nike",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1011,
+     "size": "3XL",
+     "colour": "Premium",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 976,
+     "size": "4XL",
+     "colour": "Cotton Terry",
+     "price": 1100,
+     "availability": "out"
+    },
+    {
+     "id": 982,
+     "size": "4XL",
+     "colour": "Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 988,
+     "size": "4XL",
+     "colour": "F.B Sports",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 994,
+     "size": "4XL",
+     "colour": "Fine Dry Fit",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1000,
+     "size": "4XL",
+     "colour": "Lycra Trouser",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1006,
+     "size": "4XL",
+     "colour": "Nike",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 1012,
+     "size": "4XL",
+     "colour": "Premium",
+     "price": 1700,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-18",
    "is_new": true
   },
   {
