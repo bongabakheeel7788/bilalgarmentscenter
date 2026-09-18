@@ -34,6 +34,11 @@ export function ensureSchema(db) {
     for (const t of Object.keys(SPEC.tables)) {
       stmts.push(`CREATE TABLE IF NOT EXISTS ${TABLE(t)} (key TEXT PRIMARY KEY, data TEXT NOT NULL, updated_at TEXT, mirrored_at TEXT NOT NULL)`);
       stmts.push(`CREATE INDEX IF NOT EXISTS ${TABLE(t)}_updated ON ${TABLE(t)}(updated_at)`);
+      // every join in reports.js is ON json_extract(x.data, '$.id') = …; without
+      // this index SQLite scans the whole table for every row on the other side —
+      // one stock count read 1.6 million rows and the free D1 read quota (5 M/day)
+      // was gone by mid-afternoon, and every page answered 500 (2026-09-18)
+      stmts.push(`CREATE INDEX IF NOT EXISTS ${TABLE(t)}_id ON ${TABLE(t)}(json_extract(data, '$.id'))`);
     }
     for (const [t, col] of INDEXES) if (SPEC.tables[t]) stmts.push(`CREATE INDEX IF NOT EXISTS ${TABLE(t)}_${col} ON ${TABLE(t)}(json_extract(data, '$.${col}'))`);
     // one round trip, not ninety: every cold isolate runs this, and D1 is a
