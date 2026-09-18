@@ -16,7 +16,17 @@ const statusPill = s => pill(s, { POSTED: 'g', PAID: 'g', OPEN: 'b', CLOSED: '',
 
 let me = null, asOf = null, toastT = null;
 function toast(msg) { let t = $('.toast'); if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); } t.textContent = msg; clearTimeout(toastT); toastT = setTimeout(() => t.remove(), 3500); }
+// P96 — the last answer for each page is kept on the phone (sessionStorage,
+// this tab only) and painted at once; the fresh answer replaces it when it
+// lands. A slow network then shows yesterday's figures with "updating…"
+// instead of five seconds of "Loading…".
+let paintingFromCache = false;
+const cacheKey = path => 'bgc_admin:' + path;
+const cacheGet = path => { try { const v = sessionStorage.getItem(cacheKey(path)); return v ? JSON.parse(v) : null; } catch { return null; } };
+const cachePut = (path, body) => { try { sessionStorage.setItem(cacheKey(path), JSON.stringify(body)); } catch { /* full or blocked — fine */ } };
+const cacheClear = () => { try { Object.keys(sessionStorage).filter(k => k.startsWith('bgc_admin:')).forEach(k => sessionStorage.removeItem(k)); } catch { /* fine */ } };
 async function api(path, opts = {}) {
+  if (paintingFromCache) { const hit = cacheGet(path); if (hit) { if (hit.as_of) asOf = hit.as_of; return hit; } throw Object.assign(new Error('NOCACHE'), { body: {} }); }
   let r;
   try { r = await fetch(path, { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...opts }); }
   catch (e) { throw Object.assign(new Error('NETWORK'), { body: { error: 'NETWORK', hint: 'Could not reach the portal — check the internet connection and try again.' } }); }
@@ -24,6 +34,7 @@ async function api(path, opts = {}) {
   if (r.status === 401 && !path.startsWith('/api/auth/')) { me = null; loginPage('Your session has ended — log in again.'); throw Object.assign(new Error('UNAUTHENTICATED'), { body }); }
   if (!r.ok) throw Object.assign(new Error(body.error || 'ERROR'), { status: r.status, body });
   if (body.as_of) asOf = body.as_of;
+  if ((!opts.method || opts.method === 'GET') && !path.startsWith('/api/auth/')) cachePut(path, body);
   return body;
 }
 const can = k => !!(me && me.perms && me.perms[k] === 'ALLOW');
@@ -46,12 +57,14 @@ function staleStrip() {
   if (age > 30 && open) return `<div class="stale">Last update from the shop ${Math.round(age)} min ago (${dt(asOf)}). The POS pushes every 10 minutes while it is running.</div>`;
   return '';
 }
+let suppressLoading = false;      // P96: the second pass must not wipe the cached paint with "Loading…"
 function shell(page, inner) {
+  if (suppressLoading && inner.includes('Loading…')) return;
   const tabs = PAGES.filter(p => can(p[2])).map(p => `<a href="#/${p[0]}" class="${p[0] === page ? 'on' : ''}">${p[1]}</a>`).join('');
   app.innerHTML = `<div class="top"><div class="row"><span class="brand">BGC <b>admin</b></span>
-      <span class="who"><span class="asof" title="when the shop last pushed">as of ${dt(asOf)}</span><span class="nm">${esc(me.user.name)}</span><button class="btn sm" id="logout">Log out</button></span></div>
+      <span class="who"><span class="asof" title="when the shop last pushed">${paintingFromCache ? '<span class="upd">updating…</span> ' : ''}as of ${dt(asOf)}</span><span class="nm">${esc(me.user.name)}</span><button class="btn sm" id="logout">Log out</button></span></div>
       <nav class="tabs">${tabs}</nav></div>${staleStrip()}<main class="page">${inner}</main>`;
-  $('#logout').onclick = async () => { await api('/api/auth/logout', { method: 'POST' }); me = null; location.hash = ''; route(); };
+  $('#logout').onclick = async () => { await api('/api/auth/logout', { method: 'POST' }); me = null; cacheClear(); location.hash = ''; route(); };
 }
 const loading = title => `<h1 class="pt">${esc(title)}</h1><div class="card"><p class="mut">Loading…</p></div>`;
 const errCard = e => `<div class="card"><div class="err">${esc(e.body && e.body.hint || e.body && e.body.error || e.message)}</div></div>`;
@@ -334,8 +347,17 @@ async function route() {
   const page = pages[name] ? name : null;
   const first = PAGES.find(p => can(p[2]));
   if (!page || (!singular[name] && !PAGES.some(p => p[0] === name && can(p[2])))) { location.hash = first ? '#/' + first[0] : ''; if (!first) app.innerHTML = '<main class="login"><div class="card"><h1>Nothing to show</h1><p class="mut">This account holds no report key on the POS.</p></div></main>'; return; }
-  try { await pages[page](q, id); }
-  catch (e) { if (e.message !== 'UNAUTHENTICATED') shell(singular[name] || name, `<h1 class="pt">${esc(name)}</h1>${errCard(e)}`); }
+  // first pass from the cache (instant, marked "updating…"), second from the portal
+  const seq = ++routeSeq;
+  paintingFromCache = true;
+  let painted = false;
+  try { await pages[page](q, id); painted = true; } catch { /* nothing cached for this page yet */ }
+  paintingFromCache = false;
+  suppressLoading = painted;
+  try { if (seq === routeSeq) await pages[page](q, id); }
+  catch (e) { if (e.message !== 'UNAUTHENTICATED' && seq === routeSeq) shell(singular[name] || name, `<h1 class="pt">${esc(name)}</h1>${errCard(e)}`); }
+  finally { suppressLoading = false; }
 }
+let routeSeq = 0;
 window.addEventListener('hashchange', route);
 route();

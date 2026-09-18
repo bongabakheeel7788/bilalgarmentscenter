@@ -76,6 +76,14 @@ export const query = request => Object.fromEntries(new URL(request.url).searchPa
 export const first = async (db, sql, ...args) => (await db.prepare(sql).bind(...args).first()) || {};
 export const all = async (db, sql, ...args) => (await db.prepare(sql).bind(...args).all()).results || [];
 export const num = v => Number(v) || 0;
+/** P96 — many statements, ONE round trip: [[sql, ...args], …] → [rows[], …]. D1 sits in one region
+ *  and the function near the phone; thirty-five sequential trips were the 3–5 s Fahad saw. */
+export async function batch(db, stmts) {
+  if (!stmts.length) return [];
+  const out = await db.batch(stmts.map(([sql, ...args]) => db.prepare(sql).bind(...args)));
+  return out.map(r => (r && r.results) || []);
+}
+export const batchFirst = async (db, stmts) => (await batch(db, stmts)).map(rows => rows[0] || {});
 
 // ── the shared spines, ported from reports/service.js ───────────────────────
 /** sold lines in [from,to]: POSTED, not practice, LEFT-joined to the catalogue (P65: a bill-only line is real money) */

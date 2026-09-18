@@ -33,7 +33,7 @@ input:focus,select:focus{outline:2px solid var(--blue-b);border-color:var(--blue
 .top .row{overflow:hidden;display:flex;align-items:center;gap:10px;padding:8px 12px;max-width:1100px;margin:0 auto}
 .brand{font-weight:800;letter-spacing:-.01em;font-size:15px;white-space:nowrap}.brand b{color:var(--blue)}
 .who{margin-left:auto;font-size:12.5px;color:var(--mut);white-space:nowrap;display:flex;align-items:center;gap:8px;min-width:0}.who .nm{overflow:hidden;text-overflow:ellipsis;max-width:110px}
-.asof{font-size:11.5px;color:var(--mut);white-space:nowrap}
+.asof{font-size:11.5px;color:var(--mut);white-space:nowrap}.upd{color:var(--amber-t);font-weight:600}
 .stale{background:var(--amber-l);border-bottom:1px solid var(--amber-b);color:var(--amber-t);font-size:12.5px;padding:6px 12px;text-align:center}
 .stale.red{background:var(--red-l);border-color:var(--red-b);color:var(--red-t)}
 nav.tabs{display:flex;gap:4px;overflow-x:auto;padding:0 8px 8px;max-width:1100px;margin:0 auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}

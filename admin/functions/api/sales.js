@@ -5,6 +5,6 @@ import * as R from '../_lib/reports.js';
 export const onRequestGet = guard('report.sales', async (user, db, context) => {
   const q = query(context.request);
   const w = window_(q, businessDate(await dayCutoffMs(db)));
-  return { summary: await R.salesSummary(db, user, w), methods: await R.byMethod(db, w), categories: await R.byCategory(db, user, w),
-    staff: await R.bySalesman(db, w), series: await R.series(db, user, w), items: await R.itemWise(db, user, w) };
+  const [summary, methods, categories, staff, series, items] = await Promise.all([R.salesSummary(db, user, w), R.byMethod(db, w), R.byCategory(db, user, w), R.bySalesman(db, w), R.series(db, user, w), R.itemWise(db, user, w)]);
+  return { summary, methods, categories, staff, series, items };
 });

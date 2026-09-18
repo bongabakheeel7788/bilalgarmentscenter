@@ -2,30 +2,37 @@
 // modules/reports/service.js and modules/cash/service.js onto the mirror.
 // Test 97ay runs both engines over the same fixture and asserts equality; when
 // a formula changes on the POS it changes here, or the test says so.
-import { T, c, pc, P, N, F, num, pct, change, first, all, local, previous, SOLD, NET, COST, ROUND_OFF, RECEIVABLE, LANDED, RETAIL } from './q.js';
+import { T, c, pc, P, N, F, num, pct, change, first, all, batch, batchFirst, local, previous, SOLD, NET, COST, ROUND_OFF, RECEIVABLE, LANDED, RETAIL } from './q.js';
 import { can } from './auth.js';
 
 const one = async (db, sql, ...args) => num((await first(db, sql, ...args)).v);
 
 // ── sales ───────────────────────────────────────────────────────────────────
-export async function salesSummary(db, user, w, compare = true) {
-  const r = await first(db, `
+const SUMMARY_SQL = `
     SELECT ${N(`SUM(${pc('il', 'unit_price')} * ${c('il', 'qty')})`)} AS gross,
            ${N(`SUM(${pc('il', 'line_discount')} + ${pc('il', 'bill_discount_share')})`)} AS discount,
            ${N(NET)} AS net, ${N(COST)} AS cost,
            COUNT(DISTINCT ${c('il', 'invoice_id')}) AS bills, ${N(`SUM(${c('il', 'qty')})`)} AS units
-    ${SOLD}`, w.from, w.to);
-  const refunds = await one(db, `SELECT ${N(`SUM(${pc('r', 'refund_amount')})`)} AS v FROM ${T('returns')} r
-    WHERE ${c('r', 'business_date')} BETWEEN ?1 AND ?2 AND ${c('r', 'status')} = 'POSTED'`, w.from, w.to);
-  const roundOff = await one(db, ROUND_OFF, w.from, w.to);
+    ${SOLD}`;
+const REFUNDS_SQL = `SELECT ${N(`SUM(${pc('r', 'refund_amount')})`)} AS v FROM ${T('returns')} r
+    WHERE ${c('r', 'business_date')} BETWEEN ?1 AND ?2 AND ${c('r', 'status')} = 'POSTED'`;
+function shapeSummary(user, w, r, refunds, roundOff) {
   const net = num(r.net) + roundOff;
   const out = { ...w, gross: F(num(r.gross)), discount: F(num(r.discount)), net: F(net), round_off: F(roundOff),
     bills: num(r.bills), units: num(r.units), refunds: F(refunds),
     average_basket: r.bills ? F(Math.round(net / r.bills)) : '0.00', upt: r.bills ? Math.round((r.units / r.bills) * 100) / 100 : 0 };
   if (can(user, 'report.margin')) { out.cost = F(num(r.cost)); out.profit = F(net - num(r.cost)); out.margin_pct = net ? pct(net - num(r.cost), net) : 0; }
-  if (compare) {
-    const p = previous(w);
-    const b = await salesSummary(db, user, { period: 'Custom', from: p.from, to: p.to }, false);
+  return out;
+}
+/** the window and (P51) the same length of time before it — six statements, one round trip */
+export async function salesSummary(db, user, w, compare = true) {
+  const p = compare ? previous(w) : null;
+  const stmts = [[SUMMARY_SQL, w.from, w.to], [REFUNDS_SQL, w.from, w.to], [ROUND_OFF, w.from, w.to]];
+  if (p) stmts.push([SUMMARY_SQL, p.from, p.to], [REFUNDS_SQL, p.from, p.to], [ROUND_OFF, p.from, p.to]);
+  const rows = await batchFirst(db, stmts);
+  const out = shapeSummary(user, w, rows[0], num(rows[1].v), num(rows[2].v));
+  if (p) {
+    const b = shapeSummary(user, { period: 'Custom', from: p.from, to: p.to }, rows[3], num(rows[4].v), num(rows[5].v));
     out.before = { from: p.from, to: p.to, net: b.net, bills: b.bills, units: b.units, ...(b.profit !== undefined ? { profit: b.profit } : {}) };
     out.change = { net: change(out.net, b.net), bills: change(out.bills, b.bills), units: change(out.units, b.units), ...(b.profit !== undefined ? { profit: change(out.profit, b.profit) } : {}) };
   }
@@ -81,10 +88,10 @@ export async function series(db, user, w) {
     const by = Object.fromEntries(list.map(r => [r.k, r]));
     return { by: 'hour', points: Array.from({ length: 24 }, (_, h) => ({ k: h, net: F(num(by[h] && by[h].net)), bills: num(by[h] && by[h].bills), ...(seeMargin ? { profit: F(num(by[h] && by[h].net) - num(by[h] && by[h].cost)) } : {}) })) };
   }
-  const list = await all(db, `
-    SELECT ${c('i', 'business_date')} AS k, ${N(NET)} AS net, ${N(COST)} AS cost, COUNT(DISTINCT ${c('i', 'id')}) AS bills ${SOLD} GROUP BY 1`, w.from, w.to);
-  const ro = await all(db, `SELECT ${c('i', 'business_date')} AS k, ${N(`SUM(${pc('i', 'round_off')})`)} AS v FROM ${T('invoices')} i
-    WHERE ${c('i', 'status')} = 'POSTED' AND NOT ${c('i', 'is_practice')} AND ${c('i', 'business_date')} BETWEEN ?1 AND ?2 GROUP BY 1`, w.from, w.to);
+  const [list, ro] = await batch(db, [[`
+    SELECT ${c('i', 'business_date')} AS k, ${N(NET)} AS net, ${N(COST)} AS cost, COUNT(DISTINCT ${c('i', 'id')}) AS bills ${SOLD} GROUP BY 1`, w.from, w.to],
+    [`SELECT ${c('i', 'business_date')} AS k, ${N(`SUM(${pc('i', 'round_off')})`)} AS v FROM ${T('invoices')} i
+    WHERE ${c('i', 'status')} = 'POSTED' AND NOT ${c('i', 'is_practice')} AND ${c('i', 'business_date')} BETWEEN ?1 AND ?2 GROUP BY 1`, w.from, w.to]]);
   const by = Object.fromEntries(list.map(r => [r.k, r])), roBy = Object.fromEntries(ro.map(r => [r.k, num(r.v)]));
   const points = [];
   for (let d = w.from; d <= w.to; d = nextDay(d)) {
@@ -132,12 +139,11 @@ export async function receivables(db, today, showPhones) {
 const STOCK = `FROM ${T('stock_snapshots')} st JOIN ${T('variants')} v ON ${c('v', 'id')} = ${c('st', 'variant_id')} JOIN ${T('styles')} s ON ${c('s', 'id')} = ${c('v', 'style_id')}`;
 const Q = c('st', 'qty');
 export async function stockValue(db, user) {
-  const r = await first(db, `
+  const [r, rt] = await batchFirst(db, [[`
     SELECT ${N(`SUM(MAX(${Q}, 0))`)} AS pieces, ${N(`SUM(MAX(${Q}, 0) * ${LANDED})`)} AS at_cost,
            ${N(`SUM(MAX(${Q}, 0) * ${RETAIL})`)} AS at_retail, ${N(`SUM(${c('st', 'damaged_qty')})`)} AS damaged
-    ${STOCK} WHERE ${Q} > 0 OR ${c('st', 'damaged_qty')} > 0`);
-  const rt = await first(db, `SELECT ${N(`SUM(MAX(${Q}, 0))`)} AS pieces, ${N(`SUM(MAX(${Q}, 0) * ${LANDED})`)} AS at_cost, COUNT(*) AS lines
-    ${STOCK} WHERE ${Q} > 0 AND (${c('v', 'status')} <> 'ACTIVE' OR ${c('s', 'status')} <> 'ACTIVE')`);
+    ${STOCK} WHERE ${Q} > 0 OR ${c('st', 'damaged_qty')} > 0`], [`SELECT ${N(`SUM(MAX(${Q}, 0))`)} AS pieces, ${N(`SUM(MAX(${Q}, 0) * ${LANDED})`)} AS at_cost, COUNT(*) AS lines
+    ${STOCK} WHERE ${Q} > 0 AND (${c('v', 'status')} <> 'ACTIVE' OR ${c('s', 'status')} <> 'ACTIVE')`]]);
   const margin = can(user, 'report.margin');
   const out = { pieces: num(r.pieces), damaged: num(r.damaged), at_retail: F(num(r.at_retail)), retired: { pieces: num(rt.pieces), lines: num(rt.lines), ...(margin ? { at_cost: F(num(rt.at_cost)) } : {}) } };
   if (margin) out.at_cost = F(num(r.at_cost));
@@ -149,45 +155,41 @@ export async function stockLists(db, limit = 200) {
   const cat = `JOIN ${T('sizes')} sz ON ${c('sz', 'id')} = ${c('v', 'size_id')} JOIN ${T('colours')} co ON ${c('co', 'id')} = ${c('v', 'colour_id')}`;
   const pick = `${c('s', 'name')} AS style, ${c('s', 'code')} AS code, ${c('sz', 'label')} AS size, ${c('co', 'name')} AS colour, ${c('v', 'sku')} AS sku, ${Q} AS qty`;
   const shape = r => ({ style: r.style, code: r.code, size: r.size, colour: r.colour, sku: r.sku, qty: num(r.qty) });
-  const low = await all(db, `SELECT ${pick} ${STOCK} ${cat} WHERE ${Q} > 0 AND ${Q} <= ${LOW_LINE} ORDER BY ${Q}, 1 LIMIT ${limit}`);
-  const below = await all(db, `SELECT ${pick} ${STOCK} ${cat} WHERE ${Q} < 0 ORDER BY ${Q} LIMIT ${limit}`);
-  const out = await all(db, `SELECT ${pick} ${STOCK} ${cat} WHERE ${Q} = 0 AND ${c('v', 'status')} = 'ACTIVE' AND ${c('s', 'status')} = 'ACTIVE' ORDER BY 1, ${c('sz', 'sort_order')} LIMIT ${limit}`);
+  const [low, below, out] = await batch(db, [[`SELECT ${pick} ${STOCK} ${cat} WHERE ${Q} > 0 AND ${Q} <= ${LOW_LINE} ORDER BY ${Q}, 1 LIMIT ${limit}`],
+    [`SELECT ${pick} ${STOCK} ${cat} WHERE ${Q} < 0 ORDER BY ${Q} LIMIT ${limit}`],
+    [`SELECT ${pick} ${STOCK} ${cat} WHERE ${Q} = 0 AND ${c('v', 'status')} = 'ACTIVE' AND ${c('s', 'status')} = 'ACTIVE' ORDER BY 1, ${c('sz', 'sort_order')} LIMIT ${limit}`]]);
   return { low: low.map(shape), below_zero: below.map(shape), out: out.map(shape) };
 }
 
-// ── the cash sheet, cash/service.js computeDay ported ───────────────────────
+// ── the cash sheet, cash/service.js computeDay ported — sixteen sums, one round trip (P96) ──
 export async function computeDay(db, date) {
-  const paisa = (sql, ...args) => one(db, sql, ...args);
   const CM = T('cash_movements'), m = k => c('m', k);
-  const netOf = (dir, type) => paisa(`SELECT ${N(`SUM(CASE WHEN ${m('direction')} = '${dir}' THEN ${pc('m', 'amount')} ELSE -${pc('m', 'amount')} END)`)} AS v FROM ${CM} m WHERE ${m('business_date')} = ?1 AND ${m('ref_type')} = ?2`, date, type);
-  const cashSales = await paisa(`
-    SELECT ${N(`SUM(${pc('p', 'amount')})`)} AS v FROM ${T('payments')} p JOIN ${T('invoices')} i ON ${c('i', 'id')} = ${c('p', 'invoice_id')}
-    WHERE ${c('i', 'business_date')} = ?1 AND NOT ${c('i', 'is_practice')} AND ${c('p', 'method')} = 'CASH'
-      AND (${c('i', 'status')} = 'POSTED' OR EXISTS (SELECT 1 FROM ${CM} m WHERE ${m('ref_type')} = 'REFUND' AND ${m('ref_id')} = ${c('i', 'id')}))`, date);
-  const returnRefunds = await paisa(`
-    SELECT ${N(`SUM(CASE WHEN ${c('r', 'type')} = 'EXCHANGE' THEN MAX(0, -${N(pc('r', 'difference_amount'))}) ELSE ${pc('r', 'refund_amount')} END - ${N(pc('r', 'debt_applied'))})`)} AS v
-    FROM ${T('returns')} r WHERE ${c('r', 'business_date')} = ?1 AND ${c('r', 'status')} = 'POSTED' AND ${c('r', 'refund_method')} = 'CASH'`, date);
-  const voidRefunds = await netOf('OUT', 'REFUND');
-  const voidedCash = await paisa(`SELECT ${N(`SUM(${pc('p', 'amount')})`)} AS v FROM ${T('payments')} p JOIN ${T('invoices')} i ON ${c('i', 'id')} = ${c('p', 'invoice_id')}
-    WHERE ${c('i', 'business_date')} = ?1 AND NOT ${c('i', 'is_practice')} AND ${c('p', 'method')} = 'CASH' AND ${c('i', 'status')} = 'VOID'
-      AND EXISTS (SELECT 1 FROM ${CM} m WHERE ${m('ref_type')} = 'REFUND' AND ${m('ref_id')} = ${c('i', 'id')})`, date);
-  const openingFloat = await netOf('IN', 'FLOAT');
-  const drawerExpenses = await netOf('OUT', 'EXPENSE');
-  const commissionPaid = await netOf('OUT', 'COMMISSION');
-  const collections = await netOf('IN', 'COLLECTION');
-  const advances = await netOf('IN', 'ADVANCE');
-  const staffAdvances = await netOf('OUT', 'STAFF_ADVANCE');
-  const salariesPaid = await netOf('OUT', 'SALARY');
-  const supplierPayments = await netOf('OUT', 'SUPPLIER');
-  const bankDeposits = await netOf('OUT', 'BANK');
-  const drawings = await netOf('OUT', 'DRAWING');
-  const otherNet = await paisa(`SELECT ${N(`SUM(CASE WHEN ${m('direction')} = 'IN' THEN ${pc('m', 'amount')} ELSE -${pc('m', 'amount')} END)`)} AS v FROM ${CM} m
-    WHERE ${m('business_date')} = ?1 AND ${m('ref_type')} NOT IN ('FLOAT','EXPENSE','COMMISSION','COLLECTION','SALE','REFUND','ADVANCE','STAFF_ADVANCE','SALARY','SUPPLIER','BANK','DRAWING')`, date);
+  const netSql = (dir, type) => [`SELECT ${N(`SUM(CASE WHEN ${m('direction')} = '${dir}' THEN ${pc('m', 'amount')} ELSE -${pc('m', 'amount')} END)`)} AS v FROM ${CM} m WHERE ${m('business_date')} = ?1 AND ${m('ref_type')} = ?2`, date, type];
+  const stmts = [
+    [`SELECT ${N(`SUM(${pc('p', 'amount')})`)} AS v FROM ${T('payments')} p JOIN ${T('invoices')} i ON ${c('i', 'id')} = ${c('p', 'invoice_id')}
+      WHERE ${c('i', 'business_date')} = ?1 AND NOT ${c('i', 'is_practice')} AND ${c('p', 'method')} = 'CASH'
+        AND (${c('i', 'status')} = 'POSTED' OR EXISTS (SELECT 1 FROM ${CM} m WHERE ${m('ref_type')} = 'REFUND' AND ${m('ref_id')} = ${c('i', 'id')}))`, date],                   // 0 cash sales
+    [`SELECT ${N(`SUM(CASE WHEN ${c('r', 'type')} = 'EXCHANGE' THEN MAX(0, -${N(pc('r', 'difference_amount'))}) ELSE ${pc('r', 'refund_amount')} END - ${N(pc('r', 'debt_applied'))})`)} AS v
+      FROM ${T('returns')} r WHERE ${c('r', 'business_date')} = ?1 AND ${c('r', 'status')} = 'POSTED' AND ${c('r', 'refund_method')} = 'CASH'`, date],                                  // 1 return refunds
+    netSql('OUT', 'REFUND'),                                                                                                                                                              // 2 void refunds
+    [`SELECT ${N(`SUM(${pc('p', 'amount')})`)} AS v FROM ${T('payments')} p JOIN ${T('invoices')} i ON ${c('i', 'id')} = ${c('p', 'invoice_id')}
+      WHERE ${c('i', 'business_date')} = ?1 AND NOT ${c('i', 'is_practice')} AND ${c('p', 'method')} = 'CASH' AND ${c('i', 'status')} = 'VOID'
+        AND EXISTS (SELECT 1 FROM ${CM} m WHERE ${m('ref_type')} = 'REFUND' AND ${m('ref_id')} = ${c('i', 'id')})`, date],                                                               // 3 voided cash
+    netSql('IN', 'FLOAT'), netSql('OUT', 'EXPENSE'), netSql('OUT', 'COMMISSION'), netSql('IN', 'COLLECTION'), netSql('IN', 'ADVANCE'),                                                 // 4–8
+    netSql('OUT', 'STAFF_ADVANCE'), netSql('OUT', 'SALARY'), netSql('OUT', 'SUPPLIER'), netSql('OUT', 'BANK'), netSql('OUT', 'DRAWING'),                                                // 9–13
+    [`SELECT ${N(`SUM(CASE WHEN ${m('direction')} = 'IN' THEN ${pc('m', 'amount')} ELSE -${pc('m', 'amount')} END)`)} AS v FROM ${CM} m
+      WHERE ${m('business_date')} = ?1 AND ${m('ref_type')} NOT IN ('FLOAT','EXPENSE','COMMISSION','COLLECTION','SALE','REFUND','ADVANCE','STAFF_ADVANCE','SALARY','SUPPLIER','BANK','DRAWING')`, date],   // 14 other
+    [`SELECT ${c('p', 'method')} AS method, SUM(${pc('p', 'amount')}) AS v FROM ${T('payments')} p JOIN ${T('invoices')} i ON ${c('i', 'id')} = ${c('p', 'invoice_id')}
+      WHERE ${c('i', 'business_date')} = ?1 AND ${c('i', 'status')} = 'POSTED' AND NOT ${c('i', 'is_practice')} GROUP BY 1 ORDER BY 1`, date],                                        // 15 by method
+  ];
+  const rows = await batch(db, stmts);
+  const v = i => num(rows[i][0] && rows[i][0].v);
+  const cashSales = v(0), returnRefunds = v(1), voidRefunds = v(2), voidedCash = v(3), openingFloat = v(4), drawerExpenses = v(5), commissionPaid = v(6), collections = v(7),
+    advances = v(8), staffAdvances = v(9), salariesPaid = v(10), supplierPayments = v(11), bankDeposits = v(12), drawings = v(13), otherNet = v(14);
   const cashRefunds = returnRefunds + voidRefunds;
   const expected = openingFloat + cashSales - cashRefunds - drawerExpenses - commissionPaid + collections + advances
     - staffAdvances - salariesPaid - supplierPayments - bankDeposits - drawings + otherNet;
-  const byMethod = (await all(db, `SELECT ${c('p', 'method')} AS method, SUM(${pc('p', 'amount')}) AS v FROM ${T('payments')} p JOIN ${T('invoices')} i ON ${c('i', 'id')} = ${c('p', 'invoice_id')}
-    WHERE ${c('i', 'business_date')} = ?1 AND ${c('i', 'status')} = 'POSTED' AND NOT ${c('i', 'is_practice')} GROUP BY 1 ORDER BY 1`, date)).map(r => ({ method: r.method, amount: F(num(r.v)) }));
+  const byMethod = rows[15].map(r => ({ method: r.method, amount: F(num(r.v)) }));
   return { date, expected: F(expected), opening_float: F(openingFloat), cash_sales: F(cashSales), voided_cash: F(voidedCash), cash_refunds: F(cashRefunds),
     drawer_expenses: F(drawerExpenses), commission_paid: F(commissionPaid), collections: F(collections), advances: F(advances), staff_advances: F(staffAdvances),
     salaries_paid: F(salariesPaid), supplier_payments: F(supplierPayments), bank_deposits: F(bankDeposits), drawings: F(drawings), other_net: F(otherNet), by_method: byMethod };

@@ -107,11 +107,24 @@ export async function login(context, db, { username, password }) {
   await record(true);
   const exp = Date.now() + HOURS * 3600e3;
   const token = await sign(secret, { uid: u.id, exp });
-  const perms = await loadEffective(db, u.id);
+  const perms = await loadEffective(db, u.id); permCache.set(u.id, { perms, at: Date.now() });
   return json({ ok: true, user: { id: u.id, name: u.name, username: u.username, role: u.role }, perms, as_of: await lastPush(db) },
     200, { 'Set-Cookie': setCookie(token, HOURS * 3600) });
 }
 export const logout = () => json({ ok: true }, 200, { 'Set-Cookie': setCookie('', 0) });
+
+// P96 — a warm isolate remembers a user's keys for a minute: the three
+// permission queries were paid on every request. A key changed on the POS
+// reaches the portal at the next push and is seen here within a minute.
+const PERM_TTL = 60e3;
+const permCache = new Map();
+async function permsFor(db, userId) {
+  const hit = permCache.get(userId);
+  if (hit && hit.at > Date.now() - PERM_TTL) return hit.perms;
+  const perms = await loadEffective(db, userId);
+  permCache.set(userId, { perms, at: Date.now() });
+  return perms;
+}
 
 /** the session on a request, or null; renews the cookie when it is past half-way */
 export async function currentUser(context, db) {
@@ -120,7 +133,7 @@ export async function currentUser(context, db) {
   if (!p) return null;
   const u = await userById(db, p.uid);
   if (!u || u.status !== 'ACTIVE' || !PORTAL_ROLES.includes(u.role)) return null;   // disabled on the POS = gone here at the next push
-  u.perms = await loadEffective(db, u.id);
+  u.perms = await permsFor(db, u.id);
   if (p.exp - Date.now() < HOURS * 1800e3) u.renew = await sign(secret, { uid: u.id, exp: Date.now() + HOURS * 3600e3 });
   return u;
 }
@@ -141,9 +154,9 @@ export function guard(key, handler) {
     if (!user) return json({ error: 'UNAUTHENTICATED' }, 401);
     if (key && !can(user, key)) return json({ error: 'FORBIDDEN', permission: key }, 403);
     try {
-      const out = await handler(user, db, context);
+      const [out, asOf] = await Promise.all([handler(user, db, context), lastPush(db)]);
       const extra = user.renew ? { 'Set-Cookie': setCookie(user.renew, HOURS * 3600) } : {};
-      return json({ ...out, as_of: await lastPush(db) }, 200, extra);
+      return json({ ...out, as_of: asOf }, 200, extra);
     } catch (e) {
       if (e && e.status) return json({ error: e.error || 'ERROR', hint: e.hint }, e.status);
       return json({ error: 'PORTAL_ERROR', hint: String(e && e.message || e).slice(0, 200) }, 500);
