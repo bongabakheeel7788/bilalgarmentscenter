@@ -17,8 +17,10 @@ const statusPill = s => pill(s, { POSTED: 'g', PAID: 'g', OPEN: 'b', CLOSED: '',
 let me = null, asOf = null, toastT = null;
 function toast(msg) { let t = $('.toast'); if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); } t.textContent = msg; clearTimeout(toastT); toastT = setTimeout(() => t.remove(), 3500); }
 async function api(path, opts = {}) {
-  const r = await fetch(path, { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...opts });
-  const body = await r.json().catch(() => ({}));
+  let r;
+  try { r = await fetch(path, { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...opts }); }
+  catch (e) { throw Object.assign(new Error('NETWORK'), { body: { error: 'NETWORK', hint: 'Could not reach the portal — check the internet connection and try again.' } }); }
+  const body = await r.json().catch(() => ({ error: 'BAD_ANSWER', hint: `The portal answered ${r.status} without a message — try again in a moment.` }));
   if (r.status === 401 && !path.startsWith('/api/auth/')) { me = null; loginPage('Your session has ended — log in again.'); throw Object.assign(new Error('UNAUTHENTICATED'), { body }); }
   if (!r.ok) throw Object.assign(new Error(body.error || 'ERROR'), { status: r.status, body });
   if (body.as_of) asOf = body.as_of;
@@ -41,7 +43,7 @@ function staleStrip() {
   const h = new Date().getUTCHours() + 5;          // Karachi hour
   const open = (h % 24) >= 10 && (h % 24) <= 23;
   if (age > 180) return `<div class="stale red">The shop has not sent anything since ${dt(asOf)} — the POS may be off or offline. The figures below are from then.</div>`;
-  if (age > 30 && open) return `<div class="stale">Last update from the shop ${Math.round(age)} min ago (${dt(asOf)}). The POS pushes every 10 minutes while a shift is open.</div>`;
+  if (age > 30 && open) return `<div class="stale">Last update from the shop ${Math.round(age)} min ago (${dt(asOf)}). The POS pushes every 10 minutes while it is running.</div>`;
   return '';
 }
 function shell(page, inner) {
@@ -108,7 +110,7 @@ function loginPage(msg = '') {
     try {
       const r = await api('/api/auth/login', { method: 'POST', body: JSON.stringify({ username: $('#u').value, password: $('#p').value }) });
       me = r; route();
-    } catch (err) { loginPage(err.body && err.body.hint || 'Could not log in.'); $('#u').value = $('#u') ? $('#u').value : ''; }
+    } catch (err) { loginPage(err.body && err.body.hint || `Could not log in (${err.message}).`); $('#u').value = $('#u') ? $('#u').value : ''; }
   };
 }
 
