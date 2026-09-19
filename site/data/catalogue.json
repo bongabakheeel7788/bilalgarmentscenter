@@ -35,6 +35,11 @@
    "slug": "girls-ladies-pents"
   },
   {
+   "name": "Boys 1,2",
+   "parent": "Boys",
+   "slug": "boys-boys-12"
+  },
+  {
    "name": "Full Size Shirts",
    "parent": null,
    "slug": "full-size-shirts"
@@ -73,6 +78,11 @@
    "name": "Girls 1,2",
    "parent": "Girls",
    "slug": "girls-girls-12"
+  },
+  {
+   "name": "Boys",
+   "parent": null,
+   "slug": "boys"
   }
  ],
  "products": [
@@ -202,6 +212,53 @@
      "colour": "Standard",
      "price": 900,
      "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1247",
+   "slug": "boys-suits-sty-1247",
+   "name": "Boys suits",
+   "category": "Boys 1,2",
+   "category_parent": "Boys",
+   "size_group": "Boys 1,2",
+   "gender": "boys",
+   "fabric": "China",
+   "set_contents": "Shirt Pajama",
+   "age_group": null,
+   "product_type": "Set / Suit",
+   "season": null,
+   "size_ages": {},
+   "price_min": 1000,
+   "price_max": 1000,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1247/60116f10-395a-4c90-8e2f-d0ac96fb6b76.webp",
+   "variants": [
+    {
+     "id": 1188,
+     "size": "1",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "in"
+    },
+    {
+     "id": 1189,
+     "size": "2",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "in"
     }
    ],
    "first_published": "2026-09-19",
@@ -434,7 +491,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 850,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 1029,
@@ -1152,7 +1209,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1500,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 607,
@@ -1543,6 +1600,53 @@
    "is_new": true
   },
   {
+   "code": "STY-1075",
+   "slug": "girls-3-8-month-sty-1075",
+   "name": "Girls 3 -8 Month",
+   "category": "Girls 1,2",
+   "category_parent": "Girls",
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 550,
+   "price_max": 550,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1075/de0d4b2b-33d2-48e5-ace0-543f1e9749e1.webp",
+   "variants": [
+    {
+     "id": 255,
+     "size": "1",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "few"
+    },
+    {
+     "id": 256,
+     "size": "2",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
    "code": "STY-1073",
    "slug": "girls-3-8-month-sty-1073",
    "name": "Girls 3 -8 Month",
@@ -1569,7 +1673,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1073/6040c0a6-8fc3-4f78-9ed2-a3017a6495e7.webp",
+   "cover": "media/STY-1073/a063ab94-87de-4d4a-b305-726ea61d017e.webp",
    "variants": [
     {
      "id": 251,
@@ -1697,6 +1801,100 @@
     }
    ],
    "first_published": "2026-09-18",
+   "is_new": true
+  },
+  {
+   "code": "STY-1067",
+   "slug": "boys-3-8-month-sty-1067",
+   "name": "Boys 3 - 8 Month",
+   "category": "Boys 1,2",
+   "category_parent": "Boys",
+   "size_group": "Boys 1,2",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 800,
+   "price_max": 800,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1067/3a15b152-6193-44b8-9dc2-5513ea70328e.webp",
+   "variants": [
+    {
+     "id": 236,
+     "size": "1",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 237,
+     "size": "2",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1066",
+   "slug": "boys-3-8-month-sty-1066",
+   "name": "Boys 3 - 8 Month",
+   "category": "Boys 1,2",
+   "category_parent": "Boys",
+   "size_group": "Boys 1,2",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 750,
+   "price_max": 750,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1066/869a36d4-a776-4401-ae11-1582b01ca87d.webp",
+   "variants": [
+    {
+     "id": 234,
+     "size": "1",
+     "colour": "Standard",
+     "price": 750,
+     "availability": "in"
+    },
+    {
+     "id": 235,
+     "size": "2",
+     "colour": "Standard",
+     "price": 750,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-19",
    "is_new": true
   },
   {
@@ -1862,6 +2060,147 @@
     }
    ],
    "first_published": "2026-09-18",
+   "is_new": true
+  },
+  {
+   "code": "STY-1006",
+   "slug": "boys-for-3-to-8-month-sty-1006",
+   "name": "Boys For 3 to 8 Month",
+   "category": "Boys",
+   "category_parent": null,
+   "size_group": "Boys 1,2",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 700,
+   "price_max": 700,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1006/3fb2ad0d-218e-4010-85c5-28c3eeecfeff.webp",
+   "variants": [
+    {
+     "id": 11,
+     "size": "1",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 12,
+     "size": "2",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1004",
+   "slug": "boys-for-3-to-8-month-sty-1004",
+   "name": "Boys For 3 to 8 Month",
+   "category": "Boys",
+   "category_parent": null,
+   "size_group": "Boys 1,2",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 700,
+   "price_max": 700,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1004/32b9523a-f31c-4fbb-a470-2f696ac334a1.webp",
+   "variants": [
+    {
+     "id": 7,
+     "size": "1",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "in"
+    },
+    {
+     "id": 8,
+     "size": "2",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1002",
+   "slug": "boys-for-3-to-8-month-sty-1002",
+   "name": "Boys For 3 to 8 Month",
+   "category": "Boys",
+   "category_parent": null,
+   "size_group": "Boys 1,2",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 600,
+   "price_max": 600,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1002/5acfe0c1-8bb6-47c4-a3e0-b537cdb27e22.webp",
+   "variants": [
+    {
+     "id": 3,
+     "size": "1",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 4,
+     "size": "2",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-19",
    "is_new": true
   }
  ],
