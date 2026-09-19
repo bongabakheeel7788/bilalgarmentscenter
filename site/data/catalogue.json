@@ -85,9 +85,9 @@
    "slug": "girls-girls-24-28"
   },
   {
-   "name": "NewlyBorn Baby",
+   "name": "New Born",
    "parent": "Boys",
-   "slug": "boys-newlyborn-baby"
+   "slug": "boys-new-born"
   },
   {
    "name": "Boys",
@@ -573,7 +573,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1224/e5c7d2cc-def9-4683-8f24-1fe1d6fb5409.webp",
+   "cover": "media/STY-1224/eee1d91f-e669-4935-89b6-14e4fc6ab89f.webp",
    "variants": [
     {
      "id": 1027,
@@ -1431,7 +1431,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1177/4cac97d1-2fdd-496a-a0b0-9222099c87d0.webp",
+   "cover": "media/STY-1177/381488b4-1777-4f53-ba97-4dd60d41d478.webp",
    "variants": [
     {
      "id": 609,
@@ -1486,7 +1486,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1176/63db3468-8dbb-4dce-8e5e-716f9fd8fdca.webp",
+   "cover": "media/STY-1176/69060695-915b-4983-be09-2eea391c1d5e.webp",
    "variants": [
     {
      "id": 606,
@@ -1856,7 +1856,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1076/6170bf8a-1f67-4db0-b406-0608843def62.webp",
+   "cover": "media/STY-1076/09f042d3-3022-435f-956b-c5fd6a82b191.webp",
    "variants": [
     {
      "id": 257,
@@ -2072,6 +2072,61 @@
    "is_new": true
   },
   {
+   "code": "STY-1071",
+   "slug": "boys-sml-sty-1071",
+   "name": "Boys Sml",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 900,
+   "price_max": 900,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1071/57eda019-bb1f-4234-858d-2ee26aae8149.webp",
+   "variants": [
+    {
+     "id": 246,
+     "size": "S",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "in"
+    },
+    {
+     "id": 247,
+     "size": "M",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "in"
+    },
+    {
+     "id": 248,
+     "size": "L",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
    "code": "STY-1070",
    "slug": "boys-sml-sty-1070",
    "name": "Boys Sml",
@@ -2099,7 +2154,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1070/52d403b8-684a-424c-97ce-50a899164a70.webp",
+   "cover": "media/STY-1070/54401e7d-4365-44df-b2ad-8f71f6ff7d25.webp",
    "variants": [
     {
      "id": 243,
@@ -2279,7 +2334,7 @@
    "code": "STY-1053",
    "slug": "newlyborn-baby-sty-1053",
    "name": "NewlyBorn Baby",
-   "category": "NewlyBorn Baby",
+   "category": "New Born",
    "category_parent": "Boys",
    "size_group": "NewBorn Baby",
    "gender": "boys",
@@ -2301,7 +2356,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1053/894f1857-528b-497a-8fce-862e718ca045.webp",
+   "cover": "media/STY-1053/752948d9-bd36-44eb-8c59-8718a07ecea1.webp",
    "variants": [
     {
      "id": 199,
@@ -2318,7 +2373,7 @@
    "code": "STY-1052",
    "slug": "newlyborn-baby-sty-1052",
    "name": "NewlyBorn Baby",
-   "category": "NewlyBorn Baby",
+   "category": "New Born",
    "category_parent": "Boys",
    "size_group": "NewBorn Baby",
    "gender": "boys",
@@ -2340,7 +2395,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1052/356dc439-04be-49d7-a856-ec1868f6afcf.webp",
+   "cover": "media/STY-1052/bc73e49b-e1b7-4910-ba5e-99b07c567c5e.webp",
    "variants": [
     {
      "id": 198,
@@ -2354,10 +2409,10 @@
    "is_new": true
   },
   {
-   "code": "STY-1050",
-   "slug": "newlyborn-baby-sty-1050",
+   "code": "STY-1051",
+   "slug": "newlyborn-baby-sty-1051",
    "name": "NewlyBorn Baby",
-   "category": "NewlyBorn Baby",
+   "category": "New Born",
    "category_parent": "Boys",
    "size_group": "NewBorn Baby",
    "gender": "boys",
@@ -2379,7 +2434,46 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1050/d2538c52-a2b0-4c6a-94d7-1fdf96b3515b.webp",
+   "cover": "media/STY-1051/1cb85c7d-019f-4c97-aeb0-7ab8874aa547.webp",
+   "variants": [
+    {
+     "id": 197,
+     "size": "Zero Size",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1050",
+   "slug": "newlyborn-baby-sty-1050",
+   "name": "NewlyBorn Baby",
+   "category": "New Born",
+   "category_parent": "Boys",
+   "size_group": "NewBorn Baby",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 550,
+   "price_max": 550,
+   "sizes": [
+    "Zero Size"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1050/e8a21077-4731-49fd-846e-5938cd4eadbf.webp",
    "variants": [
     {
      "id": 196,
@@ -2396,7 +2490,7 @@
    "code": "STY-1049",
    "slug": "newlyborn-baby-sty-1049",
    "name": "NewlyBorn Baby",
-   "category": "NewlyBorn Baby",
+   "category": "New Born",
    "category_parent": "Boys",
    "size_group": "NewBorn Baby",
    "gender": "boys",
@@ -2459,7 +2553,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1023/e2d9bf56-0bc0-48cf-83df-6096e27f705a.webp",
+   "cover": "media/STY-1023/a3ee94eb-d43b-4571-9654-c5c382b5b71f.webp",
    "variants": [
     {
      "id": 91,
@@ -2514,7 +2608,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1021/a42199da-dea2-45d5-a505-ac2a3c31d3aa.webp",
+   "cover": "media/STY-1021/a9ea4a7d-0976-46f9-b7a9-219f28ae6a57.webp",
    "variants": [
     {
      "id": 85,
@@ -2594,6 +2688,281 @@
     }
    ],
    "first_published": "2026-09-18",
+   "is_new": true
+  },
+  {
+   "code": "STY-1019",
+   "slug": "boys-sml-sty-1019",
+   "name": "Boys SML",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1019/78454b3e-8abb-485b-b019-10f8a302a494.webp",
+   "variants": [
+    {
+     "id": 79,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 80,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 81,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1018",
+   "slug": "boys-sml-sty-1018",
+   "name": "Boys SML",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 800,
+   "price_max": 800,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1018/1d791d98-f5df-4c3a-a3ec-a6611a8657e5.webp",
+   "variants": [
+    {
+     "id": 76,
+     "size": "S",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "few"
+    },
+    {
+     "id": 77,
+     "size": "M",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "few"
+    },
+    {
+     "id": 78,
+     "size": "L",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1015",
+   "slug": "boys-sml-sty-1015",
+   "name": "Boys SML",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1000,
+   "price_max": 1000,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1015/42d16e02-d145-4b2c-a226-c5a51ca9133c.webp",
+   "variants": [
+    {
+     "id": 37,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "in"
+    },
+    {
+     "id": 38,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "few"
+    },
+    {
+     "id": 39,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1014",
+   "slug": "boys-sml-sty-1014",
+   "name": "Boys SML",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1150,
+   "price_max": 1150,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1014/24e00191-ad86-4a36-aaae-9d9dd869c7b2.webp",
+   "variants": [
+    {
+     "id": 34,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 35,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 36,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1150,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1013",
+   "slug": "boys-sml-sty-1013",
+   "name": "Boys SML",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1013/74178f55-a946-4117-90d9-a5415a7684a0.webp",
+   "variants": [
+    {
+     "id": 31,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "in"
+    },
+    {
+     "id": 32,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 33,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
    "is_new": true
   },
   {

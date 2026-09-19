@@ -4,7 +4,7 @@
 // is a SUM of INTEGER PAISA — CAST(ROUND(x*100) AS INTEGER) per row, never a
 // float sum — and the rupee string is made at the edge, the same way
 // server/lib/money.js does it.
-import { TABLE } from './db.js';
+import { TABLE, noteReads } from './db.js';
 import { err } from './auth.js';
 export { err };
 
@@ -74,13 +74,15 @@ export const local = expr => `datetime(${expr}, '+5 hours')`;
 /** the query string as an object */
 export const query = request => Object.fromEntries(new URL(request.url).searchParams.entries());
 export const first = async (db, sql, ...args) => (await db.prepare(sql).bind(...args).first()) || {};
-export const all = async (db, sql, ...args) => (await db.prepare(sql).bind(...args).all()).results || [];
+// P109 — .all() and .batch() report meta.rows_read; every read the portal makes
+// goes through one of these two, so counting here counts everything that matters.
+export const all = async (db, sql, ...args) => { const r = noteReads(await db.prepare(sql).bind(...args).all()); return r.results || []; };
 export const num = v => Number(v) || 0;
 /** P96 — many statements, ONE round trip: [[sql, ...args], …] → [rows[], …]. D1 sits in one region
  *  and the function near the phone; thirty-five sequential trips were the 3–5 s Fahad saw. */
 export async function batch(db, stmts) {
   if (!stmts.length) return [];
-  const out = await db.batch(stmts.map(([sql, ...args]) => db.prepare(sql).bind(...args)));
+  const out = noteReads(await db.batch(stmts.map(([sql, ...args]) => db.prepare(sql).bind(...args))));
   return out.map(r => (r && r.results) || []);
 }
 export const batchFirst = async (db, stmts) => (await batch(db, stmts)).map(rows => rows[0] || {});

@@ -142,14 +142,19 @@ async function permsFor(db, userId) {
 }
 
 /** the session on a request, or null; renews the cookie when it is past half-way */
-export async function currentUser(context, db) {
+/** P109 — the cookie's signature is checked without the database; `pre` is that
+ *  already-verified payload when the caller has done it (guard does). */
+export async function sessionOf(context) {
   const secret = context.env.ADMIN_SESSION_SECRET;
-  const p = secret ? await verify(secret, cookieOf(context.request)) : null;
+  return secret ? await verify(secret, cookieOf(context.request)) : null;
+}
+export async function currentUser(context, db, pre) {
+  const p = pre !== undefined ? pre : await sessionOf(context);
   if (!p) return null;
   const u = await userById(db, p.uid);
   if (!u || u.status !== 'ACTIVE' || !PORTAL_ROLES.includes(u.role)) return null;   // disabled on the POS = gone here at the next push
   u.perms = await permsFor(db, u.id);
-  if (p.exp - Date.now() < HOURS * 1800e3) u.renew = await sign(secret, { uid: u.id, exp: Date.now() + HOURS * 3600e3 });
+  if (p.exp - Date.now() < HOURS * 1800e3) u.renew = await sign(context.env.ADMIN_SESSION_SECRET, { uid: u.id, exp: Date.now() + HOURS * 3600e3 });
   return u;
 }
 
@@ -163,9 +168,16 @@ export function guard(key, handler) {
   return async context => {
     const db = context.env.DB;
     if (!db) return json({ error: 'NO_DATABASE' }, 500);
+    // P109 — the session cookie is SIGNED, so whether a caller is anyone at all is
+    // decided with no database contact whatsoever. This used to run ensureSchema
+    // first: ~150 CREATE ... IF NOT EXISTS statements against a 202-object schema
+    // catalogue, paid by every scanner that knocks on a public domain all day, and
+    // only then was the caller told 401. An anonymous request now costs one HMAC.
+    const session = await sessionOf(context);
+    if (!session) return json({ error: 'UNAUTHENTICATED' }, 401);
     const { ensureSchema } = await import('./db.js');
     await ensureSchema(db);
-    const user = await currentUser(context, db);
+    const user = await currentUser(context, db, session);
     if (!user) return json({ error: 'UNAUTHENTICATED' }, 401);
     if (key && !can(user, key)) return json({ error: 'FORBIDDEN', permission: key }, 403);
     try {

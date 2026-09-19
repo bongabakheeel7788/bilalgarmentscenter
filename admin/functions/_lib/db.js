@@ -19,6 +19,35 @@ const INDEXES = [
   ['staff_attendance', 'business_date'], ['variants', 'style_id'], ['stock_ledger', 'variant_id'], ['users', 'username'],
 ];
 
+// ── P109 — the portal counts what it reads ─────────────────────────────────
+// D1 hands back meta.rows_read on every query and this code threw it away, so
+// when the free 5 M/day allowance ran out twice in two days the only way to ask
+// "which page costs what" was to reason about query plans. It is free to keep.
+//
+// One counter per isolate, reset at the top of each request by _middleware.js.
+// Two requests running in the same isolate at the same moment would blur into
+// each other; for a portal one shopkeeper reads, that is a fair trade for
+// costing nothing. It is a diagnostic, never an input to a decision.
+let readCount = 0;
+export const readsReset = () => { readCount = 0; };
+export const readsSoFar = () => readCount;
+/** add up whatever a D1 answer reports — one result, or a batch of them */
+export function noteReads(out) {
+  for (const r of (Array.isArray(out) ? out : [out])) {
+    const n = r && r.meta && Number(r.meta.rows_read);
+    if (Number.isFinite(n)) readCount += n;
+  }
+  return out;
+}
+
+/** a stable fingerprint of the schema statements — djb2, deterministic, no crypto */
+export function fingerprint(stmts) {
+  let h = 5381;
+  const s = stmts.join('\n');
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0;
+  return (h >>> 0).toString(36);
+}
+
 let ready = null;
 export function ensureSchema(db) {
   if (!ready) ready = (async () => {
@@ -42,11 +71,26 @@ export function ensureSchema(db) {
       stmts.push(`CREATE INDEX IF NOT EXISTS ${TABLE(t)}_id ON ${TABLE(t)}(json_extract(data, '$.id'))`);
     }
     for (const [t, col] of INDEXES) if (SPEC.tables[t]) stmts.push(`CREATE INDEX IF NOT EXISTS ${TABLE(t)}_${col} ON ${TABLE(t)}(json_extract(data, '$.${col}'))`);
-    // one round trip, not ninety: every cold isolate runs this, and D1 is a
-    // network away — statement by statement it took 20 s on the live portal
+    // P109 — one row read, not 150 statements. Every cold isolate ran this whole
+    // batch, and Cloudflare recycles isolates constantly: ~150 CREATE ... IF NOT
+    // EXISTS, each consulting a 202-object schema catalogue, as a fixed toll on a
+    // portal that had not yet decided whether the caller was even logged in. The
+    // statements are the schema, so their fingerprint IS the version — nobody has
+    // to remember to bump a number when they add an index.
+    const want = fingerprint(stmts);
+    // the table may not exist yet: that throw IS the "first run" signal
+    const seen = await db.prepare(`SELECT v FROM schema_state WHERE k = 'fingerprint'`).first().catch(() => null);
+    if (seen && seen.v === want) return;
+
+    // one round trip, not ninety: D1 is a network away — statement by statement
+    // it took 20 s on the live portal
+    stmts.push(`CREATE TABLE IF NOT EXISTS schema_state (k TEXT PRIMARY KEY, v TEXT NOT NULL, at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')))`);
     await db.batch(stmts.map(s => db.prepare(s)));
     // P97 — the live table was made before `device` existed; SQLite has no ADD COLUMN IF NOT EXISTS
     try { await db.prepare(`ALTER TABLE portal_logins ADD COLUMN device TEXT`).run(); } catch (e) { if (!/duplicate column/i.test(String(e && e.message))) throw e; }
+    // written LAST: if anything above threw, the next isolate must do the work again
+    await db.prepare(`INSERT INTO schema_state (k, v, at) VALUES ('fingerprint', ?1, strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+      ON CONFLICT(k) DO UPDATE SET v = excluded.v, at = excluded.at`).bind(want).run();
   })().catch(e => { ready = null; throw e; });
   return ready;
 }
