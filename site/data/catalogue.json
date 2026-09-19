@@ -50,6 +50,11 @@
    "slug": "boys-boys-sml"
   },
   {
+   "name": "Girls 1,2",
+   "parent": "Girls",
+   "slug": "girls-girls-12"
+  },
+  {
    "name": "Full Size Trousers",
    "parent": null,
    "slug": "full-size-trousers"
@@ -73,11 +78,6 @@
    "name": "Girls 24-28",
    "parent": "Girls",
    "slug": "girls-girls-24-28"
-  },
-  {
-   "name": "Girls 1,2",
-   "parent": "Girls",
-   "slug": "girls-girls-12"
   },
   {
    "name": "Boys",
@@ -502,6 +502,53 @@
     }
    ],
    "first_published": "2026-09-13",
+   "is_new": true
+  },
+  {
+   "code": "STY-1222",
+   "slug": "girls-3-8-months-sty-1222",
+   "name": "Girls 3-8 Months",
+   "category": "Girls 1,2",
+   "category_parent": "Girls",
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 550,
+   "price_max": 550,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1222/8b542d9d-fd9e-4910-875b-792a28f6fe21.webp",
+   "variants": [
+    {
+     "id": 1023,
+     "size": "1",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "few"
+    },
+    {
+     "id": 1024,
+     "size": "2",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
    "is_new": true
   },
   {
@@ -1673,7 +1720,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1073/a063ab94-87de-4d4a-b305-726ea61d017e.webp",
+   "cover": "media/STY-1073/ada93e5c-0ebd-4514-b636-aa53083123dd.webp",
    "variants": [
     {
      "id": 251,
@@ -1688,6 +1735,53 @@
      "colour": "Standard",
      "price": 550,
      "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1072",
+   "slug": "girls-3-8-month-sty-1072",
+   "name": "Girls 3 -8 Month",
+   "category": "Girls 1,2",
+   "category_parent": "Girls",
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 500,
+   "price_max": 500,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1072/bddf3837-df03-4923-8764-f0fc5ca3a39d.webp",
+   "variants": [
+    {
+     "id": 249,
+     "size": "1",
+     "colour": "Standard",
+     "price": 500,
+     "availability": "in"
+    },
+    {
+     "id": 250,
+     "size": "2",
+     "colour": "Standard",
+     "price": 500,
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-19",
