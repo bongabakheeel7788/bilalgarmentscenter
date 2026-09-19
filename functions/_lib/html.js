@@ -92,11 +92,11 @@ ${body}
 <footer class="ftr">
   <div class="wrap ftr-grid">
     <div><div class="ftr-brand">${esc(store.name)}</div><p>${esc(store.tagline || '')}</p><p>${esc(store.address || '')}</p>${store.hours ? `<p>${esc(store.hours)}</p>` : ''}</div>
-    <div><p><a href="${attr(waLink(store))}" target="_blank" rel="noopener">WhatsApp ${esc(store.whatsapp || '')}</a></p><p><a href="/track/">Track an order</a></p><p><a href="/visit/">Visit the shop</a></p><p><a href="/new/">New arrivals</a></p></div>
+    <div><p><a data-where="footer" href="${attr(waLink(store))}" target="_blank" rel="noopener">WhatsApp ${esc(store.whatsapp || '')}</a></p><p><a href="/track/">Track an order</a></p><p><a href="/visit/">Visit the shop</a></p><p><a href="/new/">New arrivals</a></p></div>
     <div><p>${esc(deliveryLine(store))}</p><p>Exchange within 15 days of delivery — unworn, with the tag.</p><p>We call to confirm every order before it is dispatched.</p>${store.footer_note ? `<p>${esc(store.footer_note)}</p>` : ''}</div>
   </div>
 </footer>
-<a class="wa-float" href="${attr(waLink(store, `Hi ${store.name}, I have a question.`))}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<a class="wa-float" data-where="float" href="${attr(waLink(store, `Hi ${store.name}, I have a question.`))}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 <aside class="drawer" id="cart" aria-label="Your cart" hidden>
   <div class="drawer-head"><strong>Your cart</strong><button class="x" id="cartClose" aria-label="Close">✕</button></div>
   <div class="drawer-body" id="cartLines"></div>
@@ -107,6 +107,7 @@ ${body}
   </div>
 </aside>
 <div class="backdrop" id="backdrop" hidden></div>
+<script src="/js/track.js" defer></script>
 <script src="/js/search.js" type="module"></script>
 <script src="/js/site.js" type="module"></script>
 </body>

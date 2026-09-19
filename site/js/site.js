@@ -10,6 +10,7 @@ const money = n => 'Rs ' + (Number.isInteger(Number(n)) ? Number(n).toLocaleStri
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const store = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } } };
 const pixel = (ev, data) => { if (S.pixel && window.fbq) try { fbq('track', ev, data); } catch { /* ad blocker */ } };
+const track = (k, o) => { try { if (window.bgcTrack) window.bgcTrack(k, o); } catch (e) { /* the visit log never breaks a sale */ } };
 let toastT;
 function toast(msg) { let t = $('.toast'); if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); } t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2600); }
 
@@ -108,6 +109,7 @@ if (P && $('#sizes')) {
     const qty = Math.max(1, Math.min(10, Number($('#qty').value) || 1));
     cart.add({ variant_id: Number(v.id), code: P.code, slug: P.slug, name: P.name, size: v.size, colour: v.colour, price: Number(v.price), qty, cover: P.cover });
     pixel('AddToCart', { content_ids: [P.code], content_type: 'product', value: v.price * qty, currency: 'PKR' });
+    track('add_to_cart', { l: P.code, v: v.price * qty });
     openCart(true);
   };
   // ── P68c — the buy bar ────────────────────────────────────────────────────
@@ -176,6 +178,7 @@ if (P && $('#sizes')) {
   }
 
   pixel('ViewContent', { content_ids: [P.code], content_type: 'product', value: (P.variants[0] || {}).price, currency: 'PKR' });
+  track('product', { l: P.code });
   const sh = $('#shareBtn');
   if (sh) sh.onclick = async () => {
     const data = { title: sh.dataset.title, text: sh.dataset.title + ' — ' + S.name, url: sh.dataset.url };
@@ -215,6 +218,7 @@ if (document.body.classList.contains('p-search') && window.PAGE && window.PAGE.q
     const q = window.PAGE.q;
     const hits = (cat.products || []).filter(p => matchProduct(p, q));
     pixel('Search', { search_string: q });
+    track('search', { l: q, v: hits.length });   // what people look for, and how often we have none of it
     if (!hits.length) { out.innerHTML = `<div class="empty">Nothing matches “${esc(q)}”. Try fewer words, or <a href="/all/" style="color:var(--accent)">browse everything</a>.</div>`; return; }
     out.innerHTML = `<p class="muted">${hits.length} result${hits.length === 1 ? '' : 's'} for “${esc(q)}”</p><div class="grid">${hits.map(p => {
       const av = p.variants.some(v => v.availability === 'in') ? 'in' : p.variants.some(v => v.availability === 'few') ? 'few' : 'out';
@@ -227,6 +231,7 @@ if (document.body.classList.contains('p-search') && window.PAGE && window.PAGE.q
 // ── checkout ─────────────────────────────────────────────────────────────────
 const form = $('#coForm');
 if (form) {
+  track('checkout', { v: cart.subtotal() });
   const lines = $('#coLines');
   const paint = () => {
     const mode = (form.querySelector('[name=delivery]:checked') || {}).value || 'DELIVERY';
@@ -277,6 +282,7 @@ if (form) {
       store.set('bgc_customer', { name: f.name, phone: f.phone, alt_phone: f.alt_phone, address: f.address, city: f.city, province: f.province });
       store.set('bgc_last_order', { no: j.no, phone: f.phone, total: j.total, lines: j.lines, delivery_charge: j.delivery_charge });
       pixel('Purchase', { value: j.total, currency: 'PKR', content_ids: cart.lines.map(l => l.code), content_type: 'product', num_items: cart.count() });
+      track('order', { l: j.no, v: j.total, now: true });
       cart.clear();
       location.href = '/thanks/' + j.no + '/';
     } catch {

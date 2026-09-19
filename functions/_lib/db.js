@@ -28,7 +28,29 @@ const SCHEMA = [
   `CREATE INDEX IF NOT EXISTS orders_phone_created ON orders(phone, created_at)`,
   `CREATE INDEX IF NOT EXISTS orders_ip_created ON orders(ip, created_at)`,
   `CREATE TABLE IF NOT EXISTS blocked_phones (phone TEXT PRIMARY KEY, reason TEXT, added_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')))`,
+  // P100 — the visit log. One row per event, in the SAME database as the orders
+  // so the dashboard's join from a visit to the money it became is local.
+  // No cookie and no raw IP: `visitor` is a daily-rotating hash (see api/e.js).
+  `CREATE TABLE IF NOT EXISTS events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+    day TEXT NOT NULL,
+    session TEXT NOT NULL, visitor TEXT NOT NULL,
+    kind TEXT NOT NULL, path TEXT, label TEXT, value_paisa INTEGER,
+    channel TEXT NOT NULL, source TEXT, medium TEXT, campaign TEXT, content TEXT,
+    referrer_host TEXT, landing TEXT, ref_code TEXT, paid INTEGER NOT NULL DEFAULT 0,
+    country TEXT, device TEXT, app TEXT
+  )`,
+  // P96.1's lesson, applied before the first row: every way the dashboard will
+  // read is an index walk, never a scan.
+  `CREATE INDEX IF NOT EXISTS events_day ON events(day)`,
+  `CREATE INDEX IF NOT EXISTS events_channel_day ON events(channel, day)`,
+  `CREATE INDEX IF NOT EXISTS events_session ON events(session)`,
+  `CREATE INDEX IF NOT EXISTS events_kind_day ON events(kind, day)`,
 ];
+
+/** the Karachi day — the shop's own date, and Pakistan keeps no summer time */
+export const karachiDay = (t = Date.now()) => new Date(t + 5 * 3600e3).toISOString().slice(0, 10);
 let ready = null;
 export function ensureSchema(db) {
   if (!ready) ready = (async () => { for (const s of SCHEMA) await db.prepare(s).run(); })().catch(e => { ready = null; throw e; });

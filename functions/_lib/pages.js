@@ -24,7 +24,7 @@ export function home(cat) {
           good at both; now it only has to be one of them. */ ''}
     <h1>${esc(store.hero_headline || store.tagline || 'Children\'s wear, delivered all over Pakistan')}</h1>
     <p>${esc(store.hero_sub || `${store.name} — ${store.address ? store.address.split(',').slice(-2).join(',').trim() : 'Tandlianwala'}. Browse, order in a minute, pay the rider when it arrives.`)}</p>
-    <div class="hero-cta"><a class="btn btn-primary" href="${attr((store.hero_cta && store.hero_cta.href) || '/new/')}">${esc((store.hero_cta && store.hero_cta.label) || 'Shop new arrivals')}</a><a class="btn btn-outline" href="${attr(waLink(store, `Hi ${store.name}, I saw your website.`))}" target="_blank" rel="noopener">${esc((store.hero_cta && store.hero_cta.label2) || 'Ask on WhatsApp')}</a></div>
+    <div class="hero-cta"><a class="btn btn-primary" href="${attr((store.hero_cta && store.hero_cta.href) || '/new/')}">${esc((store.hero_cta && store.hero_cta.label) || 'Shop new arrivals')}</a><a class="btn btn-outline" data-where="hero" href="${attr(waLink(store, `Hi ${store.name}, I saw your website.`))}" target="_blank" rel="noopener">${esc((store.hero_cta && store.hero_cta.label2) || 'Ask on WhatsApp')}</a></div>
   </div>
   ${band}
 </section>
@@ -107,7 +107,7 @@ export function product(cat, slug) {
     <div class="qty-row"><label>Qty <input type="number" id="qty" value="1" min="1" max="10"></label>
       <button class="btn btn-primary" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button></div>
     <div class="buy-actions">
-      <a class="btn btn-outline" href="${attr(waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
+      <a class="btn btn-outline" data-where="product" href="${attr(waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
       <button class="btn btn-outline" id="shareBtn" data-url="${attr(url)}" data-title="${attr(p.name)}">Share</button>
     </div>
     ${promiseRow(store, { compact: true })}
@@ -193,7 +193,7 @@ export function thanks(cat, no) {
   <p class="thanks-no">Your order number is <strong>${esc(no)}</strong></p>
   <div id="thanksLines"></div>
   <ol class="steps"><li><strong>We call you</strong> on the number you gave, usually within a few hours during shop time, to confirm the pieces and the address.</li><li><strong>We pack and dispatch</strong> by Leopards courier; you get the tracking number on the <a href="/track/">Track</a> page.</li><li><strong>You pay the courier</strong> when it arrives. Wrong size? Exchange within 15 days.</li></ol>
-  <div class="thanks-actions"><a class="btn btn-primary" href="${attr(waLink(store, `Hi, I have just placed order ${no} on your website.`))}" target="_blank" rel="noopener">Send us the order on WhatsApp</a><a class="btn btn-outline" href="/">Keep browsing</a></div>
+  <div class="thanks-actions"><a class="btn btn-primary" data-where="thanks" href="${attr(waLink(store, `Hi, I have just placed order ${no} on your website.`))}" target="_blank" rel="noopener">Send us the order on WhatsApp</a><a class="btn btn-outline" href="/">Keep browsing</a></div>
 </div>`;
   return layout(cat, { title: `Order ${no}`, page: 'p-thanks', body, publicData: { no } });
 }
@@ -209,7 +209,7 @@ export function visit(cat) {
   const store = cat.store;
   const body = `<div class="page-head"><h1>Visit the shop</h1></div>
 <div class="visit">
-  <div><h2>${esc(store.name)}</h2><p>${esc(store.address || '')}</p>${store.hours ? `<p><strong>Hours:</strong> ${esc(store.hours)}</p>` : ''}<p><strong>Phone / WhatsApp:</strong> <a href="${attr(waLink(store))}">${esc(store.whatsapp || store.phone || '')}</a></p>
+  <div><h2>${esc(store.name)}</h2><p>${esc(store.address || '')}</p>${store.hours ? `<p><strong>Hours:</strong> ${esc(store.hours)}</p>` : ''}<p><strong>Phone / WhatsApp:</strong> <a data-where="visit" href="${attr(waLink(store))}">${esc(store.whatsapp || store.phone || '')}</a></p>
   ${store.map_url ? `<p><a class="btn btn-outline" href="${attr(store.map_url)}" target="_blank" rel="noopener">Open in Google Maps</a></p>` : ''}</div>
   <div class="visit-note"><p>Ordered online and chose <em>collect from the shop</em>? Bring your order number; the pieces are kept aside once we have confirmed with you.</p><p>${esc(deliveryLine(store))}</p></div>
 </div>`;
