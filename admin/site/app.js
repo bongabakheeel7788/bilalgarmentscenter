@@ -43,7 +43,7 @@ const can = k => !!(me && me.perms && me.perms[k] === 'ALLOW');
 const PAGES = [
   ['today', 'Today', 'report.sales'], ['sales', 'Sales', 'report.sales'], ['bills', 'Bills', 'pos.history.all'], ['stock', 'Stock', 'report.stock'],
   ['products', 'Products', 'catalog.view'], ['customers', 'Udhaar', 'credit.view'], ['cash', 'Cash', 'cash.move'], ['staff', 'Staff', 'attendance.view_all'],
-  ['commission', 'Commission', 'comm.view_all'], ['orders', 'Website', 'orders.view'], ['logins', 'Logins', 'user.manage'],
+  ['commission', 'Commission', 'comm.view_all'], ['orders', 'Website', 'orders.view'], ['traffic', 'Traffic', 'report.sales'], ['logins', 'Logins', 'user.manage'],
 ];
 const PERIODS = ['Today', 'Yesterday', 'Last 7 Days', 'Last Week', 'This Month', 'Last 30 Days', 'This Year', 'Last Year', 'Custom'];
 
@@ -325,6 +325,87 @@ const pages = {
       { k: 'courier', t: 'Courier', f: (v, r) => `${esc(v || '')}${r.tracking_no ? `<div class="xs mono">${esc(r.tracking_no)}</div>` : ''}` }, { k: 'agent', t: 'Agent' }, { k: 'delivered_at', t: 'Delivered', f: v => v ? dt(v) : '' }];
     shell('orders', `<h1 class="pt">Website orders</h1>${chips}<div class="card"><h2>${d.status ? esc(d.status.replace(/_/g, ' ').toLowerCase()) : 'Latest 200'}<span class="tools">${csvBtn('orders', d.rows, cols)}</span></h2>${table(d.rows, cols, { empty: 'No orders.' })}</div>`);
     document.querySelectorAll('.chips [data-s]').forEach(b => b.onclick = () => { location.hash = '#/orders' + (b.dataset.s ? '?' + qs({ status: b.dataset.s }) : ''); });
+  },
+
+
+  // P101 — where the website's visitors came from, and what became of them.
+  // The column that matters is DELIVERED, not placed: cash on delivery means a
+  // placed order is a promise, and a channel whose orders come back is a cost.
+  async traffic(q) {
+    q = { period: q.period || 'Last 7 Days', from: q.from, to: q.to };
+    shell('traffic', loading('Traffic'));
+    const go = nq => { location.hash = '#/traffic?' + qs(nq); };
+    let d; try { d = await api('/api/traffic?' + qs(q)); } catch (e) { shell('traffic', `<h1 class="pt">Traffic</h1>${periodBar(q, go)}${errCard(e)}`); return; }
+    const t = d.totals;
+    const pc = v => v == null ? '—' : v + '%';
+    const tiles = [
+      tile('Visitors', n0(t.visitors), `${n0(t.sessions)} visit${t.sessions === 1 ? '' : 's'} · ${n0(t.views)} page views`),
+      tile('Orders', n0(t.orders), `${pc(t.conversion_pct)} of visits`),
+      tile('Delivered', rs(t.delivered), `placed ${rs(t.placed)}`),
+      tile('WhatsApp clicks', n0(t.wa_clicks), `${n0(t.call_clicks)} called · ${n0(t.directions)} asked directions`),
+    ].join('');
+
+    const chCols = [
+      { k: 'channel', t: 'Channel', f: (v, r) => `${esc(v)}${r.paid ? ' ' + pill('paid', 'b') : ''}` },
+      { k: 'visitors', t: 'Visitors', num: true, f: n0 }, { k: 'sessions', t: 'Visits', num: true, f: n0 },
+      { k: 'orders', t: 'Orders', num: true, f: n0 },
+      { k: 'conversion_pct', t: 'Conv.', num: true, f: pc },
+      { k: 'delivered', t: 'Delivered', num: true, f: rs },
+      { k: 'placed', t: 'Placed', num: true, f: rs },
+      { k: 'rto_pct', t: 'Came back', num: true, f: (v, r) => v == null ? (r.in_flight ? `<span class="xs mut">${r.in_flight} still out</span>` : '—') : `${v}%` },
+      { k: 'wa_clicks', t: 'WhatsApp', num: true, f: n0 },
+    ];
+    const note = d.untracked_orders
+      ? `<div class="xs mut" style="margin-top:8px">${n0(d.untracked_orders)} order${d.untracked_orders === 1 ? '' : 's'} in this period could not be matched to a visit — placed before the visit log started, or the browser closed before it reported. ${d.untracked_orders === 1 ? 'It is' : 'They are'} counted from the order's own tag instead.</div>`
+      : '';
+
+    const f = d.funnel;
+    const funnel = `<div class="funnel">${f.map((s2, i) => {
+      const prev = i ? f[i - 1].sessions : s2.sessions;
+      const kept = prev ? Math.round(s2.sessions / prev * 100) : 0;
+      return `<div class="fstep"><div class="fbar" style="width:${Math.max(2, s2.of_visits_pct || 0)}%"></div>
+        <div class="flabel"><b>${esc(s2.label)}</b><span>${n0(s2.sessions)}${i ? ` · ${kept}% of the step before` : ''}</span></div></div>`;
+    }).join('')}</div>`;
+
+    const waCols = [{ k: 'place', t: 'Where on the page' }, { k: 'clicks', t: 'Clicks', num: true, f: n0 }];
+    const pgCols = [{ k: 'path', t: 'Page' }, { k: 'views', t: 'Views', num: true, f: n0 }, { k: 'sessions', t: 'Visits', num: true, f: n0 }];
+    const prCols = [{ k: 'code', t: 'Product' }, { k: 'views', t: 'Views', num: true, f: n0 }, { k: 'sessions', t: 'Visits', num: true, f: n0 }];
+    const seCols = [{ k: 'term', t: 'Searched for', f: (v, r) => `${esc(v)}${r.fewest_results === 0 ? ' ' + pill('nothing found', 'r') : ''}` },
+      { k: 'times', t: 'Times', num: true, f: n0 }, { k: 'fewest_results', t: 'Results', num: true, f: n0 }];
+    const dvCols = [{ k: 'device', t: 'On' }, { k: 'sessions', t: 'Visits', num: true, f: n0 }];
+    const apCols = [{ k: 'app', t: 'Opened inside' }, { k: 'sessions', t: 'Visits', num: true, f: n0 }];
+    const coCols = [{ k: 'country', t: 'Country' }, { k: 'sessions', t: 'Visits', num: true, f: n0 }];
+    const card = (title, name, rows, cols, empty) => `<div class="card"><h2>${title}<span class="tools">${csvBtn(name, rows, cols)}</span></h2>${table(rows, cols, { empty })}</div>`;
+    // P103 — spend beside what it brought back. Cost per DELIVERED order is the
+    // honest one: an advert whose parcels come back has bought nothing.
+    const spCols = [{ k: 'channel', t: 'Channel' }, { k: 'spend', t: 'Spent', num: true, f: v => v == null ? '—' : rs(v) },
+      { k: 'orders', t: 'Orders', num: true, f: n0 }, { k: 'cost_per_order', t: 'Per order', num: true, f: v => v == null ? '—' : rs(v) },
+      { k: 'cost_per_delivered', t: 'Per delivered', num: true, f: v => v == null ? '—' : rs(v) },
+      { k: 'delivered', t: 'Brought back', num: true, f: rs },
+      { k: 'roas', t: 'Return', num: true, f: v => v == null ? '—' : `${v}×` }];
+    const spendCard = d.spend && d.spend.any
+      ? `<div class="card"><h2>What the ads cost, and what came back<span class="tools">${csvBtn('traffic-spend', d.channels.filter(c => c.spend != null), spCols)}</span></h2>
+          ${table(d.channels.filter(c => c.spend != null), spCols, { empty: 'No spend entered for this period.' })}
+          <div class="xs mut" style="margin-top:8px">Spend is entered by month on the POS (Website ▸ Links &amp; QR).${d.spend.pro_rated ? ' This period is not a whole month, so each month\'s spend is spread evenly across its days — treat these as close, not exact.' : ''} "Return" is delivered revenue for every rupee spent.</div></div>`
+      : '';
+    const series = d.series.length > 1 ? `<div class="card"><h2>Day by day</h2>${barChart(d.series, 'sessions', p => dd(p.day))}</div>` : '';
+    const zero = !t.sessions
+      ? `<div class="card notice"><b>Nothing recorded yet for this period.</b> The visit log started on 19 September 2026 — pick a period since then, and give it a little time to fill.</div>` : '';
+
+    shell('traffic', `<h1 class="pt">Traffic <small>${esc(dd(d.from))} – ${esc(dd(d.to))}</small></h1>${periodBar(q, go)}${zero}
+      <div class="tiles">${tiles}</div>
+      <div class="card"><h2>Where they came from<span class="tools">${csvBtn('traffic-by-channel', d.channels, chCols)}</span></h2>
+        ${table(d.channels, chCols, { empty: 'No visits in this period.' })}${note}</div>
+      <div class="cols">
+        <div class="card"><h2>From first visit to order</h2>${funnel}</div>
+        ${card('WhatsApp, by where they clicked', 'traffic-whatsapp', d.whatsapp, waCols, 'Nobody clicked WhatsApp in this period.')}
+      </div>
+      ${spendCard}
+      ${series}
+      <div class="cols">${card('Most looked at', 'traffic-pages', d.pages, pgCols, 'No pages yet.')}${card('Most looked at products', 'traffic-products', d.products, prCols, 'No product pages opened yet.')}</div>
+      ${card('What people searched for — what they could not find comes first', 'traffic-searches', d.searches, seCols, 'Nobody has used the search box yet.')}
+      <div class="cols">${card('What they used', 'traffic-devices', d.devices, dvCols)}${d.apps.length ? card('Opened inside an app', 'traffic-apps', d.apps, apCols) : card('Where they are', 'traffic-countries', d.countries, coCols)}</div>
+      ${d.apps.length ? card('Where they are', 'traffic-countries', d.countries, coCols) : ''}`);
   },
 
   async logins() {

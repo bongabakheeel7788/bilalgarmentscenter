@@ -4,48 +4,302 @@ export default {
   "batch": 500,
   "note": "P92 — what the shop mirrors to the admin portal. ONE file, copied verbatim to storefront/admin/functions/_lib/mirror-spec.json; a test holds the two together. Each row travels as a JSON document keyed by `key`; the receiver stores (key, data, updated_at). `watermark` is how the shop knows what changed: `ts` = COALESCE(updated_at, created_at) with id as tiebreak, `id` = append-only. `exclude` never leaves the shop. `filter` is SQL on the source table (alias t). `reconcile` tables have their id lists compared nightly so a purge on the shop is a delete on the portal.",
   "tables": {
-    "users":                { "key": ["id"], "watermark": "ts", "exclude": ["password_hash", "pin_hash", "failed_logins", "failed_pins", "locked_until"], "reconcile": true },
-    "roles":                { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "permissions":          { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "role_permissions":     { "key": ["role_id", "permission_id"], "watermark": "ts", "reconcile": true },
-    "user_permissions":     { "key": ["user_id", "permission_id"], "watermark": "ts", "reconcile": true },
-    "user_roles":           { "key": ["user_id", "role_id"], "watermark": "ts", "reconcile": true },
-    "categories":           { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "size_groups":          { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "sizes":                { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "colours":              { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "suppliers":            { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "shopkeepers":          { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "styles":               { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "variants":             { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "barcodes":             { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "stock_snapshots":      { "key": ["branch_id", "variant_id"], "watermark": "ts" },
-    "stock_ledger":         { "key": ["id"], "watermark": "id", "filter": "t.created_at > now() - interval '90 days'" },
-    "customers":            { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "customer_sizes":       { "key": ["id"], "watermark": "ts", "reconcile": true },
-    "invoices":             { "key": ["id"], "watermark": "ts", "filter": "NOT t.is_practice" },
-    "invoice_lines":        { "key": ["id"], "watermark": "ts", "filter": "EXISTS (SELECT 1 FROM invoices i WHERE i.id = t.invoice_id AND NOT i.is_practice)" },
-    "payments":             { "key": ["id"], "watermark": "ts", "filter": "EXISTS (SELECT 1 FROM invoices i WHERE i.id = t.invoice_id AND NOT i.is_practice)" },
-    "returns":              { "key": ["id"], "watermark": "ts" },
-    "return_lines":         { "key": ["id"], "watermark": "ts" },
-    "store_credits":        { "key": ["id"], "watermark": "ts" },
-    "credit_collections":   { "key": ["id"], "watermark": "ts" },
-    "credit_allocations":   { "key": ["id"], "watermark": "ts" },
-    "bad_debt_writeoffs":   { "key": ["id"], "watermark": "ts" },
-    "cash_movements":       { "key": ["id"], "watermark": "id" },
-    "shifts":               { "key": ["id"], "watermark": "ts" },
-    "day_closes":           { "key": ["id"], "watermark": "ts" },
-    "expenses":             { "key": ["id"], "watermark": "ts" },
-    "staff_attendance":     { "key": ["id"], "watermark": "ts" },
-    "staff_advances":       { "key": ["id"], "watermark": "ts" },
-    "salary_records":       { "key": ["id"], "watermark": "ts" },
-    "commission_entries":   { "key": ["id"], "watermark": "id" },
-    "commission_settlements": { "key": ["id"], "watermark": "id" },
-    "online_orders":        { "key": ["id"], "watermark": "ts" },
-    "online_order_lines":   { "key": ["id"], "watermark": "ts" },
-    "grns":                 { "key": ["id"], "watermark": "ts" },
-    "grn_lines":            { "key": ["id"], "watermark": "ts" },
-    "price_history":        { "key": ["id"], "watermark": "id" },
-    "settings":             { "key": ["key"], "watermark": "ts", "filter": "t.key IN ('shop.name','shop.short','shop.address','shop.phone','shop.day_ends_at','stock.low_threshold','stock.critical_threshold','credit.lapsed_days','store.site_url')" }
+    "users": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "exclude": [
+        "password_hash",
+        "pin_hash",
+        "failed_logins",
+        "failed_pins",
+        "locked_until"
+      ],
+      "reconcile": true
+    },
+    "roles": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "permissions": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "role_permissions": {
+      "key": [
+        "role_id",
+        "permission_id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "user_permissions": {
+      "key": [
+        "user_id",
+        "permission_id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "user_roles": {
+      "key": [
+        "user_id",
+        "role_id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "categories": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "size_groups": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "sizes": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "colours": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "suppliers": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "shopkeepers": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "styles": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "variants": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "barcodes": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "stock_snapshots": {
+      "key": [
+        "branch_id",
+        "variant_id"
+      ],
+      "watermark": "ts"
+    },
+    "stock_ledger": {
+      "key": [
+        "id"
+      ],
+      "watermark": "id",
+      "filter": "t.created_at > now() - interval '90 days'"
+    },
+    "customers": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "customer_sizes": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "reconcile": true
+    },
+    "invoices": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "filter": "NOT t.is_practice"
+    },
+    "invoice_lines": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "filter": "EXISTS (SELECT 1 FROM invoices i WHERE i.id = t.invoice_id AND NOT i.is_practice)"
+    },
+    "payments": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts",
+      "filter": "EXISTS (SELECT 1 FROM invoices i WHERE i.id = t.invoice_id AND NOT i.is_practice)"
+    },
+    "returns": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "return_lines": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "store_credits": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "credit_collections": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "credit_allocations": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "bad_debt_writeoffs": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "cash_movements": {
+      "key": [
+        "id"
+      ],
+      "watermark": "id"
+    },
+    "shifts": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "day_closes": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "expenses": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "staff_attendance": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "staff_advances": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "salary_records": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "commission_entries": {
+      "key": [
+        "id"
+      ],
+      "watermark": "id"
+    },
+    "commission_settlements": {
+      "key": [
+        "id"
+      ],
+      "watermark": "id"
+    },
+    "online_orders": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "online_order_lines": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "grns": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "grn_lines": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    },
+    "price_history": {
+      "key": [
+        "id"
+      ],
+      "watermark": "id"
+    },
+    "settings": {
+      "key": [
+        "key"
+      ],
+      "watermark": "ts",
+      "filter": "t.key IN ('shop.name','shop.short','shop.address','shop.phone','shop.day_ends_at','stock.low_threshold','stock.critical_threshold','credit.lapsed_days','store.site_url')"
+    },
+    "ad_spend": {
+      "key": [
+        "id"
+      ],
+      "watermark": "ts"
+    }
   }
 };
