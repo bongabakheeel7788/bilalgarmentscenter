@@ -29,8 +29,9 @@ export function ensureSchema(db) {
       `CREATE INDEX IF NOT EXISTS mirror_runs_received ON mirror_runs(received_at)`,
       `CREATE TABLE IF NOT EXISTS portal_logins (
         id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
-        username TEXT NOT NULL, ok INTEGER NOT NULL, why TEXT, ip TEXT, agent TEXT)`,
-      `CREATE INDEX IF NOT EXISTS portal_logins_user ON portal_logins(username, at)`];
+        username TEXT NOT NULL, ok INTEGER NOT NULL, why TEXT, ip TEXT, agent TEXT, device TEXT)`,
+      `CREATE INDEX IF NOT EXISTS portal_logins_user ON portal_logins(username, at)`,
+      `CREATE INDEX IF NOT EXISTS portal_logins_ip ON portal_logins(ip, at)`];
     for (const t of Object.keys(SPEC.tables)) {
       stmts.push(`CREATE TABLE IF NOT EXISTS ${TABLE(t)} (key TEXT PRIMARY KEY, data TEXT NOT NULL, updated_at TEXT, mirrored_at TEXT NOT NULL)`);
       stmts.push(`CREATE INDEX IF NOT EXISTS ${TABLE(t)}_updated ON ${TABLE(t)}(updated_at)`);
@@ -44,6 +45,8 @@ export function ensureSchema(db) {
     // one round trip, not ninety: every cold isolate runs this, and D1 is a
     // network away — statement by statement it took 20 s on the live portal
     await db.batch(stmts.map(s => db.prepare(s)));
+    // P97 — the live table was made before `device` existed; SQLite has no ADD COLUMN IF NOT EXISTS
+    try { await db.prepare(`ALTER TABLE portal_logins ADD COLUMN device TEXT`).run(); } catch (e) { if (!/duplicate column/i.test(String(e && e.message))) throw e; }
   })().catch(e => { ready = null; throw e; });
   return ready;
 }

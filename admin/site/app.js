@@ -149,7 +149,8 @@ const pages = {
     const hours = d.hours.length ? `<div class="card"><h2>By hour</h2>${barChart(hoursFilled, 'net', p => `${p.hour}:00`)}</div>` : '';
     const methods = `<div class="card"><h2>How the money came in</h2>${table(d.methods, [{ k: 'method', t: 'Method' }, { k: 'bills', t: 'Bills', num: true }, { k: 'amount', t: 'Amount', num: true, f: rs }], { empty: 'No bills yet today.' })}</div>`;
     const staff = `<div class="card"><h2>Salesmen</h2>${table(d.staff, [{ k: 'name', t: 'Name' }, { k: 'bills', t: 'Bills', num: true }, { k: 'units', t: 'Pcs', num: true }, { k: 'net', t: 'Sales', num: true, f: rs }, { k: 'abv', t: 'Avg bill', num: true, f: rs }], { empty: 'No sales yet today.' })}</div>`;
-    shell('today', `<h1 class="pt">Today <small>${dd(d.today)}</small></h1><div class="tiles">${tiles}</div>${attention}<div class="cols">${methods}${staff}</div>${hours}`);
+    const devices = (d.new_devices || []).length ? `<div class="card notice"><b>New device.</b> ${d.new_devices.map(x => `<b>${esc(x.username)}</b> logged in from a device that username had not used before, at ${dt(x.at)}`).join('; ')}. Not you? Change that password on the POS — the portal follows at the next push.</div>` : '';
+    shell('today', `<h1 class="pt">Today <small>${dd(d.today)}</small></h1>${devices}<div class="tiles">${tiles}</div>${attention}<div class="cols">${methods}${staff}</div>${hours}`);
   },
 
   async sales(q) {
@@ -329,7 +330,7 @@ const pages = {
   async logins() {
     shell('logins', loading('Logins'));
     const d = await api('/api/logins');
-    const cols = [{ k: 'at', t: 'When', f: dt }, { k: 'username', t: 'Username' }, { k: 'ok', t: '', f: (v, r) => v ? pill('ok', 'g') : pill(r.why || 'refused', 'r') }, { k: 'ip', t: 'From', f: v => `<span class="mono">${esc(v || '')}</span>` }, { k: 'agent', t: 'Device', f: v => `<span class="xs mut">${esc((v || '').slice(0, 80))}</span>` }];
+    const cols = [{ k: 'at', t: 'When', f: dt }, { k: 'username', t: 'Username' }, { k: 'ok', t: '', f: (v, r) => v ? (r.why === 'new_device' ? pill('ok · new device', 'a') : pill('ok', 'g')) : pill(r.why === 'ip_lock' ? 'too many from this address' : r.why || 'refused', 'r') }, { k: 'ip', t: 'From', f: v => `<span class="mono">${esc(v || '')}</span>` }, { k: 'agent', t: 'Device', f: v => `<span class="xs mut">${esc((v || '').slice(0, 80))}</span>` }];
     shell('logins', `<h1 class="pt">Portal logins</h1><div class="card"><h2>Last 200 attempts<span class="tools">${csvBtn('portal-logins', d.rows, cols)}</span></h2>${table(d.rows, cols, { empty: 'Nobody yet.' })}</div>`);
   },
 };

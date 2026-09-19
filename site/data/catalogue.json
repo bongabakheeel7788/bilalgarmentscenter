@@ -30,6 +30,11 @@
  },
  "categories": [
   {
+   "name": "Ladies Pents",
+   "parent": "Girls",
+   "slug": "girls-ladies-pents"
+  },
+  {
    "name": "Full Size Shirts",
    "parent": null,
    "slug": "full-size-shirts"
@@ -63,9 +68,145 @@
    "name": "Girls 24-28",
    "parent": "Girls",
    "slug": "girls-girls-24-28"
+  },
+  {
+   "name": "Girls 1,2",
+   "parent": "Girls",
+   "slug": "girls-girls-12"
   }
  ],
  "products": [
+  {
+   "code": "STY-1276",
+   "slug": "girls-ladies-pents-sty-1276",
+   "name": "Girls \\ Ladies  Pents",
+   "category": "Ladies Pents",
+   "category_parent": "Girls",
+   "size_group": "Ladies Pents",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {
+    "18": "2-3  yrs",
+    "20": "3-4  yrs",
+    "22": "4-5  yrs",
+    "24": "5-6  yrs",
+    "26": "6-7  yrs",
+    "28": "7-8  yrs",
+    "30": "8-9  yrs",
+    "32": "10-11  yrs",
+    "34": "12-14  yrs",
+    "36": "14+",
+    "Ladies size": "18+ Girl size"
+   },
+   "price_min": 700,
+   "price_max": 1500,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "Ladies size",
+    "36"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1276/61de15b9-2559-4452-bc22-7bcdc3226dae.webp",
+   "variants": [
+    {
+     "id": 1945,
+     "size": "18",
+     "colour": "Standard",
+     "price": 1500,
+     "availability": "out"
+    },
+    {
+     "id": 1946,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1500,
+     "availability": "out"
+    },
+    {
+     "id": 1947,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1500,
+     "availability": "out"
+    },
+    {
+     "id": 1948,
+     "size": "24",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 1949,
+     "size": "26",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 1950,
+     "size": "28",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 1951,
+     "size": "30",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 1952,
+     "size": "32",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 1953,
+     "size": "34",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 1954,
+     "size": "Ladies size",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "in"
+    },
+    {
+     "id": 2109,
+     "size": "36",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-19",
+   "is_new": true
+  },
   {
    "code": "STY-1235",
    "slug": "boys-premium-4-way-stretch-china-shirts-sty-1235",
@@ -1399,6 +1540,53 @@
     }
    ],
    "first_published": "2026-09-07",
+   "is_new": true
+  },
+  {
+   "code": "STY-1073",
+   "slug": "girls-3-8-month-sty-1073",
+   "name": "Girls 3 -8 Month",
+   "category": "Girls 1,2",
+   "category_parent": "Girls",
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 550,
+   "price_max": 550,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1073/6040c0a6-8fc3-4f78-9ed2-a3017a6495e7.webp",
+   "variants": [
+    {
+     "id": 251,
+     "size": "1",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "in"
+    },
+    {
+     "id": 252,
+     "size": "2",
+     "colour": "Standard",
+     "price": 550,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-19",
    "is_new": true
   },
   {

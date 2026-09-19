@@ -81,3 +81,4 @@ tr.link{cursor:pointer}tr.link:hover td{background:var(--blue-l)}
 .kv .sub{color:var(--mut);padding-left:12px;font-size:12.5px}
 .back{display:inline-block;margin:0 0 10px;font-size:13px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--n900);color:#fff;padding:9px 14px;border-radius:var(--r);font-size:13px;box-shadow:var(--sh);z-index:10}
+.card.notice{border-left:4px solid var(--amber-t);background:var(--amber-l);color:var(--amber-t);padding:12px 14px;font-size:14px;line-height:1.45}

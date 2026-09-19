@@ -8,6 +8,7 @@ import { json, timingSafeEqual, lastPush, TABLE } from './db.js';
 const COOKIE = 'bgc_admin';
 const HOURS = 12;
 const LOCK_AFTER = 5, LOCK_MINUTES = 15;
+const IP_AFTER = 20;                      // P97 — misses from one address in LOCK_MINUTES, any username
 const PBKDF2_ROUNDS = 100000;
 const PORTAL_ROLES = ['Owner', 'Manager'];
 const LEVEL_RANK = { DENY: 0, PIN: 1, ALLOW: 2 };
@@ -87,11 +88,18 @@ export async function login(context, db, { username, password }) {
   username = String(username || '').trim();
   const ip = context.request.headers.get('cf-connecting-ip') || '';
   const agent = (context.request.headers.get('user-agent') || '').slice(0, 200);
-  const record = (ok, why) => db.prepare(`INSERT INTO portal_logins (username, ok, why, ip, agent) VALUES (?1, ?2, ?3, ?4, ?5)`).bind(username, ok ? 1 : 0, why || null, ip, agent).run();
+  const device = await deviceOf(agent);
+  const record = (ok, why) => db.prepare(`INSERT INTO portal_logins (username, ok, why, ip, agent, device) VALUES (?1, ?2, ?3, ?4, ?5, ?6)`).bind(username, ok ? 1 : 0, why || null, ip, agent, device).run();
   const refuse = async (status, error, hint, why) => { await record(false, why || error); return json({ error, hint }, status); };
   if (!username || !password) return refuse(400, 'BAD_LOGIN', 'Username and password, please.');
-  // the lock: five misses on this username in fifteen minutes
   const since = new Date(Date.now() - LOCK_MINUTES * 60e3).toISOString();
+  // P97 — the address first: a stranger does not need the Owner's username to
+  // keep the door busy, so every miss from one IP counts, whatever the name
+  if (ip) {
+    const byIp = await db.prepare(`SELECT COUNT(*) AS n FROM portal_logins WHERE ip = ?1 AND ok = 0 AND at > ?2`).bind(ip, since).first();
+    if (byIp && byIp.n >= IP_AFTER) return refuse(429, 'TOO_MANY', `Too many tries from this connection — wait ${LOCK_MINUTES} minutes.`, 'ip_lock');
+  }
+  // the lock: five misses on this username in fifteen minutes
   // only a wrong password (or a name nobody has) is a guess; "log in to the POS
   // first" and "not a portal user" are answers, and answering five times must
   // not lock the Owner out of finding out what was wrong (2026-09-18, Fahad)
@@ -104,12 +112,19 @@ export async function login(context, db, { username, password }) {
   if (!u.portal_hash || !u.portal_salt) return refuse(403, 'NO_VERIFIER', 'Log in to the POS once, then try again.', 'no_verifier');
   const got = await derive(password, u.portal_salt);
   if (!timingSafeEqual(got, u.portal_hash)) return refuse(401, 'BAD_LOGIN', 'That username and password do not match.', 'bad_password');
-  await record(true);
+  // P97 — never succeeded from this device before? say so on the row; the Logins page and Today show it
+  const seen = await db.prepare(`SELECT 1 AS v FROM portal_logins WHERE username = ?1 AND ok = 1 AND device = ?2 LIMIT 1`).bind(username, device).first();
+  await record(true, seen ? null : 'new_device');
   const exp = Date.now() + HOURS * 3600e3;
   const token = await sign(secret, { uid: u.id, exp });
   const perms = await loadEffective(db, u.id); permCache.set(u.id, { perms, at: Date.now() });
   return json({ ok: true, user: { id: u.id, name: u.name, username: u.username, role: u.role }, perms, as_of: await lastPush(db) },
     200, { 'Set-Cookie': setCookie(token, HOURS * 3600) });
+}
+/** P97 — a short, stable name for the browser: 12 hex of SHA-256(user agent) */
+export async function deviceOf(agent) {
+  const d = await crypto.subtle.digest('SHA-256', enc.encode(String(agent || '')));
+  return [...new Uint8Array(d)].slice(0, 6).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 export const logout = () => json({ ok: true }, 200, { 'Set-Cookie': setCookie('', 0) });
 

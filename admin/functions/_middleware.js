@@ -17,11 +17,24 @@ export function explain(e) {
   return { status: 500, error: 'PORTAL_ERROR', hint: msg.slice(0, 200) || 'The portal hit an error it could not name — try again in a moment.' };
 }
 
+// P97 — what every answer carries: no sniffing, no framing, no referrer, no
+// camera; and nothing under /api/ is ever kept in a shared phone's cache
+export const HEADERS = {
+  'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'Referrer-Policy': 'no-referrer',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+};
+function harden(res, url) {
+  const out = new Response(res.body, res);
+  for (const [k, v] of Object.entries(HEADERS)) out.headers.set(k, v);
+  if (url.pathname.startsWith('/api/')) out.headers.set('Cache-Control', 'no-store');
+  return out;
+}
 export async function onRequest(context) {
-  try { return await context.next(); }
+  const url = new URL(context.request.url);
+  try { return harden(await context.next(), url); }
   catch (e) {
-    if (e && e.status && e.error) return json({ error: e.error, hint: e.hint }, e.status);
+    if (e && e.status && e.error) return harden(json({ error: e.error, hint: e.hint }, e.status), url);
     const x = explain(e);
-    return json({ error: x.error, hint: x.hint }, x.status);
+    return harden(json({ error: x.error, hint: x.hint }, x.status), url);
   }
 }

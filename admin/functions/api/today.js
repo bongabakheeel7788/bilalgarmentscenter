@@ -45,6 +45,11 @@ export const onRequestGet = guard('report.sales', async (user, db) => {
     if (num(n.to_check)) a.push(`${n.to_check} parcel${n.to_check == 1 ? '' : 's'} back with us, waiting to be opened`);
     out.orders = { new_orders: num(n.new_orders), attention: a };
   }
+  // P97 — the Owner hears about a login from a device this username never used before
+  if (can(user, 'user.manage')) {
+    const nd = await all(db, `SELECT at, username FROM portal_logins WHERE ok = 1 AND why = 'new_device' AND at > ?1 ORDER BY id DESC LIMIT 5`, ago(1));
+    if (nd.length) out.new_devices = nd;
+  }
   return out;
 });
 const ago = days => new Date(Date.now() - days * 86400e3).toISOString();
