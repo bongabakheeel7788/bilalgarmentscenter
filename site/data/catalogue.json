@@ -30,9 +30,9 @@
  },
  "categories": [
   {
-   "name": "Baby Accessories",
-   "parent": null,
-   "slug": "baby-accessories"
+   "name": "New Born",
+   "parent": "Boys",
+   "slug": "boys-new-born"
   },
   {
    "name": "Ladies Pents",
@@ -90,11 +90,6 @@
    "slug": "girls-girls-24-28"
   },
   {
-   "name": "New Born",
-   "parent": "Boys",
-   "slug": "boys-new-born"
-  },
-  {
    "name": "Boys",
    "parent": null,
    "slug": "boys"
@@ -103,10 +98,10 @@
  "products": [
   {
    "code": "STY-1278",
-   "slug": "accessories-baby-kit-sty-1278",
-   "name": "Accessories Baby Kit",
-   "category": "Baby Accessories",
-   "category_parent": null,
+   "slug": "boys-new-born-2-pieces-sty-1278",
+   "name": "Boys New Born 2 Pieces",
+   "category": "New Born",
+   "category_parent": "Boys",
    "size_group": "Baby Accessories",
    "gender": "unisex",
    "fabric": null,
@@ -2958,7 +2953,7 @@
    "name": "NewlyBorn Baby",
    "category": "New Born",
    "category_parent": "Boys",
-   "size_group": "NewBorn Baby",
+   "size_group": "New Born",
    "gender": "boys",
    "fabric": null,
    "set_contents": null,
@@ -2997,7 +2992,7 @@
    "name": "NewlyBorn Baby",
    "category": "New Born",
    "category_parent": "Boys",
-   "size_group": "NewBorn Baby",
+   "size_group": "New Born",
    "gender": "boys",
    "fabric": null,
    "set_contents": null,
@@ -3036,7 +3031,7 @@
    "name": "NewlyBorn Baby",
    "category": "New Born",
    "category_parent": "Boys",
-   "size_group": "NewBorn Baby",
+   "size_group": "New Born",
    "gender": "boys",
    "fabric": null,
    "set_contents": null,
@@ -3075,7 +3070,7 @@
    "name": "NewlyBorn Baby",
    "category": "New Born",
    "category_parent": "Boys",
-   "size_group": "NewBorn Baby",
+   "size_group": "New Born",
    "gender": "boys",
    "fabric": null,
    "set_contents": null,
@@ -3114,7 +3109,7 @@
    "name": "NewlyBorn Baby",
    "category": "New Born",
    "category_parent": "Boys",
-   "size_group": "NewBorn Baby",
+   "size_group": "New Born",
    "gender": "boys",
    "fabric": null,
    "set_contents": null,
