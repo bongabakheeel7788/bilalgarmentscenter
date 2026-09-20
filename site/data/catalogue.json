@@ -307,7 +307,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 1000,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-19",
@@ -573,7 +573,7 @@
      "photo": "media/STY-1224/28eb911c-916f-4f4b-952d-6a15c8025da0.webp"
     }
    ],
-   "cover": "media/STY-1224/06ea8a14-113b-47fb-862a-74728242824b.webp",
+   "cover": "media/STY-1224/2e60d64e-85e9-4c69-b901-e62479b7aab9.webp",
    "variants": [
     {
      "id": 1027,
@@ -1613,7 +1613,7 @@
      "photo": "media/STY-1177/f39bacc0-9c04-4dfd-94df-7ce7ef329751.webp"
     }
    ],
-   "cover": "media/STY-1177/76f3ad35-3150-4af7-9040-d752a62fd877.webp",
+   "cover": "media/STY-1177/5b5ca0f6-b97b-430b-80e4-b3c802182238.webp",
    "variants": [
     {
      "id": 609,
@@ -1668,7 +1668,7 @@
      "photo": "media/STY-1176/f8094af9-3d6a-4d3e-9cf7-60d9906b06d8.webp"
     }
    ],
-   "cover": "media/STY-1176/12d7a92b-c8b9-4d06-b6bb-4b0247e031a8.webp",
+   "cover": "media/STY-1176/f288760c-2d57-44ec-b0ca-ae62584a8c64.webp",
    "variants": [
     {
      "id": 606,
@@ -2093,7 +2093,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1076/fb62962f-2d4a-4b51-817a-5caceeb7f96f.webp",
+   "cover": "media/STY-1076/cdaac8b7-b79a-437b-8fbb-f33534271b10.webp",
    "variants": [
     {
      "id": 257,
@@ -2336,7 +2336,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1071/711d8a77-89e6-41ee-b5f8-63b57a3b10b4.webp",
+   "cover": "media/STY-1071/1dce8b7e-46e6-4ffb-a4c1-fe2b346dd1e2.webp",
    "variants": [
     {
      "id": 246,
@@ -2391,7 +2391,7 @@
      "photo": "media/STY-1070/a4cd1e6f-60f8-4ba5-9d55-046b30860dc8.webp"
     }
    ],
-   "cover": "media/STY-1070/5454acb7-9f67-48ce-a418-2640a6334cc3.webp",
+   "cover": "media/STY-1070/7629165a-4b69-4e61-b396-29123dd4886b.webp",
    "variants": [
     {
      "id": 243,
@@ -2446,7 +2446,7 @@
      "photo": "media/STY-1069/8374daae-cbbe-40a6-918b-82ebf7bf152c.webp"
     }
    ],
-   "cover": "media/STY-1069/9490bf19-dd48-420e-8571-cfd2e5b7d699.webp",
+   "cover": "media/STY-1069/085e2aa7-b5fe-400b-a756-bb34711931b0.webp",
    "variants": [
     {
      "id": 240,
@@ -2500,7 +2500,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1067/3a15b152-6193-44b8-9dc2-5513ea70328e.webp",
+   "cover": "media/STY-1067/3d91901d-b966-40e9-85ee-51469d2be310.webp",
    "variants": [
     {
      "id": 236,
@@ -2514,7 +2514,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 800,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-19",
@@ -2845,7 +2845,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1023/a3ee94eb-d43b-4571-9654-c5c382b5b71f.webp",
+   "cover": "media/STY-1023/9334ae67-21fe-4e7a-b483-b4a3d89454ce.webp",
    "variants": [
     {
      "id": 91,
@@ -2900,7 +2900,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1021/ea4bb634-ab4d-4f52-b68f-957908f966e2.webp",
+   "cover": "media/STY-1021/9f8a1231-3867-44f3-8243-68c6e320c1f9.webp",
    "variants": [
     {
      "id": 85,
@@ -3010,7 +3010,7 @@
      "photo": "media/STY-1019/d6bde478-22af-4740-8f45-84697ef834af.webp"
     }
    ],
-   "cover": "media/STY-1019/1d78e4a0-74e0-4fcf-bccb-c2ac68fb309c.webp",
+   "cover": "media/STY-1019/37249e97-9714-413f-a6b5-9c70d75099eb.webp",
    "variants": [
     {
      "id": 79,
@@ -3065,7 +3065,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1018/4bb490ad-9673-48bb-9486-ec55ad31bf01.webp",
+   "cover": "media/STY-1018/f64784e2-9f19-4acf-b3fd-c3b1de339e6b.webp",
    "variants": [
     {
      "id": 76,
@@ -3120,7 +3120,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1015/ed50eaef-5537-403b-8c1d-bb337796918f.webp",
+   "cover": "media/STY-1015/b0306af7-29b2-481d-971c-d805edb04407.webp",
    "variants": [
     {
      "id": 37,
