@@ -30,8 +30,10 @@ const norm = s => String(s == null ? '' : s).toLowerCase();
 const squash = s => norm(s).replace(/[\s\-_./]+/g, '');
 const has = (field, tok, tokSq) => { const f = norm(field); return !!f && (f.includes(tok) || squash(f).includes(tokSq)); };
 
-const PRODUCT_FIELDS = ['name', 'code', 'supplier_name', 'supplier', 'shopkeeper_name', 'category_name', 'category_parent', 'category', 'size_group', 'size_group_name', 'fabric', 'set_contents'];
-const VARIANT_FIELDS = ['sku', 'colour', 'size'];
+// P110 Part 5 — article and type join the one search rule. Typing "junjun 600"
+// has to find that product, because that is how Fahad says it out loud.
+const PRODUCT_FIELDS = ['name', 'code', 'article', 'product_type', 'supplier_name', 'supplier', 'shopkeeper_name', 'category_name', 'category_parent', 'category', 'size_group', 'size_group_name', 'fabric', 'set_contents'];
+const VARIANT_FIELDS = ['sku', 'colour', 'size', 'age'];   // P110 Part 5 — "3 years" finds the sizes that fit one
 
 /** split a query into words; returns [] for nothing to search */
 export function tokens(q) {
