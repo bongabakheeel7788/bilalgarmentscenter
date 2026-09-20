@@ -140,13 +140,6 @@ export default {
       "watermark": "ts",
       "reconcile": true
     },
-    "customer_sizes": {
-      "key": [
-        "id"
-      ],
-      "watermark": "ts",
-      "reconcile": true
-    },
     "invoices": {
       "key": [
         "id"
