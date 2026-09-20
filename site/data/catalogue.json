@@ -70,14 +70,19 @@
    "slug": "girls-girls-fancy-frocks"
   },
   {
-   "name": "Girls 30-34",
-   "parent": "Girls",
-   "slug": "girls-girls-30-34"
+   "name": "Boys 20-22",
+   "parent": "Boys",
+   "slug": "boys-boys-20-22"
   },
   {
    "name": "Shirts 20-26",
    "parent": "Boys",
    "slug": "boys-shirts-20-26"
+  },
+  {
+   "name": "Girls 30-34",
+   "parent": "Girls",
+   "slug": "girls-girls-30-34"
   },
   {
    "name": "Girls 24-28",
@@ -856,7 +861,7 @@
      "size": "Medium",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 977,
@@ -1482,7 +1487,7 @@
      "size": "28",
      "colour": "Standard",
      "price": 2000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 803,
@@ -1528,6 +1533,351 @@
     }
    ],
    "first_published": "2026-09-16",
+   "is_new": true
+  },
+  {
+   "code": "STY-1188",
+   "slug": "pineapple-sty-1188",
+   "name": "PineApple",
+   "category": "Boys 20-22",
+   "category_parent": "Boys",
+   "size_group": "Boys 20-22",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1188/222c671a-5518-4382-98f8-3ca003abe490.webp",
+   "variants": [
+    {
+     "id": 649,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1200,
+     "availability": "out"
+    },
+    {
+     "id": 650,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1200,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
+   "code": "STY-1187",
+   "slug": "pineapple-sty-1187",
+   "name": "PineApple",
+   "category": "Boys 20-22",
+   "category_parent": "Boys",
+   "size_group": "Boys 20-22",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1187/aab68711-b7b4-4d0a-a629-58ee7a270e61.webp",
+   "variants": [
+    {
+     "id": 647,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 648,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
+   "code": "STY-1186",
+   "slug": "rim-jhim-sty-1186",
+   "name": "Rim Jhim",
+   "category": "Boys 20-22",
+   "category_parent": "Boys",
+   "size_group": "Boys 20-22",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1050,
+   "price_max": 1050,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1186/151b4cf8-23ca-4355-b397-9742c7b0c78e.webp",
+   "variants": [
+    {
+     "id": 645,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1050,
+     "availability": "out"
+    },
+    {
+     "id": 646,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1050,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
+   "code": "STY-1185",
+   "slug": "jhun-jhun-sty-1185",
+   "name": "Jhun Jhun",
+   "category": "Boys 20-22",
+   "category_parent": "Boys",
+   "size_group": "Boys 20-22",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1300,
+   "price_max": 1300,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1185/15febe18-3e5c-4b14-b097-61e3d4ffb65f.webp",
+   "variants": [
+    {
+     "id": 643,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "out"
+    },
+    {
+     "id": 644,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
+   "code": "STY-1184",
+   "slug": "royal-kids-sty-1184",
+   "name": "Royal Kids",
+   "category": "Boys 20-22",
+   "category_parent": "Boys",
+   "size_group": "Boys 20-22",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1300,
+   "price_max": 1300,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1184/02944399-793e-432f-b217-64b134c9f5b8.webp",
+   "variants": [
+    {
+     "id": 641,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "out"
+    },
+    {
+     "id": 642,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
+   "code": "STY-1183",
+   "slug": "jhun-jhun-sty-1183",
+   "name": "Jhun Jhun",
+   "category": "Boys 20-22",
+   "category_parent": "Boys",
+   "size_group": "Boys 20-22",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1183/b283b2f1-4484-45b8-96a4-49acf3ba19dc.webp",
+   "variants": [
+    {
+     "id": 639,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1200,
+     "availability": "out"
+    },
+    {
+     "id": 640,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
+   "code": "STY-1180",
+   "slug": "polo-shirts-sty-1180",
+   "name": "Polo Shirts",
+   "category": "Shirts 20-26",
+   "category_parent": "Boys",
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 600,
+   "price_max": 600,
+   "sizes": [
+    "20",
+    "22",
+    "24",
+    "26"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1180/60c083e4-aae4-4b4f-b1fc-436c2d15fdaf.webp",
+   "variants": [
+    {
+     "id": 619,
+     "size": "20",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 620,
+     "size": "22",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 621,
+     "size": "24",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 622,
+     "size": "26",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-20",
    "is_new": true
   },
   {
@@ -2474,6 +2824,53 @@
    "is_new": true
   },
   {
+   "code": "STY-1068",
+   "slug": "boys-for-5-7-years-sty-1068",
+   "name": "Boys for 5-7 Years",
+   "category": "Boys 20-22",
+   "category_parent": "Boys",
+   "size_group": "Boys 20-22",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1068/01184105-e40f-496b-9379-3ef2732468a1.webp",
+   "variants": [
+    {
+     "id": 238,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1200,
+     "availability": "out"
+    },
+    {
+     "id": 239,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
    "code": "STY-1067",
    "slug": "boys-3-8-month-sty-1067",
    "name": "Boys 3 - 8 Month",
@@ -2561,7 +2958,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 750,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-19",
@@ -2763,6 +3160,53 @@
    "is_new": true
   },
   {
+   "code": "STY-1047",
+   "slug": "boys-for-5-7-years-sty-1047",
+   "name": "Boys for 5-7 Years",
+   "category": "Boys 20-22",
+   "category_parent": "Boys",
+   "size_group": "Boys 20-22",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1047/86b2bf15-3af8-48b6-93b2-4675c20230d6.webp",
+   "variants": [
+    {
+     "id": 192,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 193,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
    "code": "STY-1028",
    "slug": "girls-for-8-12-years-sty-1028",
    "name": "Girls for 8-12 Years",
@@ -2852,7 +3296,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 92,
@@ -3127,7 +3571,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1000,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 38,
@@ -3237,7 +3681,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1100,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 32,
