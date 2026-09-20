@@ -570,10 +570,10 @@
     {
      "name": "Standard",
      "hex": "#e5e7eb",
-     "photo": null
+     "photo": "media/STY-1224/28eb911c-916f-4f4b-952d-6a15c8025da0.webp"
     }
    ],
-   "cover": "media/STY-1224/eee1d91f-e669-4935-89b6-14e4fc6ab89f.webp",
+   "cover": "media/STY-1224/06ea8a14-113b-47fb-862a-74728242824b.webp",
    "variants": [
     {
      "id": 1027,
@@ -1150,6 +1150,133 @@
    "is_new": true
   },
   {
+   "code": "STY-1209",
+   "slug": "girls-fancy-frocks-sty-1209",
+   "name": "Girls Fancy Frocks",
+   "category": "Girls Fancy Frocks",
+   "category_parent": "Girls",
+   "size_group": "Girls Fancy Frocks",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1700,
+   "price_max": 1900,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1209/e48aad2c-e356-4934-bdc4-35da054691b7.webp",
+   "variants": [
+    {
+     "id": 821,
+     "size": "18",
+     "colour": "Standard",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 822,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 823,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 824,
+     "size": "24",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "few"
+    },
+    {
+     "id": 825,
+     "size": "26",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "few"
+    },
+    {
+     "id": 826,
+     "size": "28",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "few"
+    },
+    {
+     "id": 827,
+     "size": "30",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "few"
+    },
+    {
+     "id": 828,
+     "size": "32",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "few"
+    },
+    {
+     "id": 829,
+     "size": "34",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "few"
+    },
+    {
+     "id": 830,
+     "size": "36",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "out"
+    },
+    {
+     "id": 831,
+     "size": "38",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "out"
+    },
+    {
+     "id": 832,
+     "size": "40",
+     "colour": "Standard",
+     "price": 1900,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
    "code": "STY-1208",
    "slug": "girls-fancy-frocks-sty-1208",
    "name": "Girls Fancy Frocks",
@@ -1186,7 +1313,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1208/668eac8a-2909-4a34-b315-e828cad0563d.webp",
+   "cover": "media/STY-1208/668af7ff-f911-49aa-991d-9c0fc6c46ee6.webp",
    "variants": [
     {
      "id": 809,
@@ -1404,6 +1531,61 @@
    "is_new": true
   },
   {
+   "code": "STY-1178",
+   "slug": "star-light-sty-1178",
+   "name": "Star Light",
+   "category": "Boys SML",
+   "category_parent": "Boys",
+   "size_group": "Boys SML",
+   "gender": null,
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1178/bbc89be4-eb1e-4950-a731-d405fb289836.webp",
+   "variants": [
+    {
+     "id": 612,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 613,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 614,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
    "code": "STY-1177",
    "slug": "raza-care-sty-1177",
    "name": "Raza Care",
@@ -1428,10 +1610,10 @@
     {
      "name": "Standard",
      "hex": "#e5e7eb",
-     "photo": null
+     "photo": "media/STY-1177/f39bacc0-9c04-4dfd-94df-7ce7ef329751.webp"
     }
    ],
-   "cover": "media/STY-1177/381488b4-1777-4f53-ba97-4dd60d41d478.webp",
+   "cover": "media/STY-1177/76f3ad35-3150-4af7-9040-d752a62fd877.webp",
    "variants": [
     {
      "id": 609,
@@ -1483,10 +1665,10 @@
     {
      "name": "Standard",
      "hex": "#e5e7eb",
-     "photo": null
+     "photo": "media/STY-1176/f8094af9-3d6a-4d3e-9cf7-60d9906b06d8.webp"
     }
    ],
-   "cover": "media/STY-1176/69060695-915b-4983-be09-2eea391c1d5e.webp",
+   "cover": "media/STY-1176/12d7a92b-c8b9-4d06-b6bb-4b0247e031a8.webp",
    "variants": [
     {
      "id": 606,
@@ -1566,6 +1748,61 @@
     }
    ],
    "first_published": "2026-09-11",
+   "is_new": true
+  },
+  {
+   "code": "STY-1156",
+   "slug": "joha-fashion-sty-1156",
+   "name": "Joha Fashion",
+   "category": "Girls 30-34",
+   "category_parent": "Girls",
+   "size_group": "Girls 30-34",
+   "gender": "girls",
+   "fabric": "Cotton",
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 2100,
+   "price_max": 2100,
+   "sizes": [
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1156/6d68310d-0bd7-419a-8109-9ad91e529f13.webp",
+   "variants": [
+    {
+     "id": 546,
+     "size": "30",
+     "colour": "Standard",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 547,
+     "size": "32",
+     "colour": "Standard",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 548,
+     "size": "34",
+     "colour": "Standard",
+     "price": 2100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-20",
    "is_new": true
   },
   {
@@ -1856,7 +2093,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1076/09f042d3-3022-435f-956b-c5fd6a82b191.webp",
+   "cover": "media/STY-1076/fb62962f-2d4a-4b51-817a-5caceeb7f96f.webp",
    "variants": [
     {
      "id": 257,
@@ -2099,7 +2336,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1071/f8774b90-d23c-4f27-b5dc-e7197644b5ab.webp",
+   "cover": "media/STY-1071/711d8a77-89e6-41ee-b5f8-63b57a3b10b4.webp",
    "variants": [
     {
      "id": 246,
@@ -2151,10 +2388,10 @@
     {
      "name": "Standard",
      "hex": "#e5e7eb",
-     "photo": null
+     "photo": "media/STY-1070/a4cd1e6f-60f8-4ba5-9d55-046b30860dc8.webp"
     }
    ],
-   "cover": "media/STY-1070/7895dcf7-9c9b-4599-b36b-92cba14d0861.webp",
+   "cover": "media/STY-1070/5454acb7-9f67-48ce-a418-2640a6334cc3.webp",
    "variants": [
     {
      "id": 243,
@@ -2206,10 +2443,10 @@
     {
      "name": "Standard",
      "hex": "#e5e7eb",
-     "photo": null
+     "photo": "media/STY-1069/8374daae-cbbe-40a6-918b-82ebf7bf152c.webp"
     }
    ],
-   "cover": "media/STY-1069/edd01a40-7dd9-431a-82ed-976619b1cffd.webp",
+   "cover": "media/STY-1069/9490bf19-dd48-420e-8571-cfd2e5b7d699.webp",
    "variants": [
     {
      "id": 240,
@@ -2526,6 +2763,61 @@
    "is_new": true
   },
   {
+   "code": "STY-1028",
+   "slug": "girls-for-8-12-years-sty-1028",
+   "name": "Girls for 8-12 Years",
+   "category": "Girls 30-34",
+   "category_parent": "Girls",
+   "size_group": "Girls 30-34",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "product_type": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1400,
+   "price_max": 1400,
+   "sizes": [
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1028/35f3e595-372b-4ae3-9975-46c3c132fa6f.webp",
+   "variants": [
+    {
+     "id": 106,
+     "size": "30",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 107,
+     "size": "32",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 108,
+     "size": "34",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-20",
+   "is_new": true
+  },
+  {
    "code": "STY-1023",
    "slug": "boys-sml-sty-1023",
    "name": "Boys SML",
@@ -2608,7 +2900,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1021/18ffcc2d-1c99-48d6-8c48-a15e8b9136b5.webp",
+   "cover": "media/STY-1021/ea4bb634-ab4d-4f52-b68f-957908f966e2.webp",
    "variants": [
     {
      "id": 85,
@@ -2663,7 +2955,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1020/3300cfbb-00b7-4f2b-935d-211a19949771.webp",
+   "cover": "media/STY-1020/68c09e81-d6fc-4bf5-b353-c787f2e5279b.webp",
    "variants": [
     {
      "id": 82,
@@ -2715,10 +3007,10 @@
     {
      "name": "Standard",
      "hex": "#e5e7eb",
-     "photo": null
+     "photo": "media/STY-1019/d6bde478-22af-4740-8f45-84697ef834af.webp"
     }
    ],
-   "cover": "media/STY-1019/78454b3e-8abb-485b-b019-10f8a302a494.webp",
+   "cover": "media/STY-1019/1d78e4a0-74e0-4fcf-bccb-c2ac68fb309c.webp",
    "variants": [
     {
      "id": 79,
@@ -2773,7 +3065,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1018/b3b64a7d-8997-49a0-abb7-95a681f589a2.webp",
+   "cover": "media/STY-1018/4bb490ad-9673-48bb-9486-ec55ad31bf01.webp",
    "variants": [
     {
      "id": 76,
@@ -2828,7 +3120,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1015/0961de41-2c15-442e-bd61-c6be9240e7dd.webp",
+   "cover": "media/STY-1015/ed50eaef-5537-403b-8c1d-bb337796918f.webp",
    "variants": [
     {
      "id": 37,
@@ -2883,7 +3175,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1014/24e00191-ad86-4a36-aaae-9d9dd869c7b2.webp",
+   "cover": "media/STY-1014/ab47e00c-3420-4555-be0b-3c1946165459.webp",
    "variants": [
     {
      "id": 34,
@@ -2935,10 +3227,10 @@
     {
      "name": "Standard",
      "hex": "#e5e7eb",
-     "photo": null
+     "photo": "media/STY-1013/e78b41b0-8dde-4b0f-aa62-5d6722b824fc.webp"
     }
    ],
-   "cover": "media/STY-1013/74178f55-a946-4117-90d9-a5415a7684a0.webp",
+   "cover": "media/STY-1013/ee202d0f-c0bb-4919-a089-bd48d4c1beb3.webp",
    "variants": [
     {
      "id": 31,
