@@ -274,7 +274,7 @@
    "category_parent": null,
    "size_group": "Boys Shirts",
    "gender": "boys",
-   "fabric": null,
+   "fabric": "Cotton",
    "set_contents": "Shirt",
    "age_group": null,
    "season": null,
@@ -966,6 +966,100 @@
      "size": "40",
      "colour": "Washable",
      "price": 600,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1240",
+   "slug": "boys-shirts-sty-1240",
+   "name": "Boys Shirts",
+   "category": "Casual Shirts",
+   "category_parent": null,
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 650,
+   "price_max": 650,
+   "sizes": [
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1240/dcb2db63-1e15-4fcd-a943-ba31aa480994.webp",
+   "variants": [
+    {
+     "id": 1130,
+     "size": "16",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "in"
+    },
+    {
+     "id": 1131,
+     "size": "18",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "in"
+    },
+    {
+     "id": 1132,
+     "size": "20",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 1133,
+     "size": "22",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 1134,
+     "size": "24",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 1135,
+     "size": "26",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 1136,
+     "size": "28",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 1137,
+     "size": "30",
+     "colour": "Standard",
+     "price": 650,
      "availability": "out"
     }
    ],
@@ -2186,7 +2280,7 @@
    "category_parent": null,
    "size_group": "Boys Pents",
    "gender": "boys",
-   "fabric": null,
+   "fabric": "Jeans",
    "set_contents": null,
    "age_group": null,
    "season": null,
@@ -2214,7 +2308,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1191/b57c1695-b24a-4680-b7d8-cca44b96ae2c.webp",
+   "cover": "media/STY-1191/19fd301e-f3b0-4ef0-b29e-483353e2cfed.webp",
    "variants": [
     {
      "id": 665,
@@ -2860,17 +2954,21 @@
   },
   {
    "code": "STY-1165",
-   "slug": "aiman-koleksi-sty-1165",
-   "name": "Aiman Koleksi",
+   "slug": "girls-jersey-2-pcs-set-suit-for-all-seasons-by-aiman-koleksi-sty-1165",
+   "name": "Girls Jersey 2 pcs Set / Suit for All seasons by Aiman Koleksi",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Girls 30-34",
    "gender": "girls",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Jersey",
+   "set_contents": "2 pcs",
+   "age_group": "8 Years",
+   "season": "ALL",
+   "size_ages": {
+    "30": "8 Years–9 Years",
+    "32": "9 Years–10 Years",
+    "34": "10 Years–12 Years"
+   },
    "price_min": 1400,
    "price_max": 1400,
    "sizes": [
@@ -2885,7 +2983,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1165/61f5c14e-9b4c-449c-9b7b-9dd62ef7a6a7.webp",
+   "cover": "media/STY-1165/c1013023-ffb5-4d70-893b-1adb28b51960.webp",
    "variants": [
     {
      "id": 573,
@@ -2910,6 +3008,60 @@
     }
    ],
    "first_published": "2026-09-11",
+   "is_new": true
+  },
+  {
+   "code": "STY-1160",
+   "slug": "baby-one-sty-1160",
+   "name": "Baby One",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 30-34",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 2100,
+   "price_max": 2100,
+   "sizes": [
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1160/1f662c5d-f6d7-4dcb-a130-7ebc609985a9.webp",
+   "variants": [
+    {
+     "id": 558,
+     "size": "30",
+     "colour": "Standard",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 559,
+     "size": "32",
+     "colour": "Standard",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 560,
+     "size": "34",
+     "colour": "Standard",
+     "price": 2100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-22",
    "is_new": true
   },
   {
@@ -3092,7 +3244,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1152/2c8419f3-2cfb-4ccf-adb2-8cbb69c7f763.webp",
+   "cover": "media/STY-1152/0f627cce-771a-4301-b7f1-29802d04cc5d.webp",
    "variants": [
     {
      "id": 524,
@@ -3228,7 +3380,7 @@
      "size": "26",
      "colour": "Standard",
      "price": 600,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 522,
