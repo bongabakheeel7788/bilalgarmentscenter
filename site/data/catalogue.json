@@ -1290,7 +1290,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -2899,60 +2899,6 @@
    "is_new": true
   },
   {
-   "code": "STY-1169",
-   "slug": "bhs-sty-1169",
-   "name": "B.H.S",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Girls 30-34",
-   "gender": "girls",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 1300,
-   "price_max": 1300,
-   "sizes": [
-    "30",
-    "32",
-    "34"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1169/dcedbba5-be71-466c-b202-aefd5fa57c42.webp",
-   "variants": [
-    {
-     "id": 585,
-     "size": "30",
-     "colour": "Standard",
-     "price": 1300,
-     "availability": "few"
-    },
-    {
-     "id": 586,
-     "size": "32",
-     "colour": "Standard",
-     "price": 1300,
-     "availability": "few"
-    },
-    {
-     "id": 587,
-     "size": "34",
-     "colour": "Standard",
-     "price": 1300,
-     "availability": "out"
-    }
-   ],
-   "first_published": "2026-09-22",
-   "is_new": true
-  },
-  {
    "code": "STY-1165",
    "slug": "girls-jersey-2-pcs-set-suit-by-aiman-koleksi-sty-1165",
    "name": "Girls Jersey 2 pcs Set / Suit by Aiman Koleksi",
@@ -3008,60 +2954,6 @@
     }
    ],
    "first_published": "2026-09-11",
-   "is_new": true
-  },
-  {
-   "code": "STY-1160",
-   "slug": "baby-one-sty-1160",
-   "name": "Baby One",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Girls 30-34",
-   "gender": "girls",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 2100,
-   "price_max": 2100,
-   "sizes": [
-    "30",
-    "32",
-    "34"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1160/1f662c5d-f6d7-4dcb-a130-7ebc609985a9.webp",
-   "variants": [
-    {
-     "id": 558,
-     "size": "30",
-     "colour": "Standard",
-     "price": 2100,
-     "availability": "few"
-    },
-    {
-     "id": 559,
-     "size": "32",
-     "colour": "Standard",
-     "price": 2100,
-     "availability": "few"
-    },
-    {
-     "id": 560,
-     "size": "34",
-     "colour": "Standard",
-     "price": 2100,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-22",
    "is_new": true
   },
   {
@@ -4448,7 +4340,7 @@
    "category_parent": null,
    "size_group": "New Born",
    "gender": "unisex",
-   "fabric": null,
+   "fabric": "Jersey",
    "set_contents": null,
    "age_group": null,
    "season": null,
