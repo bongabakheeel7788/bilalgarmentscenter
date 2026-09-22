@@ -213,6 +213,216 @@
    "is_new": true
   },
   {
+   "code": "STY-1274",
+   "slug": "boys-pents-1000-sty-1274",
+   "name": "Boys Pents 1000",
+   "category": "Casual Pants",
+   "category_parent": null,
+   "size_group": "Boys Pents",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1000,
+   "price_max": 1100,
+   "sizes": [
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1274/6be5c84d-73dc-48d3-9bc5-4375e68344f6.webp",
+   "variants": [
+    {
+     "id": 1522,
+     "size": "36",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "few"
+    },
+    {
+     "id": 1523,
+     "size": "38",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "few"
+    },
+    {
+     "id": 1524,
+     "size": "40",
+     "colour": "Standard",
+     "price": 1100,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1259",
+   "slug": "boys-inner-shirts-sty-1259",
+   "name": "Boys Inner Shirts",
+   "category": "Casual Shirts",
+   "category_parent": null,
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": "Shirt",
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 800,
+   "price_max": 800,
+   "sizes": [
+    "20",
+    "22",
+    "24",
+    "26"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1259/258b277f-a371-4b31-8a9e-d5921fb993e7.webp",
+   "variants": [
+    {
+     "id": 1452,
+     "size": "20",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 1453,
+     "size": "22",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 1454,
+     "size": "24",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 1455,
+     "size": "26",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1258",
+   "slug": "boys-check-shirt-sty-1258",
+   "name": "Boys Check Shirt",
+   "category": "Casual Shirts",
+   "category_parent": null,
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": "China Check",
+   "set_contents": "Shirt",
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 600,
+   "price_max": 700,
+   "sizes": [
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1258/45089f34-d2d3-4dda-a542-5c8753d0eaf6.webp",
+   "variants": [
+    {
+     "id": 1444,
+     "size": "16",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "in"
+    },
+    {
+     "id": 1445,
+     "size": "18",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "in"
+    },
+    {
+     "id": 1446,
+     "size": "20",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "in"
+    },
+    {
+     "id": 1447,
+     "size": "22",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "in"
+    },
+    {
+     "id": 1448,
+     "size": "24",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "in"
+    },
+    {
+     "id": 1449,
+     "size": "26",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "in"
+    },
+    {
+     "id": 1450,
+     "size": "28",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    },
+    {
+     "id": 1451,
+     "size": "30",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
    "code": "STY-1247",
    "slug": "boys-suits-sty-1247",
    "name": "Boys suits",
@@ -256,6 +466,510 @@
     }
    ],
    "first_published": "2026-09-19",
+   "is_new": true
+  },
+  {
+   "code": "STY-1244",
+   "slug": "boys-pents-fancy-1-to-4-years-sty-1244",
+   "name": "Boys Pents Fancy 1 to 4 Years",
+   "category": "Casual Pants",
+   "category_parent": null,
+   "size_group": "Boys Pents",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 850,
+   "price_max": 850,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Washable",
+     "hex": "#2196f3",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1244/e988cbae-88c9-4e35-bbf1-8c24cef8452a.webp",
+   "variants": [
+    {
+     "id": 1174,
+     "size": "18",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1175,
+     "size": "20",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "in"
+    },
+    {
+     "id": 1176,
+     "size": "22",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "in"
+    },
+    {
+     "id": 1177,
+     "size": "24",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1178,
+     "size": "26",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1179,
+     "size": "28",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1180,
+     "size": "30",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1181,
+     "size": "32",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1182,
+     "size": "34",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1183,
+     "size": "36",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1184,
+     "size": "38",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    },
+    {
+     "id": 1185,
+     "size": "40",
+     "colour": "Washable",
+     "price": 850,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1243",
+   "slug": "boys-pents-simple-1-to-4-years-sty-1243",
+   "name": "Boys Pents Simple 1 to 4 Years",
+   "category": "Casual Pants",
+   "category_parent": null,
+   "size_group": "Boys Pents",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 500,
+   "price_max": 500,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Washable",
+     "hex": "#2196f3",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1243/3126de23-9b0c-41ab-a2bd-ebde391d6cc5.webp",
+   "variants": [
+    {
+     "id": 1162,
+     "size": "18",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1163,
+     "size": "20",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 1164,
+     "size": "22",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "in"
+    },
+    {
+     "id": 1165,
+     "size": "24",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1166,
+     "size": "26",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1167,
+     "size": "28",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1168,
+     "size": "30",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1169,
+     "size": "32",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1170,
+     "size": "34",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1171,
+     "size": "36",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1172,
+     "size": "38",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1173,
+     "size": "40",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1242",
+   "slug": "boys-pents-simple-1-to-4-years-sty-1242",
+   "name": "Boys Pents Simple 1 to 4 Years",
+   "category": "Casual Pants",
+   "category_parent": null,
+   "size_group": "Boys Pents",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 500,
+   "price_max": 500,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Washable",
+     "hex": "#2196f3",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1242/d445808c-2b2b-4aa8-af09-5d3b37a90e06.webp",
+   "variants": [
+    {
+     "id": 1150,
+     "size": "18",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "in"
+    },
+    {
+     "id": 1151,
+     "size": "20",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 1152,
+     "size": "22",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1153,
+     "size": "24",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1154,
+     "size": "26",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1155,
+     "size": "28",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1156,
+     "size": "30",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1157,
+     "size": "32",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1158,
+     "size": "34",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1159,
+     "size": "36",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1160,
+     "size": "38",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    },
+    {
+     "id": 1161,
+     "size": "40",
+     "colour": "Washable",
+     "price": 500,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1241",
+   "slug": "boys-pents-fancy-1-to-4-years-sty-1241",
+   "name": "Boys Pents Fancy 1 to 4 Years",
+   "category": "Casual Pants",
+   "category_parent": null,
+   "size_group": "Boys Pents",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 600,
+   "price_max": 600,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Washable",
+     "hex": "#2196f3",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1241/c14abb70-b7a5-4dba-9bd6-83f941ec2909.webp",
+   "variants": [
+    {
+     "id": 1138,
+     "size": "18",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 1139,
+     "size": "20",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "in"
+    },
+    {
+     "id": 1140,
+     "size": "22",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 1141,
+     "size": "24",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 1142,
+     "size": "26",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 1143,
+     "size": "28",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 1144,
+     "size": "30",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 1145,
+     "size": "32",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 1146,
+     "size": "34",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 1147,
+     "size": "36",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 1148,
+     "size": "38",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 1149,
+     "size": "40",
+     "colour": "Washable",
+     "price": 600,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
    "is_new": true
   },
   {
@@ -1465,6 +2179,132 @@
    "is_new": true
   },
   {
+   "code": "STY-1191",
+   "slug": "boys-pents-sty-1191",
+   "name": "Boys Pents",
+   "category": "Casual Pants",
+   "category_parent": null,
+   "size_group": "Boys Pents",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 650,
+   "price_max": 700,
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40"
+   ],
+   "colours": [
+    {
+     "name": "Washable",
+     "hex": "#2196f3",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1191/b57c1695-b24a-4680-b7d8-cca44b96ae2c.webp",
+   "variants": [
+    {
+     "id": 665,
+     "size": "18",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 666,
+     "size": "20",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 667,
+     "size": "22",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 668,
+     "size": "24",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "in"
+    },
+    {
+     "id": 669,
+     "size": "26",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "in"
+    },
+    {
+     "id": 670,
+     "size": "28",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "in"
+    },
+    {
+     "id": 671,
+     "size": "30",
+     "colour": "Washable",
+     "price": 700,
+     "availability": "in"
+    },
+    {
+     "id": 672,
+     "size": "32",
+     "colour": "Washable",
+     "price": 700,
+     "availability": "out"
+    },
+    {
+     "id": 673,
+     "size": "34",
+     "colour": "Washable",
+     "price": 700,
+     "availability": "in"
+    },
+    {
+     "id": 674,
+     "size": "36",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 675,
+     "size": "38",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 676,
+     "size": "40",
+     "colour": "Washable",
+     "price": 650,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
    "code": "STY-1188",
    "slug": "pineapple-sty-1188",
    "name": "PineApple",
@@ -1965,6 +2805,114 @@
    "is_new": true
   },
   {
+   "code": "STY-1169",
+   "slug": "bhs-sty-1169",
+   "name": "B.H.S",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 30-34",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1300,
+   "price_max": 1300,
+   "sizes": [
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1169/dcedbba5-be71-466c-b202-aefd5fa57c42.webp",
+   "variants": [
+    {
+     "id": 585,
+     "size": "30",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "few"
+    },
+    {
+     "id": 586,
+     "size": "32",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "few"
+    },
+    {
+     "id": 587,
+     "size": "34",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1165",
+   "slug": "aiman-koleksi-sty-1165",
+   "name": "Aiman Koleksi",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 30-34",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1400,
+   "price_max": 1400,
+   "sizes": [
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1165/61f5c14e-9b4c-449c-9b7b-9dd62ef7a6a7.webp",
+   "variants": [
+    {
+     "id": 573,
+     "size": "30",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "out"
+    },
+    {
+     "id": 574,
+     "size": "32",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 575,
+     "size": "34",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-11",
+   "is_new": true
+  },
+  {
    "code": "STY-1156",
    "slug": "joha-fashion-sty-1156",
    "name": "Joha Fashion",
@@ -2019,6 +2967,100 @@
    "is_new": true
   },
   {
+   "code": "STY-1153",
+   "slug": "boys-shirts-embossed-sty-1153",
+   "name": "Boys Shirts Embossed",
+   "category": "Casual Shirts",
+   "category_parent": null,
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 650,
+   "price_max": 650,
+   "sizes": [
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1153/f5c8760e-add2-4d80-8539-c1fc04f653ae.webp",
+   "variants": [
+    {
+     "id": 532,
+     "size": "16",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 533,
+     "size": "18",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 534,
+     "size": "20",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 535,
+     "size": "22",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 536,
+     "size": "24",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 537,
+     "size": "26",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 538,
+     "size": "28",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 539,
+     "size": "30",
+     "colour": "Standard",
+     "price": 650,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
    "code": "STY-1152",
    "slug": "boys-shirts-sty-1152",
    "name": "Boys Shirts",
@@ -2050,7 +3092,7 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1152/120b4119-051f-4bc7-8839-11471a680b01.webp",
+   "cover": "media/STY-1152/2c8419f3-2cfb-4ccf-adb2-8cbb69c7f763.webp",
    "variants": [
     {
      "id": 524,
@@ -2110,6 +3152,288 @@
     }
    ],
    "first_published": "2026-09-15",
+   "is_new": true
+  },
+  {
+   "code": "STY-1151",
+   "slug": "boys-shirts-sty-1151",
+   "name": "Boys Shirts",
+   "category": "Casual Shirts",
+   "category_parent": null,
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 600,
+   "price_max": 600,
+   "sizes": [
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1151/0d540328-2d59-477e-9b35-5c78616ea34e.webp",
+   "variants": [
+    {
+     "id": 516,
+     "size": "16",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 517,
+     "size": "18",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 518,
+     "size": "20",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 519,
+     "size": "22",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 520,
+     "size": "24",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 521,
+     "size": "26",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 522,
+     "size": "28",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    },
+    {
+     "id": 523,
+     "size": "30",
+     "colour": "Standard",
+     "price": 600,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1150",
+   "slug": "boys-shirts-sty-1150",
+   "name": "Boys Shirts",
+   "category": "Casual Shirts",
+   "category_parent": null,
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 700,
+   "price_max": 700,
+   "sizes": [
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1150/1e10739b-d925-42ac-a424-e799d96b7ccc.webp",
+   "variants": [
+    {
+     "id": 508,
+     "size": "16",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    },
+    {
+     "id": 509,
+     "size": "18",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    },
+    {
+     "id": 510,
+     "size": "20",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "in"
+    },
+    {
+     "id": 511,
+     "size": "22",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 512,
+     "size": "24",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 513,
+     "size": "26",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 514,
+     "size": "28",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    },
+    {
+     "id": 515,
+     "size": "30",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
+   "is_new": true
+  },
+  {
+   "code": "STY-1147",
+   "slug": "boys-shirts-sty-1147",
+   "name": "Boys Shirts",
+   "category": "Casual Shirts",
+   "category_parent": null,
+   "size_group": "Boys Shirts",
+   "gender": "boys",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 900,
+   "price_max": 900,
+   "sizes": [
+    "16",
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1147/bcd2e012-33c5-4304-8a8f-c83d249c98e7.webp",
+   "variants": [
+    {
+     "id": 484,
+     "size": "16",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 485,
+     "size": "18",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 486,
+     "size": "20",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 487,
+     "size": "22",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 488,
+     "size": "24",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 489,
+     "size": "26",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 490,
+     "size": "28",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 491,
+     "size": "30",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-22",
    "is_new": true
   },
   {
