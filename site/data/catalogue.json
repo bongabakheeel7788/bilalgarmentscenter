@@ -4315,60 +4315,6 @@
    "is_new": true
   },
   {
-   "code": "STY-1028",
-   "slug": "girls-for-8-12-years-sty-1028",
-   "name": "Girls for 8-12 Years",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Girls 30-34",
-   "gender": "girls",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 1400,
-   "price_max": 1400,
-   "sizes": [
-    "30",
-    "32",
-    "34"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1028/35f3e595-372b-4ae3-9975-46c3c132fa6f.webp",
-   "variants": [
-    {
-     "id": 106,
-     "size": "30",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "few"
-    },
-    {
-     "id": 107,
-     "size": "32",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "few"
-    },
-    {
-     "id": 108,
-     "size": "34",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-20",
-   "is_new": true
-  },
-  {
    "code": "STY-1023",
    "slug": "boys-jersey-pent-shirt-set-suit-by-hello-too-sty-1023",
    "name": "Boys Jersey Pent Shirt Set / Suit by Hello Too",
