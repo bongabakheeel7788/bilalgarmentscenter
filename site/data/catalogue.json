@@ -30,11 +30,6 @@
  },
  "categories": [
   {
-   "name": "Set / Suit",
-   "parent": null,
-   "slug": "set-suit"
-  },
-  {
    "name": "Casual Pants",
    "parent": null,
    "slug": "casual-pants"
@@ -43,6 +38,11 @@
    "name": "Casual Shirts",
    "parent": null,
    "slug": "casual-shirts"
+  },
+  {
+   "name": "Set / Suit",
+   "parent": null,
+   "slug": "set-suit"
   },
   {
    "name": "Trousers",
@@ -56,162 +56,6 @@
   }
  ],
  "products": [
-  {
-   "code": "STY-1278",
-   "slug": "boys-new-born-2-pieces-sty-1278",
-   "name": "Boys New Born 2 Pieces",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Baby Accessories",
-   "gender": "unisex",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 400,
-   "price_max": 400,
-   "sizes": [
-    "Baby Accssories"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1278/979084e7-c78a-4241-bc62-db95c026c3cf.webp",
-   "variants": [
-    {
-     "id": 2110,
-     "size": "Baby Accssories",
-     "colour": "Standard",
-     "price": 400,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-19",
-   "is_new": true
-  },
-  {
-   "code": "STY-1276",
-   "slug": "girls-ladies-pents-sty-1276",
-   "name": "Girls \\ Ladies  Pents",
-   "category": "Casual Pants",
-   "category_parent": null,
-   "size_group": "Ladies Pents",
-   "gender": "ladies",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 700,
-   "price_max": 1500,
-   "sizes": [
-    "18",
-    "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30",
-    "32",
-    "34",
-    "Ladies size",
-    "36"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1276/61de15b9-2559-4452-bc22-7bcdc3226dae.webp",
-   "variants": [
-    {
-     "id": 1945,
-     "size": "18",
-     "colour": "Standard",
-     "price": 1500,
-     "availability": "out"
-    },
-    {
-     "id": 1946,
-     "size": "20",
-     "colour": "Standard",
-     "price": 1500,
-     "availability": "out"
-    },
-    {
-     "id": 1947,
-     "size": "22",
-     "colour": "Standard",
-     "price": 1500,
-     "availability": "out"
-    },
-    {
-     "id": 1948,
-     "size": "24",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "few"
-    },
-    {
-     "id": 1949,
-     "size": "26",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "few"
-    },
-    {
-     "id": 1950,
-     "size": "28",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "few"
-    },
-    {
-     "id": 1951,
-     "size": "30",
-     "colour": "Standard",
-     "price": 800,
-     "availability": "in"
-    },
-    {
-     "id": 1952,
-     "size": "32",
-     "colour": "Standard",
-     "price": 800,
-     "availability": "in"
-    },
-    {
-     "id": 1953,
-     "size": "34",
-     "colour": "Standard",
-     "price": 800,
-     "availability": "in"
-    },
-    {
-     "id": 1954,
-     "size": "Ladies size",
-     "colour": "Standard",
-     "price": 1100,
-     "availability": "in"
-    },
-    {
-     "id": 2109,
-     "size": "36",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-19",
-   "is_new": true
-  },
   {
    "code": "STY-1274",
    "slug": "boys-jeans-pent-casual-pants-sty-1274",
@@ -442,17 +286,20 @@
   },
   {
    "code": "STY-1247",
-   "slug": "boys-suits-sty-1247",
-   "name": "Boys suits",
+   "slug": "boys-china-shirt-pajama-set-suit-by-high-chase-sty-1247",
+   "name": "Boys China Shirt Pajama Set / Suit by High Chase",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys 1,2",
    "gender": "boys",
-   "fabric": null,
+   "fabric": "China",
    "set_contents": "Shirt Pajama",
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "age_group": "3 Months",
+   "season": "ALL",
+   "size_ages": {
+    "1": "3 Months–6 Months",
+    "2": "6 Months–9 Months"
+   },
    "price_min": 1000,
    "price_max": 1000,
    "sizes": [
@@ -2365,9 +2212,22 @@
    "gender": "boys",
    "fabric": "Jeans",
    "set_contents": "pent",
-   "age_group": null,
+   "age_group": "1 Year",
    "season": "ALL",
-   "size_ages": {},
+   "size_ages": {
+    "18": "1 Year–2 Years",
+    "20": "2 Years–3 Years",
+    "22": "3 Years–4 Years",
+    "24": "4 Years–5 Years",
+    "26": "5 Years–6 Years",
+    "28": "7 Years–8 Years",
+    "30": "8 Years–9 Years",
+    "32": "9 Years–10 Years",
+    "34": "10 Years–11 Years",
+    "36": "11 Years–12 Years",
+    "38": "12 Years–13 Years",
+    "40": "13 Years–14 Years"
+   },
    "price_min": 650,
    "price_max": 700,
    "sizes": [
@@ -2929,17 +2789,21 @@
   },
   {
    "code": "STY-1176",
-   "slug": "boys-start-light-sml-sty-1176",
-   "name": "Boys Start Light SML",
+   "slug": "boys-china-2-pcs-set-suit-by-star-light-sty-1176",
+   "name": "Boys China 2 pcs Set / Suit by Star Light",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
+   "fabric": "China",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
    "season": null,
-   "size_ages": {},
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–5 Years"
+   },
    "price_min": 1500,
    "price_max": 1500,
    "sizes": [
@@ -3404,17 +3268,26 @@
   },
   {
    "code": "STY-1147",
-   "slug": "boys-shirts-sty-1147",
-   "name": "Boys Shirts",
+   "slug": "boys-china-inner-shirt-2-pcs-casual-shirts-by-rb-sty-1147",
+   "name": "Boys China Inner Shirt 2 pcs Casual Shirts by R.B",
    "category": "Casual Shirts",
    "category_parent": null,
    "size_group": "Boys Shirts",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "China Inner Shirt",
+   "set_contents": "2 pcs",
+   "age_group": "2 Years",
+   "season": "ALL",
+   "size_ages": {
+    "16": "2 Years–3 Years",
+    "18": "3 Years–4 Years",
+    "20": "4 Years–5 Years",
+    "22": "6 Years–7 Years",
+    "24": "7 Years–8 Years",
+    "26": "9 Years–12 Years",
+    "28": "10 Years–11 Years",
+    "30": "11 Years–12 Years"
+   },
    "price_min": 900,
    "price_max": 900,
    "sizes": [
@@ -4582,17 +4455,21 @@
   },
   {
    "code": "STY-1020",
-   "slug": "boys-sml-sty-1020",
-   "name": "Boys SML",
+   "slug": "boys-terry-2-pcs-set-suit-by-rim-jhim-sty-1020",
+   "name": "Boys Terry 2 pcs Set / Suit by Rim Jhim",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Terry",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–5 Years"
+   },
    "price_min": 1100,
    "price_max": 1100,
    "sizes": [
@@ -4636,17 +4513,21 @@
   },
   {
    "code": "STY-1019",
-   "slug": "boys-sml-sty-1019",
-   "name": "Boys SML",
+   "slug": "boys-pre-winter-2-pcs-set-suit-by-rim-jhim-sty-1019",
+   "name": "Boys Pre Winter 2 pcs Set / Suit by Rim Jhim",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Pre Winter",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–5 Years"
+   },
    "price_min": 1100,
    "price_max": 1100,
    "sizes": [
@@ -4690,17 +4571,21 @@
   },
   {
    "code": "STY-1018",
-   "slug": "boys-sml-sty-1018",
-   "name": "Boys SML",
+   "slug": "boys-jersey-2-pcs-set-suit-by-rim-jhim-sty-1018",
+   "name": "Boys Jersey 2 pcs Set / Suit by Rim Jhim",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Jersey",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–5 Years"
+   },
    "price_min": 800,
    "price_max": 800,
    "sizes": [
@@ -4744,17 +4629,21 @@
   },
   {
    "code": "STY-1015",
-   "slug": "boys-sml-sty-1015",
-   "name": "Boys SML",
+   "slug": "boys-jersey-denim-2-pcs-set-suit-by-jhun-jhun-sty-1015",
+   "name": "Boys Jersey Denim 2 pcs Set / Suit by Jhun Jhun",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Jersey Denim",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–5 Years"
+   },
    "price_min": 1000,
    "price_max": 1000,
    "sizes": [
@@ -4798,17 +4687,21 @@
   },
   {
    "code": "STY-1014",
-   "slug": "boys-sml-sty-1014",
-   "name": "Boys SML",
+   "slug": "boys-pre-winter-2-pcs-set-suit-by-jhun-jhun-sty-1014",
+   "name": "Boys Pre Winter 2 pcs Set / Suit by Jhun Jhun",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Pre Winter",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–5 Years"
+   },
    "price_min": 1150,
    "price_max": 1150,
    "sizes": [
@@ -4852,17 +4745,21 @@
   },
   {
    "code": "STY-1013",
-   "slug": "boys-sml-sty-1013",
-   "name": "Boys SML",
+   "slug": "boys-jersey-denim-2-pcs-set-suit-by-jhun-jhun-sty-1013",
+   "name": "Boys Jersey Denim 2 pcs Set / Suit by Jhun Jhun",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
+   "fabric": "Jersey Denim",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
    "season": null,
-   "size_ages": {},
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–5 Years"
+   },
    "price_min": 1100,
    "price_max": 1100,
    "sizes": [
