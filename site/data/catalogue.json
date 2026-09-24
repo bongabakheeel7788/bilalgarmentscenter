@@ -1074,13 +1074,9 @@
    "gender": "gents",
    "fabric": "China",
    "set_contents": "Shirt",
-   "age_group": "Medium",
+   "age_group": null,
    "season": "SUMMER",
-   "size_ages": {
-    "Medium": "Medium",
-    "Large": "Large",
-    "X-Large": "XL"
-   },
+   "size_ages": {},
    "price_min": 750,
    "price_max": 750,
    "sizes": [
@@ -1651,16 +1647,9 @@
    "gender": "gents",
    "fabric": "China",
    "set_contents": "Trouser",
-   "age_group": "Medium",
+   "age_group": null,
    "season": "ALL",
-   "size_ages": {
-    "Medium": "Medium",
-    "Large": "Large",
-    "XL": "XL",
-    "2XL": "2XL",
-    "3XL": "3XL",
-    "4XL": "4XL"
-   },
+   "size_ages": {},
    "price_min": 1100,
    "price_max": 1700,
    "sizes": [

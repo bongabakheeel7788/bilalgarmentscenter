@@ -16,6 +16,31 @@ export async function loadCatalogue(context) {
   return cache.data;
 }
 
+// P136 — "Who are you buying for?": the five groups a shopper picks from, derived from the product's
+// "Who it's for". Unisex pieces belong to boys AND girls; "anyone" (towels, household) is Accessories.
+export const FOR_GROUPS = [
+  { key: 'boys', label: 'Boys', title: 'For boys', ask: 'How old is he?', byAge: true },
+  { key: 'girls', label: 'Girls', title: 'For girls', ask: 'How old is she?', byAge: true },
+  { key: 'gents', label: 'Gents', title: 'For gents', ask: 'Which size?', byAge: false },
+  { key: 'ladies', label: 'Ladies', title: 'For ladies', ask: 'Which size?', byAge: false },
+  { key: 'accessories', label: 'Accessories', title: 'Accessories', ask: 'What kind?', byAge: false },
+];
+export function inGroup(p, key) {
+  const g = String(p.gender || '').toLowerCase();
+  if (key === 'boys') return g === 'boys' || g === 'unisex';
+  if (key === 'girls') return g === 'girls' || g === 'unisex';
+  if (key === 'gents') return g === 'gents';
+  if (key === 'ladies') return g === 'ladies';
+  if (key === 'accessories') return g === 'anyone' || p.category_parent === 'Accessories' || p.category === 'Accessories';
+  return false;
+}
+export function groupsOf(p) { return FOR_GROUPS.filter(g => inGroup(p, g.key)).map(g => g.key); }
+/** the months → the shop's own name for it (the nearest age at or under it) */
+export function ageName(cat, months) {
+  const list = (cat.ageGroups || []).filter(g => g.months <= months);
+  return list.length ? list[list.length - 1].name : null;
+}
+export function indexCatalogue(data) { return index(data); }
 /** derived lookups the pages use, computed once per load */
 function index(data) {
   const products = data.products || [];
@@ -31,7 +56,11 @@ function index(data) {
     if (c.parent) par.children.push(c);
   }
   const agentCodes = new Set(data.agent_codes || []);
-  return { ...data, products, bySlug, byVariant, collections, parents, agentCodes };
+  // P136 — the groups with something in them, newest first inside each
+  const byNew = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
+  const groups = FOR_GROUPS.map(g => ({ ...g, items: products.filter(p => inGroup(p, g.key)).sort(byNew) })).filter(g => g.items.length);
+  const ageGroups = (data.age_groups || []).slice().sort((a, b) => a.months - b.months);
+  return { ...data, products, bySlug, byVariant, collections, parents, agentCodes, groups, ageGroups };
 }
 
 export function slugify(s) {
