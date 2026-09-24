@@ -68,7 +68,9 @@ export function product(cat, slug) {
   if (!p) return null;
   const store = cat.store;
   const colours = realColours(p);
-  const photos = [p.cover, ...colours.map(c => c.photo)].filter(Boolean).filter((x, i, a) => a.indexOf(x) === i);
+  // P130 — the gallery as the shop ordered it: cover, angles, then colour photos; older catalogues carry no list
+  const gallery = Array.isArray(p.photos) && p.photos.length ? p.photos.map(x => x.src) : [p.cover, ...colours.map(c => c.photo)];
+  const photos = gallery.filter(Boolean).filter((x, i, a) => a.indexOf(x) === i);
   const av = productAvailability(p);
   const url = `${String(store.site_url || '').replace(/\/$/, '')}/p/${p.slug}/`;
   const sizes = p.sizes || [];
@@ -103,7 +105,8 @@ export function product(cat, slug) {
       const live = (p.variants || []).filter(v => v.size === s && v.availability !== 'out');
       const few = live.length && live.every(v => v.availability === 'few');
       return `<button class="size${live.length ? (few ? ' is-few' : '') : ' is-out'}"${live.length ? '' : ' disabled'} data-size="${attr(s)}" title="${attr(p.size_ages && p.size_ages[s] ? `fits ${p.size_ages[s]}` : '')}">${esc(s)}${p.size_ages && p.size_ages[s] ? `<small>${esc(p.size_ages[s])}</small>` : ''}</button>`;
-    }).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div></div>
+    }).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div>
+    ${p.size_guide ? `<details class="size-guide"><summary>Size guide</summary><img src="/${attr(p.size_guide)}" alt="Size guide for ${attr(p.name)}" loading="lazy"></details>` : ''}</div>
     <div class="qty-row"><label>Qty <input type="number" id="qty" value="1" min="1" max="10"></label>
       <button class="btn btn-primary" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button></div>
     <div class="buy-actions">

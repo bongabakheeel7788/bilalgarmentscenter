@@ -504,3 +504,10 @@ main { padding-top: 30px; padding-bottom: 72px; }
 /* and now that .thumbs is only as wide as the screen, let it actually scroll */
 .thumbs { scrollbar-width: thin; scroll-snap-type: x proximity; }
 .thumb { scroll-snap-align: start; }
+
+/* P130 — the size guide, folded under the sizes */
+.size-guide { margin-top: 10px; }
+.size-guide summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: 14px; list-style: none; }
+.size-guide summary::before { content: '\25B8  '; }
+.size-guide[open] summary::before { content: '\25BE  '; }
+.size-guide img { display: block; max-width: 100%; margin-top: 10px; border-radius: 12px; border: 1px solid var(--line); }
