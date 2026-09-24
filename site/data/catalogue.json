@@ -1083,7 +1083,7 @@
      "size": "Medium",
      "colour": "Light Grey",
      "price": 750,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 1090,
@@ -2415,17 +2415,20 @@
   },
   {
    "code": "STY-1187",
-   "slug": "pineapple-sty-1187",
-   "name": "PineApple",
+   "slug": "boys-jersey-shirt-pajama-set-suit-by-pineapple-sty-1187",
+   "name": "Boys Jersey Shirt Pajama Set / Suit by PineApple",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys 20-22",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Jersey",
+   "set_contents": "Shirt Pajama",
+   "age_group": "5 Years",
+   "season": "ALL",
+   "size_ages": {
+    "20": "5 Years–6 Years",
+    "22": "7 Years–8 Years"
+   },
    "price_min": 1100,
    "price_max": 1100,
    "sizes": [
@@ -2461,17 +2464,20 @@
   },
   {
    "code": "STY-1186",
-   "slug": "rim-jhim-sty-1186",
-   "name": "Rim Jhim",
+   "slug": "boys-jersey-shirt-pajama-set-suit-by-rim-jhim-sty-1186",
+   "name": "Boys Jersey Shirt Pajama Set / Suit by Rim Jhim",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys 20-22",
    "gender": "boys",
-   "fabric": "Interlock",
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Jersey",
+   "set_contents": "Shirt Pajama",
+   "age_group": "5 Years",
+   "season": "ALL",
+   "size_ages": {
+    "20": "5 Years–6 Years",
+    "22": "7 Years–8 Years"
+   },
    "price_min": 1050,
    "price_max": 1050,
    "sizes": [
@@ -2507,17 +2513,20 @@
   },
   {
    "code": "STY-1185",
-   "slug": "jhun-jhun-sty-1185",
-   "name": "Jhun Jhun",
+   "slug": "boys-jersey-shirt-pajama-set-suit-by-jhun-jhun-sty-1185",
+   "name": "Boys Jersey Shirt Pajama Set / Suit by Jhun Jhun",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys 20-22",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Jersey",
+   "set_contents": "Shirt Pajama",
+   "age_group": "5 Years",
+   "season": "ALL",
+   "size_ages": {
+    "20": "5 Years–6 Years",
+    "22": "7 Years–8 Years"
+   },
    "price_min": 1300,
    "price_max": 1300,
    "sizes": [
@@ -2553,17 +2562,20 @@
   },
   {
    "code": "STY-1184",
-   "slug": "royal-kids-sty-1184",
-   "name": "Royal Kids",
+   "slug": "boys-jersey-denim-2-pcs-set-suit-by-royal-kids-sty-1184",
+   "name": "Boys Jersey Denim 2 pcs Set / Suit by Royal Kids",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys 20-22",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Jersey Denim",
+   "set_contents": "2 pcs",
+   "age_group": "6 Years",
+   "season": "ALL",
+   "size_ages": {
+    "20": "6 Years–7 Years",
+    "22": "7 Years–8 Years"
+   },
    "price_min": 1300,
    "price_max": 1300,
    "sizes": [
@@ -2599,17 +2611,20 @@
   },
   {
    "code": "STY-1183",
-   "slug": "jhun-jhun-sty-1183",
-   "name": "Jhun Jhun",
+   "slug": "boys-terry-2-pcs-set-suit-by-jhun-jhun-sty-1183",
+   "name": "Boys Terry 2 pcs Set / Suit by Jhun Jhun",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys 20-22",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Terry",
+   "set_contents": "2 pcs",
+   "age_group": "6 Years",
+   "season": "PRE_WINTER",
+   "size_ages": {
+    "20": "6 Years–7 Years",
+    "22": "7 Years–8 Years"
+   },
    "price_min": 1200,
    "price_max": 1200,
    "sizes": [
@@ -2644,80 +2659,22 @@
    "is_new": true
   },
   {
-   "code": "STY-1180",
-   "slug": "polo-shirts-sty-1180",
-   "name": "Polo Shirts",
-   "category": "Casual Shirts",
-   "category_parent": null,
-   "size_group": "Boys Shirts",
-   "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 600,
-   "price_max": 600,
-   "sizes": [
-    "20",
-    "22",
-    "24",
-    "26"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1180/60c083e4-aae4-4b4f-b1fc-436c2d15fdaf.webp",
-   "variants": [
-    {
-     "id": 619,
-     "size": "20",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "few"
-    },
-    {
-     "id": 620,
-     "size": "22",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "few"
-    },
-    {
-     "id": 621,
-     "size": "24",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 622,
-     "size": "26",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-20",
-   "is_new": true
-  },
-  {
    "code": "STY-1178",
-   "slug": "star-light-sty-1178",
-   "name": "Star Light",
+   "slug": "boys-cotton-2-pcs-set-suit-by-star-light-sty-1178",
+   "name": "Boys Cotton 2 pcs Set / Suit by Star Light",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
    "gender": "boys",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Cotton",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
    "price_min": 1100,
    "price_max": 1100,
    "sizes": [
@@ -2761,17 +2718,21 @@
   },
   {
    "code": "STY-1177",
-   "slug": "raza-care-sty-1177",
-   "name": "Raza Care",
+   "slug": "boys-denim-3piece-set-suit-by-raza-care-sty-1177",
+   "name": "Boys Denim 3piece Set / Suit by Raza Care",
    "category": "Set / Suit",
    "category_parent": null,
    "size_group": "Boys SML",
-   "gender": "girls",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
+   "gender": "boys",
+   "fabric": "Denim",
+   "set_contents": "3piece",
+   "age_group": "1 Year",
    "season": null,
-   "size_ages": {},
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
    "price_min": 1400,
    "price_max": 1400,
    "sizes": [
@@ -2927,60 +2888,6 @@
     }
    ],
    "first_published": "2026-09-11",
-   "is_new": true
-  },
-  {
-   "code": "STY-1156",
-   "slug": "joha-fashion-sty-1156",
-   "name": "Joha Fashion",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Girls 30-34",
-   "gender": "girls",
-   "fabric": "Cotton",
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 2100,
-   "price_max": 2100,
-   "sizes": [
-    "30",
-    "32",
-    "34"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1156/6d68310d-0bd7-419a-8109-9ad91e529f13.webp",
-   "variants": [
-    {
-     "id": 546,
-     "size": "30",
-     "colour": "Standard",
-     "price": 2100,
-     "availability": "few"
-    },
-    {
-     "id": 547,
-     "size": "32",
-     "colour": "Standard",
-     "price": 2100,
-     "availability": "few"
-    },
-    {
-     "id": 548,
-     "size": "34",
-     "colour": "Standard",
-     "price": 2100,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-20",
    "is_new": true
   },
   {
