@@ -87,10 +87,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1274/6be5c84d-73dc-48d3-9bc5-4375e68344f6.webp",
+   "cover": "media/STY-1274/b34a60f0-a0dd-4e9d-9fea-8fa2efd8c058.webp",
    "photos": [
     {
-     "src": "media/STY-1274/6be5c84d-73dc-48d3-9bc5-4375e68344f6.webp",
+     "src": "media/STY-1274/b34a60f0-a0dd-4e9d-9fea-8fa2efd8c058.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -1635,7 +1635,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -3623,6 +3623,72 @@
    "is_new": true
   },
   {
+   "code": "STY-1109",
+   "slug": "girls-chiffon-2-pcs-set-suit-by-full-time-sty-1109",
+   "name": "Girls Chiffon 2 pcs Set / Suit by Full Time",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "Chiffon",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1400,
+   "price_max": 1400,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1109/0556165a-c73a-4b2e-b014-a5a9d5fdf3c1.webp",
+   "photos": [
+    {
+     "src": "media/STY-1109/0556165a-c73a-4b2e-b014-a5a9d5fdf3c1.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 365,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 366,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "out"
+    },
+    {
+     "id": 367,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
    "code": "STY-1108",
    "slug": "girls-china-yarn-2-pcs-set-suit-by-dolphin-sty-1108",
    "name": "Girls China yarn 2 pcs Set / Suit by Dolphin",
@@ -3719,10 +3785,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1099/3bff91aa-10b8-4d28-9c7c-9d2a980b45a5.webp",
+   "cover": "media/STY-1099/2028c351-f962-4308-93d8-2d1da0e2c763.webp",
    "photos": [
     {
-     "src": "media/STY-1099/3bff91aa-10b8-4d28-9c7c-9d2a980b45a5.webp",
+     "src": "media/STY-1099/2028c351-f962-4308-93d8-2d1da0e2c763.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -4078,6 +4144,72 @@
      "size": "L",
      "colour": "Standard",
      "price": 750,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1083",
+   "slug": "girls-china-yarn-2-pcs-set-suit-by-dolphin-sty-1083",
+   "name": "Girls China yarn 2 pcs Set / Suit by Dolphin",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "China yarn",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1300,
+   "price_max": 1300,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1083/d4f24258-8d8b-4b91-aac5-09fa70e7d5df.webp",
+   "photos": [
+    {
+     "src": "media/STY-1083/d4f24258-8d8b-4b91-aac5-09fa70e7d5df.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 278,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "few"
+    },
+    {
+     "id": 279,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1300,
+     "availability": "out"
+    },
+    {
+     "id": 280,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1300,
      "availability": "few"
     }
    ],
@@ -4887,68 +5019,6 @@
     }
    ],
    "first_published": "2026-09-19",
-   "is_new": true
-  },
-  {
-   "code": "STY-1054",
-   "slug": "girls-jersey-2-pcs-set-suit-by-zaid-sty-1054",
-   "name": "Girls Jersey 2 pcs Set / Suit by Zaid",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Girls SML",
-   "gender": "girls",
-   "fabric": "Jersey",
-   "set_contents": "2 pcs",
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 800,
-   "price_max": 800,
-   "sizes": [
-    "S",
-    "M",
-    "L"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1054/e4996225-39c7-49b1-afa7-c94ed96150fd.webp",
-   "photos": [
-    {
-     "src": "media/STY-1054/e4996225-39c7-49b1-afa7-c94ed96150fd.webp",
-     "kind": "COVER",
-     "colour": null
-    }
-   ],
-   "size_guide": null,
-   "variants": [
-    {
-     "id": 200,
-     "size": "S",
-     "colour": "Standard",
-     "price": 800,
-     "availability": "in"
-    },
-    {
-     "id": 201,
-     "size": "M",
-     "colour": "Standard",
-     "price": 800,
-     "availability": "in"
-    },
-    {
-     "id": 202,
-     "size": "L",
-     "colour": "Standard",
-     "price": 800,
-     "availability": "in"
-    }
-   ],
-   "first_published": "2026-09-24",
    "is_new": true
   },
   {
