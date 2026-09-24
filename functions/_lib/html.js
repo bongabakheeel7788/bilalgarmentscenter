@@ -2,7 +2,7 @@
 // Server-rendered so a forwarded link previews with the real photo and price
 // and the page reads on a slow phone before any script runs; the script then
 // adds the cart, the filters and the search.
-import { money, priceLabel, productAvailability } from './catalogue.js';
+import { money, priceLabel, productAvailability, groupsOf, ageName } from './catalogue.js';   // P136: groupsOf, ageName
 
 export const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export const attr = s => esc(s);
@@ -37,9 +37,13 @@ export function layout(cat, { title, description, canonical, og = {}, head = '',
   // category or collection that no longer exists is DROPPED, never published as
   // a link that goes nowhere; if that empties the list, the generated menu comes
   // back rather than leaving the site with no menu at all.
-  const auto = [{ href: '/new/', label: 'New' }, ...cat.parents.map(p => ({ href: `/c/${p.slug}/`, label: p.name })), ...cat.collections.slice(0, 3).map(c => ({ href: `/collection/${c.slug}/`, label: c.name }))];
+  // P136 — the menu is who you are buying for (the groups with something in them), not the categories
+  const auto = [{ href: '/new/', label: 'New' },
+    ...(cat.groups && cat.groups.length ? cat.groups.map(g => ({ href: `/for/${g.key}/`, label: g.label })) : cat.parents.map(p => ({ href: `/c/${p.slug}/`, label: p.name }))),
+    ...cat.collections.slice(0, 3).map(c => ({ href: `/collection/${c.slug}/`, label: c.name }))];
   const live = href => {
     const cm = /^\/collection\/([^/]+)\//.exec(href); if (cm) return cat.collections.some(c => c.slug === cm[1]);
+    const fm = /^\/for\/([^/]+)\//.exec(href); if (fm) return !cat.groups || cat.groups.some(g => g.key === fm[1]);   // P136
     const km = /^\/c\/([^/]+)\//.exec(href);
     if (km) return cat.parents.some(p => p.slug === km[1]) || (cat.categories || []).some(c => c.slug === km[1]);
     return true;
@@ -155,11 +159,15 @@ function sizeRow(p) {
 export function card(p) {
   const av = productAvailability(p);
   const alt = (p.colours || []).map(c => c.photo).filter(Boolean).filter(x => x !== p.cover)[0] || null;
-  return `<div class="card${av === 'out' ? ' is-out' : ''}" data-code="${attr(p.code)}">
+  // P136 — the age range, short: '2 Years–10 Years' reads '2–10 yrs', 'Newborn–2 Years' reads 'Newborn–2 yrs'
+  const shortAge = s => String(s).replace(/ Years?$/, ' yrs').replace(/ Months?$/, ' mo');
+  const [ra, rb] = String(p.age_range || '').split('–');
+  const fits = !p.age_range ? '' : !rb ? shortAge(ra) : (/^\d+ /.test(ra) && ra.replace(/^\d+ /, '') === rb.replace(/^\d+ /, '')) ? ra.split(' ')[0] + '–' + shortAge(rb) : shortAge(ra) + '–' + shortAge(rb);
+  return `<div class="card${av === 'out' ? ' is-out' : ''}" data-code="${attr(p.code)}" data-for="${attr(groupsOf(p).join(' '))}">
   <a class="card-img" href="/p/${attr(p.slug)}/" aria-label="${attr(p.name)}">
     ${p.cover ? `<img class="card-photo" src="/${attr(p.cover)}" alt="${attr(p.name)}" loading="lazy" width="600" height="750">` : '<div class="noimg"></div>'}
     ${alt ? `<img class="card-photo-alt" src="/${attr(alt)}" alt="" loading="lazy" width="600" height="750">` : ''}
-    ${p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : av === 'few' ? '<span class="badge badge-few">Few left</span>' : ''}</a>
+    ${p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : av === 'few' ? '<span class="badge badge-few">Few left</span>' : ''}${fits ? `<span class="card-fits">${esc(fits)}</span>` : ''}</a>
   ${swatches(p)}
   <a class="card-body" href="/p/${attr(p.slug)}/">
     <div class="card-name">${esc(p.name)}</div>
@@ -180,7 +188,8 @@ export function grid(products, { id = 'grid', filters = true, empty = 'Nothing h
   const types = [...new Set(products.map(p => p.product_type).filter(Boolean))];
   const seasons = [...new Set(products.map(p => p.season).filter(Boolean))];
   const data = products.map(p => ({ code: p.code, sizes: (p.variants || []).filter(v => v.availability !== 'out').map(v => v.size), colours: (p.colours || []).map(c => c.name), price: p.price_min, at: p.first_published || '', av: productAvailability(p),
-    age: p.age_group || '', type: p.product_type || '', season: p.season || '' }));
+    age: p.age_group || '', type: p.product_type || '', season: p.season || '',
+    am: Object.values(p.size_months || {}), kind: p.category || '', fs: Object.values(p.size_free || {}) }));   // P136
   return `${filters ? `<div class="filters" data-grid="${attr(id)}">
     <button type="button" class="f-toggle" data-ftoggle aria-expanded="false">&#9776; Filter</button>
     <span class="f-count" data-count>${products.length} product${products.length === 1 ? '' : 's'}</span>
@@ -244,6 +253,44 @@ export function promiseRow(store, { compact = false } = {}) {
 }
 
 /** category tiles — a picture to point at, not a list of words to read */
+// ── P136 — "Who are you buying for?" ────────────────────────────────────────
+// One picture tile per group with something in it: the newest photographed piece, the count, and the
+// span ("newborn to 13 years" for children, "sizes M to 4XL" for adults). Two-up on a phone, 44 px tall
+// at least; the phone remembers the last one opened (site.js) and the homepage highlights it.
+export function whoStrip(cat) {
+  const groups = cat.groups || [];
+  if (!groups.length) return '';
+  const span = g => {
+    if (g.byAge) {
+      const hi = Math.max(0, ...g.items.map(p => (p.age_months || [0, 0])[1] || 0));
+      const name = ageName(cat, hi);
+      return name ? `newborn to ${name.toLowerCase()}` : 'every age';
+    }
+    const free = [...new Set(g.items.flatMap(p => Object.values(p.size_free || {})))];
+    return free.length ? `sizes ${free[0]} to ${free[free.length - 1]}` : g.key === 'accessories' ? 'for anyone' : 'by size';
+  };
+  return `<section class="who" aria-labelledby="whoTitle">
+    <h2 id="whoTitle">Who are you buying for?</h2>
+    <p class="who-sub">Pick one — then the age or the size, and everything that fits.</p>
+    <div class="who-grid">${groups.map(g => {
+      const shot = g.items.find(p => p.cover);
+      return `<a class="who-tile" href="/for/${attr(g.key)}/" data-for="${attr(g.key)}">
+        <span class="who-img">${shot ? `<img src="/${attr(shot.cover)}" alt="" loading="lazy" width="400" height="500">` : '<span class="noimg"></span>'}</span>
+        <span class="who-text"><strong>${esc(g.label)}</strong><small>${g.items.length} piece${g.items.length === 1 ? '' : 's'} · ${esc(span(g))}</small></span></a>`;
+    }).join('')}</div>
+  </section>`;
+}
+/** a row of chips that filters the grid `gridId` by `field`; scrolls sideways on a phone, never wraps into a wall */
+export function chipRow({ title, field, gridId = 'grid', options, any = 'Any' }) {
+  if (!options.length) return '';
+  return `<div class="for-chips" data-grid="${attr(gridId)}" data-f="${attr(field)}">
+    <div class="for-chips-title">${esc(title)}</div>
+    <div class="chips" role="group" aria-label="${attr(title)}">
+      <button type="button" class="chip on" data-v="">${esc(any)}</button>
+      ${options.map(o => `<button type="button" class="chip" data-v="${attr(o.value)}">${esc(o.label)}${o.count ? `<small>${o.count}</small>` : ''}</button>`).join('')}
+    </div></div>`;
+}
+
 export function catTiles(cat) {
   const shotFor = parent => {
     const p = cat.products.find(x => x.cover && (x.category_parent || x.category) === parent.name);

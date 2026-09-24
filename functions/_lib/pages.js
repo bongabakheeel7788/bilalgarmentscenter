@@ -1,5 +1,5 @@
 // Every HTML page of the site, rendered from the catalogue.
-import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, heroBand, promiseRow, catTiles, buyBar } from './html.js';
+import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, heroBand, promiseRow, catTiles, buyBar, whoStrip, chipRow } from './html.js';
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours } from './catalogue.js';
 
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
@@ -16,6 +16,7 @@ export function home(cat) {
   const HOME_MAX = 12;                       // the front page is a shop window, not the stockroom
   const everything = cat.products.slice().sort(byNewest);
   const body = `
+${whoStrip(cat)}
 <section class="hero${band ? '' : ' hero-solo'}">
   <div class="hero-text">
     ${/* P70 — Fahad's own words if he has written them, otherwise exactly what
@@ -49,6 +50,26 @@ export function newArrivals(cat) {
 
 export function all(cat) {
   return listing(cat, { title: 'Everything', products: cat.products.slice().sort(byNewest), canonical: '/all/' });
+}
+
+// P136 — a group's page: the age (children) or the size (adults), the kind, then the grid
+export function forPage(cat, key) {
+  const g = (cat.groups || []).find(x => x.key === key);
+  if (!g) return null;
+  const items = g.items;
+  // the ages the group's pieces actually cover, in the shop's own order
+  const ages = g.byAge ? (cat.ageGroups || []).filter(a => items.some(p => Object.values(p.size_months || {}).some(([lo, hi]) => a.months >= lo && a.months <= hi))) : [];
+  const sizes = g.byAge ? [] : [...new Set(items.flatMap(p => (p.variants || []).filter(v => v.availability !== 'out').map(v => (p.size_free || {})[v.size] || v.size)))];
+  const kinds = [...items.reduce((m, p) => m.set(p.category, (m.get(p.category) || 0) + 1), new Map()).entries()].sort((a, b) => b[1] - a[1]);
+  const body = `<div class="page-head"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(g.title)}</nav>
+    <h1>${esc(g.title)} <small>${items.length} piece${items.length === 1 ? '' : 's'}</small></h1></div>
+    ${g.byAge ? chipRow({ title: g.ask, field: 'agem', options: ages.map(a => ({ value: String(a.months), label: a.name })), any: 'Any age' }) : ''}
+    ${!g.byAge && sizes.length > 1 ? chipRow({ title: g.ask, field: 'size', options: sizes.map(s => ({ value: s, label: s })), any: 'Any size' }) : ''}
+    ${kinds.length > 1 ? chipRow({ title: 'What kind?', field: 'kind', options: kinds.map(([k, n]) => ({ value: k, label: k, count: n })), any: 'Everything' }) : ''}
+    ${g.byAge ? '<p class="for-note">A piece shows when any of its sizes fits the age you pick.</p>' : ''}
+    ${grid(items)}`;
+  return layout(cat, { title: g.title, description: `${g.title} at ${cat.store.name} — ${items.length} pieces, cash on delivery all over Pakistan.`, canonical: `/for/${key}/`, page: 'p-list p-for', body,
+    og: { image: (items.find(p => p.cover) || {}).cover }, publicData: { forGroup: key } });
 }
 
 export function category(cat, slug) {

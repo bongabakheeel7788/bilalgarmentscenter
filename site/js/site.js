@@ -197,19 +197,43 @@ $$('.filters').forEach(bar => {
   const want = new URLSearchParams(location.search).get('size');
   const sizeSel = bar.querySelector('[data-f=size]');
   if (want && sizeSel && [...sizeSel.options].some(o => o.value === want)) sizeSel.value = want;
+  // P136 — the chip rows above the grid (age in months, kind, size) filter it too
+  const chipRows = $(`.for-chips[data-grid="${bar.dataset.grid}"]`);
+  const chipVal = f => { const row = chipRows.find(r => r.dataset.f === f); const on = row && row.querySelector('.chip.on'); return on ? on.dataset.v : ''; };
   const apply = () => {
-    const size = (bar.querySelector('[data-f=size]') || {}).value || '', colour = (bar.querySelector('[data-f=colour]') || {}).value || '', sort = (bar.querySelector('[data-f=sort]') || {}).value || 'new', instock = !!(bar.querySelector('[data-f=instock]') || {}).checked;
+    const size = (bar.querySelector('[data-f=size]') || {}).value || chipVal('size') || '', colour = (bar.querySelector('[data-f=colour]') || {}).value || '', sort = (bar.querySelector('[data-f=sort]') || {}).value || 'new', instock = !!(bar.querySelector('[data-f=instock]') || {}).checked;
     const age = (bar.querySelector('[data-f=age]') || {}).value || '', type = (bar.querySelector('[data-f=type]') || {}).value || '', season = (bar.querySelector('[data-f=season]') || {}).value || '';   // P56a
-    let shown = items.filter(i => (!size || i.sizes.includes(size)) && (!colour || i.colours.includes(colour)) && (!instock || i.av !== 'out')
-      && (!age || i.age === age) && (!type || i.type === type) && (!season || i.season === season || i.season === 'ALL'));
+    const agem = Number(chipVal('agem')) || 0, kind = chipVal('kind');
+    let shown = items.filter(i => (!size || i.sizes.includes(size) || (i.fs || []).includes(size)) && (!colour || i.colours.includes(colour)) && (!instock || i.av !== 'out')
+      && (!age || i.age === age) && (!type || i.type === type) && (!season || i.season === season || i.season === 'ALL')
+      && (!agem || (i.am || []).some(([lo, hi]) => agem >= lo && agem <= hi)) && (!kind || i.kind === kind));
     shown.sort((a, b) => sort === 'low' ? a.price - b.price : sort === 'high' ? b.price - a.price : String(b.at).localeCompare(String(a.at)));
     const keep = new Set(shown.map(i => i.code));
     cards.forEach((el, code) => { el.hidden = !keep.has(code); });
     shown.forEach(i => grid.appendChild(cards.get(i.code)));
     const c = bar.querySelector('[data-count]'); if (c) c.textContent = shown.length + ' product' + (shown.length === 1 ? '' : 's');
   };
-  bar.addEventListener('change', apply); apply();
+  bar.addEventListener('change', apply);
+  // P136 — a chip picks one value in its row; ?age=5%20Years opens on that chip
+  chipRows.forEach(row => {
+    $('.chip', row).forEach(ch => ch.onclick = () => { $('.chip', row).forEach(x => x.classList.toggle('on', x === ch)); apply(); ch.scrollIntoView({ block: 'nearest', inline: 'nearest' }); });
+  });
+  const wantAge = new URLSearchParams(location.search).get('age');
+  if (wantAge) { const row = chipRows.find(r => r.dataset.f === 'agem'); const hit = row && $('.chip', row).find(c => c.textContent.trim().toLowerCase() === wantAge.trim().toLowerCase()); if (hit) hit.click(); }
+  apply();
 });
+
+// ── P136 — the phone remembers who you are buying for ───────────────────────
+// A group page opened is remembered; the homepage highlights that tile and shows New arrivals from that
+// group first. Nothing is hidden — the rest simply come after.
+if (window.PAGE && window.PAGE.forGroup) store.set('bgc_for', window.PAGE.forGroup);
+if (document.body.classList.contains('p-home')) {
+  const mine = store.get('bgc_for', '');
+  if (mine) {
+    const tile = $(`.who-tile[data-for="${mine}"]`); if (tile) tile.classList.add('is-mine');
+    $('.grid-row').forEach(g => { const first = $('.card', g).filter(c => (c.dataset.for || '').split(' ').includes(mine)); first.reverse().forEach(c => g.prepend(c)); });
+  }
+}
 
 // ── search page ──────────────────────────────────────────────────────────────
 if (document.body.classList.contains('p-search') && window.PAGE && window.PAGE.q) {

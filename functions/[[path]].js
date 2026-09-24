@@ -19,6 +19,7 @@ export async function onRequestGet(context) {
   if (seg.length === 0) out = pages.home(cat);
   else if (seg[0] === 'new' && seg.length === 1) out = pages.newArrivals(cat);
   else if (seg[0] === 'all' && seg.length === 1) out = pages.all(cat);
+  else if (seg[0] === 'for' && seg.length === 2) out = pages.forPage(cat, seg[1]);   // P136
   else if (seg[0] === 'c' && seg.length === 2) out = pages.category(cat, seg[1]);
   else if (seg[0] === 'collection' && seg.length === 2) out = pages.collection(cat, seg[1]);
   else if (seg[0] === 'p' && seg.length === 2) out = pages.product(cat, seg[1]);
@@ -35,6 +36,7 @@ function sitemap(cat, origin) {
   const site = (cat && cat.store && cat.store.site_url) ? String(cat.store.site_url).replace(/\/$/, '') : origin;
   const urls = ['/', '/new/', '/all/', '/visit/'];
   if (cat) {
+    for (const g of cat.groups || []) urls.push(`/for/${g.key}/`);   // P136
     for (const p of cat.parents) urls.push(`/c/${p.slug}/`);
     for (const c of cat.categories || []) urls.push(`/c/${c.slug}/`);
     for (const c of cat.collections) urls.push(`/collection/${c.slug}/`);
