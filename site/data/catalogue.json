@@ -2017,167 +2017,34 @@
    "is_new": true
   },
   {
-   "code": "STY-1209",
-   "slug": "girls-fancy-frocks-sty-1209",
-   "name": "Girls Fancy Frocks",
-   "category": "Frocks",
-   "category_parent": null,
-   "size_group": "Girls Fancy Frocks",
-   "gender": "girls",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 1700,
-   "price_max": 1900,
-   "sizes": [
-    "18",
-    "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30",
-    "32",
-    "34",
-    "36",
-    "38",
-    "40"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1209/e48aad2c-e356-4934-bdc4-35da054691b7.webp",
-   "photos": [
-    {
-     "src": "media/STY-1209/e48aad2c-e356-4934-bdc4-35da054691b7.webp",
-     "kind": "COVER",
-     "colour": null
-    }
-   ],
-   "size_guide": null,
-   "variants": [
-    {
-     "id": 821,
-     "size": "18",
-     "colour": "Standard",
-     "price": 1700,
-     "availability": "few"
-    },
-    {
-     "id": 822,
-     "size": "20",
-     "colour": "Standard",
-     "price": 1700,
-     "availability": "few"
-    },
-    {
-     "id": 823,
-     "size": "22",
-     "colour": "Standard",
-     "price": 1700,
-     "availability": "few"
-    },
-    {
-     "id": 824,
-     "size": "24",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "few"
-    },
-    {
-     "id": 825,
-     "size": "26",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "few"
-    },
-    {
-     "id": 826,
-     "size": "28",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "few"
-    },
-    {
-     "id": 827,
-     "size": "30",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "out"
-    },
-    {
-     "id": 828,
-     "size": "32",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "few"
-    },
-    {
-     "id": 829,
-     "size": "34",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "few"
-    },
-    {
-     "id": 830,
-     "size": "36",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "out"
-    },
-    {
-     "id": 831,
-     "size": "38",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "out"
-    },
-    {
-     "id": 832,
-     "size": "40",
-     "colour": "Standard",
-     "price": 1900,
-     "availability": "out"
-    }
-   ],
-   "first_published": "2026-09-20",
-   "is_new": true
-  },
-  {
    "code": "STY-1208",
-   "slug": "girls-fancy-frocks-sty-1208",
-   "name": "Girls Fancy Frocks",
+   "slug": "girls-chiffon-3-pcs-frocks-by-honey-choice-sty-1208",
+   "name": "Girls Chiffon 3 pcs Frocks by Honey Choice",
    "category": "Frocks",
    "category_parent": null,
    "size_group": "Girls Fancy Frocks",
    "gender": "girls",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "Chiffon",
+   "set_contents": "3 pcs",
+   "age_group": "5 Years",
+   "season": "ALL",
+   "size_ages": {
+    "24": "5 Years–6 Years",
+    "26": "6 Years–7 Years",
+    "28": "7 Years–8 Years",
+    "30": "8 Years–9 Years",
+    "32": "9 Years–10 Years",
+    "34": "10 Years–11 Years"
+   },
    "price_min": 1800,
    "price_max": 1800,
    "sizes": [
-    "18",
-    "20",
-    "22",
     "24",
     "26",
     "28",
     "30",
     "32",
-    "34",
-    "36",
-    "38",
-    "40"
+    "34"
    ],
    "colours": [
     {
@@ -2196,27 +2063,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 809,
-     "size": "18",
-     "colour": "Standard",
-     "price": 1800,
-     "availability": "out"
-    },
-    {
-     "id": 810,
-     "size": "20",
-     "colour": "Standard",
-     "price": 1800,
-     "availability": "out"
-    },
-    {
-     "id": 811,
-     "size": "22",
-     "colour": "Standard",
-     "price": 1800,
-     "availability": "out"
-    },
     {
      "id": 812,
      "size": "24",
@@ -2258,27 +2104,6 @@
      "colour": "Standard",
      "price": 1800,
      "availability": "few"
-    },
-    {
-     "id": 818,
-     "size": "36",
-     "colour": "Standard",
-     "price": 1800,
-     "availability": "out"
-    },
-    {
-     "id": 819,
-     "size": "38",
-     "colour": "Standard",
-     "price": 1800,
-     "availability": "out"
-    },
-    {
-     "id": 820,
-     "size": "40",
-     "colour": "Standard",
-     "price": 1800,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-16",
@@ -2286,32 +2111,33 @@
   },
   {
    "code": "STY-1207",
-   "slug": "girls-fancy-frocks-sty-1207",
-   "name": "Girls Fancy Frocks",
+   "slug": "girls-kattan-frock-frocks-by-marwa-sty-1207",
+   "name": "Girls Kattan Frock Frocks by Marwa",
    "category": "Frocks",
    "category_parent": null,
    "size_group": "Girls Fancy Frocks",
    "gender": "girls",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
-   "price_min": 0,
+   "fabric": "Kattan",
+   "set_contents": "Frock",
+   "age_group": "5 Years",
+   "season": "ALL",
+   "size_ages": {
+    "24": "5 Years–6 Years",
+    "26": "6 Years–7 Years",
+    "28": "7 Years–8 Years",
+    "30": "8 Years–9 Years",
+    "32": "9 Years–10 Years",
+    "34": "10 Years–12 Years"
+   },
+   "price_min": 2000,
    "price_max": 2000,
    "sizes": [
-    "18",
-    "20",
-    "22",
     "24",
     "26",
     "28",
     "30",
     "32",
-    "34",
-    "36",
-    "38",
-    "40"
+    "34"
    ],
    "colours": [
     {
@@ -2330,27 +2156,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 797,
-     "size": "18",
-     "colour": "Standard",
-     "price": 0,
-     "availability": "out"
-    },
-    {
-     "id": 798,
-     "size": "20",
-     "colour": "Standard",
-     "price": 0,
-     "availability": "out"
-    },
-    {
-     "id": 799,
-     "size": "22",
-     "colour": "Standard",
-     "price": 0,
-     "availability": "out"
-    },
     {
      "id": 800,
      "size": "24",
@@ -2392,27 +2197,6 @@
      "colour": "Standard",
      "price": 2000,
      "availability": "few"
-    },
-    {
-     "id": 806,
-     "size": "36",
-     "colour": "Standard",
-     "price": 0,
-     "availability": "out"
-    },
-    {
-     "id": 807,
-     "size": "38",
-     "colour": "Standard",
-     "price": 0,
-     "availability": "out"
-    },
-    {
-     "id": 808,
-     "size": "40",
-     "colour": "Standard",
-     "price": 0,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-16",
@@ -3741,7 +3525,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 364,
@@ -3749,6 +3533,71 @@
      "colour": "Standard",
      "price": 1100,
      "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1101",
+   "slug": "girls-cotton-2-pcs-set-suit-by-noor-jahan-sty-1101",
+   "name": "Girls Cotton 2 pcs Set / Suit by Noor Jahan",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "Cotton",
+   "set_contents": "2 pcs",
+   "age_group": "2 Years",
+   "season": null,
+   "size_ages": {
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 700,
+   "price_max": 700,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1101/1d07b6ff-09d6-4f59-a170-2b2fcc133509.webp",
+   "photos": [
+    {
+     "src": "media/STY-1101/1d07b6ff-09d6-4f59-a170-2b2fcc133509.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 332,
+     "size": "S",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
+    },
+    {
+     "id": 333,
+     "size": "M",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "few"
+    },
+    {
+     "id": 334,
+     "size": "L",
+     "colour": "Standard",
+     "price": 700,
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -3785,10 +3634,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1099/2028c351-f962-4308-93d8-2d1da0e2c763.webp",
+   "cover": "media/STY-1099/e79e6d09-11be-41ab-b3a8-a322bf63aa0a.webp",
    "photos": [
     {
-     "src": "media/STY-1099/2028c351-f962-4308-93d8-2d1da0e2c763.webp",
+     "src": "media/STY-1099/e79e6d09-11be-41ab-b3a8-a322bf63aa0a.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -3851,10 +3700,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1098/7b9dca02-0a80-46b6-b547-0dce013b0a47.webp",
+   "cover": "media/STY-1098/d5f1efc1-3f5b-42a4-b4c1-bfd38edde705.webp",
    "photos": [
     {
-     "src": "media/STY-1098/7b9dca02-0a80-46b6-b547-0dce013b0a47.webp",
+     "src": "media/STY-1098/d5f1efc1-3f5b-42a4-b4c1-bfd38edde705.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -3881,6 +3730,138 @@
      "colour": "Standard",
      "price": 1500,
      "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1095",
+   "slug": "girls-cotton-2-pcs-set-suit-by-pink-yellow-sty-1095",
+   "name": "Girls Cotton 2 pcs Set / Suit by Pink Yellow",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "Cotton",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "SUMMER",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 900,
+   "price_max": 900,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1095/aa28854b-1e82-4173-93c7-dbd2d2a24aee.webp",
+   "photos": [
+    {
+     "src": "media/STY-1095/aa28854b-1e82-4173-93c7-dbd2d2a24aee.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 314,
+     "size": "S",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 315,
+     "size": "M",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 316,
+     "size": "L",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1093",
+   "slug": "girls-china-yarn-2-pcs-set-suit-by-new-doll-sty-1093",
+   "name": "Girls China yarn 2 pcs Set / Suit by New Doll",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "China yarn",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": null,
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1500,
+   "price_max": 1500,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1093/8feeae21-d9e0-4649-8da6-f482ce7e323e.webp",
+   "photos": [
+    {
+     "src": "media/STY-1093/8feeae21-d9e0-4649-8da6-f482ce7e323e.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 308,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1500,
+     "availability": "few"
+    },
+    {
+     "id": 309,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1500,
+     "availability": "out"
+    },
+    {
+     "id": 310,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1500,
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-24",
@@ -3917,10 +3898,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1090/dfe6fabb-bcdc-47eb-804f-a128b553651b.webp",
+   "cover": "media/STY-1090/ad8cce7f-6755-4e6a-955d-0cdfba76b1a0.webp",
    "photos": [
     {
-     "src": "media/STY-1090/dfe6fabb-bcdc-47eb-804f-a128b553651b.webp",
+     "src": "media/STY-1090/ad8cce7f-6755-4e6a-955d-0cdfba76b1a0.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -3947,6 +3928,72 @@
      "colour": "Standard",
      "price": 700,
      "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1089",
+   "slug": "girls-cotton-2-pcs-set-suit-by-indus-sty-1089",
+   "name": "Girls Cotton 2 pcs Set / Suit by Indus",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "Cotton",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": null,
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1600,
+   "price_max": 1600,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1089/c30e802c-f1b0-484e-b7f5-ed7d5ad17d45.webp",
+   "photos": [
+    {
+     "src": "media/STY-1089/c30e802c-f1b0-484e-b7f5-ed7d5ad17d45.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 296,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
+     "id": 297,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
+     "id": 298,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1600,
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-24",
@@ -4049,10 +4096,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1087/123fc796-1b08-41bd-85d6-494b821b5675.webp",
+   "cover": "media/STY-1087/92a3f02b-8dd5-411d-8614-d57800fcb4fe.webp",
    "photos": [
     {
-     "src": "media/STY-1087/123fc796-1b08-41bd-85d6-494b821b5675.webp",
+     "src": "media/STY-1087/92a3f02b-8dd5-411d-8614-d57800fcb4fe.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -4313,10 +4360,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1080/1d9cdf5b-1bd5-4a65-93d0-cc666e5cbbe9.webp",
+   "cover": "media/STY-1080/cb1fb0ab-3a19-460c-9645-f250d74d1082.webp",
    "photos": [
     {
-     "src": "media/STY-1080/1d9cdf5b-1bd5-4a65-93d0-cc666e5cbbe9.webp",
+     "src": "media/STY-1080/cb1fb0ab-3a19-460c-9645-f250d74d1082.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -5022,6 +5069,270 @@
    "is_new": true
   },
   {
+   "code": "STY-1064",
+   "slug": "girls-china-denim-2-pcs-set-suit-by-sania-sty-1064",
+   "name": "Girls China Denim 2 pcs Set / Suit by Sania",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1000,
+   "price_max": 1000,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1064/a62cd875-cd05-4fbd-b3c1-73bddac83759.webp",
+   "photos": [
+    {
+     "src": "media/STY-1064/a62cd875-cd05-4fbd-b3c1-73bddac83759.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 228,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "few"
+    },
+    {
+     "id": 229,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "few"
+    },
+    {
+     "id": 230,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1063",
+   "slug": "girls-china-denim-2-pcs-set-suit-by-big-rabbit-sty-1063",
+   "name": "Girls China Denim 2 pcs Set / Suit by Big Rabbit",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": null,
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1400,
+   "price_max": 1400,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1063/ea8f2225-3564-45c9-9ebc-16b63b125bdb.webp",
+   "photos": [
+    {
+     "src": "media/STY-1063/ea8f2225-3564-45c9-9ebc-16b63b125bdb.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 225,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 226,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 227,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1400,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1056",
+   "slug": "girls-china-yarn-romper-set-suit-by-coconet-sty-1056",
+   "name": "Girls China yarn Romper Set / Suit by Coconet",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "China yarn",
+   "set_contents": "Romper",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 900,
+   "price_max": 900,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1056/10dd2857-ff36-48e8-bf49-c81906a6a080.webp",
+   "photos": [
+    {
+     "src": "media/STY-1056/10dd2857-ff36-48e8-bf49-c81906a6a080.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 206,
+     "size": "S",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 207,
+     "size": "M",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 208,
+     "size": "L",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1054",
+   "slug": "girls-jersey-2-pcs-set-suit-by-zaid-sty-1054",
+   "name": "Girls Jersey 2 pcs Set / Suit by Zaid",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "Jersey",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": null,
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 800,
+   "price_max": 800,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1054/94d2ade5-da3a-4f53-b232-2082a49da69f.webp",
+   "photos": [
+    {
+     "src": "media/STY-1054/94d2ade5-da3a-4f53-b232-2082a49da69f.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 200,
+     "size": "S",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 201,
+     "size": "M",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    },
+    {
+     "id": 202,
+     "size": "L",
+     "colour": "Standard",
+     "price": 800,
+     "availability": "in"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
    "code": "STY-1053",
    "slug": "newlyborn-baby-sty-1053",
    "name": "NewlyBorn Baby",
@@ -5371,6 +5682,68 @@
    "is_new": true
   },
   {
+   "code": "STY-1043",
+   "slug": "girls-for-1-4-years-sty-1043",
+   "name": "Girls for 1-4 Years",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1000,
+   "price_max": 1000,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1043/1be28b04-9ed4-4d22-aac3-70a09e763257.webp",
+   "photos": [
+    {
+     "src": "media/STY-1043/1be28b04-9ed4-4d22-aac3-70a09e763257.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 181,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "few"
+    },
+    {
+     "id": 182,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "few"
+    },
+    {
+     "id": 183,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1000,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
    "code": "STY-1038",
    "slug": "girls-for-1-4-years-sty-1038",
    "name": "Girls for 1-4 Years",
@@ -5397,10 +5770,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1038/5d0d9f0d-8f59-476c-9532-8bdeeb0e3730.webp",
+   "cover": "media/STY-1038/da3f2d46-37ec-457c-9406-ae5363609394.webp",
    "photos": [
     {
-     "src": "media/STY-1038/5d0d9f0d-8f59-476c-9532-8bdeeb0e3730.webp",
+     "src": "media/STY-1038/da3f2d46-37ec-457c-9406-ae5363609394.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -5426,6 +5799,68 @@
      "size": "L",
      "colour": "Standard",
      "price": 1050,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1035",
+   "slug": "girls-for-1-4-years-sty-1035",
+   "name": "Girls for 1-4 Years",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": null,
+   "set_contents": null,
+   "age_group": null,
+   "season": null,
+   "size_ages": {},
+   "price_min": 1150,
+   "price_max": 1150,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1035/2c5e0c21-d11b-404b-912f-f52dfd4a657e.webp",
+   "photos": [
+    {
+     "src": "media/STY-1035/2c5e0c21-d11b-404b-912f-f52dfd4a657e.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 157,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 158,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 159,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1150,
      "availability": "few"
     }
    ],
