@@ -175,7 +175,7 @@ export function grid(products, { id = 'grid', filters = true, empty = 'Nothing h
   const sizes = [...new Set(products.flatMap(p => p.sizes || []))];
   const colours = [...new Set(products.flatMap(p => (p.colours || []).map(c => c.name).filter(n => n.toLowerCase() !== 'standard')))];
   // P56a — age, type and season: a dropdown each, only when the grid has more than one value
-  const SEASON = { SUMMER: 'Summer', WINTER: 'Winter', ALL: 'All seasons' };
+  const SEASON = { SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' };   // P125 — matches the POS list
   const ages = [...new Set(products.map(p => p.age_group).filter(Boolean))];
   const types = [...new Set(products.map(p => p.product_type).filter(Boolean))];
   const seasons = [...new Set(products.map(p => p.season).filter(Boolean))];

@@ -117,7 +117,7 @@ export function product(cat, slug) {
       ${p.size_group ? `<dt>Size range</dt><dd>${esc(sizes.map(z => p.size_ages && p.size_ages[z] ? `${z} (${p.size_ages[z]})` : z).join(' · '))}</dd>` : ''}
       ${p.age_group ? `<dt>Age</dt><dd>${esc(p.age_group)}</dd>` : ''}
       ${p.product_type ? `<dt>Type</dt><dd>${esc(p.product_type)}</dd>` : ''}
-      ${p.season ? `<dt>Season</dt><dd>${esc({ SUMMER: 'Summer', WINTER: 'Winter', ALL: 'All seasons' }[p.season] || p.season)}</dd>` : ''}
+      ${p.season ? `<dt>Season</dt><dd>${esc({ SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' }[p.season] || p.season)}</dd>` : ''}
       <dt>Delivery</dt><dd>${esc(deliveryLine(store))}</dd>
       <dt>Exchange</dt><dd>Within 15 days of delivery, unworn with the tag.</dd>
     </dl>

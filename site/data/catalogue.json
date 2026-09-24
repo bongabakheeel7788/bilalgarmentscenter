@@ -58,14 +58,14 @@
  "products": [
   {
    "code": "STY-1274",
-   "slug": "boys-jeans-pent-casual-pants-sty-1274",
-   "name": "Boys Jeans pent Casual Pants",
+   "slug": "boys-jeans-casual-pants-sty-1274",
+   "name": "Boys Jeans Casual Pants",
    "category": "Casual Pants",
    "category_parent": null,
    "size_group": "Boys Pents",
    "gender": "boys",
    "fabric": "Jeans",
-   "set_contents": "pent",
+   "set_contents": null,
    "age_group": "10 Years",
    "season": "ALL",
    "size_ages": {
@@ -994,17 +994,21 @@
   },
   {
    "code": "STY-1235",
-   "slug": "boys-premium-4-way-stretch-china-shirts-sty-1235",
-   "name": "Boys Premium 4 Way Stretch China Shirts",
+   "slug": "gents-china-shirt-casual-shirts-by-hm-sty-1235",
+   "name": "Gents China Shirt Casual Shirts by HM",
    "category": "Casual Shirts",
    "category_parent": null,
    "size_group": "Boys Full Size Shirts",
-   "gender": "boys",
-   "fabric": null,
+   "gender": "gents",
+   "fabric": "China",
    "set_contents": "Shirt",
-   "age_group": null,
+   "age_group": "Medium",
    "season": "SUMMER",
-   "size_ages": {},
+   "size_ages": {
+    "Medium": "Medium",
+    "Large": "Large",
+    "X-Large": "XL"
+   },
    "price_min": 750,
    "price_max": 750,
    "sizes": [
@@ -1481,17 +1485,24 @@
   },
   {
    "code": "STY-1218",
-   "slug": "china-trousers-sty-1218",
-   "name": "China Trousers",
+   "slug": "gents-china-trouser-trousers-sty-1218",
+   "name": "Gents China Trouser Trousers",
    "category": "Trousers",
    "category_parent": null,
    "size_group": "Boys Full Size Trousers",
    "gender": "gents",
-   "fabric": null,
-   "set_contents": null,
-   "age_group": null,
-   "season": null,
-   "size_ages": {},
+   "fabric": "China",
+   "set_contents": "Trouser",
+   "age_group": "Medium",
+   "season": "ALL",
+   "size_ages": {
+    "Medium": "Medium",
+    "Large": "Large",
+    "XL": "XL",
+    "2XL": "2XL",
+    "3XL": "3XL",
+    "4XL": "4XL"
+   },
    "price_min": 1100,
    "price_max": 1700,
    "sizes": [
@@ -1595,7 +1606,7 @@
      "size": "Large",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 978,
@@ -1644,7 +1655,7 @@
      "size": "XL",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 979,
@@ -1693,7 +1704,7 @@
      "size": "2XL",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 980,
@@ -2974,14 +2985,14 @@
   },
   {
    "code": "STY-1153",
-   "slug": "boys-embossed-shirt-casual-shirts-by-embossed-shirts-sty-1153",
-   "name": "Boys Embossed Shirt Casual Shirts by Embossed Shirts",
+   "slug": "boys-embossed-casual-shirts-by-embossed-shirts-sty-1153",
+   "name": "Boys Embossed Casual Shirts by Embossed Shirts",
    "category": "Casual Shirts",
    "category_parent": null,
    "size_group": "Boys Shirts",
    "gender": "boys",
    "fabric": "Embossed",
-   "set_contents": "Shirt",
+   "set_contents": null,
    "age_group": "2 Years",
    "season": "ALL",
    "size_ages": {
@@ -3382,122 +3393,6 @@
     }
    ],
    "first_published": "2026-09-22",
-   "is_new": true
-  },
-  {
-   "code": "STY-1121",
-   "slug": "girls-chiffon-3-pcs-set-suit-by-my-fairy-sty-1121",
-   "name": "Girls Chiffon 3 pcs Set / Suit by My Fairy",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Girls 24-28",
-   "gender": "girls",
-   "fabric": "Chiffon",
-   "set_contents": "3 pcs",
-   "age_group": "4 Years",
-   "season": null,
-   "size_ages": {
-    "24": "4 Years–5 Years",
-    "26": "6 Years–7 Years",
-    "28": "7 Years–8 Years"
-   },
-   "price_min": 1400,
-   "price_max": 1400,
-   "sizes": [
-    "24",
-    "26",
-    "28"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1121/32a0f7a2-496b-4575-82dd-59e28292d139.webp",
-   "variants": [
-    {
-     "id": 401,
-     "size": "24",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "out"
-    },
-    {
-     "id": 402,
-     "size": "26",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "few"
-    },
-    {
-     "id": 403,
-     "size": "28",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "out"
-    }
-   ],
-   "first_published": "2026-09-17",
-   "is_new": true
-  },
-  {
-   "code": "STY-1078",
-   "slug": "boys-jersey-2-pcs-set-suit-by-yt-sty-1078",
-   "name": "Boys Jersey 2 pcs Set / Suit by Y.T",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Boys SML",
-   "gender": "boys",
-   "fabric": "Jersey",
-   "set_contents": "2 pcs",
-   "age_group": "1 Year",
-   "season": null,
-   "size_ages": {
-    "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
-   },
-   "price_min": 700,
-   "price_max": 700,
-   "sizes": [
-    "S",
-    "M",
-    "L"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1078/61c90237-7ae9-403d-a1c5-df1d07d927e4.webp",
-   "variants": [
-    {
-     "id": 263,
-     "size": "S",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
-    },
-    {
-     "id": 264,
-     "size": "M",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "few"
-    },
-    {
-     "id": 265,
-     "size": "L",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
-    }
-   ],
-   "first_published": "2026-09-07",
    "is_new": true
   },
   {
