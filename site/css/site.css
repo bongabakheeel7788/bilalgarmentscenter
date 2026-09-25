@@ -525,7 +525,7 @@ main { padding-top: 30px; padding-bottom: 72px; }
 .card-fits { position: absolute; left: 10px; bottom: 10px; background: var(--bg-2); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 3px 8px; font-size: 12px; }
 @media (max-width: 760px) {
   /* a chip row scrolls sideways on a phone: one line, thumb-sized, never a wall */
-  .chips { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; padding: 2px 0 8px; margin: 0 calc(-1 * var(--pad)); padding-left: var(--pad); padding-right: var(--pad); scrollbar-width: none; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; scroll-padding-inline: var(--pad); padding: 2px 0 8px; margin: 0 calc(-1 * var(--pad)); padding-left: var(--pad); padding-right: var(--pad); scrollbar-width: none; }
   .chips::-webkit-scrollbar { display: none; }
   .chip { scroll-snap-align: start; flex: 0 0 auto; }
   .card-fits { font-size: 11px; padding: 2px 6px; left: 6px; bottom: 6px; }
@@ -569,7 +569,7 @@ h1, h2, h3, .brand, .brand-name, .sec-head h2, .page-head h1 { font-family: var(
   .kg-all { min-height: 44px; }
   /* one row that scrolls sideways, edge to edge; the next tile peeks in so the thumb knows there is more */
   .kt-row { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; gap: 6px;
-    margin: 0 calc(-1 * var(--pad)); padding: 2px var(--pad) 10px; scrollbar-width: none; }
+    margin: 0 calc(-1 * var(--pad)); padding: 2px var(--pad) 10px; scroll-padding-inline: var(--pad); scrollbar-width: none; }
   .kt-row::-webkit-scrollbar { display: none; }
   .kt { width: 84px; flex: 0 0 auto; scroll-snap-align: start; }
   .kt-sw { width: 72px; height: 72px; border-radius: 22px; }

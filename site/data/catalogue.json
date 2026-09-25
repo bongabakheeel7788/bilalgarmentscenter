@@ -245,14 +245,14 @@
   },
   {
    "code": "STY-1258",
-   "slug": "boys-china-check-shirt-casual-shirts-by-za-garments-lhr-sty-1258",
-   "name": "Boys China Check Shirt Casual Shirts by Z.A Garments Lhr",
+   "slug": "boys-china-check-casual-shirts-by-za-garments-lhr-sty-1258",
+   "name": "Boys China Check Casual Shirts by Z.A Garments Lhr",
    "category": "Casual Shirts",
    "category_parent": null,
    "size_group": "Boys Shirts",
    "gender": "boys",
    "fabric": "China Check",
-   "set_contents": "Shirt",
+   "set_contents": null,
    "age_group": "2 Years",
    "season": null,
    "sizing": "AGE",
@@ -8889,7 +8889,358 @@
    "months": 216
   }
  ],
+ "kinds": [
+  {
+   "key": "boys|Set / Suit",
+   "group": "boys",
+   "category": "Set / Suit",
+   "name": "Suits",
+   "icon": "suit",
+   "colour": "blue",
+   "total": 61,
+   "online": 35,
+   "months": [
+    0,
+    96
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Casual Shirts",
+   "group": "boys",
+   "category": "Casual Shirts",
+   "name": "Shirts",
+   "icon": "shirt",
+   "colour": "peach",
+   "total": 20,
+   "online": 7,
+   "months": [
+    12,
+    156
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Casual Pants",
+   "group": "boys",
+   "category": "Casual Pants",
+   "name": "Pants",
+   "icon": "pants",
+   "colour": "lemon",
+   "total": 16,
+   "online": 6,
+   "months": [
+    12,
+    180
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Baby Kit",
+   "group": "boys",
+   "category": "Baby Kit",
+   "name": "Baby Kit",
+   "icon": "babykit",
+   "colour": "lemon",
+   "total": 2,
+   "online": 0,
+   "months": [
+    0,
+    9
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Shalwar Kameez",
+   "group": "boys",
+   "category": "Shalwar Kameez",
+   "name": "Shalwar Kameez",
+   "icon": "shalwar",
+   "colour": "sand",
+   "total": 2,
+   "online": 0,
+   "months": [
+    12,
+    216
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Uniform Pants",
+   "group": "boys",
+   "category": "Uniform Pants",
+   "name": "Uniform pants",
+   "icon": "uniform",
+   "colour": "rose",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
+   "key": "boys|Uniform Shirts",
+   "group": "boys",
+   "category": "Uniform Shirts",
+   "name": "Uniform shirts",
+   "icon": "uniform",
+   "colour": "sky",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
+   "key": "boys|Waist Pants",
+   "group": "boys",
+   "category": "Waist Pants",
+   "name": "Waist Pants",
+   "icon": "waist",
+   "colour": "sky",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
+   "key": "boys|Baby Shawls",
+   "group": "boys",
+   "category": "Baby Shawls",
+   "name": "Baby shawls",
+   "icon": "shawl",
+   "colour": "peach",
+   "total": 1,
+   "online": 0,
+   "months": [
+    0,
+    3
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "rose",
+   "total": 1,
+   "online": 0,
+   "months": [
+    36,
+    192
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Set / Suit",
+   "group": "girls",
+   "category": "Set / Suit",
+   "name": "Suits",
+   "icon": "suit",
+   "colour": "blue",
+   "total": 140,
+   "online": 41,
+   "months": [
+    0,
+    156
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Frocks",
+   "group": "girls",
+   "category": "Frocks",
+   "name": "Frocks",
+   "icon": "frock",
+   "colour": "sky",
+   "total": 8,
+   "online": 2,
+   "months": [
+    24,
+    144
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Baby Kit",
+   "group": "girls",
+   "category": "Baby Kit",
+   "name": "Baby Kit",
+   "icon": "babykit",
+   "colour": "lilac",
+   "total": 2,
+   "online": 0,
+   "months": [
+    0,
+    9
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Baby Shawls",
+   "group": "girls",
+   "category": "Baby Shawls",
+   "name": "Baby shawls",
+   "icon": "shawl",
+   "colour": "rose",
+   "total": 1,
+   "online": 0,
+   "months": [
+    0,
+    3
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Casual Pants",
+   "group": "girls",
+   "category": "Casual Pants",
+   "name": "Pants",
+   "icon": "pants",
+   "colour": "sky",
+   "total": 1,
+   "online": 0,
+   "months": [
+    60,
+    168
+   ],
+   "sizes": []
+  },
+  {
+   "key": "gents|Trousers",
+   "group": "gents",
+   "category": "Trousers",
+   "name": "Trousers",
+   "icon": "pants",
+   "colour": "peach",
+   "total": 8,
+   "online": 1,
+   "months": null,
+   "sizes": [
+    "M",
+    "4XL"
+   ]
+  },
+  {
+   "key": "gents|Casual Shirts",
+   "group": "gents",
+   "category": "Casual Shirts",
+   "name": "Shirts",
+   "icon": "shirt",
+   "colour": "peach",
+   "total": 4,
+   "online": 1,
+   "months": null,
+   "sizes": [
+    "M",
+    "4XL"
+   ]
+  },
+  {
+   "key": "gents|Accessories",
+   "group": "gents",
+   "category": "Accessories",
+   "name": "Accessories",
+   "icon": "cap",
+   "colour": "blue",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "18",
+    "44\\XXXL"
+   ]
+  },
+  {
+   "key": "gents|Tracksuit",
+   "group": "gents",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "sand",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "M",
+    "XL"
+   ]
+  },
+  {
+   "key": "ladies|Full Size",
+   "group": "ladies",
+   "category": "Full Size",
+   "name": "Full size",
+   "icon": "fullsize",
+   "colour": "sky",
+   "total": 6,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "M",
+    "Standard Size"
+   ]
+  },
+  {
+   "key": "ladies|Stoller",
+   "group": "ladies",
+   "category": "Stoller",
+   "name": "Stoller",
+   "icon": "stole",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Standard Size"
+   ]
+  },
+  {
+   "key": "accessories|Towels",
+   "group": "accessories",
+   "category": "Towels",
+   "name": "Towels",
+   "icon": "towel",
+   "colour": "lemon",
+   "total": 11,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "12/12",
+    "Pack of 6"
+   ]
+  },
+  {
+   "key": "accessories|Accessories",
+   "group": "accessories",
+   "category": "Accessories",
+   "name": "Accessories",
+   "icon": "cap",
+   "colour": "sand",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "18",
+    "44\\XXXL"
+   ]
+  },
+  {
+   "key": "accessories|Handkerchief",
+   "group": "accessories",
+   "category": "Handkerchief",
+   "name": "Handkerchiefs",
+   "icon": "hanky",
+   "colour": "sand",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Handkerchief"
+   ]
+  }
+ ],
  "assets": {
-  "v": "32ac25309b"
+  "v": "d269675f2c"
  }
 }
