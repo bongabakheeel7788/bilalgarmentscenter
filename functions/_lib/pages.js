@@ -3,6 +3,9 @@ import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine,
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours } from './catalogue.js';
 
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
+// Fix 1.0.60 — search results, the checkout, the thanks page and tracking are nobody's landing page;
+// robots.txt already keeps crawlers off three of them, the tag keeps a crawler that got a link honest
+const NOINDEX = '<meta name="robots" content="noindex">';
 
 export function home(cat) {
   const store = cat.store;
@@ -164,7 +167,7 @@ ${alsoSize.length ? section(`Others in size ${esc(sizes[0] || '')}`, `<div class
 export function search(cat, q) {
   const body = `<div class="page-head"><h1>Search</h1><form class="search-big" action="/search/" role="search"><input type="search" name="q" value="${attr(q)}" placeholder="boys shirt, 3 piece, navy, size 24…" aria-label="Search" autofocus><button class="btn btn-primary" type="submit">Search</button></form></div>
 <div id="searchOut">${q ? '<div class="empty">Searching…</div>' : '<p class="muted">Type what you are looking for — words in any order: a name, a colour, a size, a category.</p>'}</div>`;
-  return layout(cat, { title: q ? `Search: ${q}` : 'Search', page: 'p-search', body, publicData: { q } });
+  return layout(cat, { title: q ? `Search: ${q}` : 'Search', page: 'p-search', body, publicData: { q }, head: NOINDEX });
 }
 
 export function checkout(cat, turnstileKey) {
@@ -206,7 +209,7 @@ export function checkout(cat, turnstileKey) {
     <div class="muted small" id="coDelNote"></div>
   </aside>
 </div>`;
-  return layout(cat, { title: 'Checkout', page: 'p-checkout', body, head: turnstileKey ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : '' });
+  return layout(cat, { title: 'Checkout', page: 'p-checkout', body, head: NOINDEX + (turnstileKey ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : '') });
 }
 
 export function thanks(cat, no) {
@@ -219,14 +222,14 @@ export function thanks(cat, no) {
   <ol class="steps"><li><strong>We call you</strong> on the number you gave, usually within a few hours during shop time, to confirm the pieces and the address.</li><li><strong>We pack and dispatch</strong> by Leopards courier; you get the tracking number on the <a href="/track/">Track</a> page.</li><li><strong>You pay the courier</strong> when it arrives. Wrong size? Exchange within 15 days.</li></ol>
   <div class="thanks-actions"><a class="btn btn-primary" data-where="thanks" href="${attr(waLink(store, `Hi, I have just placed order ${no} on your website.`))}" target="_blank" rel="noopener">Send us the order on WhatsApp</a><a class="btn btn-outline" href="/">Keep browsing</a></div>
 </div>`;
-  return layout(cat, { title: `Order ${no}`, page: 'p-thanks', body, publicData: { no } });
+  return layout(cat, { title: `Order ${no}`, page: 'p-thanks', body, publicData: { no }, head: NOINDEX });
 }
 
 export function track(cat, no) {
   const body = `<div class="page-head"><h1>Track an order</h1><p>Enter the order number from your confirmation and the mobile number you ordered with.</p></div>
 <form class="track-form" id="trackForm"><label>Order number <input name="no" value="${attr(no || '')}" placeholder="WEB-000123" required></label><label>Mobile number <input name="phone" inputmode="tel" placeholder="03xx xxxxxxx" required></label><button class="btn btn-primary" type="submit">Track</button></form>
 <div id="trackOut"></div>`;
-  return layout(cat, { title: 'Track an order', page: 'p-track', body, canonical: '/track/' });
+  return layout(cat, { title: 'Track an order', page: 'p-track', body, canonical: '/track/', head: NOINDEX });
 }
 
 export function visit(cat) {

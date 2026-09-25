@@ -198,7 +198,10 @@ $$('.filters').forEach(bar => {
   const sizeSel = bar.querySelector('[data-f=size]');
   if (want && sizeSel && [...sizeSel.options].some(o => o.value === want)) sizeSel.value = want;
   // P136 — the chip rows above the grid (age in months, kind, size) filter it too
-  const chipRows = $(`.for-chips[data-grid="${bar.dataset.grid}"]`);
+  // Fix 1.0.60 — these were `$` (one element) treated as lists: `chipRows.forEach` threw on every
+  // listing page and the whole block below it died — chips, the phone's Filter button, the swatch
+  // photo swap and "remember my group" were all dead on the live site for a day. `$$` is the list.
+  const chipRows = $$(`.for-chips[data-grid="${bar.dataset.grid}"]`);
   const chipVal = f => { const row = chipRows.find(r => r.dataset.f === f); const on = row && row.querySelector('.chip.on'); return on ? on.dataset.v : ''; };
   const apply = () => {
     const size = (bar.querySelector('[data-f=size]') || {}).value || chipVal('size') || '', colour = (bar.querySelector('[data-f=colour]') || {}).value || '', sort = (bar.querySelector('[data-f=sort]') || {}).value || 'new', instock = !!(bar.querySelector('[data-f=instock]') || {}).checked;
@@ -216,10 +219,10 @@ $$('.filters').forEach(bar => {
   bar.addEventListener('change', apply);
   // P136 — a chip picks one value in its row; ?age=5%20Years opens on that chip
   chipRows.forEach(row => {
-    $('.chip', row).forEach(ch => ch.onclick = () => { $('.chip', row).forEach(x => x.classList.toggle('on', x === ch)); apply(); ch.scrollIntoView({ block: 'nearest', inline: 'nearest' }); });
+    $$('.chip', row).forEach(ch => ch.onclick = () => { $$('.chip', row).forEach(x => x.classList.toggle('on', x === ch)); apply(); ch.scrollIntoView({ block: 'nearest', inline: 'nearest' }); });
   });
   const wantAge = new URLSearchParams(location.search).get('age');
-  if (wantAge) { const row = chipRows.find(r => r.dataset.f === 'agem'); const hit = row && $('.chip', row).find(c => c.textContent.trim().toLowerCase() === wantAge.trim().toLowerCase()); if (hit) hit.click(); }
+  if (wantAge) { const row = chipRows.find(r => r.dataset.f === 'agem'); const hit = row && $$('.chip', row).find(c => c.textContent.trim().toLowerCase() === wantAge.trim().toLowerCase()); if (hit) hit.click(); }
   apply();
 });
 
@@ -231,7 +234,7 @@ if (document.body.classList.contains('p-home')) {
   const mine = store.get('bgc_for', '');
   if (mine) {
     const tile = $(`.who-tile[data-for="${mine}"]`); if (tile) tile.classList.add('is-mine');
-    $('.grid-row').forEach(g => { const first = $('.card', g).filter(c => (c.dataset.for || '').split(' ').includes(mine)); first.reverse().forEach(c => g.prepend(c)); });
+    $$('.grid-row').forEach(g => { const first = $$('.card', g).filter(c => (c.dataset.for || '').split(' ').includes(mine)); first.reverse().forEach(c => g.prepend(c)); });
   }
 }
 

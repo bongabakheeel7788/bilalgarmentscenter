@@ -2899,7 +2899,7 @@
      "size": "24",
      "colour": "Washable",
      "price": 650,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 669,
@@ -4357,6 +4357,93 @@
    "is_new": true
   },
   {
+   "code": "STY-1110",
+   "slug": "girls-cotton-2-pcs-set-suit-by-sania-sty-1110",
+   "name": "Girls Cotton 2 pcs Set / Suit by Sania",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "Cotton",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "SUMMER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 900,
+   "price_max": 900,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1110/af9d68d2-4e8c-4289-8ca5-14a9ab77f31c.webp",
+   "photos": [
+    {
+     "src": "media/STY-1110/af9d68d2-4e8c-4289-8ca5-14a9ab77f31c.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 368,
+     "size": "S",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 369,
+     "size": "M",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 370,
+     "size": "L",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-25",
+   "is_new": true
+  },
+  {
    "code": "STY-1109",
    "slug": "girls-chiffon-2-pcs-set-suit-by-full-time-sty-1109",
    "name": "Girls Chiffon 2 pcs Set / Suit by Full Time",
@@ -4664,10 +4751,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1099/e79e6d09-11be-41ab-b3a8-a322bf63aa0a.webp",
+   "cover": "media/STY-1099/67cafb97-c099-4de8-87ac-f8f9700c4452.webp",
    "photos": [
     {
-     "src": "media/STY-1099/e79e6d09-11be-41ab-b3a8-a322bf63aa0a.webp",
+     "src": "media/STY-1099/67cafb97-c099-4de8-87ac-f8f9700c4452.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -5012,10 +5099,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1090/ad8cce7f-6755-4e6a-955d-0cdfba76b1a0.webp",
+   "cover": "media/STY-1090/278ab848-67ca-4f64-b988-083e6df7c403.webp",
    "photos": [
     {
-     "src": "media/STY-1090/ad8cce7f-6755-4e6a-955d-0cdfba76b1a0.webp",
+     "src": "media/STY-1090/278ab848-67ca-4f64-b988-083e6df7c403.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -5099,10 +5186,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1089/c30e802c-f1b0-484e-b7f5-ed7d5ad17d45.webp",
+   "cover": "media/STY-1089/a6a4fbfc-15ec-4d4c-b48d-5bb848e182b9.webp",
    "photos": [
     {
-     "src": "media/STY-1089/c30e802c-f1b0-484e-b7f5-ed7d5ad17d45.webp",
+     "src": "media/STY-1089/a6a4fbfc-15ec-4d4c-b48d-5bb848e182b9.webp",
      "kind": "COVER",
      "colour": null
     }
