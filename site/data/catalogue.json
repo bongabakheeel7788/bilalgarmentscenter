@@ -7434,6 +7434,93 @@
    "is_new": true
   },
   {
+   "code": "STY-1042",
+   "slug": "girls-china-2-pcs-set-suit-by-new-doll-sty-1042",
+   "name": "Girls China 2 pcs Set / Suit by New Doll",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "China",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1050,
+   "price_max": 1050,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1042/585adf12-d5cb-46da-b759-31cf2fe36312.webp",
+   "photos": [
+    {
+     "src": "media/STY-1042/585adf12-d5cb-46da-b759-31cf2fe36312.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 178,
+     "size": "S",
+     "colour": "Standard",
+     "price": 1050,
+     "availability": "few"
+    },
+    {
+     "id": 179,
+     "size": "M",
+     "colour": "Standard",
+     "price": 1050,
+     "availability": "few"
+    },
+    {
+     "id": 180,
+     "size": "L",
+     "colour": "Standard",
+     "price": 1050,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-25",
+   "is_new": true
+  },
+  {
    "code": "STY-1038",
    "slug": "girls-china-yarn-2-pcs-set-suit-by-new-doll-sty-1038",
    "name": "Girls China yarn 2 pcs Set / Suit by New Doll",
