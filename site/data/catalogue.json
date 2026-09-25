@@ -8897,7 +8897,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 75,
+   "total": 85,
    "online": 35,
    "months": [
     0,
@@ -8936,12 +8936,24 @@
    "sizes": []
   },
   {
+   "key": "boys|Uniform Shirts",
+   "group": "boys",
+   "category": "Uniform Shirts",
+   "name": "Uniform shirts",
+   "icon": "uniform",
+   "colour": "lilac",
+   "total": 4,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "boys|Baby Kit",
    "group": "boys",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": [
@@ -8956,7 +8968,7 @@
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "sand",
+   "colour": "blue",
    "total": 2,
    "online": 0,
    "months": [
@@ -8970,18 +8982,6 @@
    "group": "boys",
    "category": "Uniform Pants",
    "name": "Uniform pants",
-   "icon": "uniform",
-   "colour": "rose",
-   "total": 2,
-   "online": 0,
-   "months": null,
-   "sizes": []
-  },
-  {
-   "key": "boys|Uniform Shirts",
-   "group": "boys",
-   "category": "Uniform Shirts",
-   "name": "Uniform shirts",
    "icon": "uniform",
    "colour": "sky",
    "total": 2,
