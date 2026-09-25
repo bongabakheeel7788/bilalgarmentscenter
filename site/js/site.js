@@ -206,9 +206,11 @@ $$('.filters').forEach(bar => {
   const apply = () => {
     const size = (bar.querySelector('[data-f=size]') || {}).value || chipVal('size') || '', colour = (bar.querySelector('[data-f=colour]') || {}).value || '', sort = (bar.querySelector('[data-f=sort]') || {}).value || 'new', instock = !!(bar.querySelector('[data-f=instock]') || {}).checked;
     const age = (bar.querySelector('[data-f=age]') || {}).value || '', type = (bar.querySelector('[data-f=type]') || {}).value || '', season = (bar.querySelector('[data-f=season]') || {}).value || '';   // P56a
-    const agem = Number(chipVal('agem')) || 0, kind = chipVal('kind');
+    // Fix 1.0.62 — the Age dropdown and the age chips mean the same thing: a piece shows when ANY of its
+    // sizes fits that age (it used to compare the piece's youngest age by name, exact match only)
+    const agem = Number(chipVal('agem')) || Number(age) || 0, kind = chipVal('kind');
     let shown = items.filter(i => (!size || i.sizes.includes(size) || (i.fs || []).includes(size)) && (!colour || i.colours.includes(colour)) && (!instock || i.av !== 'out')
-      && (!age || i.age === age) && (!type || i.type === type) && (!season || i.season === season || i.season === 'ALL')
+      && (!type || i.type === type) && (!season || i.season === season || i.season === 'ALL')
       && (!agem || (i.am || []).some(([lo, hi]) => agem >= lo && agem <= hi)) && (!kind || i.kind === kind));
     shown.sort((a, b) => sort === 'low' ? a.price - b.price : sort === 'high' ? b.price - a.price : String(b.at).localeCompare(String(a.at)));
     const keep = new Set(shown.map(i => i.code));
@@ -223,6 +225,9 @@ $$('.filters').forEach(bar => {
   });
   const wantAge = new URLSearchParams(location.search).get('age');
   if (wantAge) { const row = chipRows.find(r => r.dataset.f === 'agem'); const hit = row && $$('.chip', row).find(c => c.textContent.trim().toLowerCase() === wantAge.trim().toLowerCase()); if (hit) hit.click(); }
+  // P139 — a homepage tile opens its group page on that kind: /for/boys/?kind=Casual%20Shirts
+  const wantKind = new URLSearchParams(location.search).get('kind');
+  if (wantKind) { const row = chipRows.find(r => r.dataset.f === 'kind'); const hit = row && $$('.chip', row).find(c => c.dataset.v === wantKind); if (hit) hit.click(); }
   apply();
 });
 
@@ -233,7 +238,8 @@ if (window.PAGE && window.PAGE.forGroup) store.set('bgc_for', window.PAGE.forGro
 if (document.body.classList.contains('p-home')) {
   const mine = store.get('bgc_for', '');
   if (mine) {
-    const tile = $(`.who-tile[data-for="${mine}"]`); if (tile) tile.classList.add('is-mine');
+    // P139 — the group the phone last shopped for comes first among the homepage tiles, marked with a dot
+    const sec = $(`.kg[data-for="${mine}"]`); if (sec) { sec.classList.add('is-mine'); sec.parentNode.prepend(sec); }
     $$('.grid-row').forEach(g => { const first = $$('.card', g).filter(c => (c.dataset.for || '').split(' ').includes(mine)); first.reverse().forEach(c => g.prepend(c)); });
   }
 }

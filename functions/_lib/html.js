@@ -2,7 +2,8 @@
 // Server-rendered so a forwarded link previews with the real photo and price
 // and the page reads on a slow phone before any script runs; the script then
 // adds the cart, the filters and the search.
-import { money, priceLabel, productAvailability, groupsOf, ageName } from './catalogue.js';   // P136: groupsOf, ageName
+import { money, priceLabel, productAvailability, groupsOf, ageName, FOR_GROUPS } from './catalogue.js';   // P136: groupsOf, ageName; P139: FOR_GROUPS
+import { SWATCHES, iconSvg } from './kind-icons.js';   // P139
 
 export const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export const attr = s => esc(s);
@@ -25,6 +26,13 @@ export function deliveryLine(store) {
  * The page shell. `page` names the body class; `og` is { title, description,
  * image, type } for the preview a forwarded link gets; `head` is extra markup.
  */
+// Fix 1.0.62 — the script and stylesheet addresses carry a fingerprint of their own contents (worked
+// out by the POS at publish, `assets.v` in catalogue.json). Browsers keep these files for four hours;
+// with the same address every time, a phone that opened the site before a fix kept running the old
+// script. A new fingerprint is a new address, so the fix reaches every phone at once — and a publish
+// that changed nothing keeps the same one, so nothing is fetched again for no reason.
+export const assetV = cat => (cat && cat.assets && cat.assets.v ? `?v=${encodeURIComponent(cat.assets.v)}` : '');
+
 export function layout(cat, { title, description, canonical, og = {}, head = '', page = '', body, store = cat.store, publicData }) {
   const site = String(store.site_url || '').replace(/\/$/, '');
   // P70 — the words a Google result and a forwarded WhatsApp link show. Only the
@@ -71,10 +79,10 @@ ${canonical ? `<meta property="og:url" content="${attr(site + canonical)}">` : '
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"></noscript>
-<link rel="preload" href="/css/site.css" as="style">
-<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"></noscript>
+<link rel="preload" href="/css/site.css${assetV(cat)}" as="style">
+<link rel="stylesheet" href="/css/site.css${assetV(cat)}">
 <script>window.STORE=${json({ name: store.name, whatsapp: store.whatsapp, whatsapp_intl: store.whatsapp_intl, free_delivery_above: Number(store.free_delivery_above || 0), delivery_charge: Number(store.delivery_charge || 0), payment_note: store.payment_note || '', site_url: site, pixel: !!store.pixel_id, agent_codes: [...cat.agentCodes] })};${publicData ? `window.PAGE=${json(publicData)};` : ''}</script>
 ${pixel}
 ${head}
@@ -111,9 +119,9 @@ ${body}
   </div>
 </aside>
 <div class="backdrop" id="backdrop" hidden></div>
-<script src="/js/track.js" defer></script>
-<script src="/js/search.js" type="module"></script>
-<script src="/js/site.js" type="module"></script>
+<script src="/js/track.js${assetV(cat)}" defer></script>
+<script src="/js/search.js${assetV(cat)}" type="module"></script>
+<script src="/js/site.js${assetV(cat)}" type="module"></script>
 </body>
 </html>`;
 }
@@ -178,13 +186,18 @@ export function card(p) {
 }
 
 /** a grid with the filter bar the script drives; each card carries what the filters need */
-export function grid(products, { id = 'grid', filters = true, empty = 'Nothing here yet — new pieces arrive every week.' } = {}) {
+export function grid(products, { id = 'grid', filters = true, empty = 'Nothing here yet — new pieces arrive every week.', ageGroups = [], ageChips = false } = {}) {
   if (!products.length) return `<div class="empty">${esc(empty)}</div>`;
   const sizes = [...new Set(products.flatMap(p => p.sizes || []))];
   const colours = [...new Set(products.flatMap(p => (p.colours || []).map(c => c.name).filter(n => n.toLowerCase() !== 'standard')))];
   // P56a — age, type and season: a dropdown each, only when the grid has more than one value
   const SEASON = { SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' };   // P125 — matches the POS list
-  const ages = [...new Set(products.map(p => p.age_group).filter(Boolean))];
+  // Fix 1.0.62 — the Age dropdown kept a piece only when its YOUNGEST age was exactly the one picked:
+  // "4 Years" on the boys page left 1 piece while the age chips said 23 fit. It now uses the chips'
+  // rule — a piece shows when any of its sizes fits — with the shop's own age list as the choices,
+  // only the ages these pieces cover. A page that already has age chips does not get a second age control.
+  const covers = (a) => products.some(p => Object.values(p.size_months || {}).some(([lo, hi]) => a.months >= lo && a.months <= hi));
+  const ages = ageChips ? [] : (ageGroups || []).filter(covers);
   const types = [...new Set(products.map(p => p.product_type).filter(Boolean))];
   const seasons = [...new Set(products.map(p => p.season).filter(Boolean))];
   const data = products.map(p => ({ code: p.code, sizes: (p.variants || []).filter(v => v.availability !== 'out').map(v => v.size), colours: (p.colours || []).map(c => c.name), price: p.price_min, at: p.first_published || '', av: productAvailability(p),
@@ -194,7 +207,7 @@ export function grid(products, { id = 'grid', filters = true, empty = 'Nothing h
     <button type="button" class="f-toggle" data-ftoggle aria-expanded="false">&#9776; Filter</button>
     <span class="f-count" data-count>${products.length} product${products.length === 1 ? '' : 's'}</span>
     <div class="f-controls">
-    ${ages.length > 1 ? `<select data-f="age" aria-label="Age"><option value="">Any age</option>${ages.map(s => `<option>${esc(s)}</option>`).join('')}</select>` : ''}
+    ${ages.length > 1 ? `<select data-f="age" aria-label="Age"><option value="">Any age</option>${ages.map(a => `<option value="${attr(String(a.months))}">${esc(a.name)}</option>`).join('')}</select>` : ''}
     ${types.length > 1 ? `<select data-f="type" aria-label="Type"><option value="">Any type</option>${types.map(s => `<option>${esc(s)}</option>`).join('')}</select>` : ''}
     <select data-f="size" aria-label="Size"><option value="">Any size</option>${sizes.map(s => `<option>${esc(s)}</option>`).join('')}</select>
     ${colours.length ? `<select data-f="colour" aria-label="Colour"><option value="">Any colour</option>${colours.map(s => `<option>${esc(s)}</option>`).join('')}</select>` : ''}
@@ -222,21 +235,6 @@ export function notFound(cat, what = 'That page is not here') {
 // piece below degrades on its own: band of four → one picture → none, and the
 // page is never broken, only plainer.
 
-/** the hero picture band: four recent photographs, or one, or nothing at all */
-export function heroBand(products) {
-  const shots = [];
-  for (const p of products) {
-    if (p.cover && !shots.some(s => s.src === p.cover)) shots.push({ src: p.cover, slug: p.slug, name: p.name });
-    if (shots.length >= 4) break;
-  }
-  if (!shots.length) return '';
-  if (shots.length < 3) {
-    const h = shots[0];
-    return `<a class="hero-img" href="/p/${attr(h.slug)}/"><img src="/${attr(h.src)}" alt="${attr(h.name)}" width="800" height="1000" fetchpriority="high"></a>`;
-  }
-  return `<div class="hero-band">${shots.map((h, i) => `<a class="hb" href="/p/${attr(h.slug)}/"><img src="/${attr(h.src)}" alt="${attr(h.name)}" width="600" height="750"${i ? ' loading="lazy"' : ' fetchpriority="high"'}></a>`).join('')}</div>`;
-}
-
 /** the three things that actually sell a cash-on-delivery shop */
 export function promiseRow(store, { compact = false } = {}) {
   const w = Array.isArray(store.promises) && store.promises.length === 3 ? store.promises : null;
@@ -253,32 +251,46 @@ export function promiseRow(store, { compact = false } = {}) {
 }
 
 /** category tiles — a picture to point at, not a list of words to read */
-// ── P136 — "Who are you buying for?" ────────────────────────────────────────
-// One picture tile per group with something in it: the newest photographed piece, the count, and the
-// span ("newborn to 13 years" for children, "sizes M to 4XL" for adults). Two-up on a phone, 44 px tall
-// at least; the phone remembers the last one opened (site.js) and the homepage highlights it.
-export function whoStrip(cat) {
-  const groups = cat.groups || [];
-  if (!groups.length) return '';
-  const span = g => {
-    if (g.byAge) {
-      const hi = Math.max(0, ...g.items.map(p => (p.age_months || [0, 0])[1] || 0));
-      const name = ageName(cat, hi);
-      return name ? `newborn to ${name.toLowerCase()}` : 'every age';
-    }
-    const free = [...new Set(g.items.flatMap(p => Object.values(p.size_free || {})))];
-    return free.length ? `sizes ${free[0]} to ${free[free.length - 1]}` : g.key === 'accessories' ? 'for anyone' : 'by size';
-  };
-  return `<section class="who" aria-labelledby="whoTitle">
-    <h2 id="whoTitle">Who are you buying for?</h2>
-    <p class="who-sub">Pick one — then the age or the size, and everything that fits.</p>
-    <div class="who-grid">${groups.map(g => {
-      const shot = g.items.find(p => p.cover);
-      return `<a class="who-tile" href="/for/${attr(g.key)}/" data-for="${attr(g.key)}">
-        <span class="who-img">${shot ? `<img src="/${attr(shot.cover)}" alt="" loading="lazy" width="400" height="500">` : '<span class="noimg"></span>'}</span>
-        <span class="who-text"><strong>${esc(g.label)}</strong><small>${g.items.length} piece${g.items.length === 1 ? '' : 's'} · ${esc(span(g))}</small></span></a>`;
-    }).join('')}</div>
-  </section>`;
+// ── P139 — the homepage tiles ─────────────────────────────────────────────────
+// Every group (Boys, Girls, Gents, Ladies, Accessories) as a heading and a row of tiles, one per kind the shop
+// sells in it: a coloured square with a line icon, the short name, and the age (children) or the sizes
+// (adults) underneath — worked out from the pieces. Name, icon and colour are the shop's choice on the POS
+// (Website ▸ The site itself ▸ Homepage tiles). A kind with nothing online yet still shows, marked
+// "Coming soon", and asks on WhatsApp instead of opening an empty page (Fahad: "show tile now with coming soon").
+const yrs = m => { const y = m / 12; return Number.isInteger(y) ? String(y) : y.toFixed(1).replace(/\.0$/, ''); };
+export function kindSpan(k) {
+  if (k.months) {
+    const [lo, hi] = k.months;
+    if (lo >= 12 && hi >= 12) return lo === hi ? `${yrs(lo)} yrs` : `${yrs(lo)}–${yrs(hi)} yrs`;
+    if (hi < 12) return lo === hi ? (lo === 0 ? 'newborn' : `${lo} mo`) : `${lo === 0 ? 'newborn' : lo}–${hi} mo`;
+    return `${lo === 0 ? 'newborn' : lo + ' mo'}–${yrs(hi)} yrs`;
+  }
+  if (k.sizes && k.sizes.length) return k.sizes.length > 1 ? `${k.sizes[0]}–${k.sizes[k.sizes.length - 1]}` : `size ${k.sizes[0]}`;
+  return '';
+}
+export function kindTiles(cat) {
+  const kinds = cat.kinds || [];
+  if (!kinds.length) return '';
+  const store = cat.store || {};
+  const live = new Set((cat.groups || []).map(g => g.key));
+  return `<div class="kinds">${FOR_GROUPS.map(g => {
+    const mine = kinds.filter(k => k.group === g.key);
+    if (!mine.length) return '';
+    const all = live.has(g.key) ? `<a class="kg-all" href="/for/${attr(g.key)}/">All ${esc(g.label.toLowerCase())}<span aria-hidden="true"> →</span></a>` : '';
+    return `<section class="kg" data-for="${attr(g.key)}" aria-labelledby="kg-${attr(g.key)}">
+      <div class="kg-head"><h2 id="kg-${attr(g.key)}">${esc(g.label)}</h2>${all}</div>
+      <div class="kt-row">${mine.map(k => {
+        const [tint, ink] = SWATCHES[k.colour] || SWATCHES.blue;
+        const span = kindSpan(k);
+        const soon = !k.online;
+        const href = soon ? waLink(store, `Salam! Do you have ${k.name.toLowerCase()} for ${g.key === 'accessories' ? 'the house' : g.label.toLowerCase()}?`)
+          : `/for/${g.key}/?kind=${encodeURIComponent(k.category)}`;
+        return `<a class="kt${soon ? ' is-soon' : ''}" href="${attr(href)}"${soon ? ' target="_blank" rel="noopener" data-where="tile"' : ''} style="--kt-tint:${tint};--kt-ink:${ink}">
+          <span class="kt-sw">${iconSvg(k.icon, ink, 34)}${soon ? '<span class="kt-soon">Coming soon</span>' : ''}</span>
+          <span class="kt-name">${esc(k.name)}</span>${span ? `<span class="kt-age">${esc(span)}</span>` : ''}</a>`;
+      }).join('')}</div>
+    </section>`;
+  }).join('')}</div>`;
 }
 /** a row of chips that filters the grid `gridId` by `field`; scrolls sideways on a phone, never wraps into a wall */
 export function chipRow({ title, field, gridId = 'grid', options, any = 'Any' }) {

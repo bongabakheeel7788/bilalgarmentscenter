@@ -10,7 +10,7 @@
   --warn: #8a5a09; --warn-soft: #fdf6e3; --bad: #9f2828; --bad-soft: #fbeceb; --ok: #1d5c37;
   --radius: 6px; --radius-sm: 4px;
   --shadow: 0 1px 2px rgba(23,21,15,.04);
-  --serif: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --serif: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;   /* P139: was the serif — "not modern looking" */
   --sans: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --wrap: 1180px; --pad: 20px;
   color-scheme: light;
@@ -512,19 +512,7 @@ main { padding-top: 30px; padding-bottom: 72px; }
 .size-guide[open] summary::before { content: '\25BE  '; }
 .size-guide img { display: block; max-width: 100%; margin-top: 10px; border-radius: 12px; border: 1px solid var(--line); }
 
-/* ── P136 — "Who are you buying for?": the tiles, the chip rows, the age on the card ── */
-.who { margin: 18px 0 8px; }
-.who h2 { font-family: var(--serif); font-weight: 500; font-size: 28px; margin: 0 0 2px; }
-.who-sub { margin: 0 0 14px; color: var(--ink-2); font-size: 14px; }
-.who-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
-.who-tile { display: flex; flex-direction: column; text-decoration: none; color: inherit; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg-2); min-height: 44px; }
-.who-tile:hover, .who-tile:focus-visible { border-color: var(--accent); }
-.who-tile.is-mine { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
-.who-img { display: block; aspect-ratio: 4/5; background: var(--bg-3); }
-.who-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.who-text { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px 12px; }
-.who-text strong { font-family: var(--serif); font-weight: 500; font-size: 20px; }
-.who-text small { color: var(--ink-2); font-size: 12.5px; }
+/* ── P136 — the chip rows and the age on the card (the "Who are you buying for?" strip gave way to P139's tiles) ── */
 .for-chips { margin: 0 0 12px; }
 .for-chips-title { font-size: 13px; font-weight: 600; margin: 0 0 6px; }
 .chips { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -536,14 +524,56 @@ main { padding-top: 30px; padding-bottom: 72px; }
 .page-head h1 small { font-family: var(--sans); font-size: 14px; color: var(--ink-2); font-weight: 400; margin-left: 8px; }
 .card-fits { position: absolute; left: 10px; bottom: 10px; background: var(--bg-2); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 3px 8px; font-size: 12px; }
 @media (max-width: 760px) {
-  .who h2 { font-size: 22px; }
-  .who-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .who-grid .who-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
-  .who-grid .who-tile:last-child:nth-child(odd) .who-img { aspect-ratio: 16/9; }
-  .who-text strong { font-size: 18px; }
   /* a chip row scrolls sideways on a phone: one line, thumb-sized, never a wall */
   .chips { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; padding: 2px 0 8px; margin: 0 calc(-1 * var(--pad)); padding-left: var(--pad); padding-right: var(--pad); scrollbar-width: none; }
   .chips::-webkit-scrollbar { display: none; }
   .chip { scroll-snap-align: start; flex: 0 0 auto; }
   .card-fits { font-size: 11px; padding: 2px 6px; left: 6px; bottom: 6px; }
+}
+
+/* ── P139 — the homepage tiles and a lighter, rounder front ───────────────────
+   Fahad, 2026-09-25: "the websites front end is not modern looking, at top show boys and then boys items …
+   use swatches with icons". One section per group; one tile per kind: a tinted square with a line icon
+   (--kt-tint / --kt-ink come from the tile's colour, chosen on the POS), the name, the age underneath.
+   A phone scrolls each row sideways; a laptop gives the heading its own column and wraps the tiles. */
+:root { --radius: 14px; --radius-sm: 12px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+h1, h2, h3, .brand, .brand-name, .sec-head h2, .page-head h1 { font-family: var(--serif); font-weight: 800; letter-spacing: -.02em; }
+.brand::before { width: 26px; height: 26px; border-radius: 8px; vertical-align: -7px; margin-right: 9px; }
+.hdr-search input { background: var(--bg-3); border-color: transparent; border-radius: 12px 0 0 12px; }
+.hdr-search button { background: var(--bg-3); border-color: transparent; border-radius: 0 12px 12px 0; }
+.cart-btn { background: var(--bg-3); border-color: transparent; border-radius: 12px; }
+.kinds { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 26px; }
+.kg { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 20px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.kg-head { display: flex; flex-direction: column; gap: 2px; padding-top: 16px; }
+.kg-head h2 { margin: 0; font-size: 24px; }
+.kg-all { font-size: 13px; font-weight: 700; color: var(--accent); min-height: 32px; display: inline-flex; align-items: center; }
+.kt-row { display: flex; flex-wrap: wrap; gap: 12px 14px; }
+.kt { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 104px; text-align: center; color: var(--ink); }
+.kt-sw { position: relative; display: grid; place-items: center; width: 84px; height: 84px; border-radius: 24px; background: var(--kt-tint); transition: transform .15s ease; }
+.kt:hover .kt-sw, .kt:focus-visible .kt-sw { transform: translateY(-2px); }
+.kt:focus-visible { outline: none; }
+.kt:focus-visible .kt-sw { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--kt-ink); }
+.kt-name { font-family: var(--serif); font-weight: 700; font-size: 13.5px; line-height: 1.2; }
+.kt-age { font-size: 12px; color: var(--ink-3); line-height: 1.1; margin-top: -3px; }
+.kt-soon { position: absolute; left: 50%; bottom: -7px; transform: translateX(-50%); white-space: nowrap; font-size: 10px; font-weight: 700; letter-spacing: .02em;
+  background: var(--bg-2); color: var(--kt-ink); border: 1px solid var(--line); border-radius: 999px; padding: 2px 7px; }
+.kt.is-soon .kt-sw svg { opacity: .55; }
+.kt.is-soon .kt-name { color: var(--ink-2); }
+.kg.is-mine .kg-head h2::after { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-left: 8px; vertical-align: 5px; }
+@media (max-width: 760px) {
+  .kinds { gap: 0; margin: 0 0 18px; }
+  .kg { grid-template-columns: 1fr; gap: 6px; padding: 12px 0 14px; }
+  .kg-head { flex-direction: row; align-items: baseline; justify-content: space-between; padding-top: 0; }
+  .kg-head h2 { font-size: 20px; }
+  .kg-all { min-height: 44px; }
+  /* one row that scrolls sideways, edge to edge; the next tile peeks in so the thumb knows there is more */
+  .kt-row { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; gap: 6px;
+    margin: 0 calc(-1 * var(--pad)); padding: 2px var(--pad) 10px; scrollbar-width: none; }
+  .kt-row::-webkit-scrollbar { display: none; }
+  .kt { width: 84px; flex: 0 0 auto; scroll-snap-align: start; }
+  .kt-sw { width: 72px; height: 72px; border-radius: 22px; }
+  .kt-sw svg { width: 32px; height: 32px; }
+  .kt-name { font-size: 13px; }
+  .kt-age { font-size: 11.5px; }
 }

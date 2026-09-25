@@ -1,5 +1,5 @@
 // Every HTML page of the site, rendered from the catalogue.
-import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, heroBand, promiseRow, catTiles, buyBar, whoStrip, chipRow } from './html.js';
+import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, promiseRow, catTiles, buyBar, kindTiles, chipRow } from './html.js';
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours } from './catalogue.js';
 
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
@@ -10,28 +10,15 @@ const NOINDEX = '<meta name="robots" content="noindex">';
 export function home(cat) {
   const store = cat.store;
   const fresh = cat.products.filter(p => p.is_new).sort(byNewest);
-  // P68b — the band is built from the NEWEST photographed pieces, not from
-  // whichever product happened to have a picture. Falls back to one image, then
-  // to none: on a catalogue with five photographs the page is plainer, never broken.
-  const banded = [...fresh, ...cat.products.slice().sort(byNewest)].filter(p => p.cover);
-  const band = heroBand(banded);
-  const hero = banded[0] || null;
+  const hero = [...fresh, ...cat.products.slice().sort(byNewest)].find(p => p.cover) || null;   // the picture a shared link shows
   const HOME_MAX = 12;                       // the front page is a shop window, not the stockroom
   const everything = cat.products.slice().sort(byNewest);
   const body = `
-${whoStrip(cat)}
-<section class="hero${band ? '' : ' hero-solo'}">
-  <div class="hero-text">
-    ${/* P70 — Fahad's own words if he has written them, otherwise exactly what
-          this said before the editor existed. The tagline has to be both the
-          shop's one-line description AND its shop-window headline, and cannot be
-          good at both; now it only has to be one of them. */ ''}
-    <h1>${esc(store.hero_headline || store.tagline || 'Children\'s wear, delivered all over Pakistan')}</h1>
-    <p>${esc(store.hero_sub || `${store.name} — ${store.address ? store.address.split(',').slice(-2).join(',').trim() : 'Tandlianwala'}. Browse, order in a minute, pay the rider when it arrives.`)}</p>
-    <div class="hero-cta"><a class="btn btn-primary" href="${attr((store.hero_cta && store.hero_cta.href) || '/new/')}">${esc((store.hero_cta && store.hero_cta.label) || 'Shop new arrivals')}</a><a class="btn btn-outline" data-where="hero" href="${attr(waLink(store, `Hi ${store.name}, I saw your website.`))}" target="_blank" rel="noopener">${esc((store.hero_cta && store.hero_cta.label2) || 'Ask on WhatsApp')}</a></div>
-  </div>
-  ${band}
-</section>
+${/* P139 — Fahad, 2026-09-25: "at top show boys and then boys items … and little age underneath them".
+      The groups and their kinds ARE the top of the page now; the old "Who are you buying for?" photo strip
+      and the headline with its photo band are gone. The headline stays as the page's h1 for search engines. */ ''}
+<h1 class="sr-only">${esc(store.hero_headline || store.tagline || 'Children\'s wear, delivered all over Pakistan')}</h1>
+${kindTiles(cat)}
 ${promiseRow(store)}
 ${fresh.length ? section('New arrivals', `<div class="grid grid-row">${fresh.slice(0, 8).map(card).join('')}</div>`, { href: '/new/', label: 'See all new' }) : ''}
 ${cat.collections.length ? section('Collections', `<div class="coll-grid">${cat.collections.map(c => `<a class="coll" href="/collection/${attr(c.slug)}/">${c.cover ? `<img src="/${attr(c.cover)}" alt="" loading="lazy">` : '<div class="noimg"></div>'}<div class="coll-text"><strong>${esc(c.name)}</strong>${c.blurb ? `<span>${esc(c.blurb)}</span>` : ''}<em>${c.items.length} piece${c.items.length === 1 ? '' : 's'}</em></div></a>`).join('')}</div>`) : ''}
@@ -43,7 +30,7 @@ ${section('Everything', `<div class="grid">${everything.slice(0, HOME_MAX).map(c
 }
 
 export function listing(cat, { title, products, canonical, description, intro }) {
-  const body = `<div class="page-head"><h1>${esc(title)}</h1>${intro ? `<p>${esc(intro)}</p>` : ''}</div>${grid(products)}`;
+  const body = `<div class="page-head"><h1>${esc(title)}</h1>${intro ? `<p>${esc(intro)}</p>` : ''}</div>${grid(products, { ageGroups: cat.ageGroups })}`;
   return layout(cat, { title, description: description || `${title} at ${cat.store.name} — ${products.length} pieces, cash on delivery.`, canonical, page: 'p-list', body, og: { image: (products.find(p => p.cover) || {}).cover } });
 }
 
@@ -70,7 +57,7 @@ export function forPage(cat, key) {
     ${!g.byAge && sizes.length > 1 ? chipRow({ title: g.ask, field: 'size', options: sizes.map(s => ({ value: s, label: s })), any: 'Any size' }) : ''}
     ${kinds.length > 1 ? chipRow({ title: 'What kind?', field: 'kind', options: kinds.map(([k, n]) => ({ value: k, label: k, count: n })), any: 'Everything' }) : ''}
     ${g.byAge ? '<p class="for-note">A piece shows when any of its sizes fits the age you pick.</p>' : ''}
-    ${grid(items)}`;
+    ${grid(items, { ageGroups: cat.ageGroups, ageChips: g.byAge })}`;
   return layout(cat, { title: g.title, description: `${g.title} at ${cat.store.name} — ${items.length} pieces, cash on delivery all over Pakistan.`, canonical: `/for/${key}/`, page: 'p-list p-for', body,
     og: { image: (items.find(p => p.cover) || {}).cover }, publicData: { forGroup: key } });
 }
