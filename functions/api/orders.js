@@ -4,7 +4,8 @@
 // list consulted, a per-phone and per-IP limit. Nothing about money or stock
 // is decided here — the POS confirms by phone and records the sale on delivery.
 import { loadCatalogue, deliveryCharge } from '../_lib/catalogue.js';
-import { ensureSchema, json, normalisePhone, orderNo } from '../_lib/db.js';
+import { ensureSchema, json, normalisePhone, orderNo, choiceText } from '../_lib/db.js';
+import { checkPack } from '../_lib/packs.js';
 
 const paisa = n => Math.round(Number(n) * 100);
 const clean = (s, max) => String(s == null ? '' : s).replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
@@ -38,7 +39,10 @@ export async function onRequestPost(context) {
   const rawLines = Array.isArray(body.lines) ? body.lines : [];
   if (rawLines.length > 20) errors.lines = `That is ${rawLines.length} different items — an order can carry up to 20. Split it into two orders, or ask us on WhatsApp.`;
   const lines = rawLines.slice(0, 20);
-  if (!lines.length) errors.lines = 'The cart is empty.';
+  // P141 — packs: one cart line each, priced here from the catalogue
+  const rawPacks = Array.isArray(body.packs) ? body.packs.slice(0, 10) : [];
+  if (rawLines.length + rawPacks.length > 20) errors.lines = errors.lines || 'An order can carry up to 20 different items — split it into two orders, or ask us on WhatsApp.';
+  if (!lines.length && !rawPacks.length) errors.lines = 'The cart is empty.';
   const out = [], soldOut = [];
   let subtotal = 0;
   for (const l of lines) {
@@ -52,7 +56,18 @@ export async function onRequestPost(context) {
     subtotal += price * qty;
     out.push({ variant_id: Number(hit.v.id), code: hit.p.code, slug: hit.p.slug, name: hit.p.name, size: hit.v.size, colour: hit.v.colour, price_paisa: price, qty });
   }
-  if (soldOut.length) return json({ error: 'SOLD_OUT', items: soldOut, message: 'Some pieces have sold out since you added them.' }, 409);
+  const packs = [], packTrouble = [], repriced = [];
+  for (const p of rawPacks) {
+    const r = checkPack(cat, p);
+    if (r.line) { packs.push(r.line); subtotal += r.line.price_paisa * r.line.qty; continue; }
+    if (r.error === 'PRICE_CHANGED') repriced.push({ deal: r.deal, size: r.size, price: r.price, message: r.message });
+    else packTrouble.push({ deal: p && p.deal, size: p && p.size, reason: r.error, message: r.message });
+  }
+  if (soldOut.length || packTrouble.some(x => x.reason === 'SOLD_OUT')) {
+    return json({ error: 'SOLD_OUT', items: soldOut, packs: packTrouble, message: ['Some pieces have sold out since you added them.', ...packTrouble.map(x => x.message)].join(' ') }, 409);
+  }
+  if (packTrouble.length) return json({ error: 'BAD_PACK', packs: packTrouble, message: packTrouble.map(x => x.message).join(' ') }, 409);
+  if (repriced.length) return json({ error: 'PRICE_CHANGED', packs: repriced, message: repriced.map(x => x.message).join(' ') + ' Check the cart and place the order again.' }, 409);
   if (Object.keys(errors).length) return json({ error: 'VALIDATION', fields: errors }, 400);
 
   const db = env.DB;
@@ -66,7 +81,8 @@ export async function onRequestPost(context) {
   const byIp = ip ? await db.prepare(`SELECT count(*) AS n FROM orders WHERE ip = ? AND created_at > ?`).bind(ip, since).first() : { n: 0 };
   if ((byPhone && byPhone.n >= 3) || (byIp && byIp.n >= 6)) return json({ error: 'TOO_MANY', message: 'Too many orders in a short time — please wait a few minutes or message us on WhatsApp.' }, 429);
 
-  const del = paisa(deliveryCharge(cat.store, subtotal / 100, delivery));
+  // P141 — a pack is sold with free delivery, so an order carrying one pays none
+  const del = packs.length ? 0 : paisa(deliveryCharge(cat.store, subtotal / 100, delivery));
   const utm = body.utm || {};
   const r = await db.prepare(`INSERT INTO orders (name, phone, alt_phone, address, city, province, note, delivery, ref_code, ref_known, prepaid_ref,
       utm_source, utm_medium, utm_campaign, utm_content, campaign, landing, subtotal_paisa, delivery_paisa, total_paisa, ip, ua)
@@ -78,9 +94,15 @@ export async function onRequestPost(context) {
   const id = r.meta && r.meta.last_row_id;
   const no = orderNo(id);
   await db.prepare(`UPDATE orders SET no = ? WHERE id = ?`).bind(no, id).run();
-  await db.batch(out.map(l => db.prepare(`INSERT INTO order_lines (order_id, variant_id, code, slug, name, size, colour, price_paisa, qty) VALUES (?,?,?,?,?,?,?,?,?)`)
-    .bind(id, l.variant_id, l.code, l.slug, l.name, l.size, l.colour, l.price_paisa, l.qty)));
-  return json({ ok: true, no, total: (subtotal + del) / 100, delivery_charge: del / 100, lines: out.map(l => ({ ...l, price: l.price_paisa / 100 })) }, 201);
+  const writes = [
+    ...out.map(l => db.prepare(`INSERT INTO order_lines (order_id, variant_id, code, slug, name, size, colour, price_paisa, qty) VALUES (?,?,?,?,?,?,?,?,?)`)
+      .bind(id, l.variant_id, l.code, l.slug, l.name, l.size, l.colour, l.price_paisa, l.qty)),
+    ...packs.map(p => db.prepare(`INSERT INTO order_packs (order_id, deal_id, slug, name, size, size_id, pieces, choice, price_paisa, qty) VALUES (?,?,?,?,?,?,?,?,?,?)`)
+      .bind(id, p.deal_id, p.slug, p.name, p.size, p.size_id, p.pieces, JSON.stringify(p.choice), p.price_paisa, p.qty)),
+  ];
+  if (writes.length) await db.batch(writes);
+  return json({ ok: true, no, total: (subtotal + del) / 100, delivery_charge: del / 100, lines: out.map(l => ({ ...l, price: l.price_paisa / 100 })),
+    packs: packs.map(p => ({ name: p.name, size: p.size, pieces: p.pieces, choice: choiceText(p.choice), price: p.price_paisa / 100, qty: p.qty })) }, 201);
 }
 
 async function verifyTurnstile(secret, token, ip) {

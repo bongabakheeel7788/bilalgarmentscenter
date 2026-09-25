@@ -28,23 +28,32 @@ const refCode = () => { const r = store.get('bgc_ref'); return r && r.until > Da
 const utmData = () => { try { return JSON.parse(sessionStorage.getItem('bgc_utm') || '{}'); } catch { return {}; } };
 
 // ── the cart ─────────────────────────────────────────────────────────────────
+// P141 — a line is a piece (variant_id) or a pack (key: the deal, the size and the colour choice)
+const keyOf = l => l.pack ? l.key : 'v' + l.variant_id;
+const maxOf = l => l.pack ? Math.max(1, Math.min(3, l.max || 3)) : 10;
 const cart = {
   lines: store.get('bgc_cart', []),
   save() { store.set('bgc_cart', this.lines); paintCart(); },
-  add(l) { const hit = this.lines.find(x => x.variant_id === l.variant_id); if (hit) hit.qty = Math.min(10, hit.qty + l.qty); else this.lines.push(l); this.save(); },
-  setQty(id, qty) { const hit = this.lines.find(x => x.variant_id === id); if (!hit) return; hit.qty = Math.max(0, Math.min(10, qty)); if (!hit.qty) this.lines = this.lines.filter(x => x !== hit); this.save(); },
+  add(l) { const hit = this.lines.find(x => keyOf(x) === keyOf(l)); if (hit) hit.qty = Math.min(maxOf(hit), hit.qty + l.qty); else this.lines.push(l); this.save(); },
+  setQty(key, qty) { const hit = this.lines.find(x => keyOf(x) === key); if (!hit) return; hit.qty = Math.max(0, Math.min(maxOf(hit), qty)); if (!hit.qty) this.lines = this.lines.filter(x => x !== hit); this.save(); },
   clear() { this.lines = []; this.save(); },
   subtotal() { return this.lines.reduce((s, l) => s + l.price * l.qty, 0); },
-  count() { return this.lines.reduce((s, l) => s + l.qty, 0); },
+  count() { return this.lines.reduce((s, l) => s + l.qty * (l.pack ? l.pieces : 1), 0); },
+  hasPack() { return this.lines.some(l => l.pack); },
 };
+/** what a cart line says under its name */
+const lineMeta = l => l.pack ? `Size ${esc(l.size)} · ${l.pieces} pieces · ${esc(l.choiceText)}`
+  : `${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''}`;
 function deliveryCharge(sub, mode) {
   if (mode === 'COLLECT') return 0;
+  if (cart.hasPack()) return 0;                                // P141 — a pack comes with free delivery
   const free = Number(S.free_delivery_above || 0), ch = Number(S.delivery_charge || 0);
   if (ch <= 0) return 0;
   if (free > 0 && sub >= free) return 0;
   return ch;
 }
 function deliveryNote(sub) {
+  if (cart.hasPack()) return 'Free delivery — a pack is in your cart.';   // P141
   const free = Number(S.free_delivery_above || 0), ch = Number(S.delivery_charge || 0);
   if (ch <= 0) return free > 0 ? '' : 'Delivery charge is confirmed on the call.';
   if (free > 0 && sub >= free) return 'Free delivery — you are above ' + money(free) + '.';
@@ -58,17 +67,18 @@ function paintCart() {
   if (!box) return;
   box.innerHTML = cart.lines.length ? cart.lines.map(l => `<div class="line">
     ${l.cover ? `<img src="/${esc(l.cover)}" alt="">` : '<div class="noimg" style="width:56px;height:70px;border-radius:8px"></div>'}
-    <div><a class="line-name" href="/p/${esc(l.slug)}/">${esc(l.name)}</a><div class="line-meta">${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''} · ${money(l.price)}</div>
-      <div class="line-qty"><button data-dec="${l.variant_id}" aria-label="Less">−</button><span>${l.qty}</span><button data-inc="${l.variant_id}" aria-label="More">+</button></div></div>
-    <div><div class="line-price">${money(l.price * l.qty)}</div><button class="line-rm" data-rm="${l.variant_id}">Remove</button></div></div>`).join('')
+    <div><a class="line-name" href="/${l.pack ? 'd' : 'p'}/${esc(l.slug)}/">${esc(l.name)}</a><div class="line-meta">${lineMeta(l)} · ${money(l.price)}</div>
+      <div class="line-qty"><button data-dec="${esc(keyOf(l))}" aria-label="Less">−</button><span>${l.qty}</span><button data-inc="${esc(keyOf(l))}" aria-label="More">+</button></div></div>
+    <div><div class="line-price">${money(l.price * l.qty)}</div><button class="line-rm" data-rm="${esc(keyOf(l))}">Remove</button></div></div>`).join('')
     : '<div class="cart-empty">Your cart is empty.<br><a href="/new/" style="color:var(--accent);font-weight:700">See what is new →</a></div>';
   const sub = cart.subtotal();
   $('#cartSub').textContent = money(sub);
   $('#cartDelivery').textContent = deliveryNote(sub);
   $('#cartCheckout').style.display = cart.lines.length ? '' : 'none';
-  $$('[data-dec]', box).forEach(b => b.onclick = () => cart.setQty(Number(b.dataset.dec), (cart.lines.find(x => x.variant_id === Number(b.dataset.dec)) || {}).qty - 1));
-  $$('[data-inc]', box).forEach(b => b.onclick = () => cart.setQty(Number(b.dataset.inc), (cart.lines.find(x => x.variant_id === Number(b.dataset.inc)) || {}).qty + 1));
-  $$('[data-rm]', box).forEach(b => b.onclick = () => cart.setQty(Number(b.dataset.rm), 0));
+  const qtyOf = k => (cart.lines.find(x => keyOf(x) === k) || {}).qty || 0;
+  $$('[data-dec]', box).forEach(b => b.onclick = () => cart.setQty(b.dataset.dec, qtyOf(b.dataset.dec) - 1));
+  $$('[data-inc]', box).forEach(b => b.onclick = () => cart.setQty(b.dataset.inc, qtyOf(b.dataset.inc) + 1));
+  $$('[data-rm]', box).forEach(b => b.onclick = () => cart.setQty(b.dataset.rm, 0));
 }
 function openCart(open) { const d = $('#cart'), b = $('#backdrop'); if (!d) return; d.hidden = !open; b.hidden = !open; document.body.style.overflow = open ? 'hidden' : ''; if (open) paintCart(); }
 $('#cartBtn') && ($('#cartBtn').onclick = () => openCart(true));
@@ -261,6 +271,64 @@ if (document.body.classList.contains('p-search') && window.PAGE && window.PAGE.q
   }).catch(() => { out.innerHTML = '<div class="empty">Search is not available right now.</div>'; });
 }
 
+// ── P141 — a deal's pack page ────────────────────────────────────────────────
+// One size, six pieces: mixed colours, a theme, or the customer's own (same price). The shop publishes, per
+// size, how many packs can be made (0–3) and per colour up to how many can be picked — never a count.
+function packRows(packs) {
+  return (packs || []).map(p => `<div class="row"><span>${esc(p.name)} · size ${esc(p.size)} · ${esc(p.choice)} × ${p.qty}</span><strong>${money(p.price * p.qty)}</strong></div>`).join('');
+}
+const D = window.PAGE && window.PAGE.deal;
+if (D && $('#dpSizes')) {
+  const firstPrice = $('#price').textContent;
+  let size = null, mode = 'MIXED', theme = null, own = {};
+  const sizeOf = () => D.sizes.find(z => z.size === size);
+  const picked = () => Object.values(own).reduce((a, b) => a + b, 0);
+  const themeOk = (t, z) => !!t && t.colours.every(c => ((z.colours.find(x => x.name === c) || {}).max || 0) >= D.pieces / t.colours.length);
+  const choiceText = () => mode === 'THEME' ? theme : mode === 'OWN' ? Object.entries(own).filter(([, n]) => n).map(([c, n]) => `${c} ×${n}`).join(', ') : 'mixed colours';
+  const paint = () => {
+    const z = sizeOf();
+    $$('#dpSizes .size').forEach(b => b.classList.toggle('active', b.dataset.size === size));
+    $('#price').textContent = z ? money(z.price) : firstPrice;
+    $('#dpAge').textContent = z && z.age ? '· fits ' + z.age : '';
+    $('#dpModeBox').hidden = !z;
+    $$('#dpModes .dp-mode').forEach(b => {
+      if (b.dataset.mode === 'THEME' && z) { const ok = themeOk(D.themes.find(x => x.name === b.dataset.theme), z); b.disabled = !ok; b.classList.toggle('is-out', !ok); }
+      const on = b.dataset.mode === mode && (mode !== 'THEME' || b.dataset.theme === theme);
+      b.classList.toggle('active', on); b.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+    $('#dpOwn').hidden = mode !== 'OWN' || !z;
+    if (mode === 'OWN' && z) {
+      const full = picked() >= D.pieces;
+      $('#dpGrid').innerHTML = z.colours.map(c => {
+        const n = own[c.name] || 0;
+        return `<div class="dp-col${n ? ' on' : ''}"><span class="dp-dot" style="background:${esc(c.hex || '#ddd')}"></span><span class="dp-name">${esc(c.name)}</span>
+          <span class="dp-step"><button type="button" data-less="${esc(c.name)}" aria-label="One less ${esc(c.name)}"${n ? '' : ' disabled'}>−</button><b>${n}</b><button type="button" data-more="${esc(c.name)}" aria-label="One more ${esc(c.name)}"${n >= c.max || full ? ' disabled' : ''}>+</button></span></div>`;
+      }).join('') || '<p class="muted">No colours to choose from in this size — pick Mixed.</p>';
+      $('#dpCount').innerHTML = `<strong>${picked()} of ${D.pieces} chosen</strong> · same price as mixed`;
+      $$('[data-more]', $('#dpGrid')).forEach(b => b.onclick = () => { own[b.dataset.more] = (own[b.dataset.more] || 0) + 1; paint(); });
+      $$('[data-less]', $('#dpGrid')).forEach(b => b.onclick = () => { own[b.dataset.less] = Math.max(0, (own[b.dataset.less] || 0) - 1); paint(); });
+    }
+    const ready = !!z && z.packs > 0 && (mode === 'MIXED' || (mode === 'THEME' && !!theme) || (mode === 'OWN' && picked() === D.pieces));
+    $('#dpAdd').disabled = !ready;
+    $('#dpHint').textContent = !z ? `Choose a size. A crossed-out size has fewer than ${D.pieces} pieces left.`
+      : mode === 'OWN' && picked() < D.pieces ? `Choose ${D.pieces - picked()} more.` : `${D.pieces} pieces of size ${z.size}${z.age ? ', fits ' + z.age : ''}.`;
+  };
+  $$('#dpSizes .size').forEach(b => b.onclick = () => { if (b.disabled) return; size = b.dataset.size; own = {}; if (mode === 'THEME' && !themeOk(D.themes.find(x => x.name === theme), sizeOf())) { mode = 'MIXED'; theme = null; } paint(); });
+  $$('#dpModes .dp-mode').forEach(b => b.onclick = () => { if (b.disabled) return; mode = b.dataset.mode; theme = b.dataset.theme || null; paint(); });
+  const open = D.sizes.filter(z => z.packs > 0);
+  if (open.length === 1) size = open[0].size;
+  paint();
+  $('#dpAdd').onclick = () => {
+    const z = sizeOf(); if (!z || $('#dpAdd').disabled) return;
+    const colours = mode === 'OWN' ? Object.fromEntries(Object.entries(own).filter(([, n]) => n)) : undefined;
+    const key = ['d', D.slug, z.size, mode, theme || '', colours ? Object.keys(colours).sort().map(c => c + colours[c]).join('.') : ''].join(':');
+    cart.add({ pack: true, key, slug: D.slug, name: D.name, size: z.size, pieces: D.pieces, mode, theme: theme || undefined, colours, choiceText: choiceText(), price: Number(z.price), qty: 1, max: z.packs, cover: D.cover });
+    pixel('AddToCart', { content_ids: [D.slug], content_type: 'product', value: z.price, currency: 'PKR' });
+    track('add_to_cart', { l: 'pack:' + D.slug, v: z.price });
+    openCart(true);
+  };
+}
+
 // ── checkout ─────────────────────────────────────────────────────────────────
 const form = $('#coForm');
 if (form) {
@@ -269,7 +337,7 @@ if (form) {
   const paint = () => {
     const mode = (form.querySelector('[name=delivery]:checked') || {}).value || 'DELIVERY';
     $('#addrBlock').style.display = mode === 'DELIVERY' ? '' : 'none';
-    lines.innerHTML = cart.lines.length ? cart.lines.map(l => `<div class="line"><div style="grid-column:1/3"><div class="line-name">${esc(l.name)}</div><div class="line-meta">${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''} × ${l.qty}</div></div><div class="line-price">${money(l.price * l.qty)}</div></div>`).join('') : '<div class="cart-empty">Your cart is empty. <a href="/new/" style="color:var(--accent)">Add something first →</a></div>';
+    lines.innerHTML = cart.lines.length ? cart.lines.map(l => `<div class="line"><div style="grid-column:1/3"><div class="line-name">${esc(l.name)}</div><div class="line-meta">${lineMeta(l)} × ${l.qty}</div></div><div class="line-price">${money(l.price * l.qty)}</div></div>`).join('') : '<div class="cart-empty">Your cart is empty. <a href="/new/" style="color:var(--accent)">Add something first →</a></div>';
     const sub = cart.subtotal(), del = deliveryCharge(sub, mode);
     $('#coSub').textContent = money(sub);
     $('#coDelLabel').textContent = mode === 'COLLECT' ? 'Collect from the shop' : 'Delivery';
@@ -303,17 +371,25 @@ if (form) {
     const btn = $('#coSubmit'); btn.disabled = true; btn.textContent = 'Placing your order…';
     try {
       if (window.turnstile && !turnstileToken) { try { await new Promise((res, rej) => { window.onTurnstile = t => { turnstileToken = t; res(); }; turnstile.execute(); setTimeout(rej, 15000); }); } catch { /* server decides */ } }
-      const res = await fetch('/api/orders', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...f, lines: cart.lines.map(l => ({ variant_id: l.variant_id, qty: l.qty })), utm: utmData(), turnstile: turnstileToken }) });
+      const res = await fetch('/api/orders', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...f, lines: cart.lines.filter(l => !l.pack).map(l => ({ variant_id: l.variant_id, qty: l.qty })),
+        packs: cart.lines.filter(l => l.pack).map(l => ({ deal: l.slug, size: l.size, mode: l.mode, theme: l.theme, colours: l.colours, qty: l.qty, price: l.price })),   // P141
+        utm: utmData(), turnstile: turnstileToken }) });
       const j = await res.json().catch(() => ({}));
       if (!res.ok) {
         if (j.error === 'VALIDATION') showErrors(j.fields);
-        else if (j.error === 'SOLD_OUT') { err.textContent = 'Sold out since you added it: ' + (j.items || []).map(i => `${i.name || ''} ${i.size || ''}`.trim()).filter(Boolean).join(', ') + '. Remove those pieces and try again.'; err.hidden = false; (j.items || []).forEach(i => cart.setQty(Number(i.variant_id), 0)); paint(); }
+        else if (j.error === 'SOLD_OUT') { err.textContent = 'Sold out since you added it: ' + (j.items || []).map(i => `${i.name || ''} ${i.size || ''}`.trim()).filter(Boolean).join(', ') + '. Remove those pieces and try again.'; err.hidden = false; (j.items || []).forEach(i => cart.setQty('v' + Number(i.variant_id), 0));
+          if ((j.packs || []).length) err.textContent = j.message; paint(); }
+        else if (j.error === 'PRICE_CHANGED') {   // P141 — the new price is quoted, never charged silently
+          for (const p of j.packs || []) cart.lines.filter(l => l.pack && l.slug === p.deal && l.size === p.size).forEach(l => { l.price = Number(p.price); });
+          cart.save(); err.textContent = j.message; err.hidden = false; paint();
+        }
+        else if (j.error === 'BAD_PACK') { err.textContent = j.message; err.hidden = false; }
         else { err.textContent = j.message || 'The order could not be placed. Please try again or order on WhatsApp.'; err.hidden = false; }
         btn.disabled = false; btn.textContent = 'Place order'; turnstileToken = ''; if (window.turnstile) try { turnstile.reset(); } catch { /* */ }
         return;
       }
       store.set('bgc_customer', { name: f.name, phone: f.phone, alt_phone: f.alt_phone, address: f.address, city: f.city, province: f.province });
-      store.set('bgc_last_order', { no: j.no, phone: f.phone, total: j.total, lines: j.lines, delivery_charge: j.delivery_charge });
+      store.set('bgc_last_order', { no: j.no, phone: f.phone, total: j.total, lines: j.lines, packs: j.packs || [], delivery_charge: j.delivery_charge });
       pixel('Purchase', { value: j.total, currency: 'PKR', content_ids: cart.lines.map(l => l.code), content_type: 'product', num_items: cart.count() });
       track('order', { l: j.no, v: j.total, now: true });
       cart.clear();
@@ -328,7 +404,7 @@ if (form) {
 if (document.body.classList.contains('p-thanks')) {
   const last = store.get('bgc_last_order'), no = window.PAGE && window.PAGE.no;
   if (last && last.no === no && $('#thanksLines')) {
-    $('#thanksLines').innerHTML = `<div class="order-box">${(last.lines || []).map(l => `<div class="row"><span>${esc(l.name)} · ${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''} × ${l.qty}</span><strong>${money(l.price * l.qty)}</strong></div>`).join('')}
+    $('#thanksLines').innerHTML = `<div class="order-box">${(last.lines || []).map(l => `<div class="row"><span>${esc(l.name)} · ${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''} × ${l.qty}</span><strong>${money(l.price * l.qty)}</strong></div>`).join('')}${packRows(last.packs)}
       <div class="row"><span>Delivery</span><strong>${last.delivery_charge ? money(last.delivery_charge) : 'Free / told on the call'}</strong></div><div class="row total"><span>Total to pay on delivery</span><strong>${money(last.total)}</strong></div></div>`;
   }
 }
@@ -362,7 +438,7 @@ if (tf) {
       ${j.tracking_no ? `<p><strong>Courier:</strong> ${esc(j.courier || 'Leopards')} · tracking number <strong>${esc(j.tracking_no)}</strong> ${j.tracking_url ? `— <a href="${esc(j.tracking_url)}" target="_blank" rel="noopener" style="color:var(--accent)">track on the courier's site ↗</a>` : ''}</p>` : ''}
       ${aside ? `<div class="soldout" style="margin:10px 0;">${esc(LABEL[j.status])} — please call us on ${esc(S.whatsapp || '')} and we will sort it out.</div>` : ''}
       ${terminal ? `<div class="soldout">${esc(LABEL[j.status])}</div>` : `<div class="timeline">${steps.map((s, i) => `<div class="tl ${i < idx ? 'done' : i === idx ? 'now' : ''}"><i>${i < idx ? '✓' : ''}</i><span>${esc(LABEL[s])}</span></div>`).join('')}</div>`}
-      <div class="order-box">${j.lines.map(l => `<div class="row"><span>${esc(l.name)} · ${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''} × ${l.qty}</span><strong>${money(l.price * l.qty)}</strong></div>`).join('')}<div class="row total"><span>Total</span><strong>${money(j.total)}</strong></div></div>`;
+      <div class="order-box">${j.lines.map(l => `<div class="row"><span>${esc(l.name)} · ${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''} × ${l.qty}</span><strong>${money(l.price * l.qty)}</strong></div>`).join('')}${packRows(j.packs)}<div class="row total"><span>Total</span><strong>${money(j.total)}</strong></div></div>`;
   };
   if (tf.no.value && tf.phone.value && new URLSearchParams(location.search).get('no')) tf.requestSubmit();
 }

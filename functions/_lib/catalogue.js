@@ -60,7 +60,10 @@ function index(data) {
   const byNew = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
   const groups = FOR_GROUPS.map(g => ({ ...g, items: products.filter(p => inGroup(p, g.key)).sort(byNew) })).filter(g => g.items.length);
   const ageGroups = (data.age_groups || []).slice().sort((a, b) => a.months - b.months);
-  return { ...data, products, bySlug, byVariant, collections, parents, agentCodes, groups, ageGroups };
+  // P141 — the deals: a pack of one size of one product, found by its web address
+  const deals = data.deals || [];
+  const dealBySlug = new Map(deals.map(d => [d.slug, d]));
+  return { ...data, products, bySlug, byVariant, collections, parents, agentCodes, groups, ageGroups, deals, dealBySlug };
 }
 
 export function slugify(s) {

@@ -25,6 +25,15 @@ const SCHEMA = [
     size TEXT, colour TEXT, price_paisa INTEGER NOT NULL, qty INTEGER NOT NULL
   )`,
   `CREATE INDEX IF NOT EXISTS order_lines_order ON order_lines(order_id)`,
+  // P141 — a pack: N pieces of one size of a deal's product, with the customer's colour choice (JSON).
+  // The POS turns it into ordinary lines when the pieces are scanned into the parcel.
+  `CREATE TABLE IF NOT EXISTS order_packs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    deal_id INTEGER NOT NULL, slug TEXT, name TEXT NOT NULL, size TEXT NOT NULL, size_id INTEGER,
+    pieces INTEGER NOT NULL, choice TEXT NOT NULL, price_paisa INTEGER NOT NULL, qty INTEGER NOT NULL
+  )`,
+  `CREATE INDEX IF NOT EXISTS order_packs_order ON order_packs(order_id)`,
   `CREATE INDEX IF NOT EXISTS orders_phone_created ON orders(phone, created_at)`,
   `CREATE INDEX IF NOT EXISTS orders_ip_created ON orders(ip, created_at)`,
   `CREATE TABLE IF NOT EXISTS blocked_phones (phone TEXT PRIMARY KEY, reason TEXT, added_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')))`,
@@ -83,5 +92,14 @@ export async function orderWithLines(db, where, params) {
   const o = await db.prepare(`SELECT * FROM orders WHERE ${where}`).bind(...params).first();
   if (!o) return null;
   const { results } = await db.prepare(`SELECT * FROM order_lines WHERE order_id = ? ORDER BY id`).bind(o.id).all();
-  return { ...o, lines: results || [] };
+  const { results: packs } = await db.prepare(`SELECT * FROM order_packs WHERE order_id = ? ORDER BY id`).bind(o.id).all();   // P141
+  return { ...o, lines: results || [], packs: (packs || []).map(p => ({ ...p, choice: parseChoice(p.choice) })) };
+}
+export function parseChoice(s) { try { return JSON.parse(s || '{}'); } catch { return { mode: 'MIXED' }; } }
+/** "Pink ×2, Navy ×1 …", a theme, or mixed — how a pack's colour choice is read back to the customer */
+export function choiceText(c) {
+  if (!c || typeof c !== 'object') return 'Mixed colours';
+  if (c.mode === 'THEME') return `${c.theme}: ${(c.colours || []).join(', ')}`;
+  if (c.mode === 'OWN') return (c.colours || []).map(x => `${x.colour} ×${x.n}`).join(', ');
+  return 'Mixed colours';
 }

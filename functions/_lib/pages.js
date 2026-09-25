@@ -1,6 +1,7 @@
 // Every HTML page of the site, rendered from the catalogue.
 import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, promiseRow, catTiles, buyBar, kindTiles, chipRow } from './html.js';
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours } from './catalogue.js';
+import { SWATCHES, iconSvg } from './kind-icons.js';   // P141 — a deal without a photo shows its tile's icon
 
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
 // Fix 1.0.60 — search results, the checkout, the thanks page and tracking are nobody's landing page;
@@ -149,6 +150,54 @@ ${alsoSize.length ? section(`Others in size ${esc(sizes[0] || '')}`, `<div class
   return layout(cat, { title: p.name, description: `${p.name} — ${priceLabel(p)}. ${[p.category_parent, p.category, p.fabric].filter(Boolean).join(', ')}. Cash on delivery all over Pakistan.`, canonical: `/p/${p.slug}/`, page: 'p-product', body,
     og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`,
     publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
+}
+
+// P141 — a deal's pack page: one size, six pieces, mixed colours or the customer's own (same price), free
+// delivery. The page arrives with the sizes and the price already on it; site.js adds the colour picker.
+export function deal(cat, slug) {
+  const d = cat.dealBySlug && cat.dealBySlug.get(slug);
+  if (!d) return null;
+  const store = cat.store;
+  const url = `${String(store.site_url || '').replace(/\/$/, '')}/d/${d.slug}/`;
+  const prices = d.sizes.map(z => z.price);
+  const lo = Math.min(...prices), hi = Math.max(...prices);
+  const from = lo === hi ? money(lo) : `${money(lo)} – ${money(hi)}`;
+  const any = d.sizes.some(z => z.packs > 0);
+  const [tint, ink] = SWATCHES[d.colour] || SWATCHES.blue;
+  const body = `
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(d.category)} › ${esc(d.name)}</nav>
+<article class="prod deal" data-deal="${attr(d.slug)}">
+  <div class="gallery">
+    <div class="gallery-main">${d.cover ? `<img src="/${attr(d.cover)}" alt="${attr(d.name)}" width="800" height="1000">`
+      : `<div class="deal-art" style="--kt-tint:${tint};--kt-ink:${ink}">${iconSvg(d.icon, ink, 120)}</div>`}<span class="badge">Pack of ${d.pieces}</span></div>
+  </div>
+  <div class="buy">
+    <h1>${esc(d.name)}</h1>
+    <div class="buy-meta">${d.pieces} pieces, one size${d.choose_own ? ' · mixed colours, or choose your own' : ' · mixed colours'}</div>
+    <div class="buy-price" id="price">${esc(from)}</div>
+    ${any ? '' : '<div class="soldout">Sold out for now — ask on WhatsApp when it is back.</div>'}
+    <div class="opt"><div class="opt-label">Size <span id="dpAge"></span></div><div class="sizes" id="dpSizes">${d.sizes.map(z =>
+      `<button class="size${z.packs ? '' : ' is-out'}"${z.packs ? '' : ' disabled'} data-size="${attr(z.size)}" title="${attr(z.age ? `fits ${z.age}` : '')}">${esc(z.size)}${z.age ? `<small>${esc(z.age)}</small>` : ''}</button>`).join('')}</div>
+      <div class="opt-hint" id="dpHint">Choose a size. A crossed-out size has fewer than ${d.pieces} pieces left.</div></div>
+    <div class="opt" id="dpModeBox" hidden><div class="opt-label">Colours</div>
+      <div class="dp-modes" id="dpModes" role="radiogroup" aria-label="Colours">
+        <button type="button" class="dp-mode active" data-mode="MIXED" role="radio" aria-checked="true"><strong>Mixed</strong><span>We pick ${d.pieces} different colours</span></button>
+        ${d.choose_own ? `<button type="button" class="dp-mode" data-mode="OWN" role="radio" aria-checked="false"><strong>Choose my own</strong><span>Same price as mixed</span></button>` : ''}
+        ${(d.themes || []).map(t => `<button type="button" class="dp-mode" data-mode="THEME" data-theme="${attr(t.name)}" role="radio" aria-checked="false"><strong>${esc(t.name)}</strong><span>${esc(t.colours.join(', '))}</span></button>`).join('')}
+      </div>
+      <div id="dpOwn" hidden><div class="dp-count" id="dpCount"></div><div class="dp-grid" id="dpGrid"></div></div>
+    </div>
+    <div class="qty-row"><button class="btn btn-primary btn-block" id="dpAdd" disabled>Add pack to cart</button></div>
+    <p class="dp-promise"><strong>Free delivery · Cash on delivery.</strong> We call to confirm before dispatch.</p>
+    <div class="buy-actions">
+      <a class="btn btn-outline" data-where="deal" href="${attr(waLink(store, `Hi, I'm asking about ${d.name} — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
+    </div>
+    ${promiseRow(store, { compact: true })}
+  </div>
+</article>`;
+  return layout(cat, { title: d.name, description: `${d.name} — ${d.pieces} pieces, one size, ${from}. Free delivery, cash on delivery all over Pakistan.`, canonical: `/d/${d.slug}/`, page: 'p-product p-deal', body,
+    og: { title: `${d.name} — ${from}`, image: d.cover },
+    publicData: { deal: { slug: d.slug, name: d.name, pieces: d.pieces, choose_own: d.choose_own, cover: d.cover, sizes: d.sizes, themes: d.themes || [] } } });
 }
 
 export function search(cat, q) {

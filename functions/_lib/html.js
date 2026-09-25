@@ -284,9 +284,9 @@ export function kindTiles(cat) {
         const span = kindSpan(k);
         const soon = !k.online;
         const href = soon ? waLink(store, `Salam! Do you have ${k.name.toLowerCase()} for ${g.key === 'accessories' ? 'the house' : g.label.toLowerCase()}?`)
-          : `/for/${g.key}/?kind=${encodeURIComponent(k.category)}`;
+          : k.href || `/for/${g.key}/?kind=${encodeURIComponent(k.category)}`;          // P141 — a deal's tile opens its pack page
         return `<a class="kt${soon ? ' is-soon' : ''}" href="${attr(href)}"${soon ? ' target="_blank" rel="noopener" data-where="tile"' : ''} style="--kt-tint:${tint};--kt-ink:${ink}">
-          <span class="kt-sw">${iconSvg(k.icon, ink, 34)}${soon ? '<span class="kt-soon">Coming soon</span>' : ''}</span>
+          <span class="kt-sw">${iconSvg(k.icon, ink, 34)}${soon ? '<span class="kt-soon">Coming soon</span>' : k.badge ? `<span class="kt-soon kt-deal">${esc(k.badge)}</span>` : ''}</span>
           <span class="kt-name">${esc(k.name)}</span>${span ? `<span class="kt-age">${esc(span)}</span>` : ''}</a>`;
       }).join('')}</div>
     </section>`;

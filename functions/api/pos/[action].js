@@ -4,7 +4,7 @@
 //   POST /api/pos/status  { no, status, tracking_no?, courier?, tracking_url? }   so the tracking page is honest
 //   PUT  /api/pos/blocked { phones: [{ phone, reason }] }   the whole block list, replaced
 //   GET  /api/pos/ping                                       are we configured, how many waiting
-import { ensureSchema, json, normalisePhone, posAuthorised } from '../../_lib/db.js';
+import { ensureSchema, json, normalisePhone, posAuthorised, parseChoice } from '../../_lib/db.js';
 
 // P51 — the POS types the courier's own steps by hand (no API on the shop's
 // plan), and the customer should see the same words her parcel is at.
@@ -32,7 +32,11 @@ export async function onRequest(context) {
     const { results: lines } = await db.prepare(`SELECT * FROM order_lines WHERE order_id IN (${ids.map(() => '?').join(',')}) ORDER BY id`).bind(...ids).all();
     const byOrder = new Map(ids.map(i => [i, []]));
     for (const l of lines || []) byOrder.get(l.order_id).push(l);
-    return json({ orders: orders.map(o => ({ ...o, ip: undefined, ua: undefined, lines: byOrder.get(o.id) })) });
+    // P141 — the packs ride with their order
+    const { results: packs } = await db.prepare(`SELECT * FROM order_packs WHERE order_id IN (${ids.map(() => '?').join(',')}) ORDER BY id`).bind(...ids).all();
+    const packsOf = new Map(ids.map(i => [i, []]));
+    for (const p of packs || []) packsOf.get(p.order_id).push({ ...p, choice: parseChoice(p.choice) });
+    return json({ orders: orders.map(o => ({ ...o, ip: undefined, ua: undefined, lines: byOrder.get(o.id), packs: packsOf.get(o.id) })) });
   }
   if (action === 'ack' && method === 'POST') {
     const body = await request.json().catch(() => ({}));

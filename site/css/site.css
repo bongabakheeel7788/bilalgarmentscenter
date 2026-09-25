@@ -577,3 +577,26 @@ h1, h2, h3, .brand, .brand-name, .sec-head h2, .page-head h1 { font-family: var(
   .kt-name { font-size: 13px; }
   .kt-age { font-size: 11.5px; }
 }
+
+/* ── P141 — deals: a pack of one size ─────────────────────────────────────── */
+.kt-soon.kt-deal { background: var(--kt-ink); color: #fff; }
+.deal-art { display: grid; place-items: center; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 14px; background: var(--kt-tint); }
+.dp-modes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.dp-mode { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 10px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--bg-2); cursor: pointer; }
+.dp-mode span { font-size: 12.5px; color: var(--ink-2); }
+.dp-mode.active { border-color: var(--accent); background: var(--accent-soft); }
+.dp-mode.active strong { color: var(--accent); }
+.dp-mode.is-out { opacity: .5; cursor: not-allowed; }
+.dp-count { margin: 12px 0 8px; font-size: 14px; color: var(--ink-2); }
+.dp-count strong { color: var(--ink); }
+.dp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+.dp-col { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); min-width: 0; }
+.dp-col.on { border-color: var(--accent); }
+.dp-dot { flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.dp-name { flex: 1; min-width: 0; font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dp-step { display: inline-flex; align-items: center; gap: 6px; }
+.dp-step b { min-width: 14px; text-align: center; font-variant-numeric: tabular-nums; }
+.dp-step button { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--line-2); background: var(--bg); font-weight: 700; cursor: pointer; }
+.dp-step button:disabled { opacity: .35; cursor: not-allowed; }
+.dp-promise { margin: 10px 0 0; font-size: 14px; color: var(--ink-2); }
+.dp-promise strong { color: var(--ok); }

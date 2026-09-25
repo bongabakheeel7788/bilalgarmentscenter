@@ -23,6 +23,7 @@ export async function onRequestGet(context) {
   else if (seg[0] === 'c' && seg.length === 2) out = pages.category(cat, seg[1]);
   else if (seg[0] === 'collection' && seg.length === 2) out = pages.collection(cat, seg[1]);
   else if (seg[0] === 'p' && seg.length === 2) out = pages.product(cat, seg[1]);
+  else if (seg[0] === 'd' && seg.length === 2) out = pages.deal(cat, seg[1]);          // P141 — a pack
   else if (seg[0] === 'search' && seg.length === 1) return html(pages.search(cat, url.searchParams.get('q') || ''), 200, { 'Cache-Control': 'no-store' });
   else if (seg[0] === 'checkout' && seg.length === 1) return html(pages.checkout(cat, context.env.TURNSTILE_SITE_KEY || ''), 200, { 'Cache-Control': 'no-store' });
   else if (seg[0] === 'thanks' && seg.length === 2 && /^WEB-\d{6}$/.test(seg[1])) return html(pages.thanks(cat, seg[1]), 200, { 'Cache-Control': 'no-store' });
@@ -41,6 +42,7 @@ function sitemap(cat, origin) {
     for (const c of cat.categories || []) urls.push(`/c/${c.slug}/`);
     for (const c of cat.collections) urls.push(`/collection/${c.slug}/`);
     for (const p of cat.products) urls.push(`/p/${p.slug}/`);
+    for (const d of cat.deals || []) urls.push(`/d/${d.slug}/`);   // P141
   }
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${site}${u}</loc></url>`).join('\n')}\n</urlset>`;
 }
