@@ -2920,7 +2920,7 @@
      "size": "30",
      "colour": "Washable",
      "price": 700,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 672,
@@ -4170,7 +4170,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 512,
@@ -8958,7 +8958,7 @@
    "online": 0,
    "months": [
     0,
-    9
+    12
    ],
    "sizes": []
   },
@@ -9072,7 +9072,7 @@
    "online": 0,
    "months": [
     0,
-    9
+    12
    ],
    "sizes": []
   },
