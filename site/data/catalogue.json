@@ -456,7 +456,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 1000,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 1189,
@@ -6532,7 +6532,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 800,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 237,
@@ -8891,6 +8891,23 @@
  ],
  "kinds": [
   {
+   "key": "deal|girls-tights-pack-of-6",
+   "group": "girls",
+   "category": "Tights",
+   "name": "Girls Tights Pack of 6",
+   "icon": "pants",
+   "colour": "blue",
+   "total": 1,
+   "online": 1,
+   "months": [
+    12,
+    144
+   ],
+   "sizes": [],
+   "href": "/d/girls-tights-pack-of-6/",
+   "badge": "pack of 6"
+  },
+  {
    "key": "boys|Set / Suit",
    "group": "boys",
    "category": "Set / Suit",
@@ -9255,7 +9272,1189 @@
    ]
   }
  ],
- "deals": [],
+ "deals": [
+  {
+   "id": 1,
+   "slug": "girls-tights-pack-of-6",
+   "name": "Girls Tights Pack of 6",
+   "style_code": "STY-1319",
+   "product": "Girls Jersey Cotton Tights",
+   "category": "Tights",
+   "category_parent": null,
+   "pieces": 6,
+   "choose_own": true,
+   "cover": null,
+   "sizes": [
+    {
+     "size": "18",
+     "size_id": 240,
+     "age": "1 Year–2 Years",
+     "months": [
+      12,
+      24
+     ],
+     "price": 1799,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    },
+    {
+     "size": "20",
+     "size_id": 241,
+     "age": "2 Years–3 Years",
+     "months": [
+      24,
+      36
+     ],
+     "price": 1799,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    },
+    {
+     "size": "22",
+     "size_id": 242,
+     "age": "3 Years–4 Years",
+     "months": [
+      36,
+      48
+     ],
+     "price": 1799,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    },
+    {
+     "size": "24",
+     "size_id": 243,
+     "age": "4 Years–5 Years",
+     "months": [
+      48,
+      60
+     ],
+     "price": 1998,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    },
+    {
+     "size": "26",
+     "size_id": 244,
+     "age": "5 Years–6 Years",
+     "months": [
+      60,
+      72
+     ],
+     "price": 1999,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    },
+    {
+     "size": "28",
+     "size_id": 245,
+     "age": "7 Years–8 Years",
+     "months": [
+      84,
+      96
+     ],
+     "price": 1999,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    },
+    {
+     "size": "30",
+     "size_id": 246,
+     "age": "8 Years–9 Years",
+     "months": [
+      96,
+      108
+     ],
+     "price": 2199,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    },
+    {
+     "size": "32",
+     "size_id": 247,
+     "age": "9 Years–10 Years",
+     "months": [
+      108,
+      120
+     ],
+     "price": 2199,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    },
+    {
+     "size": "34",
+     "size_id": 248,
+     "age": "11 Years–12 Years",
+     "months": [
+      132,
+      144
+     ],
+     "price": 2199,
+     "packs": 3,
+     "colours": [
+      {
+       "name": "Baby Pink",
+       "hex": "#ff9ee5",
+       "max": 6
+      },
+      {
+       "name": "Black",
+       "hex": "#000000",
+       "max": 6
+      },
+      {
+       "name": "Bright Yellow",
+       "hex": "#fbff00",
+       "max": 6
+      },
+      {
+       "name": "brown",
+       "hex": "#6f561f",
+       "max": 6
+      },
+      {
+       "name": "Dark Green",
+       "hex": "#008502",
+       "max": 6
+      },
+      {
+       "name": "Dark Purple",
+       "hex": "#8000a3",
+       "max": 6
+      },
+      {
+       "name": "Frozy",
+       "hex": "#6b9cff",
+       "max": 6
+      },
+      {
+       "name": "Golden",
+       "hex": "#eeb95d",
+       "max": 6
+      },
+      {
+       "name": "Light Purple",
+       "hex": "#e59eff",
+       "max": 6
+      },
+      {
+       "name": "Light Skin",
+       "hex": "#fffdc7",
+       "max": 6
+      },
+      {
+       "name": "Mehroon",
+       "hex": "#b30000",
+       "max": 6
+      },
+      {
+       "name": "Mint",
+       "hex": "#aaffa8",
+       "max": 6
+      },
+      {
+       "name": "Navy Blue",
+       "hex": "#3d4861",
+       "max": 6
+      },
+      {
+       "name": "Off White",
+       "hex": "#fbf7ee",
+       "max": 6
+      },
+      {
+       "name": "Orange",
+       "hex": "#ffae00",
+       "max": 6
+      },
+      {
+       "name": "Parrot",
+       "hex": "#5fea39",
+       "max": 6
+      },
+      {
+       "name": "Peach",
+       "hex": "#e2b86e",
+       "max": 6
+      },
+      {
+       "name": "Red",
+       "hex": "#ff3f0f",
+       "max": 6
+      },
+      {
+       "name": "Royal Blue",
+       "hex": "#001eff",
+       "max": 6
+      },
+      {
+       "name": "skin",
+       "hex": "#f8e49b",
+       "max": 6
+      },
+      {
+       "name": "Sky Blue",
+       "hex": "#7DD3FC",
+       "max": 6
+      },
+      {
+       "name": "White",
+       "hex": "#FFFFFF",
+       "max": 6
+      },
+      {
+       "name": "Zinc",
+       "hex": "#2b5543",
+       "max": 6
+      }
+     ]
+    }
+   ],
+   "themes": [
+    {
+     "name": "Elegant Colors",
+     "colours": [
+      "White",
+      "Baby Pink",
+      "Light Purple",
+      "Orange",
+      "Red",
+      "Bright Yellow"
+     ]
+    }
+   ],
+   "icon": "pants",
+   "colour": "blue"
+  }
+ ],
  "assets": {
   "v": "f24f0f4a83"
  }
