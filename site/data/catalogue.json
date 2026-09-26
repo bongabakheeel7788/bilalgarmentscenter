@@ -1729,7 +1729,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1031,
@@ -5032,7 +5032,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1500,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 309,
