@@ -5288,7 +5288,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 294,
@@ -9103,6 +9103,21 @@
    "months": [
     60,
     168
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Tights",
+   "group": "girls",
+   "category": "Tights",
+   "name": "Tights",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 1,
+   "online": 0,
+   "months": [
+    12,
+    144
    ],
    "sizes": []
   },
