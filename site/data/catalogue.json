@@ -10449,6 +10449,61 @@
       "Red",
       "Bright Yellow"
      ]
+    },
+    {
+     "name": "Hot Selling",
+     "colours": [
+      "White",
+      "Baby Pink",
+      "Light Purple",
+      "Red",
+      "Black",
+      "skin"
+     ]
+    },
+    {
+     "name": "Recommended Colors",
+     "colours": [
+      "White",
+      "Baby Pink",
+      "Red",
+      "Mehroon",
+      "Bright Yellow",
+      "Mint"
+     ]
+    },
+    {
+     "name": "Dark Colors",
+     "colours": [
+      "Red",
+      "Black",
+      "Parrot",
+      "Dark Purple",
+      "Golden",
+      "Zinc"
+     ]
+    },
+    {
+     "name": "Bright & Fun",
+     "colours": [
+      "Baby Pink",
+      "Light Purple",
+      "Off White",
+      "Bright Yellow",
+      "Frozy",
+      "Light Skin"
+     ]
+    },
+    {
+     "name": "Favorite Colors",
+     "colours": [
+      "Light Purple",
+      "Orange",
+      "Mehroon",
+      "Sky Blue",
+      "Bright Yellow",
+      "Off White"
+     ]
     }
    ],
    "icon": "pants",
