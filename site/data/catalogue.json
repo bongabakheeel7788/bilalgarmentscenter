@@ -53,6 +53,11 @@
    "name": "Frocks",
    "parent": null,
    "slug": "frocks"
+  },
+  {
+   "name": "Tights",
+   "parent": null,
+   "slug": "tights"
   }
  ],
  "products": [
@@ -9268,7 +9273,11 @@
    "category_parent": null,
    "pieces": 6,
    "choose_own": true,
-   "cover": "media/STY-1319/140a719a-4caf-46a9-90bb-2e14b151bd6c.webp",
+   "cover": "media/deals/girls-tights-pack-of-6/b26883cb-8ca8-4ae4-bba5-4e020f98de33.webp",
+   "photos": [
+    "media/deals/girls-tights-pack-of-6/b26883cb-8ca8-4ae4-bba5-4e020f98de33.webp"
+   ],
+   "as_product": true,
    "sizes": [
     {
      "size": "18",
@@ -9284,117 +9293,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     },
@@ -9412,117 +9444,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     },
@@ -9540,117 +9595,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     },
@@ -9668,117 +9746,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     },
@@ -9796,117 +9897,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     },
@@ -9924,117 +10048,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     },
@@ -10052,117 +10199,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     },
@@ -10180,117 +10350,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     },
@@ -10308,117 +10501,140 @@
       {
        "name": "Baby Pink",
        "hex": "#ff9ee5",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Black",
        "hex": "#000000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Bright Yellow",
        "hex": "#fbff00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "brown",
        "hex": "#6f561f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Green",
        "hex": "#008502",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Dark Purple",
        "hex": "#8000a3",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Frozy",
        "hex": "#6b9cff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Golden",
        "hex": "#eeb95d",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Purple",
        "hex": "#e59eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Light Skin",
        "hex": "#fffdc7",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mehroon",
        "hex": "#b30000",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Mint",
        "hex": "#aaffa8",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Navy Blue",
        "hex": "#3d4861",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Off White",
        "hex": "#fbf7ee",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Orange",
        "hex": "#ffae00",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Parrot",
        "hex": "#5fea39",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Peach",
        "hex": "#e2b86e",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Red",
        "hex": "#ff3f0f",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Royal Blue",
        "hex": "#001eff",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "skin",
        "hex": "#f8e49b",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Sky Blue",
        "hex": "#7DD3FC",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "White",
        "hex": "#FFFFFF",
-       "max": 6
+       "max": 6,
+       "photo": null
       },
       {
        "name": "Zinc",
        "hex": "#2b5543",
-       "max": 6
+       "max": 6,
+       "photo": null
       }
      ]
     }
@@ -10433,7 +10649,8 @@
       "Orange",
       "Red",
       "Bright Yellow"
-     ]
+     ],
+     "photo": "media/deals/girls-tights-pack-of-6/8f0cac84-bf63-4622-8b5c-386703512b87.webp"
     },
     {
      "name": "Hot Selling",
@@ -10444,7 +10661,8 @@
       "Red",
       "Black",
       "skin"
-     ]
+     ],
+     "photo": "media/deals/girls-tights-pack-of-6/027da064-240a-4f37-8048-4231c55e76c1.webp"
     },
     {
      "name": "Recommended Colors",
@@ -10455,7 +10673,8 @@
       "Mehroon",
       "Bright Yellow",
       "Mint"
-     ]
+     ],
+     "photo": "media/deals/girls-tights-pack-of-6/096ca5b3-418e-4ee6-b801-44623832c44c.webp"
     },
     {
      "name": "Dark Colors",
@@ -10466,7 +10685,8 @@
       "Dark Purple",
       "Golden",
       "Zinc"
-     ]
+     ],
+     "photo": "media/deals/girls-tights-pack-of-6/ac8eab9c-7b9b-40f2-bf12-dfede7c24fa6.webp"
     },
     {
      "name": "Bright & Fun",
@@ -10477,7 +10697,8 @@
       "Bright Yellow",
       "Frozy",
       "Light Skin"
-     ]
+     ],
+     "photo": "media/deals/girls-tights-pack-of-6/3cc990cc-8862-4b71-a774-8db8cb729c77.webp"
     },
     {
      "name": "Favorite Colors",
@@ -10488,14 +10709,154 @@
       "Sky Blue",
       "Bright Yellow",
       "Off White"
-     ]
+     ],
+     "photo": "media/deals/girls-tights-pack-of-6/d03fcda3-7744-4a8c-a8c2-5887818c74f8.webp"
     }
    ],
    "icon": "pants",
    "colour": "blue"
   }
  ],
+ "deal_cards": [
+  {
+   "deal": true,
+   "code": "PACK-1",
+   "slug": "girls-tights-pack-of-6",
+   "href": "/d/girls-tights-pack-of-6/",
+   "name": "Girls Tights Pack of 6",
+   "category": "Tights",
+   "category_parent": null,
+   "gender": "girls",
+   "cover": "media/deals/girls-tights-pack-of-6/b26883cb-8ca8-4ae4-bba5-4e020f98de33.webp",
+   "photos": [
+    {
+     "src": "media/deals/girls-tights-pack-of-6/b26883cb-8ca8-4ae4-bba5-4e020f98de33.webp",
+     "kind": "ANGLE",
+     "colour": null
+    }
+   ],
+   "colours": [],
+   "sizes": [
+    "18",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34"
+   ],
+   "size_months": {
+    "18": [
+     12,
+     24
+    ],
+    "20": [
+     24,
+     36
+    ],
+    "22": [
+     36,
+     48
+    ],
+    "24": [
+     48,
+     60
+    ],
+    "26": [
+     60,
+     72
+    ],
+    "28": [
+     84,
+     96
+    ],
+    "30": [
+     96,
+     108
+    ],
+    "32": [
+     108,
+     120
+    ],
+    "34": [
+     132,
+     144
+    ]
+   },
+   "size_ages": {
+    "18": "1 Year–2 Years",
+    "20": "2 Years–3 Years",
+    "22": "3 Years–4 Years",
+    "24": "4 Years–5 Years",
+    "26": "5 Years–6 Years",
+    "28": "7 Years–8 Years",
+    "30": "8 Years–9 Years",
+    "32": "9 Years–10 Years",
+    "34": "11 Years–12 Years"
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    144
+   ],
+   "price_min": 1799,
+   "price_max": 2199,
+   "variants": [
+    {
+     "size": "18",
+     "price": 1799,
+     "availability": "in"
+    },
+    {
+     "size": "20",
+     "price": 1799,
+     "availability": "in"
+    },
+    {
+     "size": "22",
+     "price": 1799,
+     "availability": "in"
+    },
+    {
+     "size": "24",
+     "price": 1998,
+     "availability": "in"
+    },
+    {
+     "size": "26",
+     "price": 1999,
+     "availability": "in"
+    },
+    {
+     "size": "28",
+     "price": 1999,
+     "availability": "in"
+    },
+    {
+     "size": "30",
+     "price": 2199,
+     "availability": "in"
+    },
+    {
+     "size": "32",
+     "price": 2199,
+     "availability": "in"
+    },
+    {
+     "size": "34",
+     "price": 2199,
+     "availability": "in"
+    }
+   ],
+   "badge": "Pack of 6",
+   "sub": "Free delivery",
+   "first_published": "2026-09-26",
+   "is_new": true
+  }
+ ],
  "assets": {
-  "v": "f24f0f4a83"
+  "v": "eb48c36a52"
  }
 }

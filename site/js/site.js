@@ -259,14 +259,16 @@ if (document.body.classList.contains('p-search') && window.PAGE && window.PAGE.q
   const out = $('#searchOut');
   fetch('/data/catalogue.json').then(r => r.json()).then(cat => {
     const q = window.PAGE.q;
-    const hits = (cat.products || []).filter(p => matchProduct(p, q));
+    // P143 — a deal listed as a product is found like one ("tights", "pack") and opens its pack page
+    const packs = (cat.deal_cards || []).map(p => ({ ...p, name: p.name + ' pack' }));
+    const hits = [...(cat.products || []), ...packs].filter(p => matchProduct(p, q));
     pixel('Search', { search_string: q });
     track('search', { l: q, v: hits.length });   // what people look for, and how often we have none of it
     if (!hits.length) { out.innerHTML = `<div class="empty">Nothing matches “${esc(q)}”. Try fewer words, or <a href="/all/" style="color:var(--accent)">browse everything</a>.</div>`; return; }
     out.innerHTML = `<p class="muted">${hits.length} result${hits.length === 1 ? '' : 's'} for “${esc(q)}”</p><div class="grid">${hits.map(p => {
       const av = p.variants.some(v => v.availability === 'in') ? 'in' : p.variants.some(v => v.availability === 'few') ? 'few' : 'out';
-      const price = p.price_min === p.price_max ? money(p.price_min) : `${money(p.price_min)} – ${money(p.price_max)}`;
-      return `<a class="card${av === 'out' ? ' is-out' : ''}" href="/p/${esc(p.slug)}/"><div class="card-img">${p.cover ? `<img src="/${esc(p.cover)}" alt="${esc(p.name)}" loading="lazy">` : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : ''}</div><div class="card-body"><div class="card-name">${esc(p.name)}</div><div class="card-meta">${esc(p.category_parent ? p.category_parent + ' · ' : '')}${esc(p.category)}</div><div class="card-price">${price}</div></div></a>`;
+      const price = p.price_min === p.price_max ? money(p.price_min) : p.deal ? `from ${money(p.price_min)}` : `${money(p.price_min)} – ${money(p.price_max)}`;   // P143: a pack is "from"
+      return `<a class="card${av === 'out' ? ' is-out' : ''}" href="${esc(p.href || `/p/${p.slug}/`)}"><div class="card-img">${p.cover ? `<img src="/${esc(p.cover)}" alt="${esc(p.name)}" loading="lazy">` : '<div class="noimg"></div>'}${p.badge ? `<span class="badge badge-pack">${esc(p.badge)}</span>` : p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : ''}</div><div class="card-body"><div class="card-name">${esc(p.name)}</div><div class="card-meta">${esc(p.category_parent ? p.category_parent + ' · ' : '')}${esc(p.category)}</div><div class="card-price">${price}</div></div></a>`;
     }).join('')}</div>`;
   }).catch(() => { out.innerHTML = '<div class="empty">Search is not available right now.</div>'; });
 }
@@ -281,6 +283,25 @@ const D = window.PAGE && window.PAGE.deal;
 if (D && $('#dpSizes')) {
   const firstPrice = $('#price').textContent;
   let size = null, mode = 'MIXED', theme = null, own = {};
+  // P143 — the photo on top follows what she picks: a theme shows its photo (like a colour on a product), a colour
+  // she adds to her own pack shows that colour's photo, Mixed shows the cover. Thumbs and a swipe move through the
+  // pack's own photos.
+  const main = $('#dpMain'), photos = (D.photos || []).map(x => '/' + x);
+  let at = 0;
+  const show = src => { if (main && src) main.src = src; $$('#dpThumbs .thumb').forEach(t => t.classList.toggle('active', t.dataset.img === src)); };
+  const colourPhoto = name => { const z = D.sizes.find(x => x.size === size) || D.sizes[0]; const c = z && z.colours.find(x => x.name === name); return c && c.photo ? '/' + c.photo : null; };
+  $$('#dpThumbs .thumb').forEach((t, i) => t.onclick = () => { at = i; show(t.dataset.img); });
+  const box = $('#dpMainBox');
+  if (box && photos.length > 1) {
+    let x0 = null;
+    box.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', e => {
+      if (x0 == null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) < 40) return;
+      at = (at + (dx < 0 ? 1 : photos.length - 1)) % photos.length; show(photos[at]);
+    }, { passive: true });
+  }
   const sizeOf = () => D.sizes.find(z => z.size === size);
   const picked = () => Object.values(own).reduce((a, b) => a + b, 0);
   const themeOk = (t, z) => !!t && t.colours.every(c => ((z.colours.find(x => x.name === c) || {}).max || 0) >= D.pieces / t.colours.length);
@@ -305,16 +326,24 @@ if (D && $('#dpSizes')) {
           <span class="dp-step"><button type="button" data-less="${esc(c.name)}" aria-label="One less ${esc(c.name)}"${n ? '' : ' disabled'}>−</button><b>${n}</b><button type="button" data-more="${esc(c.name)}" aria-label="One more ${esc(c.name)}"${n >= c.max || full ? ' disabled' : ''}>+</button></span></div>`;
       }).join('') || '<p class="muted">No colours to choose from in this size — pick Mixed.</p>';
       $('#dpCount').innerHTML = `<strong>${picked()} of ${D.pieces} chosen</strong> · same price as mixed`;
-      $$('[data-more]', $('#dpGrid')).forEach(b => b.onclick = () => { own[b.dataset.more] = (own[b.dataset.more] || 0) + 1; paint(); });
+      $$('[data-more]', $('#dpGrid')).forEach(b => b.onclick = () => { own[b.dataset.more] = (own[b.dataset.more] || 0) + 1; paint(); show(colourPhoto(b.dataset.more)); });
       $$('[data-less]', $('#dpGrid')).forEach(b => b.onclick = () => { own[b.dataset.less] = Math.max(0, (own[b.dataset.less] || 0) - 1); paint(); });
     }
     const ready = !!z && z.packs > 0 && (mode === 'MIXED' || (mode === 'THEME' && !!theme) || (mode === 'OWN' && picked() === D.pieces));
     $('#dpAdd').disabled = !ready;
+    // P143 — the price rides on the button, which stays at the bottom of a phone's screen
+    $('#dpAdd').textContent = !z ? 'Choose a size' : mode === 'OWN' && picked() < D.pieces ? `Choose ${D.pieces - picked()} more` : `Add pack · ${money(z.price)}`;
+    const t = mode === 'THEME' ? D.themes.find(x => x.name === theme) : null, note = $('#dpThemeNote');
+    if (note) { note.hidden = !t; if (t) note.innerHTML = `<strong>${esc(t.name)}</strong> — ${esc(t.colours.join(', '))}`; }
     $('#dpHint').textContent = !z ? `Choose a size. A crossed-out size has fewer than ${D.pieces} pieces left.`
       : mode === 'OWN' && picked() < D.pieces ? `Choose ${D.pieces - picked()} more.` : `${D.pieces} pieces of size ${z.size}${z.age ? ', fits ' + z.age : ''}.`;
   };
   $$('#dpSizes .size').forEach(b => b.onclick = () => { if (b.disabled) return; size = b.dataset.size; own = {}; if (mode === 'THEME' && !themeOk(D.themes.find(x => x.name === theme), sizeOf())) { mode = 'MIXED'; theme = null; } paint(); });
-  $$('#dpModes .dp-mode').forEach(b => b.onclick = () => { if (b.disabled) return; mode = b.dataset.mode; theme = b.dataset.theme || null; paint(); });
+  $$('#dpModes .dp-mode').forEach(b => b.onclick = () => {
+    if (b.disabled) return; mode = b.dataset.mode; theme = b.dataset.theme || null; paint();
+    const t = theme && D.themes.find(x => x.name === theme);
+    if (t && t.photo) show('/' + t.photo); else if (mode === 'MIXED' && photos[0]) { at = 0; show(photos[0]); }
+  });
   const open = D.sizes.filter(z => z.packs > 0);
   if (open.length === 1) size = open[0].size;
   paint();

@@ -172,14 +172,14 @@ export function card(p) {
   const [ra, rb] = String(p.age_range || '').split('–');
   const fits = !p.age_range ? '' : !rb ? shortAge(ra) : (/^\d+ /.test(ra) && ra.replace(/^\d+ /, '') === rb.replace(/^\d+ /, '')) ? ra.split(' ')[0] + '–' + shortAge(rb) : shortAge(ra) + '–' + shortAge(rb);
   return `<div class="card${av === 'out' ? ' is-out' : ''}" data-code="${attr(p.code)}" data-for="${attr(groupsOf(p).join(' '))}">
-  <a class="card-img" href="/p/${attr(p.slug)}/" aria-label="${attr(p.name)}">
+  <a class="card-img" href="${attr(p.href || `/p/${p.slug}/`)}" aria-label="${attr(p.name)}">
     ${p.cover ? `<img class="card-photo" src="/${attr(p.cover)}" alt="${attr(p.name)}" loading="lazy" width="600" height="750">` : '<div class="noimg"></div>'}
     ${alt ? `<img class="card-photo-alt" src="/${attr(alt)}" alt="" loading="lazy" width="600" height="750">` : ''}
-    ${p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : av === 'few' ? '<span class="badge badge-few">Few left</span>' : ''}${fits ? `<span class="card-fits">${esc(fits)}</span>` : ''}</a>
+    ${p.badge ? `<span class="badge badge-pack">${esc(p.badge)}</span>` : p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : av === 'few' ? '<span class="badge badge-few">Few left</span>' : ''}${fits ? `<span class="card-fits">${esc(fits)}</span>` : ''}</a>
   ${swatches(p)}
-  <a class="card-body" href="/p/${attr(p.slug)}/">
+  <a class="card-body" href="${attr(p.href || `/p/${p.slug}/`)}">
     <div class="card-name">${esc(p.name)}</div>
-    <div class="card-price">${esc(priceLabel(p))}</div>
+    <div class="card-price">${esc(priceLabel(p))}</div>${p.sub ? `<div class="card-sub">${esc(p.sub)}</div>` : ''}
     ${sizeRow(p)}
   </a>
 </div>`;

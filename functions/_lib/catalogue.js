@@ -58,12 +58,15 @@ function index(data) {
   const agentCodes = new Set(data.agent_codes || []);
   // P136 — the groups with something in them, newest first inside each
   const byNew = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
-  const groups = FOR_GROUPS.map(g => ({ ...g, items: products.filter(p => inGroup(p, g.key)).sort(byNew) })).filter(g => g.items.length);
+  // P143 — a deal that is "on the website as a product" is listed like one (its card opens the pack page);
+  // `products` stays the real ones — orders, /p/ pages and the variant index never see a card
+  const listed = [...products, ...(data.deal_cards || [])];
+  const groups = FOR_GROUPS.map(g => ({ ...g, items: listed.filter(p => inGroup(p, g.key)).sort(byNew) })).filter(g => g.items.length);
   const ageGroups = (data.age_groups || []).slice().sort((a, b) => a.months - b.months);
   // P141 — the deals: a pack of one size of one product, found by its web address
   const deals = data.deals || [];
   const dealBySlug = new Map(deals.map(d => [d.slug, d]));
-  return { ...data, products, bySlug, byVariant, collections, parents, agentCodes, groups, ageGroups, deals, dealBySlug };
+  return { ...data, products, listed, bySlug, byVariant, collections, parents, agentCodes, groups, ageGroups, deals, dealBySlug };
 }
 
 export function slugify(s) {
@@ -73,10 +76,11 @@ export function slugify(s) {
 /** the products a category page lists: a parent's slug matches every child */
 export function productsIn(cat, slug) {
   const par = cat.parents.find(p => p.slug === slug);
-  if (par) return cat.products.filter(p => slugify(p.category_parent || p.category) === slug);
+  const all = cat.listed || cat.products;   // P143: pack cards too
+  if (par) return all.filter(p => slugify(p.category_parent || p.category) === slug);
   const c = (cat.categories || []).find(x => x.slug === slug);
   if (!c) return null;
-  return cat.products.filter(p => p.category === c.name && (p.category_parent || null) === (c.parent || null));
+  return all.filter(p => p.category === c.name && (p.category_parent || null) === (c.parent || null));
 }
 
 export function categoryTitle(cat, slug) {
@@ -101,6 +105,7 @@ export function money(n) {
 }
 
 export function priceLabel(p) {
+  if (p.deal) return p.price_min === p.price_max ? money(p.price_min) : `from ${money(p.price_min)}`;   // P143: a pack, from its cheapest size
   return p.price_min === p.price_max ? money(p.price_min) : `${money(p.price_min)} – ${money(p.price_max)}`;
 }
 

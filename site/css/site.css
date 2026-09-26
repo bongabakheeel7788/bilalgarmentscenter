@@ -600,3 +600,28 @@ h1, h2, h3, .brand, .brand-name, .sec-head h2, .page-head h1 { font-family: var(
 .dp-step button:disabled { opacity: .35; cursor: not-allowed; }
 .dp-promise { margin: 10px 0 0; font-size: 14px; color: var(--ink-2); }
 .dp-promise strong { color: var(--ok); }
+
+/* ── P143 — the pack as a product card; picture swatches for themes; the add button at the bottom of a phone ── */
+.badge-pack { background: var(--accent); color: var(--accent-ink); border-color: transparent; font-weight: 800; }
+.card-sub { font-size: 12px; font-weight: 600; color: var(--ok); margin-top: 1px; }
+.dp-modes { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.dp-modes::-webkit-scrollbar { display: none; }
+.dp-modes .dp-mode { flex: 0 0 auto; width: 96px; align-items: center; text-align: center; gap: 4px; padding: 6px 6px 8px; border-radius: 14px; scroll-snap-align: start; }
+.dp-modes .dp-mode strong { font-size: 12.5px; line-height: 1.2; }
+.dp-modes .dp-mode span:not(.dp-pic) { font-size: 11px; }
+.dp-pic { display: block; width: 84px; max-width: 100%; aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden; background: var(--bg-3); }
+.dp-pic img { width: 100%; height: 100%; object-fit: cover; }
+.dp-stripe { display: flex; }
+.dp-stripe i { flex: 1; }
+.dp-own { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 10px; border: 1.5px dashed var(--line-2); background: var(--bg-2); box-sizing: border-box; }
+.dp-own i { border-radius: 50%; background: var(--line); aspect-ratio: 1; }
+.dp-own i:nth-child(1) { background: #f9a8d4; } .dp-own i:nth-child(2) { background: #1e3a8a; } .dp-own i:nth-child(3) { background: #7dd3fc; } .dp-own i:nth-child(4) { background: #111827; }
+.dp-theme-note { margin-top: 8px; padding: 9px 12px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); font-size: 13px; }
+@media (max-width: 760px) {
+  /* mobile first: the price and the button stay on the screen while she scrolls */
+  .dp-buy { position: sticky; bottom: 0; z-index: 5; margin: 14px calc(-1 * var(--pad)) 0; padding: 10px var(--pad) calc(10px + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 253, 251, .97); border-top: 1px solid var(--line); box-shadow: 0 -6px 18px rgba(23, 21, 15, .06); }
+  .dp-buy .btn { min-height: 50px; font-size: 16px; }
+  /* the WhatsApp button sits above the add button, never on it (as it does over the product page's buy bar) */
+  body.p-deal .wa-float { bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
+}

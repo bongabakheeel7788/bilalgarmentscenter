@@ -10,10 +10,11 @@ const NOINDEX = '<meta name="robots" content="noindex">';
 
 export function home(cat) {
   const store = cat.store;
-  const fresh = cat.products.filter(p => p.is_new).sort(byNewest);
-  const hero = [...fresh, ...cat.products.slice().sort(byNewest)].find(p => p.cover) || null;   // the picture a shared link shows
+  const listed = cat.listed || cat.products;   // P143: the pack cards are listed like products
+  const fresh = listed.filter(p => p.is_new).sort(byNewest);
+  const hero = [...fresh, ...listed.slice().sort(byNewest)].find(p => p.cover) || null;   // the picture a shared link shows
   const HOME_MAX = 12;                       // the front page is a shop window, not the stockroom
-  const everything = cat.products.slice().sort(byNewest);
+  const everything = listed.slice().sort(byNewest);
   const body = `
 ${/* P139 — Fahad, 2026-09-25: "at top show boys and then boys items … and little age underneath them".
       The groups and their kinds ARE the top of the page now; the old "Who are you buying for?" photo strip
@@ -36,11 +37,11 @@ export function listing(cat, { title, products, canonical, description, intro })
 }
 
 export function newArrivals(cat) {
-  return listing(cat, { title: 'New arrivals', products: cat.products.filter(p => p.is_new).sort(byNewest), canonical: '/new/', intro: `Added in the last ${cat.store.new_days || 30} days.` });
+  return listing(cat, { title: 'New arrivals', products: (cat.listed || cat.products).filter(p => p.is_new).sort(byNewest), canonical: '/new/', intro: `Added in the last ${cat.store.new_days || 30} days.` });
 }
 
 export function all(cat) {
-  return listing(cat, { title: 'Everything', products: cat.products.slice().sort(byNewest), canonical: '/all/' });
+  return listing(cat, { title: 'Everything', products: (cat.listed || cat.products).slice().sort(byNewest), canonical: '/all/' });
 }
 
 // P136 — a group's page: the age (children) or the size (adults), the kind, then the grid
@@ -89,7 +90,7 @@ export function product(cat, slug) {
   const variantsData = (p.variants || []).map(v => ({ id: v.id, size: v.size, colour: v.colour, price: v.price, availability: v.availability }));
   const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name, productID: p.code, image: photos.map(x => `${String(store.site_url || '').replace(/\/$/, '')}/${x}`), description: [p.category_parent, p.category, p.fabric, p.set_contents].filter(Boolean).join(' · '), brand: { '@type': 'Brand', name: store.name },
     offers: { '@type': 'AggregateOffer', priceCurrency: 'PKR', lowPrice: p.price_min, highPrice: p.price_max, offerCount: (p.variants || []).length, availability: av === 'out' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url } };
-  const related = cat.products.filter(x => x.code !== p.code && x.category === p.category && (x.category_parent || null) === (p.category_parent || null)).sort(byNewest).slice(0, 4);
+  const related = (cat.listed || cat.products).filter(x => x.code !== p.code && x.category === p.category && (x.category_parent || null) === (p.category_parent || null)).sort(byNewest).slice(0, 4);
   // P68c — a second row by SIZE. On a children's shop the mother who is buying a
   // 24 is very often buying a second 24, and she should not have to go and filter
   // for it. Never repeats anything already in the row above.
@@ -164,12 +165,18 @@ export function deal(cat, slug) {
   const from = lo === hi ? money(lo) : `${money(lo)} – ${money(hi)}`;
   const any = d.sizes.some(z => z.packs > 0);
   const [tint, ink] = SWATCHES[d.colour] || SWATCHES.blue;
+  // P143 — the pack's own photos (cover first), a picture for each theme, a colour's own photo
+  const photos = (d.photos && d.photos.length ? d.photos : d.cover ? [d.cover] : []);
+  const hexOf = new Map(d.sizes.flatMap(z => z.colours.map(c => [c.name, c.hex])));
+  const stripe = names => `<span class="dp-pic dp-stripe" aria-hidden="true">${names.slice(0, 6).map(n => `<i style="background:${attr(hexOf.get(n) || '#ddd')}"></i>`).join('')}</span>`;
+  const pic = src => `<span class="dp-pic" aria-hidden="true"><img src="/${attr(src)}" alt="" loading="lazy" width="120" height="150"></span>`;
   const body = `
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(d.category)} › ${esc(d.name)}</nav>
 <article class="prod deal" data-deal="${attr(d.slug)}">
   <div class="gallery">
-    <div class="gallery-main">${d.cover ? `<img src="/${attr(d.cover)}" alt="${attr(d.name)}" width="800" height="1000">`
-      : `<div class="deal-art" style="--kt-tint:${tint};--kt-ink:${ink}">${iconSvg(d.icon, ink, 120)}</div>`}<span class="badge">Pack of ${d.pieces}</span></div>
+    <div class="gallery-main" id="dpMainBox">${photos.length ? `<img id="dpMain" src="/${attr(photos[0])}" alt="${attr(d.name)}" width="800" height="1000">`
+      : `<div class="deal-art" style="--kt-tint:${tint};--kt-ink:${ink}">${iconSvg(d.icon, ink, 120)}</div>`}<span class="badge badge-pack">Pack of ${d.pieces}</span></div>
+    ${photos.length > 1 ? `<div class="thumbs" id="dpThumbs">${photos.map((x, i) => `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
   </div>
   <div class="buy">
     <h1>${esc(d.name)}</h1>
@@ -181,13 +188,15 @@ export function deal(cat, slug) {
       <div class="opt-hint" id="dpHint">Choose a size. A crossed-out size has fewer than ${d.pieces} pieces left.</div></div>
     <div class="opt" id="dpModeBox" hidden><div class="opt-label">Colours</div>
       <div class="dp-modes" id="dpModes" role="radiogroup" aria-label="Colours">
-        <button type="button" class="dp-mode active" data-mode="MIXED" role="radio" aria-checked="true"><strong>Mixed</strong><span>We pick ${d.pieces} different colours</span></button>
-        ${d.choose_own ? `<button type="button" class="dp-mode" data-mode="OWN" role="radio" aria-checked="false"><strong>Choose my own</strong><span>Same price as mixed</span></button>` : ''}
-        ${(d.themes || []).map(t => `<button type="button" class="dp-mode" data-mode="THEME" data-theme="${attr(t.name)}" role="radio" aria-checked="false"><strong>${esc(t.name)}</strong><span>${esc(t.colours.join(', '))}</span></button>`).join('')}
+        <button type="button" class="dp-mode active" data-mode="MIXED" role="radio" aria-checked="true">${photos.length ? pic(photos[0]) : stripe([...hexOf.keys()])}<strong>Mixed</strong><span>We pick</span></button>
+        ${d.choose_own ? `<button type="button" class="dp-mode" data-mode="OWN" role="radio" aria-checked="false"><span class="dp-pic dp-own" aria-hidden="true"><i></i><i></i><i></i><i></i></span><strong>Choose my own</strong><span>Same price</span></button>` : ''}
+        ${(d.themes || []).map(t => `<button type="button" class="dp-mode" data-mode="THEME" data-theme="${attr(t.name)}" role="radio" aria-checked="false" title="${attr(t.colours.join(', '))}">${t.photo ? pic(t.photo) : stripe(t.colours)}<strong>${esc(t.name)}</strong><span>${t.colours.length} colours</span></button>`).join('')}
       </div>
+      <div class="dp-theme-note" id="dpThemeNote" hidden></div>
       <div id="dpOwn" hidden><div class="dp-count" id="dpCount"></div><div class="dp-grid" id="dpGrid"></div></div>
     </div>
-    <div class="qty-row"><button class="btn btn-primary btn-block" id="dpAdd" disabled>Add pack to cart</button></div>
+    ${/* P143 — on a phone this stays at the bottom of the screen, with the price on it (mobile first) */ ''}
+    <div class="qty-row dp-buy"><button class="btn btn-primary btn-block" id="dpAdd" disabled>Add pack to cart</button></div>
     <p class="dp-promise"><strong>Free delivery · Cash on delivery.</strong> We call to confirm before dispatch.</p>
     <div class="buy-actions">
       <a class="btn btn-outline" data-where="deal" href="${attr(waLink(store, `Hi, I'm asking about ${d.name} — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
@@ -196,8 +205,8 @@ export function deal(cat, slug) {
   </div>
 </article>`;
   return layout(cat, { title: d.name, description: `${d.name} — ${d.pieces} pieces, one size, ${from}. Free delivery, cash on delivery all over Pakistan.`, canonical: `/d/${d.slug}/`, page: 'p-product p-deal', body,
-    og: { title: `${d.name} — ${from}`, image: d.cover },
-    publicData: { deal: { slug: d.slug, name: d.name, pieces: d.pieces, choose_own: d.choose_own, cover: d.cover, sizes: d.sizes, themes: d.themes || [] } } });
+    og: { title: `${d.name} — ${from}`, image: photos[0] },
+    publicData: { deal: { slug: d.slug, name: d.name, pieces: d.pieces, choose_own: d.choose_own, cover: photos[0] || null, photos, sizes: d.sizes, themes: d.themes || [] } } });
 }
 
 export function search(cat, q) {
