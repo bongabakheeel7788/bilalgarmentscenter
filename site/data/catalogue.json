@@ -403,6 +403,103 @@
    "is_new": true
   },
   {
+   "code": "STY-1322",
+   "slug": "girls-china-jersey-2-pcs-set-suit-by-zaid-sty-1322",
+   "name": "Girls China Jersey 2 pcs Set / Suit by Zaid",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": "China Jersey",
+   "set_contents": "2 pcs",
+   "age_group": null,
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {},
+   "size_free": {},
+   "age_months": null,
+   "age_range": null,
+   "size_ages": {},
+   "price_min": 650,
+   "price_max": 650,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Baby Pink",
+     "hex": "#ff9ee5",
+     "photo": null
+    },
+    {
+     "name": "C Green",
+     "hex": "#8cb087",
+     "photo": null
+    },
+    {
+     "name": "Lemon",
+     "hex": "#d2e63d",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1322/3cfcfc9f-5051-4eb5-adf6-7fa7893ecc84.webp",
+   "photos": [
+    {
+     "src": "media/STY-1322/3cfcfc9f-5051-4eb5-adf6-7fa7893ecc84.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2783,
+     "size": "1",
+     "colour": "Baby Pink",
+     "price": 650,
+     "availability": "out"
+    },
+    {
+     "id": 2781,
+     "size": "1",
+     "colour": "C Green",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2779,
+     "size": "1",
+     "colour": "Lemon",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2784,
+     "size": "2",
+     "colour": "Baby Pink",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2782,
+     "size": "2",
+     "colour": "C Green",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2780,
+     "size": "2",
+     "colour": "Lemon",
+     "price": 650,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-27",
+   "is_new": true
+  },
+  {
    "code": "STY-1321",
    "slug": "girls-jersey-2-pcs-set-suit-by-zaid-sty-1321",
    "name": "Girls Jersey 2 pcs Set / Suit by Zaid",
@@ -438,8 +535,13 @@
      "photo": "media/STY-1321/b1c97011-331c-46aa-96d1-1415fb1b7205.webp"
     }
    ],
-   "cover": "media/STY-1321/9b3ca125-c332-4801-b15c-efe601a89a62.webp",
+   "cover": "media/STY-1321/0d114f20-3aeb-4222-b9a8-031f872dde80.webp",
    "photos": [
+    {
+     "src": "media/STY-1321/0d114f20-3aeb-4222-b9a8-031f872dde80.webp",
+     "kind": "COVER",
+     "colour": null
+    },
     {
      "src": "media/STY-1321/9b3ca125-c332-4801-b15c-efe601a89a62.webp",
      "kind": "COLOUR",
@@ -536,10 +638,10 @@
      "photo": "media/STY-1320/e3522b52-61ba-4089-aabc-2e43fb95fe57.webp"
     }
    ],
-   "cover": "media/STY-1320/c6eb30a4-7472-41e4-9600-45cbedbbd2eb.webp",
+   "cover": "media/STY-1320/4316b838-880b-4514-8ba8-1a4d263ffb04.webp",
    "photos": [
     {
-     "src": "media/STY-1320/c6eb30a4-7472-41e4-9600-45cbedbbd2eb.webp",
+     "src": "media/STY-1320/4316b838-880b-4514-8ba8-1a4d263ffb04.webp",
      "kind": "COVER",
      "colour": null
     },
@@ -8026,7 +8128,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 146,
-   "online": 46,
+   "online": 47,
    "months": [
     0,
     156
@@ -9822,6 +9924,6 @@
   }
  ],
  "assets": {
-  "v": "093423380a"
+  "v": "08f8979084"
  }
 }

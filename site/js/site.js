@@ -48,7 +48,7 @@ function toast(msg) { let t = $('.toast'); if (!t) { t = document.createElement(
   // P154 — a Facebook link with no tags still says where she came from: Facebook adds fbclid to every click (an ad
   // or a post — so it names the SOURCE only, never "paid"; P100). Kept for 7 days, not just the tab: a mother who
   // taps the ad at lunch and orders from the same phone that evening is still that ad's order.
-  if (!utm.source && q.get('fbclid')) utm.source = 'facebook';
+  if (!utm.source && q.get('fbclid')) utm.source = /Instagram/i.test(navigator.userAgent) ? 'instagram' : 'facebook';
   if (Object.keys(utm).length) { utm.landing = (location.pathname + location.search).slice(0, 300); store.set('bgc_utm', { ...utm, until: Date.now() + 7 * 86400e3 }); }
 })();
 const refCode = () => { const r = store.get('bgc_ref'); return r && r.until > Date.now() ? r.code : ''; };
@@ -148,7 +148,7 @@ if (P && $('#sizes')) {
     const cn = $('#colourName'); if (cn) cn.textContent = colour && colour.toLowerCase() !== 'standard' ? '· ' + colour : '';
   };
   const allOut = !P.variants.some(v => v.availability !== 'out');
-  const markColour = c => { const sw = $$('#colours .swatch').find(x => x.dataset.colour === c); if (!sw) return; $$('#colours .swatch').forEach(x => x.classList.remove('active')); sw.classList.add('active'); if (sw.dataset.photo) $('#mainImg').src = '/' + sw.dataset.photo; };
+  const markColour = c => { const sw = $$('#colours .swatch').find(x => x.dataset.colour === c); $$('#colours .swatch').forEach(x => x.classList.remove('active')); if (!sw) return; sw.classList.add('active'); if (sw.dataset.photo) $('#mainImg').src = '/' + sw.dataset.photo; };
   const hasPair = (s, c) => P.variants.some(v => v.size === s && v.colour === c);
   // P154 — a size the chosen colour does not come in used to put ANOTHER colour's piece in the cart while the swatch
   // still showed hers. Now the swatch moves to the colour that will actually be sent, where she can see it.
@@ -165,11 +165,18 @@ if (P && $('#sizes')) {
   $$('.thumb').forEach(b => b.onclick = () => { $$('.thumb').forEach(x => x.classList.remove('active')); b.classList.add('active'); $('#mainImg').src = b.dataset.img; });
   // one size only → pre-select it
   const inStock = $$('#sizes .size').filter(b => { const v = variantFor(b.dataset.size, colour); return v && v.availability !== 'out'; });
-  if (inStock.length === 1) size = inStock[0].dataset.size;
+  if (inStock.length === 1) {
+    size = inStock[0].dataset.size;
+    const v0 = variantFor(size, colour); if (v0 && colour && v0.colour && v0.colour !== colour && $('#colours')) { colour = v0.colour; markColour(colour); }   // P154 — as a tap does
+  }
   paintSizes();
   $('#addBtn').onclick = () => {
     const v = size ? variantFor(size, colour) : null;
-    if (!v) { $('#sizeHint').textContent = 'Choose a size first.'; $('#sizes').scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+    if (!v) {
+      const colourOut = colour && $('#colours') && !P.variants.some(x => x.colour === colour && x.availability !== 'out');
+      $('#sizeHint').textContent = colourOut ? 'Sold out in this colour — choose another colour.' : 'Choose a size first.';
+      $(colourOut ? '#colours' : '#sizes').scrollIntoView({ block: 'center', behavior: 'smooth' }); return;
+    }
     const qty = Math.max(1, Math.min(10, Number($('#qty').value) || 1));
     cart.add({ variant_id: Number(v.id), code: P.code, slug: P.slug, name: P.name, size: v.size, colour: v.colour, price: Number(v.price), qty, cover: P.cover });
     pixel('AddToCart', { content_ids: [P.code], content_type: 'product', value: v.price * qty, currency: 'PKR' });
@@ -386,7 +393,7 @@ if (D && $('#dpSizes')) {
     }
     // P154 — live while something is still to choose: the tap takes her there (below). A disabled button's tap never
     // runs, and on a phone it was the only button on the screen.
-    $('#dpAdd').disabled = !!z && z.packs <= 0;
+    $('#dpAdd').disabled = !D.sizes.some(x => x.packs > 0) || (!!z && z.packs <= 0);
     $('#dpAdd').classList.toggle('is-wait', !isReady());
     // P143 — the price rides on the button, which stays at the bottom of a phone's screen
     $('#dpAdd').textContent = !z ? 'Choose a size' : mode === 'OWN' && picked() < D.pieces ? `Choose ${D.pieces - picked()} more` : `Add pack · ${money(z.price)}`;
@@ -437,8 +444,9 @@ if (form) {
     $('#coTotal').textContent = money(sub + del);
     $('#coDelNote').textContent = mode === 'COLLECT' ? 'We keep the pieces aside once confirmed — bring the order number.' : deliveryNote(sub);
     const eta = $('.eta-co'); if (eta) eta.hidden = mode === 'COLLECT' || !cart.lines.length;   // P154 — no courier, no date
-    $('#coSubmit').disabled = !cart.lines.length;
+    $('#coSubmit').disabled = submitting || !cart.lines.length;
   };
+  let submitting = false;
   form.querySelectorAll('[name=delivery]').forEach(r => r.onchange = paint);
   document.addEventListener('bgc:cart', paint);           // P154 — a change in the drawer changes "Your order" too
   if (cart.lines.length) pixel('InitiateCheckout', { value: cart.subtotal(), currency: 'PKR', num_items: cart.count(), content_ids: cart.lines.map(l => l.pack ? 'pack:' + l.slug : l.code) });
@@ -463,7 +471,7 @@ if (form) {
     if (f.delivery !== 'COLLECT') { if (String(f.address || '').trim().length < 10) local.address = 'The full address — house, street, area, a landmark.'; if (String(f.city || '').trim().length < 2) local.city = 'Which city?'; }
     if (f.ref && !/^\d{3,4}$/.test(f.ref.trim())) local.ref = 'A referral code is 3 or 4 digits.';
     if (Object.keys(local).length) { showErrors(local); return; }
-    const btn = $('#coSubmit'); btn.disabled = true; btn.textContent = 'Placing your order…';
+    const btn = $('#coSubmit'); btn.disabled = true; btn.textContent = 'Placing your order…'; submitting = true;
     try {
       if (window.turnstile && !turnstileToken) { try { await new Promise((res, rej) => { window.onTurnstile = t => { turnstileToken = t; res(); }; turnstile.execute(); setTimeout(rej, 15000); }); } catch { /* server decides */ } }
       const res = await fetch('/api/orders', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...f, lines: cart.lines.filter(l => !l.pack).map(l => ({ variant_id: l.variant_id, qty: l.qty })),
@@ -480,7 +488,7 @@ if (form) {
         }
         else if (j.error === 'BAD_PACK') { err.textContent = j.message; err.hidden = false; }
         else { err.textContent = j.message || 'The order could not be placed. Please try again or order on WhatsApp.'; err.hidden = false; }
-        btn.disabled = !cart.lines.length; btn.textContent = 'Place order'; turnstileToken = '';   /* P154 — a sold-out refusal can empty the cart */ if (window.turnstile) try { turnstile.reset(); } catch { /* */ }
+        submitting = false; btn.disabled = !cart.lines.length; btn.textContent = 'Place order'; turnstileToken = '';   /* P154 — a sold-out refusal can empty the cart */ if (window.turnstile) try { turnstile.reset(); } catch { /* */ }
         return;
       }
       store.set('bgc_customer', { name: f.name, phone: f.phone, alt_phone: f.alt_phone, address: f.address, city: f.city, province: f.province });
@@ -488,11 +496,13 @@ if (form) {
       // sent away, the browser often cancelled it. A pack's id is 'pack:<slug>' (it has no STY code).
       store.set('bgc_last_order', { no: j.no, phone: f.phone, total: j.total, lines: j.lines, packs: j.packs || [], delivery_charge: j.delivery_charge, delivery: f.delivery,
         px: { ids: cart.lines.map(l => l.pack ? 'pack:' + l.slug : l.code), items: cart.count(), sent: false } });
+      const kept = store.get('bgc_last_order');
+      if (!kept || kept.no !== j.no) pixel('Purchase', { value: j.total, currency: 'PKR', content_ids: cart.lines.map(l => l.pack ? 'pack:' + l.slug : l.code), content_type: 'product', num_items: cart.count() });   // P154 — storage refused: the thanks page will not see it
       track('order', { l: j.no, v: j.total, now: true });
       cart.clear();
       location.href = '/thanks/' + j.no + '/';
     } catch {
-      err.textContent = 'No connection — please check your internet and try again.'; err.hidden = false; btn.disabled = false; btn.textContent = 'Place order';
+      err.textContent = 'No connection — please check your internet and try again.'; err.hidden = false; submitting = false; btn.disabled = !cart.lines.length; btn.textContent = 'Place order';
     }
   };
 }

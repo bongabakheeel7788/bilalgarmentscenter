@@ -6,12 +6,12 @@ import { SWATCHES, iconSvg } from './kind-icons.js';   // P141 — a deal withou
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
 
 // P154 — "show highly matching items under the products page" (Fahad, 2026-09-27). A match is SCORED, not
-// "same category, newest four": who it is for, the ages it fits, the kind, the type, the fabric, the season, the
-// price, and whether a customer can see a photo of it. A piece sold out in every size is never offered.
+// "same category, newest four": who it is for, the ages it fits, the kind, the fabric, the season, the
+// price, the set it comes as, and whether a customer can see a photo of it. A piece sold out in every size is never offered.
 // `same` true: more of the same kind. `same` false: other kinds for the SAME CHILD — matched by the months each
 // piece fits, never by a size's name (rule 12: one maker's Small is not another's).
-export function recommend(cat, p, { same, exclude = new Set(), n = 8 }) {
-  const groups = groupsOf(p);
+export function recommend(cat, p, { same, exclude = new Set(), n = 8, groups: known = null }) {
+  const groups = known || groupsOf(p);
   const ages = Array.isArray(p.age_months) ? p.age_months : null;
   const mid = x => (Number(x.price_min || 0) + Number(x.price_max || x.price_min || 0)) / 2;
   const pm = mid(p);
@@ -21,7 +21,9 @@ export function recommend(cat, p, { same, exclude = new Set(), n = 8 }) {
     if (x.code === p.code || x.slug === p.slug || exclude.has(x.code)) continue;
     if (!(x.variants || []).some(v => v.availability !== 'out')) continue;
     const xg = groupsOf(x);
-    const who = groups.length && xg.length ? xg.some(g => groups.includes(g)) : (x.category_parent || null) === (p.category_parent || null);
+    // who it is for must MATCH. A piece with nobody set is offered only beside another with nobody set: since P110 the
+    // category is a type ("Pants"), not a person, so its parent is no stand-in — null === null matched everyone.
+    const who = groups.length ? xg.some(g => groups.includes(g)) : !xg.length;
     if (!who) continue;
     if (same !== (kind(x) === kind(p))) continue;
     let s = 0;
@@ -31,7 +33,7 @@ export function recommend(cat, p, { same, exclude = new Set(), n = 8 }) {
       if (overlap < 0) continue;                             // a frock for 10–14 is no match for a 1–4-year-old
       s += 3 + Math.min(2, overlap / 12);
     }
-    if (p.product_type && x.product_type === p.product_type) s += 1;
+    if (p.set_contents && x.set_contents === p.set_contents) s += 1;   // "Shirt + Pant" beside "Shirt + Pant"
     if (p.fabric && x.fabric === p.fabric) s += 1;
     if (p.season && x.season && (x.season === p.season || x.season === 'ALL' || p.season === 'ALL')) s += 0.5;
     if (pm > 0 && Math.abs(mid(x) - pm) / pm <= 0.3) s += 1;
@@ -43,8 +45,13 @@ export function recommend(cat, p, { same, exclude = new Set(), n = 8 }) {
 }
 /** the row of recommendations: two across on a phone that scroll sideways, four across on a laptop */
 const recRow = (title, items) => items.length ? section(title, `<div class="grid grid-row rec-row">${items.map(card).join('')}</div>`) : '';
-/** what the second row is called: the ages it fits, else who it is for */
-const forWhom = p => p.age_range ? `More for ${p.age_range}` : (FOR_GROUPS.find(g => groupsOf(p).includes(g.key)) || {}).title || 'You may also like';
+/** what the second row is called: the ages it fits, else who it is for ("For boys and girls" for a unisex piece) */
+const forWhom = (p, known = null) => {
+  if (p.age_range) return `More for ${p.age_range}`;
+  const g = known || groupsOf(p);
+  if (g.includes('boys') && g.includes('girls')) return 'For boys and girls';
+  return (FOR_GROUPS.find(x => g.includes(x.key)) || {}).title || 'You may also like';
+};
 // P154 — "it takes 3–5 days to deliver, Sunday is off" (Fahad, 2026-09-27). What the page says before its script
 // runs; site.js turns it into dates ("Wed 1 Oct – Fri 3 Oct"), counted from today, Sundays skipped.
 export const ETA_TEXT = 'Delivered in 3–5 working days (Sundays not counted).';
@@ -256,9 +263,12 @@ ${(() => {
     const months = d.sizes.map(z => z.months).filter(Array.isArray);
     const self = (cat.listed || []).find(x => x.deal && x.slug === d.slug) || { code: 'PACK:' + d.slug, slug: d.slug, category: d.category, category_parent: d.category_parent,
       age_months: months.length ? [Math.min(...months.map(m => m[0])), Math.max(...months.map(m => m[1]))] : null, price_min: lo, price_max: hi, variants: [] };
-    const same = recommend(cat, self, { same: true });
-    const other = recommend(cat, self, { same: false, exclude: new Set(same.map(x => x.code)) });
-    return recRow('More like this', same) + recRow(forWhom(self), other);
+    // who it is for: the publisher drops a deal's gender, but files its home-page tiles under each group it is for
+    const tiles = [...new Set((cat.kinds || []).filter(k => k.href === `/d/${d.slug}/` && k.group).map(k => k.group))];
+    const groups = tiles.length ? tiles : groupsOf(self);
+    const same = recommend(cat, self, { same: true, groups });
+    const other = recommend(cat, self, { same: false, exclude: new Set(same.map(x => x.code)), groups });
+    return recRow('More like this', same) + recRow(forWhom(self, groups), other);
   })()}`;
   return layout(cat, { title: d.name, description: `${d.name} — ${d.pieces} pieces, one size, ${from}. Free delivery, cash on delivery all over Pakistan.`, canonical: `/d/${d.slug}/`, page: 'p-product p-deal', body,
     og: { title: `${d.name} — ${from}`, image: photos[0] },
