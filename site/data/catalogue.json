@@ -30,6 +30,11 @@
  },
  "categories": [
   {
+   "name": "Set / Suit",
+   "parent": null,
+   "slug": "set-suit"
+  },
+  {
    "name": "Casual Pants",
    "parent": null,
    "slug": "casual-pants"
@@ -38,11 +43,6 @@
    "name": "Casual Shirts",
    "parent": null,
    "slug": "casual-shirts"
-  },
-  {
-   "name": "Set / Suit",
-   "parent": null,
-   "slug": "set-suit"
   },
   {
    "name": "Trousers",
@@ -61,6 +61,429 @@
   }
  ],
  "products": [
+  {
+   "code": "STY-1325",
+   "slug": "girls-terry-2-pcs-set-suit-by-zaid-sty-1325",
+   "name": "Girls Terry 2 pcs Set / Suit by Zaid",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": "Terry",
+   "set_contents": "2 pcs",
+   "age_group": null,
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {},
+   "size_free": {},
+   "age_months": null,
+   "age_range": null,
+   "size_ages": {},
+   "price_min": 650,
+   "price_max": 650,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Lemon",
+     "hex": "#d2e63d",
+     "photo": "media/STY-1325/1a0b478f-5860-48a7-8be3-f349027c8c5c.webp"
+    },
+    {
+     "name": "Light Purple",
+     "hex": "#e59eff",
+     "photo": "media/STY-1325/1728179f-c4f8-4e53-ad27-fbc1ce67411e.webp"
+    },
+    {
+     "name": "pink",
+     "hex": "#e594b1",
+     "photo": "media/STY-1325/8602c6a5-bea0-4ff9-a27d-b8233631a021.webp"
+    }
+   ],
+   "cover": "media/STY-1325/1a0b478f-5860-48a7-8be3-f349027c8c5c.webp",
+   "photos": [
+    {
+     "src": "media/STY-1325/1a0b478f-5860-48a7-8be3-f349027c8c5c.webp",
+     "kind": "COLOUR",
+     "colour": "Lemon"
+    },
+    {
+     "src": "media/STY-1325/1728179f-c4f8-4e53-ad27-fbc1ce67411e.webp",
+     "kind": "COLOUR",
+     "colour": "Light Purple"
+    },
+    {
+     "src": "media/STY-1325/8602c6a5-bea0-4ff9-a27d-b8233631a021.webp",
+     "kind": "COLOUR",
+     "colour": "pink"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2799,
+     "size": "1",
+     "colour": "Lemon",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2797,
+     "size": "1",
+     "colour": "Light Purple",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2801,
+     "size": "1",
+     "colour": "pink",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2800,
+     "size": "2",
+     "colour": "Lemon",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2798,
+     "size": "2",
+     "colour": "Light Purple",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2802,
+     "size": "2",
+     "colour": "pink",
+     "price": 650,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-27",
+   "is_new": true
+  },
+  {
+   "code": "STY-1324",
+   "slug": "girls-terry-2-pcs-set-suit-by-zaid-sty-1324",
+   "name": "Girls Terry 2 pcs Set / Suit by Zaid",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": "Terry",
+   "set_contents": "2 pcs",
+   "age_group": null,
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {},
+   "size_free": {},
+   "age_months": null,
+   "age_range": null,
+   "size_ages": {},
+   "price_min": 650,
+   "price_max": 650,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "C Green",
+     "hex": "#8cb087",
+     "photo": null
+    },
+    {
+     "name": "Lemon",
+     "hex": "#d2e63d",
+     "photo": null
+    },
+    {
+     "name": "pink",
+     "hex": "#e594b1",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1324/42f36d1f-e1ec-4ff9-b4de-124b0455bf07.webp",
+   "photos": [
+    {
+     "src": "media/STY-1324/42f36d1f-e1ec-4ff9-b4de-124b0455bf07.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2791,
+     "size": "1",
+     "colour": "C Green",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2793,
+     "size": "1",
+     "colour": "Lemon",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2795,
+     "size": "1",
+     "colour": "pink",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2792,
+     "size": "2",
+     "colour": "C Green",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2794,
+     "size": "2",
+     "colour": "Lemon",
+     "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 2796,
+     "size": "2",
+     "colour": "pink",
+     "price": 650,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-27",
+   "is_new": true
+  },
+  {
+   "code": "STY-1323",
+   "slug": "girls-jersey-2-pcs-set-suit-by-zaid-sty-1323",
+   "name": "Girls Jersey 2 pcs Set / Suit by Zaid",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": "Jersey",
+   "set_contents": "2 pcs",
+   "age_group": null,
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {},
+   "size_free": {},
+   "age_months": null,
+   "age_range": null,
+   "size_ages": {},
+   "price_min": 600,
+   "price_max": 600,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "C Green",
+     "hex": "#8cb087",
+     "photo": "media/STY-1323/457d80d3-733d-4615-8590-2ef2fe22968a.webp"
+    },
+    {
+     "name": "Peach",
+     "hex": "#e2b86e",
+     "photo": "media/STY-1323/a98c6bbc-a537-44ec-98ab-4967daaea262.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1323/cb0c334f-5e97-41b6-98fc-0576df8a2cdc.webp"
+    }
+   ],
+   "cover": "media/STY-1323/8533c25f-65f6-4e3c-bb59-554caeb34d72.webp",
+   "photos": [
+    {
+     "src": "media/STY-1323/8533c25f-65f6-4e3c-bb59-554caeb34d72.webp",
+     "kind": "COVER",
+     "colour": null
+    },
+    {
+     "src": "media/STY-1323/457d80d3-733d-4615-8590-2ef2fe22968a.webp",
+     "kind": "COLOUR",
+     "colour": "C Green"
+    },
+    {
+     "src": "media/STY-1323/e55ef2a2-7923-4069-b70d-40587fcf0a23.webp",
+     "kind": "COLOUR",
+     "colour": "C Green"
+    },
+    {
+     "src": "media/STY-1323/a98c6bbc-a537-44ec-98ab-4967daaea262.webp",
+     "kind": "COLOUR",
+     "colour": "Peach"
+    },
+    {
+     "src": "media/STY-1323/cb0c334f-5e97-41b6-98fc-0576df8a2cdc.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    },
+    {
+     "src": "media/STY-1323/92ba60c4-a153-47ec-b415-b6317b1ce804.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2785,
+     "size": "1",
+     "colour": "C Green",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2789,
+     "size": "1",
+     "colour": "Peach",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2787,
+     "size": "1",
+     "colour": "skin",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2786,
+     "size": "2",
+     "colour": "C Green",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2790,
+     "size": "2",
+     "colour": "Peach",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2788,
+     "size": "2",
+     "colour": "skin",
+     "price": 600,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-27",
+   "is_new": true
+  },
+  {
+   "code": "STY-1320",
+   "slug": "girls-jersey-2-pcs-set-suit-sty-1320",
+   "name": "Girls Jersey 2 pcs Set / Suit",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": "Jersey",
+   "set_contents": "2 pcs",
+   "age_group": null,
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {},
+   "size_free": {},
+   "age_months": null,
+   "age_range": null,
+   "size_ages": {},
+   "price_min": 600,
+   "price_max": 600,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Baby Pink",
+     "hex": "#ff9ee5",
+     "photo": null
+    },
+    {
+     "name": "Parrot",
+     "hex": "#5fea39",
+     "photo": null
+    },
+    {
+     "name": "Sky",
+     "hex": "#7e99d3",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1320/c6eb30a4-7472-41e4-9600-45cbedbbd2eb.webp",
+   "photos": [
+    {
+     "src": "media/STY-1320/c6eb30a4-7472-41e4-9600-45cbedbbd2eb.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2769,
+     "size": "1",
+     "colour": "Baby Pink",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2771,
+     "size": "1",
+     "colour": "Parrot",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2773,
+     "size": "1",
+     "colour": "Sky",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2770,
+     "size": "2",
+     "colour": "Baby Pink",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2772,
+     "size": "2",
+     "colour": "Parrot",
+     "price": 600,
+     "availability": "few"
+    },
+    {
+     "id": 2774,
+     "size": "2",
+     "colour": "Sky",
+     "price": 600,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-27",
+   "is_new": true
+  },
   {
    "code": "STY-1274",
    "slug": "boys-jeans-casual-pants-sty-1274",
@@ -285,31 +708,21 @@
     "26": [
      84,
      96
-    ],
-    "28": [
-     96,
-     120
-    ],
-    "30": [
-     120,
-     144
     ]
    },
    "size_free": {},
    "age_months": [
     24,
-    144
+    96
    ],
-   "age_range": "2 Years–12 Years",
+   "age_range": "2 Years–8 Years",
    "size_ages": {
     "16": "2 Years–3 Years",
     "18": "3 Years–4 Years",
     "20": "4 Years–5 Years",
     "22": "5 Years–6 Years",
     "24": "6 Years–7 Years",
-    "26": "7 Years–8 Years",
-    "28": "8 Years–10 Years",
-    "30": "10 Years–12 Years"
+    "26": "7 Years–8 Years"
    },
    "price_min": 600,
    "price_max": 700,
@@ -319,9 +732,7 @@
     "20",
     "22",
     "24",
-    "26",
-    "28",
-    "30"
+    "26"
    ],
    "colours": [
     {
@@ -381,20 +792,6 @@
      "colour": "Standard",
      "price": 700,
      "availability": "in"
-    },
-    {
-     "id": 1450,
-     "size": "28",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
-    },
-    {
-     "id": 1451,
-     "size": "30",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -488,10 +885,6 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "18": [
-     24,
-     36
-    ],
     "20": [
      36,
      48
@@ -499,79 +892,23 @@
     "22": [
      48,
      60
-    ],
-    "24": [
-     60,
-     72
-    ],
-    "26": [
-     72,
-     84
-    ],
-    "28": [
-     84,
-     96
-    ],
-    "30": [
-     96,
-     108
-    ],
-    "32": [
-     108,
-     120
-    ],
-    "34": [
-     120,
-     132
-    ],
-    "36": [
-     132,
-     144
-    ],
-    "38": [
-     144,
-     156
-    ],
-    "40": [
-     156,
-     168
     ]
    },
    "size_free": {},
    "age_months": [
-    24,
-    168
+    36,
+    60
    ],
-   "age_range": "2 Years–14 Years",
+   "age_range": "3 Years–5 Years",
    "size_ages": {
-    "18": "2 Years–3 Years",
     "20": "3 Years–4 Years",
-    "22": "4 Years–5 Years",
-    "24": "5 Years–6 Years",
-    "26": "6 Years–7 Years",
-    "28": "7 Years–8 Years",
-    "30": "8 Years–9 Years",
-    "32": "9 Years–10 Years",
-    "34": "10 Years–11 Years",
-    "36": "11 Years–12 Years",
-    "38": "12 Years–13 Years",
-    "40": "13 Years–14 Years"
+    "22": "4 Years–5 Years"
    },
    "price_min": 850,
    "price_max": 850,
    "sizes": [
-    "18",
     "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30",
-    "32",
-    "34",
-    "36",
-    "38",
-    "40"
+    "22"
    ],
    "colours": [
     {
@@ -591,13 +928,6 @@
    "size_guide": null,
    "variants": [
     {
-     "id": 1174,
-     "size": "18",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
      "id": 1175,
      "size": "20",
      "colour": "Washable",
@@ -610,69 +940,6 @@
      "colour": "Washable",
      "price": 850,
      "availability": "in"
-    },
-    {
-     "id": 1177,
-     "size": "24",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
-     "id": 1178,
-     "size": "26",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
-     "id": 1179,
-     "size": "28",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
-     "id": 1180,
-     "size": "30",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
-     "id": 1181,
-     "size": "32",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
-     "id": 1182,
-     "size": "34",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
-     "id": 1183,
-     "size": "36",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
-     "id": 1184,
-     "size": "38",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
-    },
-    {
-     "id": 1185,
-     "size": "40",
-     "colour": "Washable",
-     "price": 850,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -692,10 +959,6 @@
    "season": null,
    "sizing": "AGE",
    "size_months": {
-    "18": [
-     12,
-     24
-    ],
     "20": [
      24,
      36
@@ -703,79 +966,23 @@
     "22": [
      36,
      48
-    ],
-    "24": [
-     48,
-     60
-    ],
-    "26": [
-     60,
-     72
-    ],
-    "28": [
-     72,
-     84
-    ],
-    "30": [
-     84,
-     96
-    ],
-    "32": [
-     96,
-     108
-    ],
-    "34": [
-     108,
-     120
-    ],
-    "36": [
-     120,
-     132
-    ],
-    "38": [
-     132,
-     144
-    ],
-    "40": [
-     144,
-     156
     ]
    },
    "size_free": {},
    "age_months": [
-    12,
-    156
+    24,
+    48
    ],
-   "age_range": "1 Year–13 Years",
+   "age_range": "2 Years–4 Years",
    "size_ages": {
-    "18": "1 Year–2 Years",
     "20": "2 Years–3 Years",
-    "22": "3 Years–4 Years",
-    "24": "4 Years–5 Years",
-    "26": "5 Years–6 Years",
-    "28": "6 Years–7 Years",
-    "30": "7 Years–8 Years",
-    "32": "8 Years–9 Years",
-    "34": "9 Years–10 Years",
-    "36": "10 Years–11 Years",
-    "38": "11 Years–12 Years",
-    "40": "12 Years–13 Years"
+    "22": "3 Years–4 Years"
    },
    "price_min": 500,
    "price_max": 500,
    "sizes": [
-    "18",
     "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30",
-    "32",
-    "34",
-    "36",
-    "38",
-    "40"
+    "22"
    ],
    "colours": [
     {
@@ -795,13 +1002,6 @@
    "size_guide": null,
    "variants": [
     {
-     "id": 1162,
-     "size": "18",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
      "id": 1163,
      "size": "20",
      "colour": "Washable",
@@ -814,69 +1014,6 @@
      "colour": "Washable",
      "price": 500,
      "availability": "in"
-    },
-    {
-     "id": 1165,
-     "size": "24",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1166,
-     "size": "26",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1167,
-     "size": "28",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1168,
-     "size": "30",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1169,
-     "size": "32",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1170,
-     "size": "34",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1171,
-     "size": "36",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1172,
-     "size": "38",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1173,
-     "size": "40",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -903,83 +1040,23 @@
     "20": [
      24,
      36
-    ],
-    "22": [
-     36,
-     48
-    ],
-    "24": [
-     48,
-     60
-    ],
-    "26": [
-     60,
-     72
-    ],
-    "28": [
-     72,
-     84
-    ],
-    "30": [
-     84,
-     96
-    ],
-    "32": [
-     96,
-     108
-    ],
-    "34": [
-     108,
-     120
-    ],
-    "36": [
-     120,
-     132
-    ],
-    "38": [
-     132,
-     144
-    ],
-    "40": [
-     144,
-     156
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    156
+    36
    ],
-   "age_range": "1 Year–13 Years",
+   "age_range": "1 Year–3 Years",
    "size_ages": {
     "18": "1 Year–2 Years",
-    "20": "2 Years–3 Years",
-    "22": "3 Years–4 Years",
-    "24": "4 Years–5 Years",
-    "26": "5 Years–6 Years",
-    "28": "6 Years–7 Years",
-    "30": "7 Years–8 Years",
-    "32": "8 Years–9 Years",
-    "34": "9 Years–10 Years",
-    "36": "10 Years–11 Years",
-    "38": "11 Years–12 Years",
-    "40": "12 Years–13 Years"
+    "20": "2 Years–3 Years"
    },
    "price_min": 500,
    "price_max": 500,
    "sizes": [
     "18",
-    "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30",
-    "32",
-    "34",
-    "36",
-    "38",
-    "40"
+    "20"
    ],
    "colours": [
     {
@@ -1011,76 +1088,6 @@
      "colour": "Washable",
      "price": 500,
      "availability": "few"
-    },
-    {
-     "id": 1152,
-     "size": "22",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1153,
-     "size": "24",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1154,
-     "size": "26",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1155,
-     "size": "28",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1156,
-     "size": "30",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1157,
-     "size": "32",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1158,
-     "size": "34",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1159,
-     "size": "36",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1160,
-     "size": "38",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
-    },
-    {
-     "id": 1161,
-     "size": "40",
-     "colour": "Washable",
-     "price": 500,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -1111,79 +1118,25 @@
     "22": [
      36,
      48
-    ],
-    "24": [
-     48,
-     60
-    ],
-    "26": [
-     60,
-     72
-    ],
-    "28": [
-     72,
-     84
-    ],
-    "30": [
-     84,
-     96
-    ],
-    "32": [
-     96,
-     108
-    ],
-    "34": [
-     108,
-     120
-    ],
-    "36": [
-     120,
-     132
-    ],
-    "38": [
-     132,
-     144
-    ],
-    "40": [
-     144,
-     156
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    156
+    48
    ],
-   "age_range": "1 Year–13 Years",
+   "age_range": "1 Year–4 Years",
    "size_ages": {
     "18": "1 Year–2 Years",
     "20": "2 Years–3 Years",
-    "22": "3 Years–4 Years",
-    "24": "4 Years–5 Years",
-    "26": "5 Years–6 Years",
-    "28": "6 Years–7 Years",
-    "30": "7 Years–8 Years",
-    "32": "8 Years–9 Years",
-    "34": "9 Years–10 Years",
-    "36": "10 Years–11 Years",
-    "38": "11 Years–12 Years",
-    "40": "12 Years–13 Years"
+    "22": "3 Years–4 Years"
    },
    "price_min": 600,
    "price_max": 600,
    "sizes": [
     "18",
     "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30",
-    "32",
-    "34",
-    "36",
-    "38",
-    "40"
+    "22"
    ],
    "colours": [
     {
@@ -1222,69 +1175,6 @@
      "colour": "Washable",
      "price": 600,
      "availability": "few"
-    },
-    {
-     "id": 1141,
-     "size": "24",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 1142,
-     "size": "26",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 1143,
-     "size": "28",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 1144,
-     "size": "30",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 1145,
-     "size": "32",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 1146,
-     "size": "34",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 1147,
-     "size": "36",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 1148,
-     "size": "38",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 1149,
-     "size": "40",
-     "colour": "Washable",
-     "price": 600,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -1311,59 +1201,23 @@
     "18": [
      36,
      48
-    ],
-    "20": [
-     48,
-     60
-    ],
-    "22": [
-     60,
-     72
-    ],
-    "24": [
-     72,
-     84
-    ],
-    "26": [
-     84,
-     96
-    ],
-    "28": [
-     96,
-     108
-    ],
-    "30": [
-     108,
-     120
     ]
    },
    "size_free": {},
    "age_months": [
     24,
-    120
+    48
    ],
-   "age_range": "2 Years–10 Years",
+   "age_range": "2 Years–4 Years",
    "size_ages": {
     "16": "2 Years–3 Years",
-    "18": "3 Years–4 Years",
-    "20": "4 Years–5 Years",
-    "22": "5 Years–6 Years",
-    "24": "6 Years–7 Years",
-    "26": "7 Years–8 Years",
-    "28": "8 Years–9 Years",
-    "30": "9 Years–10 Years"
+    "18": "3 Years–4 Years"
    },
    "price_min": 650,
    "price_max": 650,
    "sizes": [
     "16",
-    "18",
-    "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30"
+    "18"
    ],
    "colours": [
     {
@@ -1395,48 +1249,6 @@
      "colour": "Standard",
      "price": 650,
      "availability": "in"
-    },
-    {
-     "id": 1132,
-     "size": "20",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 1133,
-     "size": "22",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 1134,
-     "size": "24",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 1135,
-     "size": "26",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 1136,
-     "size": "28",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 1137,
-     "size": "30",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -1473,11 +1285,6 @@
    ],
    "colours": [
     {
-     "name": "Black",
-     "hex": "#000000",
-     "photo": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp"
-    },
-    {
      "name": "Brown",
      "hex": "#92400E",
      "photo": "media/STY-1235/7379bce3-b071-4815-bf59-f1ad1514a997.webp"
@@ -1501,9 +1308,14 @@
      "name": "Sky Blue",
      "hex": "#7DD3FC",
      "photo": "media/STY-1235/5c7d31e7-12da-4325-8a74-676666cfd288.webp"
+    },
+    {
+     "name": "Black",
+     "hex": "#000000",
+     "photo": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp"
     }
    ],
-   "cover": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp",
+   "cover": "media/STY-1235/7379bce3-b071-4815-bf59-f1ad1514a997.webp",
    "photos": [
     {
      "src": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp",
@@ -1539,13 +1351,6 @@
    "size_guide": null,
    "variants": [
     {
-     "id": 1087,
-     "size": "Medium",
-     "colour": "Black",
-     "price": 750,
-     "availability": "out"
-    },
-    {
      "id": 1093,
      "size": "Medium",
      "colour": "Brown",
@@ -1577,13 +1382,6 @@
      "id": 1090,
      "size": "Medium",
      "colour": "Sky Blue",
-     "price": 750,
-     "availability": "out"
-    },
-    {
-     "id": 1088,
-     "size": "Large",
-     "colour": "Black",
      "price": 750,
      "availability": "out"
     },
@@ -2148,22 +1946,18 @@
     "Medium": "M",
     "Large": "L",
     "XL": "XL",
-    "2XL": "2XL",
-    "3XL": "3XL",
-    "4XL": "4XL"
+    "2XL": "2XL"
    },
    "age_months": null,
    "age_range": null,
    "size_ages": {},
-   "price_min": 1100,
+   "price_min": 1700,
    "price_max": 1700,
    "sizes": [
     "Medium",
     "Large",
     "XL",
-    "2XL",
-    "3XL",
-    "4XL"
+    "2XL"
    ],
    "colours": [
     {
@@ -2173,31 +1967,6 @@
     },
     {
      "name": "Dry Fit",
-     "hex": "#2196f3",
-     "photo": null
-    },
-    {
-     "name": "F.B Sports",
-     "hex": "#2b00ff",
-     "photo": null
-    },
-    {
-     "name": "Fine Dry Fit",
-     "hex": "#ff0000",
-     "photo": null
-    },
-    {
-     "name": "Lycra Trouser",
-     "hex": "#fff700",
-     "photo": null
-    },
-    {
-     "name": "Nike",
-     "hex": "#ff9500",
-     "photo": null
-    },
-    {
-     "name": "Premium",
      "hex": "#2196f3",
      "photo": null
     }
@@ -2220,48 +1989,6 @@
      "availability": "few"
     },
     {
-     "id": 977,
-     "size": "Medium",
-     "colour": "Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 983,
-     "size": "Medium",
-     "colour": "F.B Sports",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 989,
-     "size": "Medium",
-     "colour": "Fine Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 995,
-     "size": "Medium",
-     "colour": "Lycra Trouser",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1001,
-     "size": "Medium",
-     "colour": "Nike",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1007,
-     "size": "Medium",
-     "colour": "Premium",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
      "id": 972,
      "size": "Large",
      "colour": "Cotton Terry",
@@ -2276,41 +2003,6 @@
      "availability": "few"
     },
     {
-     "id": 984,
-     "size": "Large",
-     "colour": "F.B Sports",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 990,
-     "size": "Large",
-     "colour": "Fine Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 996,
-     "size": "Large",
-     "colour": "Lycra Trouser",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1002,
-     "size": "Large",
-     "colour": "Nike",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1008,
-     "size": "Large",
-     "colour": "Premium",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
      "id": 973,
      "size": "XL",
      "colour": "Cotton Terry",
@@ -2318,193 +2010,11 @@
      "availability": "few"
     },
     {
-     "id": 979,
-     "size": "XL",
-     "colour": "Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 985,
-     "size": "XL",
-     "colour": "F.B Sports",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 991,
-     "size": "XL",
-     "colour": "Fine Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 997,
-     "size": "XL",
-     "colour": "Lycra Trouser",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1003,
-     "size": "XL",
-     "colour": "Nike",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1009,
-     "size": "XL",
-     "colour": "Premium",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
      "id": 974,
      "size": "2XL",
      "colour": "Cotton Terry",
      "price": 1700,
      "availability": "few"
-    },
-    {
-     "id": 980,
-     "size": "2XL",
-     "colour": "Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 986,
-     "size": "2XL",
-     "colour": "F.B Sports",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 992,
-     "size": "2XL",
-     "colour": "Fine Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 998,
-     "size": "2XL",
-     "colour": "Lycra Trouser",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1004,
-     "size": "2XL",
-     "colour": "Nike",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1010,
-     "size": "2XL",
-     "colour": "Premium",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 975,
-     "size": "3XL",
-     "colour": "Cotton Terry",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 981,
-     "size": "3XL",
-     "colour": "Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 987,
-     "size": "3XL",
-     "colour": "F.B Sports",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 993,
-     "size": "3XL",
-     "colour": "Fine Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 999,
-     "size": "3XL",
-     "colour": "Lycra Trouser",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1005,
-     "size": "3XL",
-     "colour": "Nike",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1011,
-     "size": "3XL",
-     "colour": "Premium",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 976,
-     "size": "4XL",
-     "colour": "Cotton Terry",
-     "price": 1100,
-     "availability": "out"
-    },
-    {
-     "id": 982,
-     "size": "4XL",
-     "colour": "Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 988,
-     "size": "4XL",
-     "colour": "F.B Sports",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 994,
-     "size": "4XL",
-     "colour": "Fine Dry Fit",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1000,
-     "size": "4XL",
-     "colour": "Lycra Trouser",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1006,
-     "size": "4XL",
-     "colour": "Nike",
-     "price": 1700,
-     "availability": "out"
-    },
-    {
-     "id": 1012,
-     "size": "4XL",
-     "colour": "Premium",
-     "price": 1700,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-18",
@@ -2776,18 +2286,6 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "18": [
-     12,
-     24
-    ],
-    "20": [
-     24,
-     36
-    ],
-    "22": [
-     36,
-     48
-    ],
     "24": [
      48,
      60
@@ -2811,55 +2309,31 @@
     "34": [
      120,
      132
-    ],
-    "36": [
-     132,
-     144
-    ],
-    "38": [
-     144,
-     156
-    ],
-    "40": [
-     156,
-     168
     ]
    },
    "size_free": {},
    "age_months": [
-    12,
-    168
+    48,
+    132
    ],
-   "age_range": "1 Year–14 Years",
+   "age_range": "4 Years–11 Years",
    "size_ages": {
-    "18": "1 Year–2 Years",
-    "20": "2 Years–3 Years",
-    "22": "3 Years–4 Years",
     "24": "4 Years–5 Years",
     "26": "5 Years–6 Years",
     "28": "7 Years–8 Years",
     "30": "8 Years–9 Years",
     "32": "9 Years–10 Years",
-    "34": "10 Years–11 Years",
-    "36": "11 Years–12 Years",
-    "38": "12 Years–13 Years",
-    "40": "13 Years–14 Years"
+    "34": "10 Years–11 Years"
    },
    "price_min": 650,
    "price_max": 700,
    "sizes": [
-    "18",
-    "20",
-    "22",
     "24",
     "26",
     "28",
     "30",
     "32",
-    "34",
-    "36",
-    "38",
-    "40"
+    "34"
    ],
    "colours": [
     {
@@ -2878,27 +2352,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 665,
-     "size": "18",
-     "colour": "Washable",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 666,
-     "size": "20",
-     "colour": "Washable",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 667,
-     "size": "22",
-     "colour": "Washable",
-     "price": 650,
-     "availability": "out"
-    },
     {
      "id": 668,
      "size": "24",
@@ -2940,27 +2393,6 @@
      "colour": "Washable",
      "price": 700,
      "availability": "in"
-    },
-    {
-     "id": 674,
-     "size": "36",
-     "colour": "Washable",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 675,
-     "size": "38",
-     "colour": "Washable",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 676,
-     "size": "40",
-     "colour": "Washable",
-     "price": 650,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -3113,10 +2545,6 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "20": [
-     60,
-     72
-    ],
     "22": [
      84,
      96
@@ -3124,18 +2552,16 @@
    },
    "size_free": {},
    "age_months": [
-    60,
+    84,
     96
    ],
-   "age_range": "5 Years–8 Years",
+   "age_range": "7 Years–8 Years",
    "size_ages": {
-    "20": "5 Years–6 Years",
     "22": "7 Years–8 Years"
    },
    "price_min": 1050,
    "price_max": 1050,
    "sizes": [
-    "20",
     "22"
    ],
    "colours": [
@@ -3155,13 +2581,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 645,
-     "size": "20",
-     "colour": "Standard",
-     "price": 1050,
-     "availability": "out"
-    },
     {
      "id": 646,
      "size": "22",
@@ -3261,10 +2680,6 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "20": [
-     72,
-     84
-    ],
     "22": [
      84,
      96
@@ -3272,18 +2687,16 @@
    },
    "size_free": {},
    "age_months": [
-    72,
+    84,
     96
    ],
-   "age_range": "6 Years–8 Years",
+   "age_range": "7 Years–8 Years",
    "size_ages": {
-    "20": "6 Years–7 Years",
     "22": "7 Years–8 Years"
    },
    "price_min": 1300,
    "price_max": 1300,
    "sizes": [
-    "20",
     "22"
    ],
    "colours": [
@@ -3303,13 +2716,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 641,
-     "size": "20",
-     "colour": "Standard",
-     "price": 1300,
-     "availability": "out"
-    },
     {
      "id": 642,
      "size": "22",
@@ -3416,29 +2822,23 @@
     "M": [
      24,
      36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    48
+    36
    ],
-   "age_range": "1 Year–4 Years",
+   "age_range": "1 Year–3 Years",
    "size_ages": {
     "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "M": "2 Years–3 Years"
    },
    "price_min": 1100,
    "price_max": 1100,
    "sizes": [
     "S",
-    "M",
-    "L"
+    "M"
    ],
    "colours": [
     {
@@ -3470,13 +2870,6 @@
      "colour": "Standard",
      "price": 1100,
      "availability": "few"
-    },
-    {
-     "id": 614,
-     "size": "L",
-     "colour": "Standard",
-     "price": 1100,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-20",
@@ -3680,10 +3073,6 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "30": [
-     96,
-     108
-    ],
     "32": [
      108,
      120
@@ -3695,19 +3084,17 @@
    },
    "size_free": {},
    "age_months": [
-    96,
+    108,
     144
    ],
-   "age_range": "8 Years–12 Years",
+   "age_range": "9 Years–12 Years",
    "size_ages": {
-    "30": "8 Years–9 Years",
     "32": "9 Years–10 Years",
     "34": "10 Years–12 Years"
    },
    "price_min": 1400,
    "price_max": 1400,
    "sizes": [
-    "30",
     "32",
     "34"
    ],
@@ -3728,13 +3115,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 573,
-     "size": "30",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "out"
-    },
     {
      "id": 574,
      "size": "32",
@@ -3767,66 +3147,30 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "16": [
-     24,
-     36
-    ],
-    "18": [
-     36,
-     48
-    ],
     "20": [
      48,
      60
     ],
-    "22": [
-     60,
-     72
-    ],
-    "24": [
-     72,
-     84
-    ],
     "26": [
      108,
      120
-    ],
-    "28": [
-     120,
-     132
-    ],
-    "30": [
-     132,
-     144
     ]
    },
    "size_free": {},
    "age_months": [
-    24,
-    144
+    48,
+    120
    ],
-   "age_range": "2 Years–12 Years",
+   "age_range": "4 Years–10 Years",
    "size_ages": {
-    "16": "2 Years–3 Years",
-    "18": "3 Years–4 Years",
     "20": "4 Years–5 Years",
-    "22": "5 Years–6 Years",
-    "24": "6 Years–7 Years",
-    "26": "9 Years–10 Years",
-    "28": "10 Years–11 Years",
-    "30": "11 Years–12 Years"
+    "26": "9 Years–10 Years"
    },
    "price_min": 650,
    "price_max": 650,
    "sizes": [
-    "16",
-    "18",
     "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30"
+    "26"
    ],
    "colours": [
     {
@@ -3846,36 +3190,8 @@
    "size_guide": null,
    "variants": [
     {
-     "id": 532,
-     "size": "16",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 533,
-     "size": "18",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
      "id": 534,
      "size": "20",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 535,
-     "size": "22",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 536,
-     "size": "24",
      "colour": "Standard",
      "price": 650,
      "availability": "out"
@@ -3886,20 +3202,6 @@
      "colour": "Standard",
      "price": 650,
      "availability": "few"
-    },
-    {
-     "id": 538,
-     "size": "28",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
-    },
-    {
-     "id": 539,
-     "size": "30",
-     "colour": "Standard",
-     "price": 650,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -3919,66 +3221,30 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "16": [
-     24,
-     36
-    ],
-    "18": [
-     36,
-     48
-    ],
     "20": [
      48,
      60
     ],
-    "22": [
-     60,
-     72
-    ],
-    "24": [
-     72,
-     84
-    ],
     "26": [
      96,
      108
-    ],
-    "28": [
-     108,
-     120
-    ],
-    "30": [
-     120,
-     132
     ]
    },
    "size_free": {},
    "age_months": [
-    24,
-    132
+    48,
+    108
    ],
-   "age_range": "2 Years–11 Years",
+   "age_range": "4 Years–9 Years",
    "size_ages": {
-    "16": "2 Years–3 Years",
-    "18": "3 Years–4 Years",
     "20": "4 Years–5 Years",
-    "22": "5 Years–6 Years",
-    "24": "6 Years–7 Years",
-    "26": "8 Years–9 Years",
-    "28": "9 Years–10 Years",
-    "30": "10 Years–11 Years"
+    "26": "8 Years–9 Years"
    },
    "price_min": 600,
    "price_max": 600,
    "sizes": [
-    "16",
-    "18",
     "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30"
+    "26"
    ],
    "colours": [
     {
@@ -3998,20 +3264,6 @@
    "size_guide": null,
    "variants": [
     {
-     "id": 516,
-     "size": "16",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 517,
-     "size": "18",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "out"
-    },
-    {
      "id": 518,
      "size": "20",
      "colour": "Standard",
@@ -4019,39 +3271,11 @@
      "availability": "few"
     },
     {
-     "id": 519,
-     "size": "22",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 520,
-     "size": "24",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "out"
-    },
-    {
      "id": 521,
      "size": "26",
      "colour": "Standard",
      "price": 600,
      "availability": "few"
-    },
-    {
-     "id": 522,
-     "size": "28",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "out"
-    },
-    {
-     "id": 523,
-     "size": "30",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -4071,14 +3295,6 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "16": [
-     24,
-     36
-    ],
-    "18": [
-     36,
-     48
-    ],
     "20": [
      48,
      60
@@ -4094,43 +3310,27 @@
     "26": [
      120,
      132
-    ],
-    "28": [
-     120,
-     132
-    ],
-    "30": [
-     132,
-     144
     ]
    },
    "size_free": {},
    "age_months": [
-    24,
-    144
+    48,
+    132
    ],
-   "age_range": "2 Years–12 Years",
+   "age_range": "4 Years–11 Years",
    "size_ages": {
-    "16": "2 Years–3 Years",
-    "18": "3 Years–4 Years",
     "20": "4 Years–5 Years",
     "22": "6 Years–7 Years",
     "24": "8 Years–9 Years",
-    "26": "10 Years–11 Years",
-    "28": "10 Years–11 Years",
-    "30": "11 Years–12 Years"
+    "26": "10 Years–11 Years"
    },
    "price_min": 700,
    "price_max": 700,
    "sizes": [
-    "16",
-    "18",
     "20",
     "22",
     "24",
-    "26",
-    "28",
-    "30"
+    "26"
    ],
    "colours": [
     {
@@ -4149,20 +3349,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 508,
-     "size": "16",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
-    },
-    {
-     "id": 509,
-     "size": "18",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
-    },
     {
      "id": 510,
      "size": "20",
@@ -4190,20 +3376,6 @@
      "colour": "Standard",
      "price": 700,
      "availability": "few"
-    },
-    {
-     "id": 514,
-     "size": "28",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
-    },
-    {
-     "id": 515,
-     "size": "30",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -4223,66 +3395,30 @@
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
-    "16": [
-     24,
-     36
-    ],
-    "18": [
-     36,
-     48
-    ],
     "20": [
      48,
      60
     ],
-    "22": [
-     72,
-     84
-    ],
-    "24": [
-     84,
-     96
-    ],
     "26": [
      108,
-     144
-    ],
-    "28": [
-     120,
-     132
-    ],
-    "30": [
-     132,
      144
     ]
    },
    "size_free": {},
    "age_months": [
-    24,
+    48,
     144
    ],
-   "age_range": "2 Years–12 Years",
+   "age_range": "4 Years–12 Years",
    "size_ages": {
-    "16": "2 Years–3 Years",
-    "18": "3 Years–4 Years",
     "20": "4 Years–5 Years",
-    "22": "6 Years–7 Years",
-    "24": "7 Years–8 Years",
-    "26": "9 Years–12 Years",
-    "28": "10 Years–11 Years",
-    "30": "11 Years–12 Years"
+    "26": "9 Years–12 Years"
    },
    "price_min": 900,
    "price_max": 900,
    "sizes": [
-    "16",
-    "18",
     "20",
-    "22",
-    "24",
-    "26",
-    "28",
-    "30"
+    "26"
    ],
    "colours": [
     {
@@ -4302,20 +3438,6 @@
    "size_guide": null,
    "variants": [
     {
-     "id": 484,
-     "size": "16",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "out"
-    },
-    {
-     "id": 485,
-     "size": "18",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "out"
-    },
-    {
      "id": 486,
      "size": "20",
      "colour": "Standard",
@@ -4323,39 +3445,11 @@
      "availability": "few"
     },
     {
-     "id": 487,
-     "size": "22",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "out"
-    },
-    {
-     "id": 488,
-     "size": "24",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "out"
-    },
-    {
      "id": 489,
      "size": "26",
      "colour": "Standard",
      "price": 900,
      "availability": "few"
-    },
-    {
-     "id": 490,
-     "size": "28",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "out"
-    },
-    {
-     "id": 491,
-     "size": "30",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -4375,36 +3469,24 @@
    "season": "SUMMER",
    "sizing": "AGE",
    "size_months": {
-    "S": [
-     12,
-     24
-    ],
     "M": [
      24,
      36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
-    12,
-    48
+    24,
+    36
    ],
-   "age_range": "1 Year–4 Years",
+   "age_range": "2 Years–3 Years",
    "size_ages": {
-    "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "M": "2 Years–3 Years"
    },
    "price_min": 900,
    "price_max": 900,
    "sizes": [
-    "S",
-    "M",
-    "L"
+    "M"
    ],
    "colours": [
     {
@@ -4424,22 +3506,8 @@
    "size_guide": null,
    "variants": [
     {
-     "id": 368,
-     "size": "S",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "out"
-    },
-    {
      "id": 369,
      "size": "M",
-     "colour": "Standard",
-     "price": 900,
-     "availability": "out"
-    },
-    {
-     "id": 370,
-     "size": "L",
      "colour": "Standard",
      "price": 900,
      "availability": "out"
@@ -4466,10 +3534,6 @@
      12,
      24
     ],
-    "M": [
-     24,
-     36
-    ],
     "L": [
      36,
      48
@@ -4483,14 +3547,12 @@
    "age_range": "1 Year–4 Years",
    "size_ages": {
     "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
     "L": "3 Years–4 Years"
    },
    "price_min": 1400,
    "price_max": 1400,
    "sizes": [
     "S",
-    "M",
     "L"
    ],
    "colours": [
@@ -4516,13 +3578,6 @@
      "colour": "Standard",
      "price": 1400,
      "availability": "few"
-    },
-    {
-     "id": 366,
-     "size": "M",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "out"
     },
     {
      "id": 367,
@@ -4639,28 +3694,21 @@
     "M": [
      24,
      36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
     24,
-    48
+    36
    ],
-   "age_range": "2 Years–4 Years",
+   "age_range": "2 Years–3 Years",
    "size_ages": {
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "M": "2 Years–3 Years"
    },
    "price_min": 700,
    "price_max": 700,
    "sizes": [
-    "S",
-    "M",
-    "L"
+    "M"
    ],
    "colours": [
     {
@@ -4680,25 +3728,11 @@
    "size_guide": null,
    "variants": [
     {
-     "id": 332,
-     "size": "S",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
-    },
-    {
      "id": 333,
      "size": "M",
      "colour": "Standard",
      "price": 700,
      "availability": "few"
-    },
-    {
-     "id": 334,
-     "size": "L",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -4812,29 +3846,23 @@
     "M": [
      24,
      36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    48
+    36
    ],
-   "age_range": "1 Year–4 Years",
+   "age_range": "1 Year–3 Years",
    "size_ages": {
     "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "M": "2 Years–3 Years"
    },
    "price_min": 1500,
    "price_max": 1500,
    "sizes": [
     "S",
-    "M",
-    "L"
+    "M"
    ],
    "colours": [
     {
@@ -4866,13 +3894,6 @@
      "colour": "Standard",
      "price": 1500,
      "availability": "few"
-    },
-    {
-     "id": 325,
-     "size": "L",
-     "colour": "Standard",
-     "price": 1500,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -4983,10 +4004,6 @@
      12,
      24
     ],
-    "M": [
-     24,
-     36
-    ],
     "L": [
      36,
      48
@@ -5000,14 +4017,12 @@
    "age_range": "1 Year–4 Years",
    "size_ages": {
     "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
     "L": "3 Years–4 Years"
    },
    "price_min": 1500,
    "price_max": 1500,
    "sizes": [
     "S",
-    "M",
     "L"
    ],
    "colours": [
@@ -5030,13 +4045,6 @@
     {
      "id": 308,
      "size": "S",
-     "colour": "Standard",
-     "price": 1500,
-     "availability": "out"
-    },
-    {
-     "id": 309,
-     "size": "M",
      "colour": "Standard",
      "price": 1500,
      "availability": "out"
@@ -5073,29 +4081,23 @@
     "M": [
      24,
      36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    48
+    36
    ],
-   "age_range": "1 Year–4 Years",
+   "age_range": "1 Year–3 Years",
    "size_ages": {
     "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "M": "2 Years–3 Years"
    },
    "price_min": 700,
    "price_max": 700,
    "sizes": [
     "S",
-    "M",
-    "L"
+    "M"
    ],
    "colours": [
     {
@@ -5127,13 +4129,6 @@
      "colour": "Standard",
      "price": 700,
      "availability": "in"
-    },
-    {
-     "id": 301,
-     "size": "L",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -5243,33 +4238,21 @@
     "S": [
      12,
      24
-    ],
-    "M": [
-     24,
-     36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    48
+    24
    ],
-   "age_range": "1 Year–4 Years",
+   "age_range": "1 Year–2 Years",
    "size_ages": {
-    "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "S": "1 Year–2 Years"
    },
    "price_min": 1200,
    "price_max": 1200,
    "sizes": [
-    "S",
-    "M",
-    "L"
+    "S"
    ],
    "colours": [
     {
@@ -5291,20 +4274,6 @@
     {
      "id": 293,
      "size": "S",
-     "colour": "Standard",
-     "price": 1200,
-     "availability": "out"
-    },
-    {
-     "id": 294,
-     "size": "M",
-     "colour": "Standard",
-     "price": 1200,
-     "availability": "out"
-    },
-    {
-     "id": 295,
-     "size": "L",
      "colour": "Standard",
      "price": 1200,
      "availability": "out"
@@ -5334,29 +4303,23 @@
     "M": [
      24,
      36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    48
+    36
    ],
-   "age_range": "1 Year–4 Years",
+   "age_range": "1 Year–3 Years",
    "size_ages": {
     "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "M": "2 Years–3 Years"
    },
    "price_min": 700,
    "price_max": 700,
    "sizes": [
     "S",
-    "M",
-    "L"
+    "M"
    ],
    "colours": [
     {
@@ -5388,13 +4351,6 @@
      "colour": "Standard",
      "price": 700,
      "availability": "few"
-    },
-    {
-     "id": 292,
-     "size": "L",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -5591,33 +4547,21 @@
     "S": [
      12,
      24
-    ],
-    "M": [
-     24,
-     36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    48
+    24
    ],
-   "age_range": "1 Year–4 Years",
+   "age_range": "1 Year–2 Years",
    "size_ages": {
-    "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "S": "1 Year–2 Years"
    },
    "price_min": 800,
    "price_max": 800,
    "sizes": [
-    "S",
-    "M",
-    "L"
+    "S"
    ],
    "colours": [
     {
@@ -5642,20 +4586,6 @@
      "colour": "Standard",
      "price": 800,
      "availability": "few"
-    },
-    {
-     "id": 273,
-     "size": "M",
-     "colour": "Standard",
-     "price": 800,
-     "availability": "out"
-    },
-    {
-     "id": 274,
-     "size": "L",
-     "colour": "Standard",
-     "price": 800,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -5678,33 +4608,21 @@
     "S": [
      12,
      24
-    ],
-    "M": [
-     24,
-     36
-    ],
-    "L": [
-     36,
-     48
     ]
    },
    "size_free": {},
    "age_months": [
     12,
-    48
+    24
    ],
-   "age_range": "1 Year–4 Years",
+   "age_range": "1 Year–2 Years",
    "size_ages": {
-    "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
+    "S": "1 Year–2 Years"
    },
    "price_min": 700,
    "price_max": 700,
    "sizes": [
-    "S",
-    "M",
-    "L"
+    "S"
    ],
    "colours": [
     {
@@ -5729,20 +4647,6 @@
      "colour": "Standard",
      "price": 700,
      "availability": "few"
-    },
-    {
-     "id": 270,
-     "size": "M",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
-    },
-    {
-     "id": 271,
-     "size": "L",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -6416,10 +5320,6 @@
    "season": null,
    "sizing": "AGE",
    "size_months": {
-    "20": [
-     72,
-     84
-    ],
     "22": [
      84,
      96
@@ -6427,18 +5327,16 @@
    },
    "size_free": {},
    "age_months": [
-    72,
+    84,
     96
    ],
-   "age_range": "6 Years–8 Years",
+   "age_range": "7 Years–8 Years",
    "size_ages": {
-    "20": "6 Years–7 Years",
     "22": "7 Years–8 Years"
    },
    "price_min": 1200,
    "price_max": 1200,
    "sizes": [
-    "20",
     "22"
    ],
    "colours": [
@@ -6458,13 +5356,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 238,
-     "size": "20",
-     "colour": "Standard",
-     "price": 1200,
-     "availability": "out"
-    },
     {
      "id": 239,
      "size": "22",
@@ -7294,27 +6185,21 @@
     "20": [
      60,
      72
-    ],
-    "22": [
-     72,
-     96
     ]
    },
    "size_free": {},
    "age_months": [
     60,
-    96
+    72
    ],
-   "age_range": "5 Years–8 Years",
+   "age_range": "5 Years–6 Years",
    "size_ages": {
-    "20": "5 Years–6 Years",
-    "22": "6 Years–8 Years"
+    "20": "5 Years–6 Years"
    },
    "price_min": 1100,
    "price_max": 1100,
    "sizes": [
-    "20",
-    "22"
+    "20"
    ],
    "colours": [
     {
@@ -7339,13 +6224,6 @@
      "colour": "Standard",
      "price": 1100,
      "availability": "few"
-    },
-    {
-     "id": 193,
-     "size": "22",
-     "colour": "Standard",
-     "price": 1100,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-20",
@@ -8596,27 +7474,21 @@
     "1": [
      3,
      6
-    ],
-    "2": [
-     6,
-     9
     ]
    },
    "size_free": {},
    "age_months": [
     3,
-    9
+    6
    ],
-   "age_range": "3 Months–9 Months",
+   "age_range": "3 Months–6 Months",
    "size_ages": {
-    "1": "3 Months–6 Months",
-    "2": "6 Months–9 Months"
+    "1": "3 Months–6 Months"
    },
    "price_min": 700,
    "price_max": 700,
    "sizes": [
-    "1",
-    "2"
+    "1"
    ],
    "colours": [
     {
@@ -8641,13 +7513,6 @@
      "colour": "Standard",
      "price": 700,
      "availability": "few"
-    },
-    {
-     "id": 12,
-     "size": "2",
-     "colour": "Standard",
-     "price": 700,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -8744,27 +7609,21 @@
     "1": [
      3,
      6
-    ],
-    "2": [
-     6,
-     9
     ]
    },
    "size_free": {},
    "age_months": [
     3,
-    9
+    6
    ],
-   "age_range": "3 Months–9 Months",
+   "age_range": "3 Months–6 Months",
    "size_ages": {
-    "1": "3 Months–6 Months",
-    "2": "6 Months–9 Months"
+    "1": "3 Months–6 Months"
    },
    "price_min": 600,
    "price_max": 600,
    "sizes": [
-    "1",
-    "2"
+    "1"
    ],
    "colours": [
     {
@@ -8789,13 +7648,6 @@
      "colour": "Standard",
      "price": 600,
      "availability": "few"
-    },
-    {
-     "id": 4,
-     "size": "2",
-     "colour": "Standard",
-     "price": 600,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -8937,8 +7789,8 @@
    "total": 20,
    "online": 7,
    "months": [
-    12,
-    156
+    24,
+    144
    ],
    "sizes": []
   },
@@ -8953,7 +7805,7 @@
    "online": 6,
    "months": [
     12,
-    180
+    168
    ],
    "sizes": []
   },
@@ -8995,7 +7847,7 @@
    "online": 0,
    "months": [
     12,
-    216
+    204
    ],
    "sizes": []
   },
@@ -9049,7 +7901,7 @@
    "online": 0,
    "months": [
     36,
-    192
+    156
    ],
    "sizes": []
   },
@@ -9060,8 +7912,8 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 140,
-   "online": 41,
+   "total": 146,
+   "online": 45,
    "months": [
     0,
     156
@@ -9155,7 +8007,7 @@
    "months": null,
    "sizes": [
     "M",
-    "4XL"
+    "2XL"
    ]
   },
   {
@@ -9169,8 +8021,8 @@
    "online": 0,
    "months": null,
    "sizes": [
-    "18",
-    "44\\XXXL"
+    "34\\S",
+    "42\\XXL"
    ]
   },
   {
@@ -9243,8 +8095,8 @@
    "online": 0,
    "months": null,
    "sizes": [
-    "18",
-    "44\\XXXL"
+    "34\\S",
+    "42\\XXL"
    ]
   },
   {
