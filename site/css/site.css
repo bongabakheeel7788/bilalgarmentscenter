@@ -625,3 +625,70 @@ h1, h2, h3, .brand, .brand-name, .sec-head h2, .page-head h1 { font-family: var(
   /* the WhatsApp button sits above the add button, never on it (as it does over the product page's buy bar) */
   body.p-deal .wa-float { bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* ══ P154 — before the ads (Fahad, 2026-09-27: "when placing an order on website on mobile devices this your order
+      page block always stays there, look for such errors and fix any of these … as today i will be running ads").
+      Mobile first: every rule here was measured at 360–390px before it was written. ══ */
+
+/* the checkout — "Your order" is the FIRST thing on a phone (order: -1 above), and it was still sticky at top 120px,
+   so it pinned itself there and the form scrolled underneath it. Sticky is for the laptop's side column only. */
+@media (max-width: 820px) {
+  .co-summary { position: static; }
+  /* the WhatsApp bubble sat on the right end of Place order and on the phone box — a tap there left the shop.
+     The checkout carries its own WhatsApp link under the button (.co-help). */
+  body.p-checkout .wa-float { display: none; }
+}
+.co-help { margin: 12px 0 0; font-size: 14px; color: var(--ink-2); }
+.co-help a { color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+#addrBlock { display: grid; gap: 12px; }            /* "City" sat flush on the address box */
+.radios label { min-height: 44px; }                 /* Deliver / Collect: a thumb-sized choice */
+.co-form input[type=radio], .co-form input[type=checkbox] { accent-color: var(--accent); width: 18px; height: 18px; }
+
+/* an iPhone zooms into any box whose text is under 16px, and stays zoomed until she pinches out */
+@media (max-width: 820px) {
+  input:not([type=radio]):not([type=checkbox]):not([type=range]), select, textarea { font-size: 16px !important; }
+}
+
+/* the page's own breathing room — `main { padding… }` above never applied: main is also .wrap, and .wrap's
+   `padding: 0 var(--pad)` wins on specificity, so every page started flush under the green strip */
+main#main { padding-top: 30px; padding-bottom: 72px; }
+@media (max-width: 760px) { main#main { padding-top: 16px; padding-bottom: 48px; } }
+
+/* the header and the product page's buy bar were see-through on browsers without color-mix() (iOS before 16.2,
+   older Android WebView) — the page scrolled visibly behind the search box and the price */
+@supports not (background: color-mix(in srgb, red 50%, white)) {
+  .hdr, .buybar { background: rgba(255, 253, 251, .97); }
+}
+
+/* the cart drawer, for a thumb: close was ~24px, − / + 26px, Remove 12px text */
+.drawer-head .x { width: 44px; height: 44px; margin: -10px -12px -10px 0; display: grid; place-items: center; }
+.line-qty { gap: 8px; }
+.line-qty button { width: 36px; height: 36px; font-size: 16px; }
+.line-rm { padding: 8px 0 4px; font-size: 13px; }
+
+/* when it arrives */
+.eta { display: grid; gap: 2px; margin: 12px 0 0; padding: 10px 12px; border-radius: var(--radius); background: var(--accent-soft); color: var(--accent); font-size: 13.5px; line-height: 1.4; }
+.eta strong { font-weight: 700; }
+.eta span { color: var(--ink-2); font-size: 12.5px; }
+.eta-co { margin-top: 6px; }
+.eta-thanks { text-align: left; max-width: 460px; margin: 0 auto 16px; }
+.thanks-phone { margin: 0 auto 12px; max-width: 460px; font-size: 15px; color: var(--ink-2); }
+.thanks-phone strong { color: var(--ink); font-family: ui-monospace, Menlo, Consolas, monospace; }
+.thanks-phone a { color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+
+/* the pack page — its button is live while a size or colours are still to choose (a tap goes there) */
+.btn-primary.is-wait { background: #2d5e55; border-color: #2d5e55; }
+/* "Choose my own" on a small phone: one colour a row, so a name is a name and not "Pur…" */
+@media (max-width: 480px) {
+  .dp-grid { grid-template-columns: 1fr; }
+  .dp-step button { width: 36px; height: 36px; }
+}
+
+/* recommendations — two across that scroll sideways on a phone (eight cards would be four screens long), four
+   across on a laptop */
+@media (max-width: 760px) {
+  .grid.rec-row { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+    margin: 0 calc(-1 * var(--pad)); padding: 0 var(--pad) 8px; scroll-padding-inline: var(--pad); scrollbar-width: none; }
+  .grid.rec-row::-webkit-scrollbar { display: none; }
+  .grid.rec-row > .card { flex: 0 0 44%; min-width: 0; scroll-snap-align: start; }
+}

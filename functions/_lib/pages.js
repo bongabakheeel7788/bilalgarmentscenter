@@ -1,9 +1,54 @@
 // Every HTML page of the site, rendered from the catalogue.
 import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, promiseRow, catTiles, buyBar, kindTiles, chipRow } from './html.js';
-import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours } from './catalogue.js';
+import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours, groupsOf, FOR_GROUPS } from './catalogue.js';
 import { SWATCHES, iconSvg } from './kind-icons.js';   // P141 — a deal without a photo shows its tile's icon
 
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
+
+// P154 — "show highly matching items under the products page" (Fahad, 2026-09-27). A match is SCORED, not
+// "same category, newest four": who it is for, the ages it fits, the kind, the type, the fabric, the season, the
+// price, and whether a customer can see a photo of it. A piece sold out in every size is never offered.
+// `same` true: more of the same kind. `same` false: other kinds for the SAME CHILD — matched by the months each
+// piece fits, never by a size's name (rule 12: one maker's Small is not another's).
+export function recommend(cat, p, { same, exclude = new Set(), n = 8 }) {
+  const groups = groupsOf(p);
+  const ages = Array.isArray(p.age_months) ? p.age_months : null;
+  const mid = x => (Number(x.price_min || 0) + Number(x.price_max || x.price_min || 0)) / 2;
+  const pm = mid(p);
+  const kind = x => `${x.category_parent || ''}\u0000${x.category || ''}`;
+  const out = [];
+  for (const x of (cat.listed || cat.products || [])) {
+    if (x.code === p.code || x.slug === p.slug || exclude.has(x.code)) continue;
+    if (!(x.variants || []).some(v => v.availability !== 'out')) continue;
+    const xg = groupsOf(x);
+    const who = groups.length && xg.length ? xg.some(g => groups.includes(g)) : (x.category_parent || null) === (p.category_parent || null);
+    if (!who) continue;
+    if (same !== (kind(x) === kind(p))) continue;
+    let s = 0;
+    const xa = Array.isArray(x.age_months) ? x.age_months : null;
+    if (ages && xa) {
+      const overlap = Math.min(ages[1], xa[1]) - Math.max(ages[0], xa[0]);
+      if (overlap < 0) continue;                             // a frock for 10–14 is no match for a 1–4-year-old
+      s += 3 + Math.min(2, overlap / 12);
+    }
+    if (p.product_type && x.product_type === p.product_type) s += 1;
+    if (p.fabric && x.fabric === p.fabric) s += 1;
+    if (p.season && x.season && (x.season === p.season || x.season === 'ALL' || p.season === 'ALL')) s += 0.5;
+    if (pm > 0 && Math.abs(mid(x) - pm) / pm <= 0.3) s += 1;
+    if (x.cover) s += 1.5;
+    if (x.is_new) s += 0.3;
+    out.push({ x, s });
+  }
+  return out.sort((a, b) => b.s - a.s || byNewest(a.x, b.x)).slice(0, n).map(o => o.x);
+}
+/** the row of recommendations: two across on a phone that scroll sideways, four across on a laptop */
+const recRow = (title, items) => items.length ? section(title, `<div class="grid grid-row rec-row">${items.map(card).join('')}</div>`) : '';
+/** what the second row is called: the ages it fits, else who it is for */
+const forWhom = p => p.age_range ? `More for ${p.age_range}` : (FOR_GROUPS.find(g => groupsOf(p).includes(g.key)) || {}).title || 'You may also like';
+// P154 — "it takes 3–5 days to deliver, Sunday is off" (Fahad, 2026-09-27). What the page says before its script
+// runs; site.js turns it into dates ("Wed 1 Oct – Fri 3 Oct"), counted from today, Sundays skipped.
+export const ETA_TEXT = 'Delivered in 3–5 working days (Sundays not counted).';
+const etaLine = (cls = 'eta') => `<p class="${cls}" data-eta>${esc(ETA_TEXT)}</p>`;
 // Fix 1.0.60 — search results, the checkout, the thanks page and tracking are nobody's landing page;
 // robots.txt already keeps crawlers off three of them, the tag keeps a crawler that got a link honest
 const NOINDEX = '<meta name="robots" content="noindex">';
@@ -90,19 +135,17 @@ export function product(cat, slug) {
   const variantsData = (p.variants || []).map(v => ({ id: v.id, size: v.size, colour: v.colour, price: v.price, availability: v.availability }));
   const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name, productID: p.code, image: photos.map(x => `${String(store.site_url || '').replace(/\/$/, '')}/${x}`), description: [p.category_parent, p.category, p.fabric, p.set_contents].filter(Boolean).join(' · '), brand: { '@type': 'Brand', name: store.name },
     offers: { '@type': 'AggregateOffer', priceCurrency: 'PKR', lowPrice: p.price_min, highPrice: p.price_max, offerCount: (p.variants || []).length, availability: av === 'out' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url } };
-  const related = (cat.listed || cat.products).filter(x => x.code !== p.code && x.category === p.category && (x.category_parent || null) === (p.category_parent || null)).sort(byNewest).slice(0, 4);
-  // P68c — a second row by SIZE. On a children's shop the mother who is buying a
-  // 24 is very often buying a second 24, and she should not have to go and filter
-  // for it. Never repeats anything already in the row above.
+  // P154 — two rows, each scored (recommend() above). The second used to be "Others in size 24", matched by the
+  // size's NAME across every maker and every child — a girls' frock offered gents' trousers in size M. It is now
+  // the other kinds that fit the same child. Neither row repeats the other.
+  const related = recommend(cat, p, { same: true });
   const shown = new Set([p.code, ...related.map(x => x.code)]);
-  const alsoSize = sizes.length
-    ? cat.products.filter(x => !shown.has(x.code) && (x.variants || []).some(v => v.size === sizes[0] && v.availability !== 'out')).sort(byNewest).slice(0, 4)
-    : [];
+  const forChild = recommend(cat, p, { same: false, exclude: shown });
   const body = `
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a>${p.category_parent ? ` › <a href="/c/${attr(cat.parents.find(x => x.name === p.category_parent)?.slug || '')}/">${esc(p.category_parent)}</a>` : ''} › <a href="/c/${attr((cat.categories.find(c => c.name === p.category && (c.parent || null) === (p.category_parent || null)) || {}).slug || '')}/">${esc(p.category)}</a></nav>
 <article class="prod" data-code="${attr(p.code)}">
   <div class="gallery">
-    <div class="gallery-main">${photos.length ? `<button type="button" class="zoom-open" id="zoomOpen" aria-label="See the photo full screen"><img id="mainImg" src="/${attr(photos[0])}" alt="${attr(p.name)}" width="800" height="1000"></button>` : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}</div>
+    <div class="gallery-main">${photos.length ? `<button type="button" class="zoom-open" id="zoomOpen" aria-label="See the photo full screen"><img id="mainImg" src="/${attr(photos[0])}" alt="${attr(p.name)}" width="800" height="1000" fetchpriority="high"></button>` : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}</div>
     ${photos.length > 1 ? `<div class="thumbs">${photos.map((x, i) => `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
   </div>
   <div class="buy">
@@ -122,6 +165,7 @@ export function product(cat, slug) {
     ${p.size_guide ? `<details class="size-guide"><summary>Size guide</summary><img src="/${attr(p.size_guide)}" alt="Size guide for ${attr(p.name)}" loading="lazy"></details>` : ''}</div>
     <div class="qty-row"><label>Qty <input type="number" id="qty" value="1" min="1" max="10"></label>
       <button class="btn btn-primary" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button></div>
+    ${av === 'out' ? '' : etaLine()}
     <div class="buy-actions">
       <a class="btn btn-outline" data-where="product" href="${attr(waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
       <button class="btn btn-outline" id="shareBtn" data-url="${attr(url)}" data-title="${attr(p.name)}">Share</button>
@@ -134,7 +178,7 @@ export function product(cat, slug) {
       ${p.age_group ? `<dt>Age</dt><dd>${esc(p.age_group)}</dd>` : ''}
       ${p.product_type ? `<dt>Type</dt><dd>${esc(p.product_type)}</dd>` : ''}
       ${p.season ? `<dt>Season</dt><dd>${esc({ SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' }[p.season] || p.season)}</dd>` : ''}
-      <dt>Delivery</dt><dd>${esc(deliveryLine(store))}</dd>
+      <dt>Delivery</dt><dd>${esc(deliveryLine(store))} · 3–5 working days (Sundays not counted)</dd>
       <dt>Exchange</dt><dd>Within 15 days of delivery, unworn with the tag.</dd>
     </dl>
   </div>
@@ -146,8 +190,8 @@ ${buyBar(p)}
   <img id="lbImg" src="" alt="${attr(p.name)}">
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
 </div>
-${related.length ? section('More like this', `<div class="grid grid-row">${related.map(card).join('')}</div>`) : ''}
-${alsoSize.length ? section(`Others in size ${esc(sizes[0] || '')}`, `<div class="grid grid-row">${alsoSize.map(card).join('')}</div>`) : ''}`;
+${recRow('More like this', related)}
+${recRow(forWhom(p), forChild)}`;
   return layout(cat, { title: p.name, description: `${p.name} — ${priceLabel(p)}. ${[p.category_parent, p.category, p.fabric].filter(Boolean).join(', ')}. Cash on delivery all over Pakistan.`, canonical: `/p/${p.slug}/`, page: 'p-product', body,
     og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`,
     publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
@@ -174,7 +218,7 @@ export function deal(cat, slug) {
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(d.category)} › ${esc(d.name)}</nav>
 <article class="prod deal" data-deal="${attr(d.slug)}">
   <div class="gallery">
-    <div class="gallery-main" id="dpMainBox">${photos.length ? `<img id="dpMain" src="/${attr(photos[0])}" alt="${attr(d.name)}" width="800" height="1000">`
+    <div class="gallery-main" id="dpMainBox">${photos.length ? `<img id="dpMain" src="/${attr(photos[0])}" alt="${attr(d.name)}" width="800" height="1000" fetchpriority="high">`
       : `<div class="deal-art" style="--kt-tint:${tint};--kt-ink:${ink}">${iconSvg(d.icon, ink, 120)}</div>`}<span class="badge badge-pack">Pack of ${d.pieces}</span></div>
     ${photos.length > 1 ? `<div class="thumbs" id="dpThumbs">${photos.map((x, i) => `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
   </div>
@@ -196,14 +240,26 @@ export function deal(cat, slug) {
       <div id="dpOwn" hidden><div class="dp-count" id="dpCount"></div><div class="dp-grid" id="dpGrid"></div></div>
     </div>
     ${/* P143 — on a phone this stays at the bottom of the screen, with the price on it (mobile first) */ ''}
-    <div class="qty-row dp-buy"><button class="btn btn-primary btn-block" id="dpAdd" disabled>Add pack to cart</button></div>
+    ${/* P154 — the button is live before a size is chosen: a tap takes her to what is still missing (site.js) */ ''}
+    <div class="qty-row dp-buy"><button class="btn btn-primary btn-block" id="dpAdd">Add pack to cart</button></div>
     <p class="dp-promise"><strong>Free delivery · Cash on delivery.</strong> We call to confirm before dispatch.</p>
+    ${any ? etaLine() : ''}
     <div class="buy-actions">
       <a class="btn btn-outline" data-where="deal" href="${attr(waLink(store, `Hi, I'm asking about ${d.name} — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
     </div>
     ${promiseRow(store, { compact: true })}
   </div>
-</article>`;
+</article>
+${(() => {
+    // P154 — the pack page is the one the ads land on: it recommends too. Its own card (P143) knows who it is for;
+    // a pack that is not listed as a product is matched by its kind and the months its sizes fit.
+    const months = d.sizes.map(z => z.months).filter(Array.isArray);
+    const self = (cat.listed || []).find(x => x.deal && x.slug === d.slug) || { code: 'PACK:' + d.slug, slug: d.slug, category: d.category, category_parent: d.category_parent,
+      age_months: months.length ? [Math.min(...months.map(m => m[0])), Math.max(...months.map(m => m[1]))] : null, price_min: lo, price_max: hi, variants: [] };
+    const same = recommend(cat, self, { same: true });
+    const other = recommend(cat, self, { same: false, exclude: new Set(same.map(x => x.code)) });
+    return recRow('More like this', same) + recRow(forWhom(self), other);
+  })()}`;
   return layout(cat, { title: d.name, description: `${d.name} — ${d.pieces} pieces, one size, ${from}. Free delivery, cash on delivery all over Pakistan.`, canonical: `/d/${d.slug}/`, page: 'p-product p-deal', body,
     og: { title: `${d.name} — ${from}`, image: photos[0] },
     publicData: { deal: { slug: d.slug, name: d.name, pieces: d.pieces, choose_own: d.choose_own, cover: photos[0] || null, photos, sizes: d.sizes, themes: d.themes || [] } } });
@@ -246,12 +302,15 @@ export function checkout(cat, turnstileKey) {
     <div class="co-err" id="coErr" hidden></div>
     <button class="btn btn-primary btn-block btn-lg" id="coSubmit" type="submit">Place order</button>
     <p class="muted small">By ordering you agree to a confirmation call and to our 15-day exchange policy.</p>
+    ${/* P154 — on a phone the floating WhatsApp bubble is not shown here (it sat on Place order); this is its way out */ ''}
+    <p class="co-help">Questions before you order? <a data-where="checkout" href="${attr(waLink(store, `Hi ${store.name}, I have a question about my order.`))}" target="_blank" rel="noopener">Ask us on WhatsApp</a></p>
   </form>
   <aside class="co-summary" id="coSummary"><h2>Your order</h2><div id="coLines"></div>
     <div class="row"><span>Subtotal</span><strong id="coSub">Rs 0</strong></div>
     <div class="row"><span id="coDelLabel">Delivery</span><strong id="coDel">—</strong></div>
     <div class="row total"><span>Total</span><strong id="coTotal">Rs 0</strong></div>
     <div class="muted small" id="coDelNote"></div>
+    ${etaLine('eta eta-co')}
   </aside>
 </div>`;
   return layout(cat, { title: 'Checkout', page: 'p-checkout', body, head: NOINDEX + (turnstileKey ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : '') });
@@ -264,6 +323,9 @@ export function thanks(cat, no) {
   <h1>Order received</h1>
   <p class="thanks-no">Your order number is <strong>${esc(no)}</strong></p>
   <div id="thanksLines"></div>
+  ${/* P154 — the number she typed, shown back: a mistyped digit is caught here, not by a call that never connects */ ''}
+  <p class="thanks-phone" id="thanksPhone" hidden></p>
+  ${etaLine('eta eta-thanks')}
   <ol class="steps"><li><strong>We call you</strong> on the number you gave, usually within a few hours during shop time, to confirm the pieces and the address.</li><li><strong>We pack and dispatch</strong> by Leopards courier; you get the tracking number on the <a href="/track/">Track</a> page.</li><li><strong>You pay the courier</strong> when it arrives. Wrong size? Exchange within 15 days.</li></ol>
   <div class="thanks-actions"><a class="btn btn-primary" data-where="thanks" href="${attr(waLink(store, `Hi, I have just placed order ${no} on your website.`))}" target="_blank" rel="noopener">Send us the order on WhatsApp</a><a class="btn btn-outline" href="/">Keep browsing</a></div>
 </div>`;

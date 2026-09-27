@@ -11,6 +11,29 @@ const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&a
 const store = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } } };
 const pixel = (ev, data) => { if (S.pixel && window.fbq) try { fbq('track', ev, data); } catch { /* ad blocker */ } };
 const track = (k, o) => { try { if (window.bgcTrack) window.bgcTrack(k, o); } catch (e) { /* the visit log never breaks a sale */ } };
+const waHref = text => `https://wa.me/${S.whatsapp_intl || String(S.whatsapp || '').replace(/^0/, '92').replace(/\D/g, '')}?text=${encodeURIComponent(text)}`;
+
+// ── P154 — when it arrives ───────────────────────────────────────────────────
+// Fahad, 2026-09-27: "it takes 3-5 days to deliver, Sunday is off … lets customers know expected delivery time".
+// Counted in the shop's own days (Asia/Karachi, UTC+5, no daylight saving) from TOMORROW, a Sunday never counted:
+// ordered Saturday 27 Sep → Wed 1 Oct – Fri 3 Oct. The page arrives saying "3–5 working days"; this adds the dates.
+const ETA = { from: 3, to: 5 };
+function etaDates(now = new Date()) {
+  const k = new Date(now.getTime() + 5 * 3600e3);
+  let d = Date.UTC(k.getUTCFullYear(), k.getUTCMonth(), k.getUTCDate());
+  const days = [];
+  while (days.length < ETA.to) { d += 86400e3; if (new Date(d).getUTCDay() !== 0) days.push(new Date(d)); }
+  return { first: days[ETA.from - 1], last: days[ETA.to - 1] };
+}
+// written out by hand, so every phone says "Wed 30 Sep" (browsers disagree on "Sep" / "Sept")
+const etaDay = d => `${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][d.getUTCDay()]} ${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}`;
+(function paintEta() {
+  const els = $$('[data-eta]');
+  if (!els.length) return;
+  const { first, last } = etaDates();
+  const html = `<strong>Expected delivery: ${esc(etaDay(first))} – ${esc(etaDay(last))}</strong><span>3–5 working days, Sundays not counted.</span>`;
+  els.forEach(e => { e.innerHTML = html; });
+})();
 let toastT;
 function toast(msg) { let t = $('.toast'); if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); } t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2600); }
 
@@ -22,10 +45,18 @@ function toast(msg) { let t = $('.toast'); if (!t) { t = document.createElement(
   const utm = {};
   for (const k of ['source', 'medium', 'campaign', 'content']) if (q.get('utm_' + k)) utm[k] = q.get('utm_' + k).slice(0, 80);
   if (q.get('c')) utm.c = q.get('c').slice(0, 80);
-  if (Object.keys(utm).length) { utm.landing = location.pathname + location.search; try { sessionStorage.setItem('bgc_utm', JSON.stringify(utm)); } catch { /* */ } }
+  // P154 — a Facebook link with no tags still says where she came from: Facebook adds fbclid to every click (an ad
+  // or a post — so it names the SOURCE only, never "paid"; P100). Kept for 7 days, not just the tab: a mother who
+  // taps the ad at lunch and orders from the same phone that evening is still that ad's order.
+  if (!utm.source && q.get('fbclid')) utm.source = 'facebook';
+  if (Object.keys(utm).length) { utm.landing = (location.pathname + location.search).slice(0, 300); store.set('bgc_utm', { ...utm, until: Date.now() + 7 * 86400e3 }); }
 })();
 const refCode = () => { const r = store.get('bgc_ref'); return r && r.until > Date.now() ? r.code : ''; };
-const utmData = () => { try { return JSON.parse(sessionStorage.getItem('bgc_utm') || '{}'); } catch { return {}; } };
+const utmData = () => {
+  const u = store.get('bgc_utm');
+  if (u && u.until > Date.now()) { const { until, ...rest } = u; return rest; }
+  try { return JSON.parse(sessionStorage.getItem('bgc_utm') || '{}'); } catch { return {}; }   // a tab opened before P154
+};
 
 // ── the cart ─────────────────────────────────────────────────────────────────
 // P141 — a line is a piece (variant_id) or a pack (key: the deal, the size and the colour choice)
@@ -33,7 +64,11 @@ const keyOf = l => l.pack ? l.key : 'v' + l.variant_id;
 const maxOf = l => l.pack ? Math.max(1, Math.min(3, l.max || 3)) : 10;
 const cart = {
   lines: store.get('bgc_cart', []),
-  save() { store.set('bgc_cart', this.lines); paintCart(); },
+  // P154 — every change is announced, so the checkout's "Your order" follows a change made in the drawer
+  save() { store.set('bgc_cart', this.lines); paintCart(); document.dispatchEvent(new Event('bgc:cart')); },
+  // P154 — read again from the phone's storage: the page may be one the browser kept from before (Back), holding a
+  // cart from before the last add; saving THAT over the stored one wiped whatever was added since.
+  reload() { const l = store.get('bgc_cart', []); this.lines = Array.isArray(l) ? l.filter(x => x && typeof x === 'object' && Number(x.qty) > 0) : []; paintCart(); document.dispatchEvent(new Event('bgc:cart')); },
   add(l) { const hit = this.lines.find(x => keyOf(x) === keyOf(l)); if (hit) hit.qty = Math.min(maxOf(hit), hit.qty + l.qty); else this.lines.push(l); this.save(); },
   setQty(key, qty) { const hit = this.lines.find(x => keyOf(x) === key); if (!hit) return; hit.qty = Math.max(0, Math.min(maxOf(hit), qty)); if (!hit.qty) this.lines = this.lines.filter(x => x !== hit); this.save(); },
   clear() { this.lines = []; this.save(); },
@@ -85,6 +120,9 @@ $('#cartBtn') && ($('#cartBtn').onclick = () => openCart(true));
 $('#cartClose') && ($('#cartClose').onclick = () => openCart(false));
 $('#backdrop') && ($('#backdrop').onclick = () => openCart(false));
 document.addEventListener('keydown', e => { if (e.key === 'Escape') openCart(false); });
+// P154 — back to a page the browser kept in memory, or the cart changed in another tab: take the stored cart
+addEventListener('pageshow', e => { if (e.persisted) cart.reload(); });
+addEventListener('storage', e => { if (e.key === 'bgc_cart') cart.reload(); });
 paintCart();
 
 // ── product page ─────────────────────────────────────────────────────────────
@@ -103,11 +141,27 @@ if (P && $('#sizes')) {
     const v = size ? variantFor(size, colour) : null;
     if (v) $('#price').textContent = money(v.price);
     $('#sizeHint').textContent = v ? (v.availability === 'few' ? 'Only a few left in this size.' : v.availability === 'out' ? 'Sold out in this size.' : 'In stock as of the last update from the shop.') : 'Choose a size.';
-    $('#addBtn').disabled = !v || v.availability === 'out';
+    // P154 — live before a size is chosen: its tap is what says "Choose a size first" and scrolls to the sizes. It
+    // used to be disabled until then, and a disabled button's tap never runs — from the bar at the bottom of a phone
+    // the button simply did nothing. Greyed only when there is nothing to sell.
+    $('#addBtn').disabled = allOut || (!!v && v.availability === 'out');
     const cn = $('#colourName'); if (cn) cn.textContent = colour && colour.toLowerCase() !== 'standard' ? '· ' + colour : '';
   };
-  $$('#sizes .size').forEach(b => b.onclick = () => { if (b.disabled) return; size = b.dataset.size; paintSizes(); });
-  $$('#colours .swatch').forEach(b => b.onclick = () => { $$('#colours .swatch').forEach(x => x.classList.remove('active')); b.classList.add('active'); colour = b.dataset.colour; if (b.dataset.photo) $('#mainImg').src = '/' + b.dataset.photo; paintSizes(); });
+  const allOut = !P.variants.some(v => v.availability !== 'out');
+  const markColour = c => { const sw = $$('#colours .swatch').find(x => x.dataset.colour === c); if (!sw) return; $$('#colours .swatch').forEach(x => x.classList.remove('active')); sw.classList.add('active'); if (sw.dataset.photo) $('#mainImg').src = '/' + sw.dataset.photo; };
+  const hasPair = (s, c) => P.variants.some(v => v.size === s && v.colour === c);
+  // P154 — a size the chosen colour does not come in used to put ANOTHER colour's piece in the cart while the swatch
+  // still showed hers. Now the swatch moves to the colour that will actually be sent, where she can see it.
+  $$('#sizes .size').forEach(b => b.onclick = () => {
+    if (b.disabled) return; size = b.dataset.size;
+    const v = variantFor(size, colour); if (v && colour && v.colour && v.colour !== colour && $('#colours')) { colour = v.colour; markColour(colour); }
+    paintSizes();
+  });
+  $$('#colours .swatch').forEach(b => b.onclick = () => {
+    $$('#colours .swatch').forEach(x => x.classList.remove('active')); b.classList.add('active'); colour = b.dataset.colour; if (b.dataset.photo) $('#mainImg').src = '/' + b.dataset.photo;
+    if (size && !hasPair(size, colour)) size = null;      // P154 — this colour has no such size: she chooses again, never a silent swap
+    paintSizes();
+  });
   $$('.thumb').forEach(b => b.onclick = () => { $$('.thumb').forEach(x => x.classList.remove('active')); b.classList.add('active'); $('#mainImg').src = b.dataset.img; });
   // one size only → pre-select it
   const inStock = $$('#sizes .size').filter(b => { const v = variantFor(b.dataset.size, colour); return v && v.availability !== 'out'; });
@@ -306,6 +360,7 @@ if (D && $('#dpSizes')) {
   const picked = () => Object.values(own).reduce((a, b) => a + b, 0);
   const themeOk = (t, z) => !!t && t.colours.every(c => ((z.colours.find(x => x.name === c) || {}).max || 0) >= D.pieces / t.colours.length);
   const choiceText = () => mode === 'THEME' ? theme : mode === 'OWN' ? Object.entries(own).filter(([, n]) => n).map(([c, n]) => `${c} ×${n}`).join(', ') : 'mixed colours';
+  const isReady = () => { const z = sizeOf(); return !!z && z.packs > 0 && (mode === 'MIXED' || (mode === 'THEME' && !!theme) || (mode === 'OWN' && picked() === D.pieces)); };
   const paint = () => {
     const z = sizeOf();
     $$('#dpSizes .size').forEach(b => b.classList.toggle('active', b.dataset.size === size));
@@ -329,8 +384,10 @@ if (D && $('#dpSizes')) {
       $$('[data-more]', $('#dpGrid')).forEach(b => b.onclick = () => { own[b.dataset.more] = (own[b.dataset.more] || 0) + 1; paint(); show(colourPhoto(b.dataset.more)); });
       $$('[data-less]', $('#dpGrid')).forEach(b => b.onclick = () => { own[b.dataset.less] = Math.max(0, (own[b.dataset.less] || 0) - 1); paint(); });
     }
-    const ready = !!z && z.packs > 0 && (mode === 'MIXED' || (mode === 'THEME' && !!theme) || (mode === 'OWN' && picked() === D.pieces));
-    $('#dpAdd').disabled = !ready;
+    // P154 — live while something is still to choose: the tap takes her there (below). A disabled button's tap never
+    // runs, and on a phone it was the only button on the screen.
+    $('#dpAdd').disabled = !!z && z.packs <= 0;
+    $('#dpAdd').classList.toggle('is-wait', !isReady());
     // P143 — the price rides on the button, which stays at the bottom of a phone's screen
     $('#dpAdd').textContent = !z ? 'Choose a size' : mode === 'OWN' && picked() < D.pieces ? `Choose ${D.pieces - picked()} more` : `Add pack · ${money(z.price)}`;
     const t = mode === 'THEME' ? D.themes.find(x => x.name === theme) : null, note = $('#dpThemeNote');
@@ -347,12 +404,18 @@ if (D && $('#dpSizes')) {
   const open = D.sizes.filter(z => z.packs > 0);
   if (open.length === 1) size = open[0].size;
   paint();
+  // P154 — the ad lands here: it counts as a product viewed, for the pixel and for the shop's own visit log
+  pixel('ViewContent', { content_ids: ['pack:' + D.slug], content_type: 'product', value: Math.min(...D.sizes.map(z => Number(z.price))), currency: 'PKR' });
+  track('product', { l: 'pack:' + D.slug });
   $('#dpAdd').onclick = () => {
-    const z = sizeOf(); if (!z || $('#dpAdd').disabled) return;
+    const z = sizeOf();
+    if (!z) { $('#dpHint').textContent = 'Choose a size first.'; $('#dpSizes').scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+    if (mode === 'OWN' && picked() < D.pieces) { $('#dpOwn').scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+    if (!isReady() || $('#dpAdd').disabled) return;
     const colours = mode === 'OWN' ? Object.fromEntries(Object.entries(own).filter(([, n]) => n)) : undefined;
     const key = ['d', D.slug, z.size, mode, theme || '', colours ? Object.keys(colours).sort().map(c => c + colours[c]).join('.') : ''].join(':');
     cart.add({ pack: true, key, slug: D.slug, name: D.name, size: z.size, pieces: D.pieces, mode, theme: theme || undefined, colours, choiceText: choiceText(), price: Number(z.price), qty: 1, max: z.packs, cover: D.cover });
-    pixel('AddToCart', { content_ids: [D.slug], content_type: 'product', value: z.price, currency: 'PKR' });
+    pixel('AddToCart', { content_ids: ['pack:' + D.slug], content_type: 'product', value: z.price, currency: 'PKR' });
     track('add_to_cart', { l: 'pack:' + D.slug, v: z.price });
     openCart(true);
   };
@@ -373,9 +436,12 @@ if (form) {
     $('#coDel').textContent = mode === 'COLLECT' ? 'Rs 0' : del ? money(del) : (Number(S.delivery_charge || 0) <= 0 && !(Number(S.free_delivery_above || 0) > 0) ? 'told on the call' : 'Free');
     $('#coTotal').textContent = money(sub + del);
     $('#coDelNote').textContent = mode === 'COLLECT' ? 'We keep the pieces aside once confirmed — bring the order number.' : deliveryNote(sub);
+    const eta = $('.eta-co'); if (eta) eta.hidden = mode === 'COLLECT' || !cart.lines.length;   // P154 — no courier, no date
     $('#coSubmit').disabled = !cart.lines.length;
   };
   form.querySelectorAll('[name=delivery]').forEach(r => r.onchange = paint);
+  document.addEventListener('bgc:cart', paint);           // P154 — a change in the drawer changes "Your order" too
+  if (cart.lines.length) pixel('InitiateCheckout', { value: cart.subtotal(), currency: 'PKR', num_items: cart.count(), content_ids: cart.lines.map(l => l.pack ? 'pack:' + l.slug : l.code) });
   form.addEventListener('input', ev => { const el = ev.target; if (el.classList && el.classList.contains('is-bad')) { el.classList.remove('is-bad'); const fe = (el.closest('label') || el.parentElement).querySelector('.fe'); if (fe) fe.remove(); } });
   const savedRef = refCode(); if (savedRef && !form.ref.value) form.ref.value = savedRef;
   const last = store.get('bgc_customer'); if (last) for (const k of ['name', 'phone', 'alt_phone', 'address', 'city', 'province']) if (last[k] && form[k] && !form[k].value) form[k].value = last[k];
@@ -414,12 +480,14 @@ if (form) {
         }
         else if (j.error === 'BAD_PACK') { err.textContent = j.message; err.hidden = false; }
         else { err.textContent = j.message || 'The order could not be placed. Please try again or order on WhatsApp.'; err.hidden = false; }
-        btn.disabled = false; btn.textContent = 'Place order'; turnstileToken = ''; if (window.turnstile) try { turnstile.reset(); } catch { /* */ }
+        btn.disabled = !cart.lines.length; btn.textContent = 'Place order'; turnstileToken = '';   /* P154 — a sold-out refusal can empty the cart */ if (window.turnstile) try { turnstile.reset(); } catch { /* */ }
         return;
       }
       store.set('bgc_customer', { name: f.name, phone: f.phone, alt_phone: f.alt_phone, address: f.address, city: f.city, province: f.province });
-      store.set('bgc_last_order', { no: j.no, phone: f.phone, total: j.total, lines: j.lines, packs: j.packs || [], delivery_charge: j.delivery_charge });
-      pixel('Purchase', { value: j.total, currency: 'PKR', content_ids: cart.lines.map(l => l.code), content_type: 'product', num_items: cart.count() });
+      // P154 — the Purchase event is sent by the THANKS page (below), once: sent here, one line before the page is
+      // sent away, the browser often cancelled it. A pack's id is 'pack:<slug>' (it has no STY code).
+      store.set('bgc_last_order', { no: j.no, phone: f.phone, total: j.total, lines: j.lines, packs: j.packs || [], delivery_charge: j.delivery_charge, delivery: f.delivery,
+        px: { ids: cart.lines.map(l => l.pack ? 'pack:' + l.slug : l.code), items: cart.count(), sent: false } });
       track('order', { l: j.no, v: j.total, now: true });
       cart.clear();
       location.href = '/thanks/' + j.no + '/';
@@ -433,8 +501,18 @@ if (form) {
 if (document.body.classList.contains('p-thanks')) {
   const last = store.get('bgc_last_order'), no = window.PAGE && window.PAGE.no;
   if (last && last.no === no && $('#thanksLines')) {
+    const collect = last.delivery === 'COLLECT';
     $('#thanksLines').innerHTML = `<div class="order-box">${(last.lines || []).map(l => `<div class="row"><span>${esc(l.name)} · ${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''} × ${l.qty}</span><strong>${money(l.price * l.qty)}</strong></div>`).join('')}${packRows(last.packs)}
-      <div class="row"><span>Delivery</span><strong>${last.delivery_charge ? money(last.delivery_charge) : 'Free / told on the call'}</strong></div><div class="row total"><span>Total to pay on delivery</span><strong>${money(last.total)}</strong></div></div>`;
+      <div class="row"><span>${collect ? 'Collect from the shop' : 'Delivery'}</span><strong>${collect ? 'Rs 0' : last.delivery_charge ? money(last.delivery_charge) : 'Free'}</strong></div><div class="row total"><span>${collect ? 'Total to pay at the shop' : 'Total to pay on delivery'}</span><strong>${money(last.total)}</strong></div></div>`;
+    // P154 — the number she typed, back in front of her: a wrong digit is caught now, not by a call that never connects
+    const ph = $('#thanksPhone');
+    if (ph && last.phone) { ph.innerHTML = `We will call <strong>${esc(last.phone)}</strong> to confirm. Wrong number? <a href="${esc(waHref(`Hi, my order ${no} has the wrong phone number. The right one is: `))}" target="_blank" rel="noopener">Tell us on WhatsApp</a>`; ph.hidden = false; }
+    if (collect) { const e = $('.eta-thanks'); if (e) e.hidden = true; }
+    // P154 — the Purchase event, sent here, once per order (the checkout used to send it as it left the page)
+    if (last.px && !last.px.sent) {
+      pixel('Purchase', { value: last.total, currency: 'PKR', content_ids: last.px.ids, content_type: 'product', num_items: last.px.items });
+      store.set('bgc_last_order', { ...last, px: { ...last.px, sent: true } });
+    }
   }
 }
 

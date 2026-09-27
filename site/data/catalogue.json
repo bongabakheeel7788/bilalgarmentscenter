@@ -102,10 +102,20 @@
      "photo": "media/STY-1325/8602c6a5-bea0-4ff9-a27d-b8233631a021.webp"
     }
    ],
-   "cover": "media/STY-1325/1a0b478f-5860-48a7-8be3-f349027c8c5c.webp",
+   "cover": "media/STY-1325/d223bec7-edfe-4f79-aca0-3c797af724d6.webp",
    "photos": [
     {
+     "src": "media/STY-1325/d223bec7-edfe-4f79-aca0-3c797af724d6.webp",
+     "kind": "COVER",
+     "colour": null
+    },
+    {
      "src": "media/STY-1325/1a0b478f-5860-48a7-8be3-f349027c8c5c.webp",
+     "kind": "COLOUR",
+     "colour": "Lemon"
+    },
+    {
+     "src": "media/STY-1325/1652436e-621a-42ba-99c4-22184479b202.webp",
      "kind": "COLOUR",
      "colour": "Lemon"
     },
@@ -116,6 +126,11 @@
     },
     {
      "src": "media/STY-1325/8602c6a5-bea0-4ff9-a27d-b8233631a021.webp",
+     "kind": "COLOUR",
+     "colour": "pink"
+    },
+    {
+     "src": "media/STY-1325/eb47aa65-62ea-46e0-ad75-f5b0fc62b0c4.webp",
      "kind": "COLOUR",
      "colour": "pink"
     }
@@ -209,10 +224,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1324/42f36d1f-e1ec-4ff9-b4de-124b0455bf07.webp",
+   "cover": "media/STY-1324/1f9507be-8bdb-477d-8235-ee57e184c192.webp",
    "photos": [
     {
-     "src": "media/STY-1324/42f36d1f-e1ec-4ff9-b4de-124b0455bf07.webp",
+     "src": "media/STY-1324/1f9507be-8bdb-477d-8235-ee57e184c192.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -367,7 +382,7 @@
      "size": "2",
      "colour": "C Green",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2790,
@@ -381,6 +396,99 @@
      "size": "2",
      "colour": "skin",
      "price": 600,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-27",
+   "is_new": true
+  },
+  {
+   "code": "STY-1321",
+   "slug": "girls-jersey-2-pcs-set-suit-by-zaid-sty-1321",
+   "name": "Girls Jersey 2 pcs Set / Suit by Zaid",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 1,2",
+   "gender": "girls",
+   "fabric": "Jersey",
+   "set_contents": "2 pcs",
+   "age_group": null,
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {},
+   "size_free": {},
+   "age_months": null,
+   "age_range": null,
+   "size_ages": {},
+   "price_min": 550,
+   "price_max": 550,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Navy Blue",
+     "hex": "#3d4861",
+     "photo": "media/STY-1321/9b3ca125-c332-4801-b15c-efe601a89a62.webp"
+    },
+    {
+     "name": "Red",
+     "hex": "#ff3f0f",
+     "photo": "media/STY-1321/b1c97011-331c-46aa-96d1-1415fb1b7205.webp"
+    }
+   ],
+   "cover": "media/STY-1321/9b3ca125-c332-4801-b15c-efe601a89a62.webp",
+   "photos": [
+    {
+     "src": "media/STY-1321/9b3ca125-c332-4801-b15c-efe601a89a62.webp",
+     "kind": "COLOUR",
+     "colour": "Navy Blue"
+    },
+    {
+     "src": "media/STY-1321/7c77c622-49ed-4610-a96b-69ab5e12ce19.webp",
+     "kind": "COLOUR",
+     "colour": "Navy Blue"
+    },
+    {
+     "src": "media/STY-1321/b1c97011-331c-46aa-96d1-1415fb1b7205.webp",
+     "kind": "COLOUR",
+     "colour": "Red"
+    },
+    {
+     "src": "media/STY-1321/616e3f59-6e83-40d1-bc16-82744250cec8.webp",
+     "kind": "COLOUR",
+     "colour": "Red"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2777,
+     "size": "1",
+     "colour": "Navy Blue",
+     "price": 550,
+     "availability": "few"
+    },
+    {
+     "id": 2775,
+     "size": "1",
+     "colour": "Red",
+     "price": 550,
+     "availability": "few"
+    },
+    {
+     "id": 2778,
+     "size": "2",
+     "colour": "Navy Blue",
+     "price": 550,
+     "availability": "few"
+    },
+    {
+     "id": 2776,
+     "size": "2",
+     "colour": "Red",
+     "price": 550,
      "availability": "few"
     }
    ],
@@ -425,7 +533,7 @@
     {
      "name": "Sky",
      "hex": "#7e99d3",
-     "photo": null
+     "photo": "media/STY-1320/e3522b52-61ba-4089-aabc-2e43fb95fe57.webp"
     }
    ],
    "cover": "media/STY-1320/c6eb30a4-7472-41e4-9600-45cbedbbd2eb.webp",
@@ -434,6 +542,11 @@
      "src": "media/STY-1320/c6eb30a4-7472-41e4-9600-45cbedbbd2eb.webp",
      "kind": "COVER",
      "colour": null
+    },
+    {
+     "src": "media/STY-1320/e3522b52-61ba-4089-aabc-2e43fb95fe57.webp",
+     "kind": "COLOUR",
+     "colour": "Sky"
     }
    ],
    "size_guide": null,
@@ -4726,7 +4839,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 259,
@@ -7913,7 +8026,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 146,
-   "online": 45,
+   "online": 46,
    "months": [
     0,
     156
@@ -8047,12 +8160,12 @@
    "name": "Full size",
    "icon": "fullsize",
    "colour": "sky",
-   "total": 6,
+   "total": 9,
    "online": 0,
    "months": null,
    "sizes": [
-    "M",
-    "Standard Size"
+    "Standard Size",
+    "M"
    ]
   },
   {
@@ -9709,6 +9822,6 @@
   }
  ],
  "assets": {
-  "v": "eb48c36a52"
+  "v": "093423380a"
  }
 }
