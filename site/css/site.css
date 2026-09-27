@@ -694,3 +694,11 @@ main#main { padding-top: 30px; padding-bottom: 72px; }
   .grid.rec-row::-webkit-scrollbar { display: none; }
   .grid.rec-row > .card { flex: 0 0 44%; min-width: 0; scroll-snap-align: start; }
 }
+
+/* ── P156 — the size guide is the second photo: shown whole, on white, never cropped like a garment ── */
+.gallery-main.is-guide { background: #fff; }
+.gallery-main.is-guide img { object-fit: contain; }
+.thumb-guide { position: relative; background: #fff; }
+.thumb-guide img { object-fit: contain; }
+.thumb-guide span { position: absolute; left: 0; right: 0; bottom: 0; padding: 2px 0; background: rgba(27, 74, 66, .88); color: #fff; font-size: 9.5px; font-weight: 700; text-align: center; letter-spacing: .02em; }
+.size-guide-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 6px; color: var(--accent); font-weight: 700; font-size: 14px; text-decoration: underline; text-underline-offset: 2px; }

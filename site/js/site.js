@@ -162,7 +162,13 @@ if (P && $('#sizes')) {
     if (size && !hasPair(size, colour)) size = null;      // P154 — this colour has no such size: she chooses again, never a silent swap
     paintSizes();
   });
-  $$('.thumb').forEach(b => b.onclick = () => { $$('.thumb').forEach(x => x.classList.remove('active')); b.classList.add('active'); $('#mainImg').src = b.dataset.img; });
+  // P156 — the size guide is the second photo: shown whole (contain, on white), not cropped like a garment
+  const showMain = (src, guide) => { $('#mainImg').src = src; const box = $('.gallery-main'); if (box) box.classList.toggle('is-guide', !!guide); };
+  $$('.thumb').forEach(b => b.onclick = () => { $$('.thumb').forEach(x => x.classList.remove('active')); b.classList.add('active'); showMain(b.dataset.img, b.dataset.guide); });
+  // whatever puts a picture in the main spot (a thumb, a colour swatch), the guide look follows the picture itself
+  const mi = $('#mainImg'); if (mi && P.guide) mi.addEventListener('load', () => { const box = $('.gallery-main'); if (box) box.classList.toggle('is-guide', mi.getAttribute('src') === '/' + P.guide); });
+  const sg = $('#sgOpen');
+  if (sg && $('.thumb-guide')) sg.onclick = e => { e.preventDefault(); $('.thumb-guide').click(); $('.gallery-main').scrollIntoView({ block: 'start', behavior: 'smooth' }); };
   // one size only → pre-select it
   const inStock = $$('#sizes .size').filter(b => { const v = variantFor(b.dataset.size, colour); return v && v.availability !== 'out'; });
   if (inStock.length === 1) {

@@ -71,14 +71,29 @@
    "gender": "girls",
    "fabric": "Terry",
    "set_contents": "2 pcs",
-   "age_group": null,
+   "age_group": "Newborn",
    "season": "ALL",
    "sizing": "AGE",
-   "size_months": {},
+   "size_months": {
+    "1": [
+     0,
+     3
+    ],
+    "2": [
+     3,
+     6
+    ]
+   },
    "size_free": {},
-   "age_months": null,
-   "age_range": null,
-   "size_ages": {},
+   "age_months": [
+    0,
+    6
+   ],
+   "age_range": "Newborn–6 Months",
+   "size_ages": {
+    "1": "Newborn–3 Months",
+    "2": "3 Months–6 Months"
+   },
    "price_min": 650,
    "price_max": 650,
    "sizes": [
@@ -443,10 +458,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1322/3cfcfc9f-5051-4eb5-adf6-7fa7893ecc84.webp",
+   "cover": "media/STY-1322/94cbabe1-4bf2-4a83-bf15-35a7846d8972.webp",
    "photos": [
     {
-     "src": "media/STY-1322/3cfcfc9f-5051-4eb5-adf6-7fa7893ecc84.webp",
+     "src": "media/STY-1322/94cbabe1-4bf2-4a83-bf15-35a7846d8972.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -1530,7 +1545,7 @@
      "photo": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp"
     }
    ],
-   "cover": "media/STY-1235/7379bce3-b071-4815-bf59-f1ad1514a997.webp",
+   "cover": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp",
    "photos": [
     {
      "src": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp",
@@ -2801,7 +2816,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 1050,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-20",
@@ -6605,7 +6620,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 183,
@@ -9924,6 +9939,6 @@
   }
  ],
  "assets": {
-  "v": "08f8979084"
+  "v": "9f3a0cbcff"
  }
 }

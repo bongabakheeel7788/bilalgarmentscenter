@@ -136,6 +136,8 @@ export function product(cat, slug) {
   // P130 — the gallery as the shop ordered it: cover, angles, then colour photos; older catalogues carry no list
   const gallery = Array.isArray(p.photos) && p.photos.length ? p.photos.map(x => x.src) : [p.cover, ...colours.map(c => c.photo)];
   const photos = gallery.filter(Boolean).filter((x, i, a) => a.indexOf(x) === i);
+  // P156 — "after the main product photo the next photo that should appear is the size guide" (Fahad, 2026-09-27)
+  const galleryShown = photos.length && p.size_guide ? [photos[0], p.size_guide, ...photos.slice(1).filter(x => x !== p.size_guide)] : photos;
   const av = productAvailability(p);
   const url = `${String(store.site_url || '').replace(/\/$/, '')}/p/${p.slug}/`;
   const sizes = p.sizes || [];
@@ -153,7 +155,9 @@ export function product(cat, slug) {
 <article class="prod" data-code="${attr(p.code)}">
   <div class="gallery">
     <div class="gallery-main">${photos.length ? `<button type="button" class="zoom-open" id="zoomOpen" aria-label="See the photo full screen"><img id="mainImg" src="/${attr(photos[0])}" alt="${attr(p.name)}" width="800" height="1000" fetchpriority="high"></button>` : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}</div>
-    ${photos.length > 1 ? `<div class="thumbs">${photos.map((x, i) => `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
+    ${galleryShown.length > 1 ? `<div class="thumbs">${galleryShown.map((x, i) => x === p.size_guide && i > 0
+      ? `<button class="thumb thumb-guide" data-img="/${attr(x)}" data-guide="1" aria-label="Size guide"><img src="/${attr(x)}" alt="" loading="lazy"><span>Size guide</span></button>`
+      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
   </div>
   <div class="buy">
     <h1>${esc(p.name)}</h1>
@@ -169,7 +173,7 @@ export function product(cat, slug) {
       const few = live.length && live.every(v => v.availability === 'few');
       return `<button class="size${live.length ? (few ? ' is-few' : '') : ' is-out'}"${live.length ? '' : ' disabled'} data-size="${attr(s)}" title="${attr(p.size_ages && p.size_ages[s] ? `fits ${p.size_ages[s]}` : '')}">${esc(s)}${p.size_ages && p.size_ages[s] ? `<small>${esc(p.size_ages[s])}</small>` : ''}</button>`;
     }).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div>
-    ${p.size_guide ? `<details class="size-guide"><summary>Size guide</summary><img src="/${attr(p.size_guide)}" alt="Size guide for ${attr(p.name)}" loading="lazy"></details>` : ''}</div>
+    ${p.size_guide ? `<a class="size-guide-link" id="sgOpen" href="/${attr(p.size_guide)}" target="_blank" rel="noopener">&#128207;&#65038; Size guide — see the measurements</a>` : ''}</div>
     <div class="qty-row"><label>Qty <input type="number" id="qty" value="1" min="1" max="10"></label>
       <button class="btn btn-primary" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button></div>
     ${av === 'out' ? '' : etaLine()}
@@ -201,7 +205,7 @@ ${recRow('More like this', related)}
 ${recRow(forWhom(p), forChild)}`;
   return layout(cat, { title: p.name, description: `${p.name} — ${priceLabel(p)}. ${[p.category_parent, p.category, p.fabric].filter(Boolean).join(', ')}. Cash on delivery all over Pakistan.`, canonical: `/p/${p.slug}/`, page: 'p-product', body,
     og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`,
-    publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
+    publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos: galleryShown, guide: p.size_guide || null, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
 }
 
 // P141 — a deal's pack page: one size, six pieces, mixed colours or the customer's own (same price), free
