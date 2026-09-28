@@ -17,7 +17,8 @@ export async function onRequestPost(context) {
   }
   const cat = await loadCatalogue(context);
   const code = clean(body.code, 30);
-  const product = cat.products.find(p => p.code === code);
+  // P168 — a pack's product may be off the website (tights are sold online only as packs); its pack page takes reviews
+  const product = cat.products.find(p => p.code === code) || (cat.deals || []).find(d => d.style_code === code);
   if (!product) return json({ error: 'NOT_FOUND', message: 'That piece is not on the website any more.' }, 404);
   const errors = {};
   const stars = Number(body.stars);

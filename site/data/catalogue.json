@@ -200,6 +200,7 @@
    ],
    "first_published": "2026-09-27",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-27",
    "is_new": true
   },
@@ -299,6 +300,7 @@
    ],
    "first_published": "2026-09-27",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-27",
    "is_new": true
   },
@@ -423,6 +425,7 @@
    ],
    "first_published": "2026-09-27",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-27",
    "is_new": true
   },
@@ -522,6 +525,7 @@
    ],
    "first_published": "2026-09-27",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-27",
    "is_new": true
   },
@@ -622,6 +626,7 @@
    ],
    "first_published": "2026-09-27",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-27",
    "is_new": true
   },
@@ -726,6 +731,7 @@
    ],
    "first_published": "2026-09-27",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-27",
    "is_new": true
   },
@@ -815,6 +821,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -917,6 +924,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1045,6 +1053,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-25",
    "is_new": true
   },
@@ -1121,6 +1130,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1197,6 +1207,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1273,6 +1284,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1349,6 +1361,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1438,6 +1451,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1514,6 +1528,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1728,6 +1743,7 @@
    ],
    "first_published": "2026-09-11",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -1804,6 +1820,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1898,6 +1915,7 @@
    ],
    "first_published": "2026-09-13",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -1974,6 +1992,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -2050,6 +2069,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -2126,6 +2146,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -2202,6 +2223,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -2296,6 +2318,7 @@
    ],
    "first_published": "2026-09-18",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -2424,6 +2447,7 @@
    ],
    "first_published": "2026-09-16",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -2552,6 +2576,7 @@
    ],
    "first_published": "2026-09-16",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -2680,6 +2705,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -2741,6 +2767,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -2817,6 +2844,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -2880,6 +2908,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -2956,6 +2985,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -3019,6 +3049,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -3095,6 +3126,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -3171,6 +3203,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -3265,6 +3298,7 @@
    ],
    "first_published": "2026-09-18",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -3359,6 +3393,7 @@
    ],
    "first_published": "2026-09-18",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -3435,6 +3470,7 @@
    ],
    "first_published": "2026-09-11",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -3511,6 +3547,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -3587,6 +3624,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -3689,6 +3727,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -3765,6 +3804,7 @@
    ],
    "first_published": "2026-09-22",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -3828,6 +3868,7 @@
    ],
    "first_published": "2026-09-25",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-25",
    "is_new": true
   },
@@ -3904,6 +3945,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -3993,6 +4035,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4056,6 +4099,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4145,6 +4189,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4221,6 +4266,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4310,6 +4356,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4386,6 +4433,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4462,6 +4510,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4551,6 +4600,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4614,6 +4664,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4690,6 +4741,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4779,6 +4831,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4868,6 +4921,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4931,6 +4985,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -4994,6 +5049,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -5083,6 +5139,7 @@
    ],
    "first_published": "2026-09-07",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5159,6 +5216,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5235,6 +5293,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5311,6 +5370,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5387,6 +5447,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5476,6 +5537,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5570,6 +5632,7 @@
    ],
    "first_published": "2026-09-18",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5664,6 +5727,7 @@
    ],
    "first_published": "2026-09-18",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5727,6 +5791,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5803,6 +5868,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5879,6 +5945,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -5968,6 +6035,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6057,6 +6125,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6146,6 +6215,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6235,6 +6305,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6298,6 +6369,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6361,6 +6433,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6424,6 +6497,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6487,6 +6561,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6550,6 +6625,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6613,6 +6689,7 @@
    ],
    "first_published": "2026-09-20",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -6702,6 +6779,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6791,6 +6869,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -6880,6 +6959,7 @@
    ],
    "first_published": "2026-09-25",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-25",
    "is_new": true
   },
@@ -6969,6 +7049,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -7058,6 +7139,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -7147,6 +7229,7 @@
    ],
    "first_published": "2026-09-24",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-24",
    "is_new": true
   },
@@ -7236,6 +7319,7 @@
    ],
    "first_published": "2026-09-18",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -7325,6 +7409,7 @@
    ],
    "first_published": "2026-09-18",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -7414,6 +7499,7 @@
    ],
    "first_published": "2026-09-18",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -7508,6 +7594,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -7597,6 +7684,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -7686,6 +7774,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -7775,6 +7864,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -7869,6 +7959,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -7932,6 +8023,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -8008,6 +8100,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   },
@@ -8071,6 +8164,7 @@
    ],
    "first_published": "2026-09-19",
    "description": null,
+   "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": true
   }
@@ -8566,6 +8660,10 @@
     "media/deals/girls-tights-pack-of-6/b26883cb-8ca8-4ae4-bba5-4e020f98de33.webp"
    ],
    "as_product": true,
+   "free_delivery": true,
+   "fabric": "Jersey Cotton",
+   "description": null,
+   "season": "SUMMER",
    "sizes": [
     {
      "size": "18",
@@ -10140,11 +10238,12 @@
    ],
    "badge": "Pack of 6",
    "sub": "Free delivery",
+   "free_delivery": true,
    "first_published": "2026-09-26",
    "is_new": true
   }
  ],
  "assets": {
-  "v": "04716173ec"
+  "v": "756e028d6e"
  }
 }

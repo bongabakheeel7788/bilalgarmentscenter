@@ -56,9 +56,9 @@ export function productLd(p, store, { photos, url, text, availability }) {
   const site = siteOf(store);
   const avail = availability === 'out' ? 'https://schema.org/OutOfStock' : availability === 'few' ? 'https://schema.org/LimitedAvailability' : 'https://schema.org/InStock';
   const one = Number(p.price_min) === Number(p.price_max);
-  const charge = deliveryCharge(store || {}, Number(p.price_min || 0), 'DELIVERY');
+  const charge = p.free_delivery ? 0 : deliveryCharge(store || {}, Number(p.price_min || 0), 'DELIVERY');   // P168 — free whatever the price
   // a charge of 0 with no free-delivery rule means "told on the call" — nothing to state
-  const shipping = (Number(store && store.delivery_charge) > 0) ? { '@type': 'OfferShippingDetails',
+  const shipping = (Number(store && store.delivery_charge) > 0 || p.free_delivery) ? { '@type': 'OfferShippingDetails',
     shippingRate: { '@type': 'MonetaryAmount', value: charge, currency: 'PKR' },
     shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'PK' },
     deliveryTime: { '@type': 'ShippingDeliveryTime', handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' },

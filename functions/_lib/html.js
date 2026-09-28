@@ -201,7 +201,7 @@ export function card(p) {
   ${swatches(p)}
   <a class="card-body" href="${attr(p.href || `/p/${p.slug}/`)}">
     <div class="card-name">${esc(p.name)}</div>
-    <div class="card-price">${esc(priceLabel(p))}</div>${p.sub ? `<div class="card-sub">${esc(p.sub)}</div>` : ''}
+    <div class="card-price">${esc(priceLabel(p))}</div>${p.sub ? `<div class="card-sub">${esc(p.sub)}</div>` : !p.deal && p.free_delivery ? '<div class="card-sub">Free delivery</div>' : ''}
     ${p.rating && p.rating.count ? `<div class="card-rating" aria-label="Rated ${attr(p.rating.avg)} out of 5 by ${p.rating.count} customer${p.rating.count === 1 ? '' : 's'}"><span aria-hidden="true">★</span> ${esc(p.rating.avg)} <small>(${p.rating.count})</small></div>` : ''}
     ${sizeRow(p)}
   </a>
@@ -347,11 +347,11 @@ export function catTiles(cat) {
 // real one has gone, so on a laptop it never appears at all.
 // P166 — on a phone the bar is always there (the page's own button hides there): WhatsApp beside the button,
 // the chosen size above it once there is one. On a laptop it still appears only after the button has scrolled away.
-export function buyBar(p, store) {
-  const wa = store ? waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${String(store.site_url || '').replace(/\/$/, '')}/p/${p.slug}/`) : '';
+export function buyBar(p, store, label) {   // P168 — the pack page's bar too: its own address and its own words
+  const wa = store ? waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${String(store.site_url || '').replace(/\/$/, '')}${p.href || `/p/${p.slug}/`}`) : '';
   return `<div class="buybar" id="buyBar" hidden>
     ${wa ? `<a class="bb-wa" data-where="buybar" href="${attr(wa)}" target="_blank" rel="noopener" aria-label="Ask on WhatsApp"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>` : ''}
-    <div class="bb-main"><span class="bb-size" id="bbSize" hidden></span><button class="btn btn-primary" id="bbAdd">Add to cart · <span id="bbPrice">${esc(priceLabel(p))}</span></button></div>
+    <div class="bb-main"><span class="bb-size" id="bbSize" hidden></span><button class="btn btn-primary" id="bbAdd">${label ? esc(label) : `Add to cart · <span id="bbPrice">${esc(priceLabel(p))}</span>`}</button></div>
   </div>`;
 }
 

@@ -94,20 +94,23 @@ const cart = {
   subtotal() { return this.lines.reduce((s, l) => s + l.price * l.qty, 0); },
   count() { return this.lines.reduce((s, l) => s + l.qty * (l.pack ? l.pieces : 1), 0); },
   hasPack() { return this.lines.some(l => l.pack); },
+  // P168 — the line that makes the parcel ship free: a product or pack switched to free delivery (a pack added before
+  // the switch existed counts as free, as it always was); null when none
+  freeBy() { return this.lines.find(l => l.free === true || (l.pack && l.free !== false)) || null; },
 };
 /** what a cart line says under its name */
 const lineMeta = l => l.pack ? `Size ${esc(l.size)} · ${l.pieces} pieces · ${esc(l.choiceText)}`
   : `${esc(l.size)}${l.colour && l.colour.toLowerCase() !== 'standard' ? ' · ' + esc(l.colour) : ''}`;
 function deliveryCharge(sub, mode) {
   if (mode === 'COLLECT') return 0;
-  if (cart.hasPack()) return 0;                                // P141 — a pack comes with free delivery
+  if (cart.freeBy()) return 0;                                 // P141 / P168 — something in it ships the parcel free
   const free = Number(S.free_delivery_above || 0), ch = Number(S.delivery_charge || 0);
   if (ch <= 0) return 0;
   if (free > 0 && sub >= free) return 0;
   return ch;
 }
 function deliveryNote(sub) {
-  if (cart.hasPack()) return 'Free delivery — a pack is in your cart.';   // P141
+  const fb = cart.freeBy(); if (fb) return `Free delivery — ${fb.name} covers your whole parcel.`;   // P141 / P168
   const free = Number(S.free_delivery_above || 0), ch = Number(S.delivery_charge || 0);
   if (ch <= 0) return free > 0 ? '' : 'Delivery charge is confirmed on the call.';
   if (free > 0 && sub >= free) return 'You get free delivery.';
@@ -119,7 +122,8 @@ function paintDelivery(el, sub) {
   if (!el) return;
   const free = Number(S.free_delivery_above || 0), ch = Number(S.delivery_charge || 0);
   const note = esc(deliveryNote(sub));
-  if (cart.hasPack() || ch <= 0 || free <= 0 || sub <= 0) { el.innerHTML = note; el.classList.remove('fd-done'); return; }
+  if (cart.freeBy()) { el.innerHTML = `<span class="fd-note">${note}</span>`; el.classList.add('fd-done'); return; }   // P168
+  if (ch <= 0 || free <= 0 || sub <= 0) { el.innerHTML = note; el.classList.remove('fd-done'); return; }
   const done = sub >= free, pct = Math.min(100, Math.round(sub / free * 100));
   el.classList.toggle('fd-done', done);
   el.innerHTML = `<span class="fd-note">${note}</span><span class="fd-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${free}" aria-valuenow="${Math.min(sub, free)}" aria-label="Toward free delivery"><i style="width:${pct}%"></i></span>`;
@@ -154,6 +158,89 @@ addEventListener('pageshow', e => { if (e.persisted) cart.reload(); });
 addEventListener('storage', e => { if (e.key === 'bgc_cart') cart.reload(); });
 paintCart();
 
+// ── P168 — the parts every item page shares (Fahad, 2026-09-29: "all pages on site should be build equally and if we
+// add some features that feature should be the part of the website not that specific page"). A product page and a
+// pack page both call these; a feature added here is on both.
+/** the gallery: slides you swipe, a counter, dots, thumbs on a laptop, and the full-screen view at the slide tapped */
+function wireGallery() {
+  const galTrack = $('#galTrack'), slides = galTrack ? $$('.gal-slide', galTrack) : [];
+  const goSlide = (i, smooth = true) => { if (!galTrack || !slides[i]) return; galTrack.scrollTo({ left: slides[i].offsetLeft, behavior: smooth ? 'smooth' : 'auto' }); };
+  // a colour's (or a theme's) photo is found among the slides, else shown in the first
+  const showPhoto = src => {
+    if (!src) return;
+    const i = slides.findIndex(x => (x.querySelector('img').getAttribute('src') || '') === src);
+    if (i >= 0) return goSlide(i);
+    const mi = $('#mainImg'); if (mi) { mi.src = src; goSlide(0); }
+  };
+  let at = 0;
+  $$('.thumb').forEach(b => b.onclick = () => goSlide(Number(b.dataset.i) || 0));
+  if (galTrack) {
+    const dots = $$('#galDots i'), count = $('#galCount');
+    const follow = () => {
+      const i = Math.round(galTrack.scrollLeft / Math.max(1, galTrack.clientWidth));
+      if (i === at || !slides[i]) return;
+      at = i;
+      dots.forEach((d, k) => d.classList.toggle('on', k === i));
+      if (count) count.textContent = `${i + 1} / ${slides.length}`;
+      $$('.thumb').forEach(x => x.classList.toggle('active', Number(x.dataset.i) === i));
+    };
+    galTrack.addEventListener('scroll', () => requestAnimationFrame(follow), { passive: true });
+  }
+  // P68c — the photograph, full screen. Hand-written: a library for a lightbox is a blank screen on the morning the
+  // shop's internet is slow.
+  const lb = $('#lightbox');
+  if (lb && slides.length) {
+    const srcs = () => slides.map(x => x.querySelector('img').getAttribute('src'));
+    let li = 0;
+    const show = i => { const all = srcs(); li = (i + all.length) % all.length; $('#lbImg').src = all[li]; $('#lbPrev').hidden = $('#lbNext').hidden = all.length < 2; };
+    const open = on => { lb.hidden = !on; document.body.style.overflow = on ? 'hidden' : ''; };
+    slides.forEach(x => x.addEventListener('click', () => { open(true); show(Number(x.dataset.i) || 0); }));
+    $('#lbClose').onclick = () => open(false);
+    $('#lbPrev').onclick = () => show(li - 1);
+    $('#lbNext').onclick = () => show(li + 1);
+    lb.addEventListener('click', e => { if (e.target === lb || e.target.id === 'lbImg') open(false); });
+    document.addEventListener('keydown', e => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') open(false);
+      if (e.key === 'ArrowLeft') show(li - 1);
+      if (e.key === 'ArrowRight') show(li + 1);
+    });
+    let x0 = null;
+    lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      if (x0 == null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 45) show(li + (dx < 0 ? 1 : -1));
+      x0 = null;
+    }, { passive: true });
+  }
+  const sh = $('#shareBtn');
+  if (sh) sh.onclick = async () => {
+    const data = { title: sh.dataset.title, text: sh.dataset.title + ' — ' + S.name, url: sh.dataset.url };
+    if (navigator.share) { try { await navigator.share(data); } catch { /* cancelled */ } }
+    else { try { await navigator.clipboard.writeText(sh.dataset.url); toast('Link copied'); } catch { prompt('Copy this link', sh.dataset.url); } }
+  };
+  return { slides, goSlide, showPhoto };
+}
+/**
+ * the bar: on a phone it IS the Add button, there from the first moment (the page's own one hides there); on a laptop
+ * it appears only once the page's button has scrolled away. Its tap is the page's own button's tap.
+ */
+function wireBuyBar(addBtn) {
+  const bar = $('#buyBar');
+  if (!bar || !addBtn) return null;
+  $('#bbAdd').onclick = () => addBtn.click();
+  if (window.matchMedia('(max-width: 820px)').matches) { bar.hidden = false; document.body.classList.add('has-buybar'); return bar; }
+  if ('IntersectionObserver' in window) {
+    const showBar = on => { bar.hidden = !on; document.body.classList.toggle('has-buybar', on); };
+    // only once you have gone PAST the button, never before you have reached it; ask the button where it is NOW
+    const decide = () => showBar(addBtn.getBoundingClientRect().bottom < 0);
+    new IntersectionObserver(decide, { rootMargin: '-72px 0px 0px 0px' }).observe(addBtn);
+    addEventListener('scroll', decide, { passive: true });
+  }
+  return bar;
+}
+
 // ── product page ─────────────────────────────────────────────────────────────
 const P = window.PAGE && window.PAGE.product;
 if (P && $('#sizes')) {
@@ -177,14 +264,7 @@ if (P && $('#sizes')) {
     const cn = $('#colourName'); if (cn) cn.textContent = colour && colour.toLowerCase() !== 'standard' ? '· ' + colour : '';
   };
   const allOut = !P.variants.some(v => v.availability !== 'out');
-  // P166 — the gallery is a row of slides you swipe; a colour's photo is found among them, else shown in the first
-  const galTrack = $('#galTrack'), slides = galTrack ? $$('.gal-slide', galTrack) : [];
-  const goSlide = (i, smooth = true) => { if (!galTrack || !slides[i]) return; galTrack.scrollTo({ left: slides[i].offsetLeft, behavior: smooth ? 'smooth' : 'auto' }); };
-  const showPhoto = src => {
-    const i = slides.findIndex(s => (s.querySelector('img').getAttribute('src') || '') === src);
-    if (i >= 0) return goSlide(i);
-    const mi = $('#mainImg'); if (mi) { mi.src = src; goSlide(0); }
-  };
+  const { slides, goSlide, showPhoto } = wireGallery();   // P168 — the same gallery as every item page
   const markColour = c => { const sw = $$('#colours .swatch').find(x => x.dataset.colour === c); $$('#colours .swatch').forEach(x => x.classList.remove('active')); if (!sw) return; sw.classList.add('active'); if (sw.dataset.photo) showPhoto('/' + sw.dataset.photo); };
   const hasPair = (s, c) => P.variants.some(v => v.size === s && v.colour === c);
   // P154 — a size the chosen colour does not come in used to put ANOTHER colour's piece in the cart while the swatch
@@ -199,22 +279,7 @@ if (P && $('#sizes')) {
     if (size && !hasPair(size, colour)) size = null;      // P154 — this colour has no such size: she chooses again, never a silent swap
     paintSizes();
   });
-  // P156 — the size guide is the second photo: shown whole (contain, on white), not cropped like a garment (.is-guide
-  // on its slide). P166 — a thumb goes to its slide; the counter, the dots and the thumbs follow the swipe.
-  let at = 0;
-  $$('.thumb').forEach(b => b.onclick = () => goSlide(Number(b.dataset.i) || 0));
-  if (galTrack) {
-    const dots = $$('#galDots i'), count = $('#galCount');
-    const follow = () => {
-      const i = Math.round(galTrack.scrollLeft / Math.max(1, galTrack.clientWidth));
-      if (i === at || !slides[i]) return;
-      at = i;
-      dots.forEach((d, k) => d.classList.toggle('on', k === i));
-      if (count) count.textContent = `${i + 1} / ${slides.length}`;
-      $$('.thumb').forEach(x => x.classList.toggle('active', Number(x.dataset.i) === i));
-    };
-    galTrack.addEventListener('scroll', () => requestAnimationFrame(follow), { passive: true });
-  }
+  // P156 — the size guide is the second photo, shown whole (.is-guide on its slide); "Size guide" goes to it
   const sg = $('#sgOpen');
   const gi = slides.findIndex(s => s.classList.contains('is-guide'));
   if (sg && gi >= 0) sg.onclick = e => { e.preventDefault(); goSlide(gi, false); $('.gallery-main').scrollIntoView({ block: 'start', behavior: 'smooth' }); };
@@ -233,7 +298,7 @@ if (P && $('#sizes')) {
       $(colourOut ? '#colours' : '#sizes').scrollIntoView({ block: 'center', behavior: 'smooth' }); return;
     }
     const qty = $('#qty') ? Math.max(1, Math.min(10, Number($('#qty').value) || 1)) : 1;   // P166 — the cart changes how many
-    cart.add({ variant_id: Number(v.id), code: P.code, slug: P.slug, name: P.name, size: v.size, colour: v.colour, price: Number(v.price), qty, cover: P.cover });
+    cart.add({ variant_id: Number(v.id), code: P.code, slug: P.slug, name: P.name, size: v.size, colour: v.colour, price: Number(v.price), qty, cover: P.cover, free: !!P.free || undefined });   // P168
     pixel('AddToCart', { content_ids: [P.code], content_type: 'product', value: v.price * qty, currency: 'PKR' });
     track('add_to_cart', { l: P.code, v: v.price * qty });
     openCart(true);
@@ -242,22 +307,7 @@ if (P && $('#sizes')) {
   // The real Add to cart button scrolls away on a phone exactly when the reading
   // that decides the sale begins. This shows a slim copy once it has gone, and
   // only then: on a laptop the observer never fires because the button stays put.
-  const bar = $('#buyBar'), addBtn = $('#addBtn');
-  const phone = window.matchMedia('(max-width: 820px)');
-  // P166 — on a phone the bar is the Add to cart button: there from the first moment, the page's own one hidden
-  if (bar && addBtn && phone.matches) { bar.hidden = false; document.body.classList.add('has-buybar'); $('#bbAdd').onclick = () => addBtn.click(); }
-  else if (bar && addBtn && 'IntersectionObserver' in window) {
-    const showBar = on => { bar.hidden = !on; document.body.classList.toggle('has-buybar', on); };
-    // only once you have gone PAST the button, never before you have reached it:
-    // a buy bar sitting over the price on a page you have not scrolled yet is a
-    // shop shouting at a customer still walking through the door.
-    // The entry's rect is the one recorded at the crossing, which sits exactly ON
-    // the margin and rounds either way — so ask the button where it is NOW.
-    const decide = () => showBar(addBtn.getBoundingClientRect().bottom < 0);
-    new IntersectionObserver(decide, { rootMargin: '-72px 0px 0px 0px' }).observe(addBtn);
-    addEventListener('scroll', decide, { passive: true });
-    $('#bbAdd').onclick = () => addBtn.click();
-  }
+  const bar = wireBuyBar($('#addBtn'));   // P168 — the same bar as every item page
   const paintBar = () => {
     if (!bar) return;
     const v = size ? variantFor(size, colour) : null;
@@ -270,52 +320,8 @@ if (P && $('#sizes')) {
   paintSizes = () => { afterPaint(); paintBar(); };
   paintSizes();
 
-  // ── P68c — the photograph, full screen ────────────────────────────────────
-  // Hand-written, like everything else here: a library for a lightbox is a
-  // blank screen on the morning the shop's internet is slow.
-  const lb = $('#lightbox'), photos = (P.photos || [P.cover]).filter(Boolean);
-  if (lb && photos.length) {
-    let at = 0;
-    slides.forEach(s => s.addEventListener('click', () => { open(true); show(Number(s.dataset.i) || 0); }));
-    const show = i => {
-      at = (i + photos.length) % photos.length;
-      $('#lbImg').src = '/' + photos[at];
-      $('#lbPrev').hidden = $('#lbNext').hidden = photos.length < 2;
-    };
-    const open = on => {
-      lb.hidden = !on;
-      document.body.style.overflow = on ? 'hidden' : '';
-      if (on) { const cur = ($('#mainImg').getAttribute('src') || '').replace(/^\//, ''); show(Math.max(0, photos.indexOf(cur))); }
-    };
-    $('#zoomOpen') && ($('#zoomOpen').onclick = () => open(true));
-    $('#lbClose').onclick = () => open(false);
-    $('#lbPrev').onclick = () => show(at - 1);
-    $('#lbNext').onclick = () => show(at + 1);
-    lb.addEventListener('click', e => { if (e.target === lb || e.target.id === 'lbImg') open(false); });
-    document.addEventListener('keydown', e => {
-      if (lb.hidden) return;
-      if (e.key === 'Escape') open(false);
-      if (e.key === 'ArrowLeft') show(at - 1);
-      if (e.key === 'ArrowRight') show(at + 1);
-    });
-    let x0 = null;
-    lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
-    lb.addEventListener('touchend', e => {
-      if (x0 == null) return;
-      const dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 45) show(at + (dx < 0 ? 1 : -1));
-      x0 = null;
-    }, { passive: true });
-  }
-
   pixel('ViewContent', { content_ids: [P.code], content_type: 'product', value: (P.variants[0] || {}).price, currency: 'PKR' });
   track('product', { l: P.code });
-  const sh = $('#shareBtn');
-  if (sh) sh.onclick = async () => {
-    const data = { title: sh.dataset.title, text: sh.dataset.title + ' — ' + S.name, url: sh.dataset.url };
-    if (navigator.share) { try { await navigator.share(data); } catch { /* cancelled */ } }
-    else { try { await navigator.clipboard.writeText(sh.dataset.url); toast('Link copied'); } catch { prompt('Copy this link', sh.dataset.url); } }
-  };
 }
 
 // ── grid filters ─────────────────────────────────────────────────────────────
@@ -404,25 +410,13 @@ const D = window.PAGE && window.PAGE.deal;
 if (D && $('#dpSizes')) {
   const firstPrice = $('#price').textContent;
   let size = null, mode = 'MIXED', theme = null, own = {};
-  // P143 — the photo on top follows what she picks: a theme shows its photo (like a colour on a product), a colour
-  // she adds to her own pack shows that colour's photo, Mixed shows the cover. Thumbs and a swipe move through the
-  // pack's own photos.
-  const main = $('#dpMain'), photos = (D.photos || []).map(x => '/' + x);
-  let at = 0;
-  const show = src => { if (main && src) main.src = src; $$('#dpThumbs .thumb').forEach(t => t.classList.toggle('active', t.dataset.img === src)); };
+  // P143 — the photo on top follows what she picks: a theme shows its photo, a colour she adds to her own pack shows
+  // that colour's photo, Mixed shows the cover. P168 — through the same gallery as a product page.
+  const gal = wireGallery();
+  const show = src => gal.showPhoto(src);
+  const photos = (D.photos || []).map(x => '/' + x);
   const colourPhoto = name => { const z = D.sizes.find(x => x.size === size) || D.sizes[0]; const c = z && z.colours.find(x => x.name === name); return c && c.photo ? '/' + c.photo : null; };
-  $$('#dpThumbs .thumb').forEach((t, i) => t.onclick = () => { at = i; show(t.dataset.img); });
-  const box = $('#dpMainBox');
-  if (box && photos.length > 1) {
-    let x0 = null;
-    box.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
-    box.addEventListener('touchend', e => {
-      if (x0 == null) return;
-      const dx = e.changedTouches[0].clientX - x0; x0 = null;
-      if (Math.abs(dx) < 40) return;
-      at = (at + (dx < 0 ? 1 : photos.length - 1)) % photos.length; show(photos[at]);
-    }, { passive: true });
-  }
+  const bar = wireBuyBar($('#dpAdd'));   // P168 — the same bar as a product page
   const sizeOf = () => D.sizes.find(z => z.size === size);
   const picked = () => Object.values(own).reduce((a, b) => a + b, 0);
   const themeOk = (t, z) => !!t && t.colours.every(c => ((z.colours.find(x => x.name === c) || {}).max || 0) >= D.pieces / t.colours.length);
@@ -457,6 +451,8 @@ if (D && $('#dpSizes')) {
     $('#dpAdd').classList.toggle('is-wait', !isReady());
     // P143 — the price rides on the button, which stays at the bottom of a phone's screen
     $('#dpAdd').textContent = !z ? 'Choose a size' : mode === 'OWN' && picked() < D.pieces ? `Choose ${D.pieces - picked()} more` : `Add pack · ${money(z.price)}`;
+    // P168 — the bar says what the page's button says, and shows the size once chosen
+    if (bar) { $('#bbAdd').textContent = $('#dpAdd').textContent; $('#bbAdd').disabled = $('#dpAdd').disabled; const bs = $('#bbSize'); if (bs) { bs.hidden = !z; bs.textContent = z ? `Size ${z.size}${z.age ? ' · fits ' + z.age : ''}` : ''; } }
     const t = mode === 'THEME' ? D.themes.find(x => x.name === theme) : null, note = $('#dpThemeNote');
     if (note) { note.hidden = !t; if (t) note.innerHTML = `<strong>${esc(t.name)}</strong> — ${esc(t.colours.join(', '))}`; }
     $('#dpHint').textContent = !z ? `Choose a size. A crossed-out size has fewer than ${D.pieces} pieces left.`
@@ -466,7 +462,7 @@ if (D && $('#dpSizes')) {
   $$('#dpModes .dp-mode').forEach(b => b.onclick = () => {
     if (b.disabled) return; mode = b.dataset.mode; theme = b.dataset.theme || null; paint();
     const t = theme && D.themes.find(x => x.name === theme);
-    if (t && t.photo) show('/' + t.photo); else if (mode === 'MIXED' && photos[0]) { at = 0; show(photos[0]); }
+    if (t && t.photo) show('/' + t.photo); else if (mode === 'MIXED' && photos[0]) gal.goSlide(0);
   });
   const open = D.sizes.filter(z => z.packs > 0);
   if (open.length === 1) size = open[0].size;
@@ -481,7 +477,7 @@ if (D && $('#dpSizes')) {
     if (!isReady() || $('#dpAdd').disabled) return;
     const colours = mode === 'OWN' ? Object.fromEntries(Object.entries(own).filter(([, n]) => n)) : undefined;
     const key = ['d', D.slug, z.size, mode, theme || '', colours ? Object.keys(colours).sort().map(c => c + colours[c]).join('.') : ''].join(':');
-    cart.add({ pack: true, key, slug: D.slug, name: D.name, size: z.size, pieces: D.pieces, mode, theme: theme || undefined, colours, choiceText: choiceText(), price: Number(z.price), qty: 1, max: z.packs, cover: D.cover });
+    cart.add({ pack: true, key, slug: D.slug, name: D.name, size: z.size, pieces: D.pieces, mode, theme: theme || undefined, colours, choiceText: choiceText(), price: Number(z.price), qty: 1, max: z.packs, cover: D.cover, free: D.free_delivery !== false });   // P168
     pixel('AddToCart', { content_ids: ['pack:' + D.slug], content_type: 'product', value: z.price, currency: 'PKR' });
     track('add_to_cart', { l: 'pack:' + D.slug, v: z.price });
     openCart(true);
@@ -749,7 +745,7 @@ async function sendReview(form, extra) {
       out.innerHTML = `<div class="rvo-who"><label>First name <input id="rvoName" maxlength="40" value="${esc(j.name)}"></label><label>City <input id="rvoCity" maxlength="40" value="${esc(j.city)}"></label></div>
         <p class="muted small">Only your first name and city are shown with your review.</p>
         <div class="rvo-list">${j.items.map(it => `<div class="rvo-item">${it.cover ? `<img src="/${esc(it.cover)}" alt="" loading="lazy" width="72" height="90">` : '<span></span>'}
-          <div><h3><a href="/p/${esc(it.slug)}/">${esc(it.name)}</a></h3>${it.reviewed ? '<div class="rv-done">Reviewed — thank you!</div>' : ''}</div>
+          <div><h3><a href="${esc(it.href || `/p/${it.slug}/`)}">${esc(it.name)}</a></h3>${it.reviewed ? '<div class="rv-done">Reviewed — thank you!</div>' : ''}</div>
           ${it.reviewed ? '' : (PG.reviewForm || '').replace('data-code=""', `data-code="${esc(it.code)}"`)}</div>`).join('') || '<p class="muted">None of the pieces in this order are on the website any more.</p>'}</div>`;
       $$('.rv-form', out).forEach(form => {
         wireStars(form);

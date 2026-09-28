@@ -21,7 +21,12 @@ export async function onRequestPost(context) {
   if (!REVIEWED.includes(o.status)) return json({ error: 'NOT_YET', message: 'This order has not been delivered yet — come back once it has arrived.' }, 409);
   const cat = await loadCatalogue(context);
   const done = new Set(((await db.prepare(`SELECT code FROM reviews WHERE phone = ?`).bind(phone).all()).results || []).map(r => r.code));
-  const items = codesOf(cat, o.lines, o.packs).map(code => cat.products.find(p => p.code === code)).filter(Boolean)
-    .map(p => ({ code: p.code, name: p.name, slug: p.slug, cover: p.cover || null, reviewed: done.has(p.code) }));
+  // P168 — a piece that is only on the website as a pack is rated on its pack page
+  const items = codesOf(cat, o.lines, o.packs).map(code => {
+    const p = cat.products.find(x => x.code === code);
+    if (p) return { code, name: p.name, slug: p.slug, href: `/p/${p.slug}/`, cover: p.cover || null };
+    const d = (cat.deals || []).find(x => x.style_code === code);
+    return d ? { code, name: d.name, slug: d.slug, href: `/d/${d.slug}/`, cover: d.cover || (d.photos || [])[0] || null } : null;
+  }).filter(Boolean).map(x => ({ ...x, reviewed: done.has(x.code) }));
   return json({ ok: true, no, name: firstName(o.name), city: clean(o.city, 40) || '', items });
 }

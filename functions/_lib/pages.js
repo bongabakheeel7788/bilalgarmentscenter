@@ -4,6 +4,7 @@ import { money, priceLabel, productsIn, categoryTitle, productAvailability, real
 import { SWATCHES, iconSvg } from './kind-icons.js';   // P141 — a deal without a photo shows its tile's icon
 import { productText, productLd, breadcrumbLd, storeLd, itemListLd, listIntro, ldTag, clip } from './seo.js';   // P164
 
+const SEASON_NAME = { SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' };
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
 
 // P154 — "show highly matching items under the products page" (Fahad, 2026-09-27). A match is SCORED, not
@@ -138,6 +139,43 @@ export function collection(cat, slug) {
   return listing(cat, { title: c.name, products: c.items, canonical: `/collection/${slug}/`, intro: c.blurb || '', description: c.blurb || `${c.name} — a set picked by ${cat.store.name}.` });
 }
 
+// ── P168 — the parts every item page is built from (Fahad, 2026-09-29: "all pages on site should be build equally and
+// if we add some features that feature should be the part of the website not that specific page"). The product page
+// and the pack page are both made of these, so a feature added to one of them is on both.
+/** the gallery: every photo a slide (the size guide second, shown whole), a counter and dots, share on the photo, thumbs */
+function galleryBlock({ shown, name, guide, badge, shareUrl, fallback }) {
+  return `<div class="gallery">
+    <div class="gallery-main">${shown.length ? `<div class="gal-track" id="galTrack">${shown.map((x, i) => `<button type="button" class="gal-slide${x === guide && i > 0 ? ' is-guide' : ''}" data-i="${i}" aria-label="${i === 0 ? 'See the photo full screen' : x === guide ? 'Size guide, full screen' : `Photo ${i + 1}, full screen`}"><img${i === 0 ? ' id="mainImg"' : ''} src="/${attr(x)}" alt="${attr(name)}${i === 0 ? '' : x === guide ? ' — size guide' : ` — photo ${i + 1}`}" width="800" height="1000"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'}></button>`).join('')}</div>`
+      : (fallback || '<div class="noimg"></div>')}${badge || ''}
+      <button type="button" class="gal-share" id="shareBtn" data-url="${attr(shareUrl)}" data-title="${attr(name)}" aria-label="Share this piece"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
+      ${shown.length > 1 ? `<span class="gal-count" id="galCount" aria-hidden="true">1 / ${shown.length}</span><div class="gal-dots" id="galDots" aria-hidden="true">${shown.map((x, i) => `<i${i === 0 ? ' class="on"' : ''}></i>`).join('')}</div>` : ''}</div>
+    ${shown.length > 1 ? `<div class="thumbs">${shown.map((x, i) => x === guide && i > 0
+      ? `<button class="thumb thumb-guide" data-img="/${attr(x)}" data-i="${i}" data-guide="1" aria-label="Size guide"><img src="/${attr(x)}" alt="${attr(name)} — size guide" loading="lazy"><span>Size guide</span></button>`
+      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" data-i="${i}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="${attr(name)} — photo ${i + 1}" loading="lazy"></button>`).join('')}</div>` : ''}
+  </div>`;
+}
+/** the stars under the name, to the reviews — only when there are approved ones */
+const ratingLine = r => r && r.count ? `<a class="buy-rating" href="#reviews"><span class="stars" aria-hidden="true">${'★'.repeat(Math.round(r.avg))}<span class="stars-off">${'★'.repeat(5 - Math.round(r.avg))}</span></span> <b>${esc(r.avg)}</b> <u>${r.count} review${r.count === 1 ? '' : 's'}</u></a>` : '';
+/**
+ * P167 / P168 — the delivery line under the price: a piece switched to free delivery says so (and that its parcel
+ * ships free); otherwise the free-delivery amount, and whether this piece alone reaches it
+ */
+function freeLine(store, { free, price }) {
+  if (free) return '<p class="buy-free"><b>Free delivery</b> — and on everything else in the same parcel</p>';
+  const ff = freeFrom(store);
+  if (!ff) return '';
+  return Number(price) >= ff ? '<p class="buy-free">This piece gets <b>free delivery</b></p>' : `<p class="buy-free"><b>Free delivery</b> on orders of ${esc(money(ff))} or more</p>`;
+}
+/** the folding sections: About open, the rest closed — every word stays in the page */
+const foldsBlock = sections => `<div class="prod-folds">${sections.filter(Boolean).map(x => `<details class="fold${x.cls ? ' ' + x.cls : ''}"${x.open ? ' open' : ''}><summary><h2${x.id ? ` id="${x.id}"` : ''}>${esc(x.title)}</h2></summary><div class="fold-body">${x.html}</div></details>`).join('')}</div>`;
+/** the delivery-and-exchange section, the same on every item page */
+const deliveryFold = (store, free) => ({ title: 'Delivery and exchange', html: `<dl class="details">
+        <dt>Delivery</dt><dd>${free ? 'Free — and on everything else in the same parcel' : esc(deliveryLine(store))} · 3–5 working days (Sundays not counted)</dd>
+        <dt>Payment</dt><dd>Cash on delivery — pay the courier when it arrives.</dd>
+        <dt>Before dispatch</dt><dd>We call to confirm every order.</dd>
+        <dt>Exchange</dt><dd>Within 15 days of delivery, unworn with the tag.</dd>
+      </dl>` });
+
 export function product(cat, slug) {
   const p = cat.bySlug.get(slug);
   if (!p) return null;
@@ -171,20 +209,12 @@ export function product(cat, slug) {
   ${/* P166 — Fahad, 2026-09-28: "make the overall feel of independent product page more premium". On a phone: one
         full-width photo you swipe (every photo is a slide, the size guide second), a counter and dots, share on the
         photo; on a laptop the small photos stay beside it. Every slide is in the page, so Google sees them all. */ ''}
-  <div class="gallery">
-    <div class="gallery-main">${photos.length ? `<div class="gal-track" id="galTrack">${galleryShown.map((x, i) => `<button type="button" class="gal-slide${x === p.size_guide && i > 0 ? ' is-guide' : ''}" data-i="${i}" aria-label="${i === 0 ? 'See the photo full screen' : x === p.size_guide ? 'Size guide, full screen' : `Photo ${i + 1}, full screen`}"><img${i === 0 ? ' id="mainImg"' : ''} src="/${attr(x)}" alt="${attr(p.name)}${i === 0 ? '' : x === p.size_guide ? ' — size guide' : ` — photo ${i + 1}`}" width="800" height="1000"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'}></button>`).join('')}</div>`
-      : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}
-      <button type="button" class="gal-share" id="shareBtn" data-url="${attr(url)}" data-title="${attr(p.name)}" aria-label="Share this piece"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
-      ${galleryShown.length > 1 ? `<span class="gal-count" id="galCount" aria-hidden="true">1 / ${galleryShown.length}</span><div class="gal-dots" id="galDots" aria-hidden="true">${galleryShown.map((x, i) => `<i${i === 0 ? ' class="on"' : ''}></i>`).join('')}</div>` : ''}</div>
-    ${galleryShown.length > 1 ? `<div class="thumbs">${galleryShown.map((x, i) => x === p.size_guide && i > 0
-      ? `<button class="thumb thumb-guide" data-img="/${attr(x)}" data-i="${i}" data-guide="1" aria-label="Size guide"><img src="/${attr(x)}" alt="${attr(p.name)} — size guide" loading="lazy"><span>Size guide</span></button>`
-      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" data-i="${i}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="${attr(p.name)} — photo ${i + 1}" loading="lazy"></button>`).join('')}</div>` : ''}
-  </div>
+  ${galleryBlock({ shown: galleryShown, name: p.name, guide: p.size_guide, badge: p.is_new ? '<span class="badge">New</span>' : '', shareUrl: url })}
   <div class="buy">
     <h1>${esc(p.name)}</h1>
-    ${p.rating && p.rating.count ? `<a class="buy-rating" href="#reviews"><span class="stars" aria-hidden="true">${'★'.repeat(Math.round(p.rating.avg))}<span class="stars-off">${'★'.repeat(5 - Math.round(p.rating.avg))}</span></span> <b>${esc(p.rating.avg)}</b> <u>${p.rating.count} review${p.rating.count === 1 ? '' : 's'}</u></a>` : ''}
+    ${ratingLine(p.rating)}
     <div class="buy-price-row"><div class="buy-price" id="price">${esc(priceLabel(p))}</div>${p.age_range ? `<span class="buy-fits">Fits ${esc(p.age_range)}</span>` : ''}</div>
-    ${/* P167 — the free-delivery amount where the decision is made, and whether this piece alone reaches it */ ''}${freeFrom(store) ? `<p class="buy-free">${Number(p.price_min) >= freeFrom(store) ? 'This piece gets <b>free delivery</b>' : `<b>Free delivery</b> on orders of ${esc(money(freeFrom(store)))} or more`}</p>` : ''}
+    ${freeLine(store, { free: p.free_delivery, price: p.price_min })}
     ${av === 'out' ? '<div class="soldout">Sold out — ask on WhatsApp when it is back.</div>' : ''}
     ${colours.length > 1 ? `<div class="opt"><div class="opt-label">Colour <span id="colourName"></span></div><div class="swatches" id="colours">${colours.map((c, i) => `<button class="swatch${i === 0 ? ' active' : ''}" data-colour="${attr(c.name)}" data-photo="${attr(c.photo || '')}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><span style="background:${attr(c.hex || '#ddd')}"></span></button>`).join('')}</div></div>` : colours.length === 1 ? `<div class="opt"><div class="opt-label">Colour <span>· ${esc(colours[0].name)}</span></div></div>` : ''}
     <div class="opt"><div class="opt-label opt-label-row"><span>Size</span>${p.size_guide ? `<a class="size-guide-link" id="sgOpen" href="/${attr(p.size_guide)}" target="_blank" rel="noopener">Size guide</a>` : ''}</div><div class="sizes" id="sizes">${sizes.map(s => {
@@ -202,25 +232,19 @@ export function product(cat, slug) {
     </div>
     ${promiseRow(store, { compact: true })}
     ${/* P166 — folding sections: About open, the rest closed. <details> needs no script and keeps every word in the page */ ''}
-    <div class="prod-folds">
-      <details class="fold prod-about" open><summary><h2 id="aboutH">About this piece</h2></summary><div class="fold-body">${text.own ? `<p>${esc(text.own)}</p>` : ''}<p>${esc(text.facts)}</p></div></details>
-      <details class="fold"><summary><h2>Details</h2></summary><div class="fold-body"><dl class="details">
+    ${foldsBlock([
+      { cls: 'prod-about', open: true, id: 'aboutH', title: 'About this piece', html: `${text.own ? `<p>${esc(text.own)}</p>` : ''}<p>${esc(text.facts)}</p>` },
+      { title: 'Details', html: `<dl class="details">
         ${p.fabric ? `<dt>Fabric</dt><dd>${esc(p.fabric)}</dd>` : ''}
         ${p.set_contents ? `<dt>In the set</dt><dd>${esc(p.set_contents)}</dd>` : ''}
         ${p.size_group ? `<dt>Size range</dt><dd>${esc(sizes.map(z => p.size_ages && p.size_ages[z] ? `${z} (${p.size_ages[z]})` : z).join(' · '))}</dd>` : ''}
         ${p.age_group ? `<dt>Age</dt><dd>${esc(p.age_group)}</dd>` : ''}
         ${p.product_type ? `<dt>Type</dt><dd>${esc(p.product_type)}</dd>` : ''}
-        ${p.season ? `<dt>Season</dt><dd>${esc({ SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' }[p.season] || p.season)}</dd>` : ''}
+        ${p.season ? `<dt>Season</dt><dd>${esc(SEASON_NAME[p.season] || p.season)}</dd>` : ''}
         <dt>Code</dt><dd>${esc(p.code)}</dd>
-      </dl></div></details>
-      ${p.size_guide ? `<details class="fold"><summary><h2>Size guide</h2></summary><div class="fold-body"><a href="/${attr(p.size_guide)}" target="_blank" rel="noopener" class="fold-guide"><img src="/${attr(p.size_guide)}" alt="${attr(p.name)} — size guide" loading="lazy" width="800" height="1000"></a></div></details>` : ''}
-      <details class="fold"><summary><h2>Delivery and exchange</h2></summary><div class="fold-body"><dl class="details">
-        <dt>Delivery</dt><dd>${esc(deliveryLine(store))} · 3–5 working days (Sundays not counted)</dd>
-        <dt>Payment</dt><dd>Cash on delivery — pay the courier when it arrives.</dd>
-        <dt>Before dispatch</dt><dd>We call to confirm every order.</dd>
-        <dt>Exchange</dt><dd>Within 15 days of delivery, unworn with the tag.</dd>
-      </dl></div></details>
-    </div>
+      </dl>` },
+      p.size_guide ? { title: 'Size guide', html: `<a href="/${attr(p.size_guide)}" target="_blank" rel="noopener" class="fold-guide"><img src="/${attr(p.size_guide)}" alt="${attr(p.name)} — size guide" loading="lazy" width="800" height="1000"></a>` } : null,
+      deliveryFold(store, p.free_delivery)])}
   </div>
 </article>
 ${buyBar(p, store)}
@@ -235,7 +259,7 @@ ${recRow('More like this', related)}
 ${recRow(forWhom(p), forChild)}`;
   return layout(cat, { title: p.name, description: clip(text.own ? `${text.own} ${priceLabel(p)}, cash on delivery all over Pakistan.` : text.facts), canonical: `/p/${p.slug}/`, page: 'p-product', body,
     og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: ldTag(ld) + ldTag(breadcrumbLd(store, trail)),
-    publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos: galleryShown, guide: p.size_guide || null, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
+    publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos: galleryShown, guide: p.size_guide || null, free: !!p.free_delivery, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
 }
 
 // ── P165 — reviews (Fahad, 2026-09-28: "online only, approve genuine ones, photos later") ──────────────────────
@@ -298,18 +322,25 @@ export function deal(cat, slug) {
   const hexOf = new Map(d.sizes.flatMap(z => z.colours.map(c => [c.name, c.hex])));
   const stripe = names => `<span class="dp-pic dp-stripe" aria-hidden="true">${names.slice(0, 6).map(n => `<i style="background:${attr(hexOf.get(n) || '#ddd')}"></i>`).join('')}</span>`;
   const pic = src => `<span class="dp-pic" aria-hidden="true"><img src="/${attr(src)}" alt="" loading="lazy" width="120" height="150"></span>`;
+  // P168 — the same parts as a product page: gallery, stars, price, the delivery line, the bar, the folding sections,
+  // reviews. Only what a pack alone has — choosing the colours — is its own.
+  const free = d.free_delivery !== false;
+  const sizeList = d.sizes.map(z => z.age ? `${z.size} (${z.age})` : z.size);
+  const facts = [`${d.name}: ${d.pieces} pieces of ${d.product || d.name}, all one size.`, d.fabric ? `In ${String(d.fabric).toLowerCase()}.` : '',
+    `${d.sizes.length === 1 ? 'Size' : 'Sizes'} ${sizeList.join(', ')}.`, d.choose_own ? 'Mixed colours, or choose your own at the same price.' : 'Mixed colours.',
+    `${from}${free ? ', free delivery' : ''}, cash on delivery all over Pakistan.`].filter(Boolean).join(' ');
+  const trail = [{ name: 'Home', href: '/' }, { name: d.name, href: `/d/${d.slug}/` }];
   const body = `
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(d.category)} › ${esc(d.name)}</nav>
 <article class="prod deal" data-deal="${attr(d.slug)}">
-  <div class="gallery">
-    <div class="gallery-main" id="dpMainBox">${photos.length ? `<img id="dpMain" src="/${attr(photos[0])}" alt="${attr(d.name)}" width="800" height="1000" fetchpriority="high">`
-      : `<div class="deal-art" style="--kt-tint:${tint};--kt-ink:${ink}">${iconSvg(d.icon, ink, 120)}</div>`}<span class="badge badge-pack">Pack of ${d.pieces}</span></div>
-    ${photos.length > 1 ? `<div class="thumbs" id="dpThumbs">${photos.map((x, i) => `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
-  </div>
+  ${galleryBlock({ shown: photos, name: d.name, badge: `<span class="badge badge-pack">Pack of ${d.pieces}</span>`, shareUrl: url,
+    fallback: `<div class="deal-art" style="--kt-tint:${tint};--kt-ink:${ink}">${iconSvg(d.icon, ink, 120)}</div>` })}
   <div class="buy">
     <h1>${esc(d.name)}</h1>
+    ${ratingLine(d.rating)}
     <div class="buy-meta">${d.pieces} pieces, one size${d.choose_own ? ' · mixed colours, or choose your own' : ' · mixed colours'}</div>
-    <div class="buy-price" id="price">${esc(from)}</div>
+    <div class="buy-price-row"><div class="buy-price" id="price">${esc(from)}</div></div>
+    ${freeLine(store, { free, price: lo })}
     ${any ? '' : '<div class="soldout">Sold out for now — ask on WhatsApp when it is back.</div>'}
     <div class="opt"><div class="opt-label">Size <span id="dpAge"></span></div><div class="sizes" id="dpSizes">${d.sizes.map(z =>
       `<button class="size${z.packs ? '' : ' is-out'}"${z.packs ? '' : ' disabled'} data-size="${attr(z.size)}" title="${attr(z.age ? `fits ${z.age}` : '')}">${esc(z.size)}${z.age ? `<small>${esc(z.age)}</small>` : ''}</button>`).join('')}</div>
@@ -323,17 +354,34 @@ export function deal(cat, slug) {
       <div class="dp-theme-note" id="dpThemeNote" hidden></div>
       <div id="dpOwn" hidden><div class="dp-count" id="dpCount"></div><div class="dp-grid" id="dpGrid"></div></div>
     </div>
-    ${/* P143 — on a phone this stays at the bottom of the screen, with the price on it (mobile first) */ ''}
-    ${/* P154 — the button is live before a size is chosen: a tap takes her to what is still missing (site.js) */ ''}
-    <div class="qty-row dp-buy"><button class="btn btn-primary btn-block" id="dpAdd">Add pack to cart</button></div>
-    <p class="dp-promise"><strong>Free delivery · Cash on delivery.</strong> We call to confirm before dispatch.</p>
+    ${/* P154 — the button is live before a size is chosen: a tap takes her to what is still missing (site.js). P168 — on a phone the bar is the button, as on a product page */ ''}
+    <button class="btn btn-primary btn-block btn-lg buy-add" id="dpAdd">Add pack to cart</button>
     ${any ? etaLine() : ''}
     <div class="buy-actions">
       <a class="btn btn-outline" data-where="deal" href="${attr(waLink(store, `Hi, I'm asking about ${d.name} — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
     </div>
     ${promiseRow(store, { compact: true })}
+    ${foldsBlock([
+      { cls: 'prod-about', open: true, id: 'aboutH', title: 'About this pack', html: `${d.description ? `<p>${esc(d.description)}</p>` : ''}<p>${esc(facts)}</p>` },
+      { title: 'Details', html: `<dl class="details">
+        <dt>In a pack</dt><dd>${d.pieces} pieces, one size</dd>
+        ${d.product ? `<dt>Product</dt><dd>${esc(d.product)}</dd>` : ''}
+        ${d.fabric ? `<dt>Fabric</dt><dd>${esc(d.fabric)}</dd>` : ''}
+        <dt>Sizes</dt><dd>${esc(sizeList.join(' · '))}</dd>
+        <dt>Colours</dt><dd>${d.choose_own ? 'Mixed, or choose your own' : 'Mixed'}${(d.themes || []).length ? ` · themes: ${esc(d.themes.map(t => t.name).join(', '))}` : ''}</dd>
+        ${d.season ? `<dt>Season</dt><dd>${esc(SEASON_NAME[d.season] || d.season)}</dd>` : ''}
+      </dl>` },
+      deliveryFold(store, free)])}
   </div>
 </article>
+${buyBar({ name: d.name, code: d.style_code, slug: d.slug, href: `/d/${d.slug}/` }, store, 'Add pack to cart')}
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-x" id="lbClose" aria-label="Close">&#10005;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <img id="lbImg" src="" alt="${attr(d.name)}">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+</div>
+${reviewsBlock(cat, { code: d.style_code, rating: d.rating, reviews: d.reviews })}
 ${(() => {
     // P154 — the pack page is the one the ads land on: it recommends too. Its own card (P143) knows who it is for;
     // a pack that is not listed as a product is matched by its kind and the months its sizes fit.
@@ -347,9 +395,11 @@ ${(() => {
     const other = recommend(cat, self, { same: false, exclude: new Set(same.map(x => x.code)), groups });
     return recRow('More like this', same) + recRow(forWhom(self, groups), other);
   })()}`;
-  return layout(cat, { title: d.name, description: `${d.name} — ${d.pieces} pieces, one size, ${from}. Free delivery, cash on delivery all over Pakistan.`, canonical: `/d/${d.slug}/`, page: 'p-product p-deal', body,
-    og: { title: `${d.name} — ${from}`, image: photos[0] },
-    publicData: { deal: { slug: d.slug, name: d.name, pieces: d.pieces, choose_own: d.choose_own, cover: photos[0] || null, photos, sizes: d.sizes, themes: d.themes || [] } } });
+  const ld = productLd({ name: d.name, code: d.style_code, category: d.category, category_parent: d.category_parent, fabric: d.fabric, colours: [],
+    price_min: lo, price_max: hi, variants: d.sizes.map(z => ({ size: z.size })), free_delivery: free, rating: d.rating, reviews: d.reviews }, store, { photos, url, text: facts, availability: any ? 'in' : 'out' });
+  return layout(cat, { title: d.name, description: clip(`${d.name} — ${d.pieces} pieces, one size, ${from}.${free ? ' Free delivery,' : ''} cash on delivery all over Pakistan.`), canonical: `/d/${d.slug}/`, page: 'p-product p-deal', body,
+    og: { title: `${d.name} — ${from}`, image: photos[0] }, head: ldTag(ld) + ldTag(breadcrumbLd(store, trail)),
+    publicData: { deal: { slug: d.slug, name: d.name, pieces: d.pieces, choose_own: d.choose_own, cover: photos[0] || null, photos, sizes: d.sizes, themes: d.themes || [], free_delivery: free } } });
 }
 
 export function search(cat, q) {
