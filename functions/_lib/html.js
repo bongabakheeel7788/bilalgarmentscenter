@@ -111,6 +111,7 @@ ${head}
   <div class="wrap hdr-row">
     ${brandMark(store)}
     <form class="hdr-search" action="/search/" role="search"><input type="search" name="q" placeholder="Search — boys shirt, 3 piece, navy…" aria-label="Search products" autocomplete="off"><button type="submit" aria-label="Search">⌕</button></form>
+    ${/* P166 — on a phone's product page the search box folds behind this icon, so the photo starts near the top */ ''}<button type="button" class="hdr-sbtn" id="hdrSearchBtn" aria-label="Search" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
     <button class="cart-btn" id="cartBtn" aria-label="Cart"><span class="cart-ico">🛍</span><span class="cart-count" id="cartCount" hidden>0</span></button>
   </div>
   <nav class="wrap nav" aria-label="Categories">${nav.map(n => `<a href="${attr(n.href)}">${esc(n.label)}</a>`).join('')}<a href="/all/">Everything</a></nav>
@@ -341,10 +342,13 @@ export function catTiles(cat) {
 // and the reading is what decides the sale. This slim bar takes its place: the
 // price, the size you chose, and the same button. site.js shows it only once the
 // real one has gone, so on a laptop it never appears at all.
-export function buyBar(p) {
+// P166 — on a phone the bar is always there (the page's own button hides there): WhatsApp beside the button,
+// the chosen size above it once there is one. On a laptop it still appears only after the button has scrolled away.
+export function buyBar(p, store) {
+  const wa = store ? waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${String(store.site_url || '').replace(/\/$/, '')}/p/${p.slug}/`) : '';
   return `<div class="buybar" id="buyBar" hidden>
-    <div class="bb-text"><strong id="bbPrice">${esc(priceLabel(p))}</strong><span id="bbSize">Choose a size</span></div>
-    <button class="btn btn-primary" id="bbAdd">Add to cart</button>
+    ${wa ? `<a class="bb-wa" data-where="buybar" href="${attr(wa)}" target="_blank" rel="noopener" aria-label="Ask on WhatsApp"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>` : ''}
+    <div class="bb-main"><span class="bb-size" id="bbSize" hidden></span><button class="btn btn-primary" id="bbAdd">Add to cart · <span id="bbPrice">${esc(priceLabel(p))}</span></button></div>
   </div>`;
 }
 

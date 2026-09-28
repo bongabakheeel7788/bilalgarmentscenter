@@ -167,7 +167,15 @@ if (P && $('#sizes')) {
     const cn = $('#colourName'); if (cn) cn.textContent = colour && colour.toLowerCase() !== 'standard' ? '· ' + colour : '';
   };
   const allOut = !P.variants.some(v => v.availability !== 'out');
-  const markColour = c => { const sw = $$('#colours .swatch').find(x => x.dataset.colour === c); $$('#colours .swatch').forEach(x => x.classList.remove('active')); if (!sw) return; sw.classList.add('active'); if (sw.dataset.photo) $('#mainImg').src = '/' + sw.dataset.photo; };
+  // P166 — the gallery is a row of slides you swipe; a colour's photo is found among them, else shown in the first
+  const galTrack = $('#galTrack'), slides = galTrack ? $$('.gal-slide', galTrack) : [];
+  const goSlide = (i, smooth = true) => { if (!galTrack || !slides[i]) return; galTrack.scrollTo({ left: slides[i].offsetLeft, behavior: smooth ? 'smooth' : 'auto' }); };
+  const showPhoto = src => {
+    const i = slides.findIndex(s => (s.querySelector('img').getAttribute('src') || '') === src);
+    if (i >= 0) return goSlide(i);
+    const mi = $('#mainImg'); if (mi) { mi.src = src; goSlide(0); }
+  };
+  const markColour = c => { const sw = $$('#colours .swatch').find(x => x.dataset.colour === c); $$('#colours .swatch').forEach(x => x.classList.remove('active')); if (!sw) return; sw.classList.add('active'); if (sw.dataset.photo) showPhoto('/' + sw.dataset.photo); };
   const hasPair = (s, c) => P.variants.some(v => v.size === s && v.colour === c);
   // P154 — a size the chosen colour does not come in used to put ANOTHER colour's piece in the cart while the swatch
   // still showed hers. Now the swatch moves to the colour that will actually be sent, where she can see it.
@@ -177,17 +185,29 @@ if (P && $('#sizes')) {
     paintSizes();
   });
   $$('#colours .swatch').forEach(b => b.onclick = () => {
-    $$('#colours .swatch').forEach(x => x.classList.remove('active')); b.classList.add('active'); colour = b.dataset.colour; if (b.dataset.photo) $('#mainImg').src = '/' + b.dataset.photo;
+    $$('#colours .swatch').forEach(x => x.classList.remove('active')); b.classList.add('active'); colour = b.dataset.colour; if (b.dataset.photo) showPhoto('/' + b.dataset.photo);
     if (size && !hasPair(size, colour)) size = null;      // P154 — this colour has no such size: she chooses again, never a silent swap
     paintSizes();
   });
-  // P156 — the size guide is the second photo: shown whole (contain, on white), not cropped like a garment
-  const showMain = (src, guide) => { $('#mainImg').src = src; const box = $('.gallery-main'); if (box) box.classList.toggle('is-guide', !!guide); };
-  $$('.thumb').forEach(b => b.onclick = () => { $$('.thumb').forEach(x => x.classList.remove('active')); b.classList.add('active'); showMain(b.dataset.img, b.dataset.guide); });
-  // whatever puts a picture in the main spot (a thumb, a colour swatch), the guide look follows the picture itself
-  const mi = $('#mainImg'); if (mi && P.guide) mi.addEventListener('load', () => { const box = $('.gallery-main'); if (box) box.classList.toggle('is-guide', mi.getAttribute('src') === '/' + P.guide); });
+  // P156 — the size guide is the second photo: shown whole (contain, on white), not cropped like a garment (.is-guide
+  // on its slide). P166 — a thumb goes to its slide; the counter, the dots and the thumbs follow the swipe.
+  let at = 0;
+  $$('.thumb').forEach(b => b.onclick = () => goSlide(Number(b.dataset.i) || 0));
+  if (galTrack) {
+    const dots = $$('#galDots i'), count = $('#galCount');
+    const follow = () => {
+      const i = Math.round(galTrack.scrollLeft / Math.max(1, galTrack.clientWidth));
+      if (i === at || !slides[i]) return;
+      at = i;
+      dots.forEach((d, k) => d.classList.toggle('on', k === i));
+      if (count) count.textContent = `${i + 1} / ${slides.length}`;
+      $$('.thumb').forEach(x => x.classList.toggle('active', Number(x.dataset.i) === i));
+    };
+    galTrack.addEventListener('scroll', () => requestAnimationFrame(follow), { passive: true });
+  }
   const sg = $('#sgOpen');
-  if (sg && $('.thumb-guide')) sg.onclick = e => { e.preventDefault(); $('.thumb-guide').click(); $('.gallery-main').scrollIntoView({ block: 'start', behavior: 'smooth' }); };
+  const gi = slides.findIndex(s => s.classList.contains('is-guide'));
+  if (sg && gi >= 0) sg.onclick = e => { e.preventDefault(); goSlide(gi, false); $('.gallery-main').scrollIntoView({ block: 'start', behavior: 'smooth' }); };
   // one size only → pre-select it
   const inStock = $$('#sizes .size').filter(b => { const v = variantFor(b.dataset.size, colour); return v && v.availability !== 'out'; });
   if (inStock.length === 1) {
@@ -202,7 +222,7 @@ if (P && $('#sizes')) {
       $('#sizeHint').textContent = colourOut ? 'Sold out in this colour — choose another colour.' : 'Choose a size first.';
       $(colourOut ? '#colours' : '#sizes').scrollIntoView({ block: 'center', behavior: 'smooth' }); return;
     }
-    const qty = Math.max(1, Math.min(10, Number($('#qty').value) || 1));
+    const qty = $('#qty') ? Math.max(1, Math.min(10, Number($('#qty').value) || 1)) : 1;   // P166 — the cart changes how many
     cart.add({ variant_id: Number(v.id), code: P.code, slug: P.slug, name: P.name, size: v.size, colour: v.colour, price: Number(v.price), qty, cover: P.cover });
     pixel('AddToCart', { content_ids: [P.code], content_type: 'product', value: v.price * qty, currency: 'PKR' });
     track('add_to_cart', { l: P.code, v: v.price * qty });
@@ -213,7 +233,10 @@ if (P && $('#sizes')) {
   // that decides the sale begins. This shows a slim copy once it has gone, and
   // only then: on a laptop the observer never fires because the button stays put.
   const bar = $('#buyBar'), addBtn = $('#addBtn');
-  if (bar && addBtn && 'IntersectionObserver' in window) {
+  const phone = window.matchMedia('(max-width: 820px)');
+  // P166 — on a phone the bar is the Add to cart button: there from the first moment, the page's own one hidden
+  if (bar && addBtn && phone.matches) { bar.hidden = false; document.body.classList.add('has-buybar'); $('#bbAdd').onclick = () => addBtn.click(); }
+  else if (bar && addBtn && 'IntersectionObserver' in window) {
     const showBar = on => { bar.hidden = !on; document.body.classList.toggle('has-buybar', on); };
     // only once you have gone PAST the button, never before you have reached it:
     // a buy bar sitting over the price on a page you have not scrolled yet is a
@@ -229,7 +252,8 @@ if (P && $('#sizes')) {
     if (!bar) return;
     const v = size ? variantFor(size, colour) : null;
     $('#bbPrice').textContent = v ? money(v.price) : $('#price').textContent;
-    $('#bbSize').textContent = v ? `Size ${v.size}${v.colour && v.colour.toLowerCase() !== 'standard' ? ' · ' + v.colour : ''}` : 'Choose a size';
+    const bs = $('#bbSize');
+    if (bs) { bs.textContent = v ? `Size ${v.size}${v.colour && v.colour.toLowerCase() !== 'standard' ? ' · ' + v.colour : ''}` : ''; bs.hidden = !v; }
     $('#bbAdd').disabled = !!(v && v.availability === 'out');
   };
   const afterPaint = paintSizes;
@@ -242,6 +266,7 @@ if (P && $('#sizes')) {
   const lb = $('#lightbox'), photos = (P.photos || [P.cover]).filter(Boolean);
   if (lb && photos.length) {
     let at = 0;
+    slides.forEach(s => s.addEventListener('click', () => { open(true); show(Number(s.dataset.i) || 0); }));
     const show = i => {
       at = (i + photos.length) % photos.length;
       $('#lbImg').src = '/' + photos[at];
@@ -721,5 +746,16 @@ async function sendReview(form, extra) {
       });
     } catch { err.textContent = 'No connection — please try again.'; err.hidden = false; }
     finally { btn.disabled = false; }
+  };
+})();
+
+// ── P166 — the search icon in a phone's product-page header opens the box (and the menu) and puts the cursor in it
+(function headerSearch() {
+  const b = $('#hdrSearchBtn'), hdr = $('.hdr');
+  if (!b || !hdr) return;
+  b.onclick = () => {
+    const open = hdr.classList.toggle('s-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    const box = $('.hdr-search input'); if (open && box) box.focus();
   };
 })();

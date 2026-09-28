@@ -168,49 +168,61 @@ export function product(cat, slug) {
   const body = `
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a>${p.category_parent ? ` › <a href="/c/${attr(cat.parents.find(x => x.name === p.category_parent)?.slug || '')}/">${esc(p.category_parent)}</a>` : ''} › <a href="/c/${attr((cat.categories.find(c => c.name === p.category && (c.parent || null) === (p.category_parent || null)) || {}).slug || '')}/">${esc(p.category)}</a></nav>
 <article class="prod" data-code="${attr(p.code)}">
+  ${/* P166 — Fahad, 2026-09-28: "make the overall feel of independent product page more premium". On a phone: one
+        full-width photo you swipe (every photo is a slide, the size guide second), a counter and dots, share on the
+        photo; on a laptop the small photos stay beside it. Every slide is in the page, so Google sees them all. */ ''}
   <div class="gallery">
-    <div class="gallery-main">${photos.length ? `<button type="button" class="zoom-open" id="zoomOpen" aria-label="See the photo full screen"><img id="mainImg" src="/${attr(photos[0])}" alt="${attr(p.name)}" width="800" height="1000" fetchpriority="high"></button>` : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}</div>
+    <div class="gallery-main">${photos.length ? `<div class="gal-track" id="galTrack">${galleryShown.map((x, i) => `<button type="button" class="gal-slide${x === p.size_guide && i > 0 ? ' is-guide' : ''}" data-i="${i}" aria-label="${i === 0 ? 'See the photo full screen' : x === p.size_guide ? 'Size guide, full screen' : `Photo ${i + 1}, full screen`}"><img${i === 0 ? ' id="mainImg"' : ''} src="/${attr(x)}" alt="${attr(p.name)}${i === 0 ? '' : x === p.size_guide ? ' — size guide' : ` — photo ${i + 1}`}" width="800" height="1000"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'}></button>`).join('')}</div>`
+      : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}
+      <button type="button" class="gal-share" id="shareBtn" data-url="${attr(url)}" data-title="${attr(p.name)}" aria-label="Share this piece"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
+      ${galleryShown.length > 1 ? `<span class="gal-count" id="galCount" aria-hidden="true">1 / ${galleryShown.length}</span><div class="gal-dots" id="galDots" aria-hidden="true">${galleryShown.map((x, i) => `<i${i === 0 ? ' class="on"' : ''}></i>`).join('')}</div>` : ''}</div>
     ${galleryShown.length > 1 ? `<div class="thumbs">${galleryShown.map((x, i) => x === p.size_guide && i > 0
-      ? `<button class="thumb thumb-guide" data-img="/${attr(x)}" data-guide="1" aria-label="Size guide"><img src="/${attr(x)}" alt="${attr(p.name)} — size guide" loading="lazy"><span>Size guide</span></button>`
-      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="${attr(p.name)} — photo ${i + 1}" loading="lazy"></button>`).join('')}</div>` : ''}
+      ? `<button class="thumb thumb-guide" data-img="/${attr(x)}" data-i="${i}" data-guide="1" aria-label="Size guide"><img src="/${attr(x)}" alt="${attr(p.name)} — size guide" loading="lazy"><span>Size guide</span></button>`
+      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" data-i="${i}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="${attr(p.name)} — photo ${i + 1}" loading="lazy"></button>`).join('')}</div>` : ''}
   </div>
   <div class="buy">
     <h1>${esc(p.name)}</h1>
-    <div class="buy-meta">${esc(p.code)} · ${esc(p.category_parent ? p.category_parent + ' · ' : '')}${esc(p.category)}</div>
-    <div class="buy-price" id="price">${esc(priceLabel(p))}</div>
+    ${p.rating && p.rating.count ? `<a class="buy-rating" href="#reviews"><span class="stars" aria-hidden="true">${'★'.repeat(Math.round(p.rating.avg))}<span class="stars-off">${'★'.repeat(5 - Math.round(p.rating.avg))}</span></span> <b>${esc(p.rating.avg)}</b> <u>${p.rating.count} review${p.rating.count === 1 ? '' : 's'}</u></a>` : ''}
+    <div class="buy-price-row"><div class="buy-price" id="price">${esc(priceLabel(p))}</div>${p.age_range ? `<span class="buy-fits">Fits ${esc(p.age_range)}</span>` : ''}</div>
     ${av === 'out' ? '<div class="soldout">Sold out — ask on WhatsApp when it is back.</div>' : ''}
-    ${colours.length > 1 ? `<div class="opt"><div class="opt-label">Colour <span id="colourName"></span></div><div class="swatches" id="colours">${colours.map((c, i) => `<button class="swatch${i === 0 ? ' active' : ''}" data-colour="${attr(c.name)}" data-photo="${attr(c.photo || '')}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><span style="background:${attr(c.hex || '#ddd')}"></span></button>`).join('')}</div></div>` : colours.length === 1 ? `<div class="opt"><div class="opt-label">Colour: ${esc(colours[0].name)}</div></div>` : ''}
-    <div class="opt"><div class="opt-label">Size</div><div class="sizes" id="sizes">${sizes.map(s => {
+    ${colours.length > 1 ? `<div class="opt"><div class="opt-label">Colour <span id="colourName"></span></div><div class="swatches" id="colours">${colours.map((c, i) => `<button class="swatch${i === 0 ? ' active' : ''}" data-colour="${attr(c.name)}" data-photo="${attr(c.photo || '')}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><span style="background:${attr(c.hex || '#ddd')}"></span></button>`).join('')}</div></div>` : colours.length === 1 ? `<div class="opt"><div class="opt-label">Colour <span>· ${esc(colours[0].name)}</span></div></div>` : ''}
+    <div class="opt"><div class="opt-label opt-label-row"><span>Size</span>${p.size_guide ? `<a class="size-guide-link" id="sgOpen" href="/${attr(p.size_guide)}" target="_blank" rel="noopener">Size guide</a>` : ''}</div><div class="sizes" id="sizes">${sizes.map(s => {
       // P68c — rendered with its availability ALREADY on it. site.js refines this
       // per colour, but a phone on a slow connection sees the truth immediately
       // instead of every size looking buyable until the script arrives.
       const live = (p.variants || []).filter(v => v.size === s && v.availability !== 'out');
       const few = live.length && live.every(v => v.availability === 'few');
       return `<button class="size${live.length ? (few ? ' is-few' : '') : ' is-out'}"${live.length ? '' : ' disabled'} data-size="${attr(s)}" title="${attr(p.size_ages && p.size_ages[s] ? `fits ${p.size_ages[s]}` : '')}">${esc(s)}${p.size_ages && p.size_ages[s] ? `<small>${esc(p.size_ages[s])}</small>` : ''}</button>`;
-    }).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div>
-    ${p.size_guide ? `<a class="size-guide-link" id="sgOpen" href="/${attr(p.size_guide)}" target="_blank" rel="noopener">&#128207;&#65038; Size guide — see the measurements</a>` : ''}</div>
-    <div class="qty-row"><label>Qty <input type="number" id="qty" value="1" min="1" max="10"></label>
-      <button class="btn btn-primary" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button></div>
+    }).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div></div>
+    <button class="btn btn-primary btn-block btn-lg buy-add" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button>
     ${av === 'out' ? '' : etaLine()}
     <div class="buy-actions">
       <a class="btn btn-outline" data-where="product" href="${attr(waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
-      <button class="btn btn-outline" id="shareBtn" data-url="${attr(url)}" data-title="${attr(p.name)}">Share</button>
     </div>
     ${promiseRow(store, { compact: true })}
-    <section class="prod-about" aria-labelledby="aboutH"><h2 id="aboutH">About this piece</h2>${text.own ? `<p>${esc(text.own)}</p>` : ''}<p>${esc(text.facts)}</p></section>
-    <dl class="details">
-      ${p.fabric ? `<dt>Fabric</dt><dd>${esc(p.fabric)}</dd>` : ''}
-      ${p.set_contents ? `<dt>In the set</dt><dd>${esc(p.set_contents)}</dd>` : ''}
-      ${p.size_group ? `<dt>Size range</dt><dd>${esc(sizes.map(z => p.size_ages && p.size_ages[z] ? `${z} (${p.size_ages[z]})` : z).join(' · '))}</dd>` : ''}
-      ${p.age_group ? `<dt>Age</dt><dd>${esc(p.age_group)}</dd>` : ''}
-      ${p.product_type ? `<dt>Type</dt><dd>${esc(p.product_type)}</dd>` : ''}
-      ${p.season ? `<dt>Season</dt><dd>${esc({ SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' }[p.season] || p.season)}</dd>` : ''}
-      <dt>Delivery</dt><dd>${esc(deliveryLine(store))} · 3–5 working days (Sundays not counted)</dd>
-      <dt>Exchange</dt><dd>Within 15 days of delivery, unworn with the tag.</dd>
-    </dl>
+    ${/* P166 — folding sections: About open, the rest closed. <details> needs no script and keeps every word in the page */ ''}
+    <div class="prod-folds">
+      <details class="fold prod-about" open><summary><h2 id="aboutH">About this piece</h2></summary><div class="fold-body">${text.own ? `<p>${esc(text.own)}</p>` : ''}<p>${esc(text.facts)}</p></div></details>
+      <details class="fold"><summary><h2>Details</h2></summary><div class="fold-body"><dl class="details">
+        ${p.fabric ? `<dt>Fabric</dt><dd>${esc(p.fabric)}</dd>` : ''}
+        ${p.set_contents ? `<dt>In the set</dt><dd>${esc(p.set_contents)}</dd>` : ''}
+        ${p.size_group ? `<dt>Size range</dt><dd>${esc(sizes.map(z => p.size_ages && p.size_ages[z] ? `${z} (${p.size_ages[z]})` : z).join(' · '))}</dd>` : ''}
+        ${p.age_group ? `<dt>Age</dt><dd>${esc(p.age_group)}</dd>` : ''}
+        ${p.product_type ? `<dt>Type</dt><dd>${esc(p.product_type)}</dd>` : ''}
+        ${p.season ? `<dt>Season</dt><dd>${esc({ SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' }[p.season] || p.season)}</dd>` : ''}
+        <dt>Code</dt><dd>${esc(p.code)}</dd>
+      </dl></div></details>
+      ${p.size_guide ? `<details class="fold"><summary><h2>Size guide</h2></summary><div class="fold-body"><a href="/${attr(p.size_guide)}" target="_blank" rel="noopener" class="fold-guide"><img src="/${attr(p.size_guide)}" alt="${attr(p.name)} — size guide" loading="lazy" width="800" height="1000"></a></div></details>` : ''}
+      <details class="fold"><summary><h2>Delivery and exchange</h2></summary><div class="fold-body"><dl class="details">
+        <dt>Delivery</dt><dd>${esc(deliveryLine(store))} · 3–5 working days (Sundays not counted)</dd>
+        <dt>Payment</dt><dd>Cash on delivery — pay the courier when it arrives.</dd>
+        <dt>Before dispatch</dt><dd>We call to confirm every order.</dd>
+        <dt>Exchange</dt><dd>Within 15 days of delivery, unworn with the tag.</dd>
+      </dl></div></details>
+    </div>
   </div>
 </article>
-${buyBar(p)}
+${buyBar(p, store)}
 <div class="lightbox" id="lightbox" hidden>
   <button class="lb-x" id="lbClose" aria-label="Close">&#10005;</button>
   <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
