@@ -33,16 +33,23 @@ export async function onRequestGet(context) {
   return html(pages.notFound(cat), 404, { 'Cache-Control': 'no-store' });
 }
 
+// P164 — each product with the day it last changed and its photos, so Google finds the pictures too
+const xmlEsc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 function sitemap(cat, origin) {
   const site = (cat && cat.store && cat.store.site_url) ? String(cat.store.site_url).replace(/\/$/, '') : origin;
   const urls = ['/', '/new/', '/all/', '/visit/'];
+  const extra = new Map();
   if (cat) {
     for (const g of cat.groups || []) urls.push(`/for/${g.key}/`);   // P136
     for (const p of cat.parents) urls.push(`/c/${p.slug}/`);
     for (const c of cat.categories || []) urls.push(`/c/${c.slug}/`);
     for (const c of cat.collections) urls.push(`/collection/${c.slug}/`);
-    for (const p of cat.products) urls.push(`/p/${p.slug}/`);
+    for (const p of cat.products) {
+      const u = `/p/${p.slug}/`; urls.push(u);
+      const pics = [...new Set([...(p.photos || []).map(x => x.src), p.cover].filter(Boolean))].slice(0, 10);
+      extra.set(u, `${p.updated || p.first_published ? `<lastmod>${xmlEsc(p.updated || p.first_published)}</lastmod>` : ''}${pics.map(x => `<image:image><image:loc>${xmlEsc(site + '/' + String(x).replace(/^\//, ''))}</image:loc></image:image>`).join('')}`);
+    }
     for (const d of cat.deals || []) urls.push(`/d/${d.slug}/`);   // P141
   }
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `<url><loc>${site}${u}</loc></url>`).join('\n')}\n</urlset>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.map(u => `<url><loc>${xmlEsc(site + u)}</loc>${extra.get(u) || ''}</url>`).join('\n')}\n</urlset>`;
 }

@@ -2,6 +2,7 @@
 import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, promiseRow, catTiles, buyBar, kindTiles, chipRow } from './html.js';
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours, groupsOf, FOR_GROUPS } from './catalogue.js';
 import { SWATCHES, iconSvg } from './kind-icons.js';   // P141 — a deal without a photo shows its tile's icon
+import { productText, productLd, breadcrumbLd, storeLd, itemListLd, listIntro, ldTag, clip } from './seo.js';   // P164
 
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
 
@@ -80,12 +81,17 @@ ${section('Shop by category', catTiles(cat))}
 ${section('Everything', `<div class="grid">${everything.slice(0, HOME_MAX).map(card).join('')}</div>${
   everything.length > HOME_MAX ? `<div class="more-row"><a class="btn btn-outline btn-lg" href="/all/">See everything (${everything.length} pieces)</a></div>` : ''}`,
   everything.length > HOME_MAX ? { href: '/all/', label: 'See everything' } : null)}`;
-  return layout(cat, { title: '', description: `${store.tagline || ''} Order online, cash on delivery.`, canonical: '/', page: 'p-home', body, og: { image: hero && hero.cover } });
+  return layout(cat, { title: '', description: `${store.tagline || ''} Order online, cash on delivery.`, canonical: '/', page: 'p-home', body, og: { image: hero && hero.cover },
+    head: ldTag(storeLd(store)) });   // P164
 }
 
-export function listing(cat, { title, products, canonical, description, intro }) {
-  const body = `<div class="page-head"><h1>${esc(title)}</h1>${intro ? `<p>${esc(intro)}</p>` : ''}</div>${grid(products, { ageGroups: cat.ageGroups })}`;
-  return layout(cat, { title, description: description || `${title} at ${cat.store.name} — ${products.length} pieces, cash on delivery.`, canonical, page: 'p-list', body, og: { image: (products.find(p => p.cover) || {}).cover } });
+export function listing(cat, { title, products, canonical, description, intro, crumbs }) {
+  // P164 — every listing says what is in it (how many, the prices, the ages) and tells Google the same, in order
+  const auto = listIntro(cat, products);
+  const trail = crumbs || [{ name: 'Home', href: '/' }, { name: title, href: canonical }];
+  const body = `<div class="page-head"><h1>${esc(title)}</h1>${intro ? `<p>${esc(intro)}</p>` : ''}${auto ? `<p class="list-intro">${esc(auto)}</p>` : ''}</div>${grid(products, { ageGroups: cat.ageGroups })}`;
+  return layout(cat, { title, description: description || clip(`${title} at ${cat.store.name}: ${auto || 'new pieces every week.'}`), canonical, page: 'p-list', body, og: { image: (products.find(p => p.cover) || {}).cover },
+    head: ldTag(breadcrumbLd(cat.store, trail)) + (products.length ? ldTag(itemListLd(cat.store, products)) : '') });
 }
 
 export function newArrivals(cat) {
@@ -106,20 +112,24 @@ export function forPage(cat, key) {
   const sizes = g.byAge ? [] : [...new Set(items.flatMap(p => (p.variants || []).filter(v => v.availability !== 'out').map(v => (p.size_free || {})[v.size] || v.size)))];
   const kinds = [...items.reduce((m, p) => m.set(p.category, (m.get(p.category) || 0) + 1), new Map()).entries()].sort((a, b) => b[1] - a[1]);
   const body = `<div class="page-head"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(g.title)}</nav>
-    <h1>${esc(g.title)} <small>${items.length} piece${items.length === 1 ? '' : 's'}</small></h1></div>
+    <h1>${esc(g.title)} <small>${items.length} piece${items.length === 1 ? '' : 's'}</small></h1>${items.length ? `<p class="list-intro">${esc(listIntro(cat, items))}</p>` : ''}</div>
     ${g.byAge ? chipRow({ title: g.ask, field: 'agem', options: ages.map(a => ({ value: String(a.months), label: a.name })), any: 'Any age' }) : ''}
     ${!g.byAge && sizes.length > 1 ? chipRow({ title: g.ask, field: 'size', options: sizes.map(s => ({ value: s, label: s })), any: 'Any size' }) : ''}
     ${kinds.length > 1 ? chipRow({ title: 'What kind?', field: 'kind', options: kinds.map(([k, n]) => ({ value: k, label: k, count: n })), any: 'Everything' }) : ''}
     ${g.byAge ? '<p class="for-note">A piece shows when any of its sizes fits the age you pick.</p>' : ''}
     ${grid(items, { ageGroups: cat.ageGroups, ageChips: g.byAge })}`;
-  return layout(cat, { title: g.title, description: `${g.title} at ${cat.store.name} — ${items.length} pieces, cash on delivery all over Pakistan.`, canonical: `/for/${key}/`, page: 'p-list p-for', body,
-    og: { image: (items.find(p => p.cover) || {}).cover }, publicData: { forGroup: key } });
+  return layout(cat, { title: g.title, description: clip(`${g.title} at ${cat.store.name}: ${listIntro(cat, items)}`), canonical: `/for/${key}/`, page: 'p-list p-for', body,
+    og: { image: (items.find(p => p.cover) || {}).cover }, publicData: { forGroup: key },
+    head: ldTag(breadcrumbLd(cat.store, [{ name: 'Home', href: '/' }, { name: g.title, href: `/for/${key}/` }])) + ldTag(itemListLd(cat.store, items)) });   // P164
 }
 
 export function category(cat, slug) {
   const products = productsIn(cat, slug);
   if (!products) return null;
-  return listing(cat, { title: categoryTitle(cat, slug), products: products.sort(byNewest), canonical: `/c/${slug}/` });
+  const c = (cat.categories || []).find(x => x.slug === slug);
+  const par = c && c.parent ? cat.parents.find(x => x.name === c.parent) : null;
+  const crumbs = [{ name: 'Home', href: '/' }, ...(par ? [{ name: par.name, href: `/c/${par.slug}/` }] : []), { name: c ? c.name : categoryTitle(cat, slug), href: `/c/${slug}/` }];   // P164
+  return listing(cat, { title: categoryTitle(cat, slug), products: products.sort(byNewest), canonical: `/c/${slug}/`, crumbs });
 }
 
 export function collection(cat, slug) {
@@ -142,8 +152,13 @@ export function product(cat, slug) {
   const url = `${String(store.site_url || '').replace(/\/$/, '')}/p/${p.slug}/`;
   const sizes = p.sizes || [];
   const variantsData = (p.variants || []).map(v => ({ id: v.id, size: v.size, colour: v.colour, price: v.price, availability: v.availability }));
-  const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name, productID: p.code, image: photos.map(x => `${String(store.site_url || '').replace(/\/$/, '')}/${x}`), description: [p.category_parent, p.category, p.fabric, p.set_contents].filter(Boolean).join(' · '), brand: { '@type': 'Brand', name: store.name },
-    offers: { '@type': 'AggregateOffer', priceCurrency: 'PKR', lowPrice: p.price_min, highPrice: p.price_max, offerCount: (p.variants || []).length, availability: av === 'out' ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock', url } };
+  // P164 — the words (the shop's own, then the facts), the Product data and the trail Google reads
+  const text = productText(p, store);
+  const ld = productLd(p, store, { photos, url, text: text.all, availability: av });
+  const parentCat = p.category_parent ? cat.parents.find(x => x.name === p.category_parent) : null;
+  const ownCat = (cat.categories || []).find(c => c.name === p.category && (c.parent || null) === (p.category_parent || null));
+  const trail = [{ name: 'Home', href: '/' }, ...(parentCat ? [{ name: parentCat.name, href: `/c/${parentCat.slug}/` }] : []),
+    ...(ownCat ? [{ name: ownCat.name, href: `/c/${ownCat.slug}/` }] : []), { name: p.name, href: `/p/${p.slug}/` }];
   // P154 — two rows, each scored (recommend() above). The second used to be "Others in size 24", matched by the
   // size's NAME across every maker and every child — a girls' frock offered gents' trousers in size M. It is now
   // the other kinds that fit the same child. Neither row repeats the other.
@@ -156,8 +171,8 @@ export function product(cat, slug) {
   <div class="gallery">
     <div class="gallery-main">${photos.length ? `<button type="button" class="zoom-open" id="zoomOpen" aria-label="See the photo full screen"><img id="mainImg" src="/${attr(photos[0])}" alt="${attr(p.name)}" width="800" height="1000" fetchpriority="high"></button>` : '<div class="noimg"></div>'}${p.is_new ? '<span class="badge">New</span>' : ''}</div>
     ${galleryShown.length > 1 ? `<div class="thumbs">${galleryShown.map((x, i) => x === p.size_guide && i > 0
-      ? `<button class="thumb thumb-guide" data-img="/${attr(x)}" data-guide="1" aria-label="Size guide"><img src="/${attr(x)}" alt="" loading="lazy"><span>Size guide</span></button>`
-      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
+      ? `<button class="thumb thumb-guide" data-img="/${attr(x)}" data-guide="1" aria-label="Size guide"><img src="/${attr(x)}" alt="${attr(p.name)} — size guide" loading="lazy"><span>Size guide</span></button>`
+      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="${attr(p.name)} — photo ${i + 1}" loading="lazy"></button>`).join('')}</div>` : ''}
   </div>
   <div class="buy">
     <h1>${esc(p.name)}</h1>
@@ -182,6 +197,7 @@ export function product(cat, slug) {
       <button class="btn btn-outline" id="shareBtn" data-url="${attr(url)}" data-title="${attr(p.name)}">Share</button>
     </div>
     ${promiseRow(store, { compact: true })}
+    <section class="prod-about" aria-labelledby="aboutH"><h2 id="aboutH">About this piece</h2>${text.own ? `<p>${esc(text.own)}</p>` : ''}<p>${esc(text.facts)}</p></section>
     <dl class="details">
       ${p.fabric ? `<dt>Fabric</dt><dd>${esc(p.fabric)}</dd>` : ''}
       ${p.set_contents ? `<dt>In the set</dt><dd>${esc(p.set_contents)}</dd>` : ''}
@@ -203,8 +219,8 @@ ${buyBar(p)}
 </div>
 ${recRow('More like this', related)}
 ${recRow(forWhom(p), forChild)}`;
-  return layout(cat, { title: p.name, description: `${p.name} — ${priceLabel(p)}. ${[p.category_parent, p.category, p.fabric].filter(Boolean).join(', ')}. Cash on delivery all over Pakistan.`, canonical: `/p/${p.slug}/`, page: 'p-product', body,
-    og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`,
+  return layout(cat, { title: p.name, description: clip(text.own ? `${text.own} ${priceLabel(p)}, cash on delivery all over Pakistan.` : text.facts), canonical: `/p/${p.slug}/`, page: 'p-product', body,
+    og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: ldTag(ld) + ldTag(breadcrumbLd(store, trail)),
     publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos: galleryShown, guide: p.size_guide || null, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
 }
 
@@ -361,7 +377,8 @@ export function visit(cat) {
   ${store.map_url ? `<p><a class="btn btn-outline" href="${attr(store.map_url)}" target="_blank" rel="noopener">Open in Google Maps</a></p>` : ''}</div>
   <div class="visit-note"><p>Ordered online and chose <em>collect from the shop</em>? Bring your order number; the pieces are kept aside once we have confirmed with you.</p><p>${esc(deliveryLine(store))}</p></div>
 </div>`;
-  return layout(cat, { title: 'Visit', page: 'p-visit', body, canonical: '/visit/' });
+  return layout(cat, { title: 'Visit', page: 'p-visit', body, canonical: '/visit/', description: clip(`Visit ${store.name}${store.address ? ` — ${store.address}` : ''}.${store.hours ? ` Open ${store.hours}.` : ''} Or order online, cash on delivery all over Pakistan.`),
+    head: ldTag(storeLd(store)) });   // P164
 }
 
 export { notFound };

@@ -198,6 +198,11 @@ main { padding: 22px var(--pad) 40px; min-height: 60vh; }
 .buy-actions .btn { flex: 1; }
 .details { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 22px 0 0; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; }
 .details dt { color: var(--ink-3); } .details dd { margin: 0; }
+/* P164 — About this piece: the product's words, read by the customer and by Google */
+.prod-about { margin: 22px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+.prod-about h2 { font-size: 15px; margin: 0 0 6px; }
+.prod-about p { margin: 0 0 8px; color: var(--ink-2); font-size: 14px; line-height: 1.6; }
+.page-head .list-intro { font-size: 13.5px; color: var(--ink-3); }
 
 /* cart drawer */
 .backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 40; }
