@@ -1,7 +1,7 @@
 // bilalgarments.center — the cart, the product page, the filters, the search,
 // the checkout, the tracking page. No framework; the pages arrive rendered and
 // this only adds what needs a hand.
-import { matchProduct } from './search.js';
+// P169 — the search rule runs on the website's server now (functions/_lib/search.js); nothing here matches
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -36,21 +36,23 @@ const waHref = text => `https://wa.me/${S.whatsapp_intl || String(S.whatsapp || 
 // Fahad, 2026-09-27: "it takes 3-5 days to deliver, Sunday is off … lets customers know expected delivery time".
 // Counted in the shop's own days (Asia/Karachi, UTC+5, no daylight saving) from TOMORROW, a Sunday never counted:
 // ordered Saturday 27 Sep → Wed 1 Oct – Fri 3 Oct. The page arrives saying "3–5 working days"; this adds the dates.
-const ETA = { from: 3, to: 5 };
+// P169 — the days and the day off are the shop's settings, handed over with the page (window.STORE.eta, _lib/rules.js);
+// without them the page keeps the sentence it arrived with and no dates are worked out here
+const ETA = S.eta ? { from: S.eta.min, to: S.eta.max, closed: S.eta.closed, text: S.eta.text } : null;
 function etaDates(now = new Date()) {
   const k = new Date(now.getTime() + 5 * 3600e3);
   let d = Date.UTC(k.getUTCFullYear(), k.getUTCMonth(), k.getUTCDate());
   const days = [];
-  while (days.length < ETA.to) { d += 86400e3; if (new Date(d).getUTCDay() !== 0) days.push(new Date(d)); }
+  while (days.length < ETA.to) { d += 86400e3; if (new Date(d).getUTCDay() !== ETA.closed) days.push(new Date(d)); }
   return { first: days[ETA.from - 1], last: days[ETA.to - 1] };
 }
 // written out by hand, so every phone says "Wed 30 Sep" (browsers disagree on "Sep" / "Sept")
 const etaDay = d => `${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][d.getUTCDay()]} ${d.getUTCDate()} ${['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()]}`;
 (function paintEta() {
   const els = $$('[data-eta]');
-  if (!els.length) return;
+  if (!els.length || !ETA) return;
   const { first, last } = etaDates();
-  const html = `<strong>Expected delivery: ${esc(etaDay(first))} – ${esc(etaDay(last))}</strong><span>3–5 working days, Sundays not counted.</span>`;
+  const html = `<strong>Expected delivery: ${esc(etaDay(first))}${ETA.from === ETA.to ? '' : ` – ${esc(etaDay(last))}`}</strong><span>${esc(ETA.text)}</span>`;
   els.forEach(e => { e.innerHTML = html; });
 })();
 let toastT;
@@ -112,7 +114,7 @@ function deliveryCharge(sub, mode) {
 function deliveryNote(sub) {
   const fb = cart.freeBy(); if (fb) return `Free delivery — ${fb.name} covers your whole parcel.`;   // P141 / P168
   const free = Number(S.free_delivery_above || 0), ch = Number(S.delivery_charge || 0);
-  if (ch <= 0) return free > 0 ? '' : 'Delivery charge is confirmed on the call.';
+  if (ch <= 0) return free > 0 ? '' : ((S.words || {}).charge_note || '');   // P169 — the shop's own words (rules.js)
   if (free > 0 && sub >= free) return 'You get free delivery.';
   if (free > 0) return 'Add ' + money(free - sub) + ' more for free delivery.';
   return 'Delivery ' + money(ch) + ' per parcel.';
@@ -382,24 +384,11 @@ if (document.body.classList.contains('p-home')) {
 }
 
 // ── search page ──────────────────────────────────────────────────────────────
+// P169 — the results arrive with the page (the same cards and filters as a category); this only reports the search
 if (document.body.classList.contains('p-search') && window.PAGE && window.PAGE.q) {
-  const out = $('#searchOut');
-  fetch('/data/catalogue.json').then(r => r.json()).then(cat => {
-    const q = window.PAGE.q;
-    // P143 — a deal listed as a product is found like one ("tights", "pack") and opens its pack page
-    const packs = (cat.deal_cards || []).map(p => ({ ...p, name: p.name + ' pack' }));
-    const hits = [...(cat.products || []), ...packs].filter(p => matchProduct(p, q));
-    pixel('Search', { search_string: q });
-    track('search', { l: q, v: hits.length });   // what people look for, and how often we have none of it
-    if (!hits.length) { out.innerHTML = `<div class="empty">Nothing matches “${esc(q)}”. Try fewer words, or <a href="/all/" style="color:var(--accent)">browse everything</a>.</div>`; return; }
-    out.innerHTML = `<p class="muted">${hits.length} result${hits.length === 1 ? '' : 's'} for “${esc(q)}”</p><div class="grid">${hits.map(p => {
-      const av = p.variants.some(v => v.availability === 'in') ? 'in' : p.variants.some(v => v.availability === 'few') ? 'few' : 'out';
-      const price = p.price_min === p.price_max ? money(p.price_min) : p.deal ? `from ${money(p.price_min)}` : `${money(p.price_min)} – ${money(p.price_max)}`;   // P143: a pack is "from"
-      return `<a class="card${av === 'out' ? ' is-out' : ''}" href="${esc(p.href || `/p/${p.slug}/`)}"><div class="card-img">${p.cover ? `<img src="/${esc(p.cover)}" alt="${esc(p.name)}" loading="lazy">` : '<div class="noimg"></div>'}${p.badge ? `<span class="badge badge-pack">${esc(p.badge)}</span>` : p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : ''}</div><div class="card-body"><div class="card-name">${esc(p.name)}</div><div class="card-meta">${esc(p.category_parent ? p.category_parent + ' · ' : '')}${esc(p.category)}</div><div class="card-price">${price}</div></div></a>`;
-    }).join('')}</div>`;
-  }).catch(() => { out.innerHTML = '<div class="empty">Search is not available right now.</div>'; });
+  pixel('Search', { search_string: window.PAGE.q });
+  track('search', { l: window.PAGE.q, v: Number(window.PAGE.hits) || 0 });   // what people look for, and how often we have none of it
 }
-
 // ── P141 — a deal's pack page ────────────────────────────────────────────────
 // One size, six pieces: mixed colours, a theme, or the customer's own (same price). The shop publishes, per
 // size, how many packs can be made (0–3) and per colour up to how many can be picked — never a count.
@@ -496,7 +485,7 @@ if (form) {
     const sub = cart.subtotal(), del = deliveryCharge(sub, mode);
     $('#coSub').textContent = money(sub);
     $('#coDelLabel').textContent = mode === 'COLLECT' ? 'Collect from the shop' : 'Delivery';
-    $('#coDel').textContent = mode === 'COLLECT' ? 'Rs 0' : del ? money(del) : (Number(S.delivery_charge || 0) <= 0 && !(Number(S.free_delivery_above || 0) > 0) ? 'told on the call' : 'Free');
+    $('#coDel').textContent = mode === 'COLLECT' ? 'Rs 0' : del ? money(del) : (Number(S.delivery_charge || 0) <= 0 && !(Number(S.free_delivery_above || 0) > 0) ? ((S.words || {}).charge_label || '') : 'Free');   // P169
     $('#coTotal').textContent = money(sub + del);
     if (mode === 'COLLECT') $('#coDelNote').textContent = 'We keep the pieces aside once confirmed — bring the order number.';
     else paintDelivery($('#coDelNote'), sub);   // P167
@@ -573,7 +562,7 @@ if (document.body.classList.contains('p-thanks')) {
       <div class="row"><span>${collect ? 'Collect from the shop' : 'Delivery'}</span><strong>${collect ? 'Rs 0' : last.delivery_charge ? money(last.delivery_charge) : 'Free'}</strong></div><div class="row total"><span>${collect ? 'Total to pay at the shop' : 'Total to pay on delivery'}</span><strong>${money(last.total)}</strong></div></div>`;
     // P154 — the number she typed, back in front of her: a wrong digit is caught now, not by a call that never connects
     const ph = $('#thanksPhone');
-    if (ph && last.phone) { ph.innerHTML = `We will call <strong>${esc(last.phone)}</strong> to confirm. Wrong number? <a href="${esc(waHref(`Hi, my order ${no} has the wrong phone number. The right one is: `))}" target="_blank" rel="noopener">Tell us on WhatsApp</a>`; ph.hidden = false; }
+    if (ph && last.phone) { ph.innerHTML = `${esc((S.words || {}).thanks_phone || '{phone}').replace('{phone}', `<strong>${esc(last.phone)}</strong>`)} Wrong number? <a href="${esc(waHref(`Hi, my order ${no} has the wrong phone number. The right one is: `))}" target="_blank" rel="noopener">Tell us on WhatsApp</a>`; ph.hidden = false; }
     if (collect) { const e = $('.eta-thanks'); if (e) e.hidden = true; }
     // P154 — the Purchase event, sent here, once per order (the checkout used to send it as it left the page)
     if (last.px && !last.px.sent) {

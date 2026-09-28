@@ -833,3 +833,6 @@ main#main { padding-top: 30px; padding-bottom: 72px; }
 /* ── P168 — every item page is built the same (Fahad, 2026-09-29): the pack page takes the product page's phone layout
    above (P166 no longer excludes it). Its own old sticky button is the shared bar now. ── */
 .p-deal .buy-meta { margin-top: 6px; }
+
+/* ── P170 — a feature switched off on the Website panel draws nothing ── */
+.wa-float.is-off { display: none !important; }

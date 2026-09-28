@@ -41,8 +41,17 @@ export function ageName(cat, months) {
   return list.length ? list[list.length - 1].name : null;
 }
 export function indexCatalogue(data) { return index(data); }
+// P170 — two features are applied here, where the catalogue is read, so no card, page or data block can miss them
+function applyFeatures(data) {
+  const f = (data.store && data.store.features) || {};
+  const all = [...(data.products || []), ...(data.deal_cards || []), ...(data.deals || [])];
+  if (f.reviews === false) for (const p of all) { delete p.rating; delete p.reviews; }
+  if (f.fits === false) for (const p of all) p.hide_fits = true;
+  return data;
+}
 /** derived lookups the pages use, computed once per load */
 function index(data) {
+  applyFeatures(data);   // P170
   const products = data.products || [];
   const bySlug = new Map(products.map(p => [p.slug, p]));
   const byVariant = new Map();

@@ -2,7 +2,8 @@
 // Server-rendered so a forwarded link previews with the real photo and price
 // and the page reads on a slow phone before any script runs; the script then
 // adds the cart, the filters and the search.
-import { money, priceLabel, productAvailability, groupsOf, ageName, FOR_GROUPS } from './catalogue.js';   // P136: groupsOf, ageName; P139: FOR_GROUPS
+import { money, priceLabel, productAvailability, groupsOf, ageName, FOR_GROUPS } from './catalogue.js';
+import { exchange, call, etaForPage, wordsForPage, feat } from './rules.js';   // P169 — the shop's promises, set once; P170 feat   // P136: groupsOf, ageName; P139: FOR_GROUPS
 import { SWATCHES, iconSvg } from './kind-icons.js';   // P139
 
 export const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -104,7 +105,7 @@ ${canonical ? `<meta property="og:url" content="${attr(site + canonical)}">` : '
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"></noscript>
 <link rel="preload" href="/css/site.css${assetV(cat)}" as="style">
 <link rel="stylesheet" href="/css/site.css${assetV(cat)}">
-<script>window.STORE=${json({ name: store.name, whatsapp: store.whatsapp, whatsapp_intl: store.whatsapp_intl, free_delivery_above: Number(store.free_delivery_above || 0), delivery_charge: Number(store.delivery_charge || 0), payment_note: store.payment_note || '', site_url: site, turnstile: cat.turnstileKey || '', pixel: !!store.pixel_id, tiktok: !!tiktok, google: google.length > 0, google_purchase: googlePurchase, agent_codes: [...cat.agentCodes] })};${publicData ? `window.PAGE=${json(publicData)};` : ''}</script>
+<script>window.STORE=${json({ name: store.name, whatsapp: store.whatsapp, whatsapp_intl: store.whatsapp_intl, free_delivery_above: Number(store.free_delivery_above || 0), delivery_charge: Number(store.delivery_charge || 0), payment_note: store.payment_note || '', site_url: site, turnstile: cat.turnstileKey || '', eta: etaForPage(store), words: wordsForPage(store), pixel: !!store.pixel_id, tiktok: !!tiktok, google: google.length > 0, google_purchase: googlePurchase, agent_codes: [...cat.agentCodes] })};${publicData ? `window.PAGE=${json(publicData)};` : ''}</script>
 ${pixel}${tiktokTag}${googleTag}
 ${head}
 </head>
@@ -127,10 +128,10 @@ ${body}
   <div class="wrap ftr-grid">
     <div><div class="ftr-brand">${esc(store.name)}</div><p>${esc(store.tagline || '')}</p><p>${esc(store.address || '')}</p>${store.hours ? `<p>${esc(store.hours)}</p>` : ''}</div>
     <div><p><a data-where="footer" href="${attr(waLink(store))}" target="_blank" rel="noopener">WhatsApp ${esc(store.whatsapp || '')}</a></p><p><a href="/track/">Track an order</a></p><p><a href="/visit/">Visit the shop</a></p><p><a href="/new/">New arrivals</a></p></div>
-    <div><p>${esc(deliveryLine(store))}</p><p>Exchange within 15 days of delivery — unworn, with the tag.</p><p>We call to confirm every order before it is dispatched.</p>${store.footer_note ? `<p>${esc(store.footer_note)}</p>` : ''}</div>
+    <div><p>${esc(deliveryLine(store))}</p>${exchange.footer(store) ? `<p>${esc(exchange.footer(store))}</p>` : ''}${call.footer(store) ? `<p>${esc(call.footer(store))}</p>` : ''}${store.footer_note ? `<p>${esc(store.footer_note)}</p>` : ''}</div>
   </div>
 </footer>
-<a class="wa-float" data-where="float" href="${attr(waLink(store, `Hi ${store.name}, I have a question.`))}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+${feat(store, 'wa_bubble') ? '' : '<!-- P170: the WhatsApp bubble is switched off -->'}<a class="wa-float${feat(store, 'wa_bubble') ? '' : ' is-off'}" data-where="float" href="${attr(waLink(store, `Hi ${store.name}, I have a question.`))}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 <aside class="drawer" id="cart" aria-label="Your cart" hidden>
   <div class="drawer-head"><strong>Your cart</strong><button class="x" id="cartClose" aria-label="Close">✕</button></div>
   <div class="drawer-body" id="cartLines"></div>
@@ -192,7 +193,8 @@ export function card(p) {
   // P136 — the age range, short: '2 Years–10 Years' reads '2–10 yrs', 'Newborn–2 Years' reads 'Newborn–2 yrs'
   const shortAge = s => String(s).replace(/ Years?$/, ' yrs').replace(/ Months?$/, ' mo');
   const [ra, rb] = String(p.age_range || '').split('–');
-  const fits = !p.age_range ? '' : !rb ? shortAge(ra) : (/^\d+ /.test(ra) && ra.replace(/^\d+ /, '') === rb.replace(/^\d+ /, '')) ? ra.split(' ')[0] + '–' + shortAge(rb) : shortAge(ra) + '–' + shortAge(rb);
+  // P170 — the "Fits" feature: switched off, no card draws it (catalogue.js marks hide_fits)
+  const fits = !p.age_range || p.hide_fits ? '' : !rb ? shortAge(ra) : (/^\d+ /.test(ra) && ra.replace(/^\d+ /, '') === rb.replace(/^\d+ /, '')) ? ra.split(' ')[0] + '–' + shortAge(rb) : shortAge(ra) + '–' + shortAge(rb);
   return `<div class="card${av === 'out' ? ' is-out' : ''}" data-code="${attr(p.code)}" data-for="${attr(groupsOf(p).join(' '))}">
   <a class="card-img" href="${attr(p.href || `/p/${p.slug}/`)}" aria-label="${attr(p.name)}">
     ${p.cover ? `<img class="card-photo" src="/${attr(p.cover)}" alt="${attr(p.name)}" loading="lazy" width="600" height="750">` : '<div class="noimg"></div>'}
@@ -266,9 +268,10 @@ export function promiseRow(store, { compact = false } = {}) {
     // free text: a promise that can be edited into disagreeing with what the
     // checkout actually charges is a promise that will one day be a refund.
     ['\u{1F4B5}', (w && w[0].title) || (freeFrom(store) ? `Free delivery from ${money(freeFrom(store))}` : 'Cash on delivery'), deliveryLine(store)],   // P167
-    ['\u{1F4DE}', (w && w[1].title) || 'We call first', (w && w[1].text) || 'Every order is confirmed by phone before it leaves the shop.'],
-    ['\u{1F501}', (w && w[2].title) || '15-day exchange', (w && w[2].text) || 'Wrong size? Exchange within 15 days of delivery, tag on.'],
-  ];
+    // P169 — the shop's own words when it wrote them; else the settings' — and a promise it does not make is no tile
+    (w || call.on(store)) ? ['\u{1F4DE}', (w && w[1].title) || call.tileTitle(store), (w && w[1].text) || call.tileText(store)] : null,
+    (w || exchange.tileTitle(store)) ? ['\u{1F501}', (w && w[2].title) || exchange.tileTitle(store), (w && w[2].text) || exchange.tileText(store)] : null,
+  ].filter(Boolean);
   return `<section class="promise${compact ? ' promise-sm' : ''}">${rows.map(([ico, t, sub]) =>
     `<div><span class="pr-ico" aria-hidden="true">${ico}</span><strong>${esc(t)}</strong>${compact ? '' : `<span>${esc(sub)}</span>`}</div>`).join('')}</section>`;
 }

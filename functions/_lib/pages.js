@@ -3,6 +3,8 @@ import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine,
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours, groupsOf, FOR_GROUPS } from './catalogue.js';
 import { SWATCHES, iconSvg } from './kind-icons.js';   // P141 — a deal without a photo shows its tile's icon
 import { productText, productLd, breadcrumbLd, storeLd, itemListLd, listIntro, ldTag, clip } from './seo.js';   // P164
+import { matchProduct } from './search.js';   // P169 — the till's own search rule
+import { eta, exchange, call, feat } from './rules.js';   // P169 — the shop's promises, set once; P170 the feature switches
 
 const SEASON_NAME = { SUMMER: 'Summer', PRE_WINTER: 'Pre Winter', WINTER: 'Winter', ALL: 'All seasons' };
 const byNewest = (a, b) => String(b.first_published || '').localeCompare(String(a.first_published || '')) || a.name.localeCompare(b.name);
@@ -46,7 +48,8 @@ export function recommend(cat, p, { same, exclude = new Set(), n = 8, groups: kn
   return out.sort((a, b) => b.s - a.s || byNewest(a.x, b.x)).slice(0, n).map(o => o.x);
 }
 /** the row of recommendations: two across on a phone that scroll sideways, four across on a laptop */
-const recRow = (title, items) => items.length ? section(title, `<div class="grid grid-row rec-row">${items.map(card).join('')}</div>`) : '';
+// P170 — the Recommendations feature: switched off, no row on any page
+const recRow = (title, items, store) => items.length && feat(store, 'recommend') ? section(title, `<div class="grid grid-row rec-row">${items.map(card).join('')}</div>`) : '';
 /** what the second row is called: the ages it fits, else who it is for ("For boys and girls" for a unisex piece) */
 const forWhom = (p, known = null) => {
   if (p.age_range) return `More for ${p.age_range}`;
@@ -56,8 +59,8 @@ const forWhom = (p, known = null) => {
 };
 // P154 — "it takes 3–5 days to deliver, Sunday is off" (Fahad, 2026-09-27). What the page says before its script
 // runs; site.js turns it into dates ("Wed 1 Oct – Fri 3 Oct"), counted from today, Sundays skipped.
-export const ETA_TEXT = 'Delivered in 3–5 working days (Sundays not counted).';
-const etaLine = (cls = 'eta') => `<p class="${cls}" data-eta>${esc(ETA_TEXT)}</p>`;
+// P169 — the days and the day off are the shop's settings (_lib/rules.js)
+const etaLine = (store, cls = 'eta') => feat(store, 'eta') ? `<p class="${cls}" data-eta>${esc(eta.line(store))}</p>` : '';   // P170
 // Fix 1.0.60 — search results, the checkout, the thanks page and tracking are nobody's landing page;
 // robots.txt already keeps crawlers off three of them, the tag keeps a crawler that got a link honest
 const NOINDEX = '<meta name="robots" content="noindex">';
@@ -86,42 +89,57 @@ ${section('Everything', `<div class="grid">${everything.slice(0, HOME_MAX).map(c
     head: ldTag(storeLd(store)) });   // P164
 }
 
-export function listing(cat, { title, products, canonical, description, intro, crumbs }) {
-  // P164 — every listing says what is in it (how many, the prices, the ages) and tells Google the same, in order
-  const auto = listIntro(cat, products);
-  const trail = crumbs || [{ name: 'Home', href: '/' }, { name: title, href: canonical }];
-  const body = `<div class="page-head"><h1>${esc(title)}</h1>${intro ? `<p>${esc(intro)}</p>` : ''}${auto ? `<p class="list-intro">${esc(auto)}</p>` : ''}</div>${grid(products, { ageGroups: cat.ageGroups })}`;
-  return layout(cat, { title, description: description || clip(`${title} at ${cat.store.name}: ${auto || 'new pieces every week.'}`), canonical, page: 'p-list', body, og: { image: (products.find(p => p.cover) || {}).cover },
-    head: ldTag(breadcrumbLd(cat.store, trail)) + (products.length ? ldTag(itemListLd(cat.store, products)) : '') });
+// ── P169 — one website (Fahad, 2026-09-29: "control everything like features from a main panel so that whole site
+// stays identical"). Every product list — a category, a collection, New arrivals, Everything, a "For" page, search —
+// is this one page: the breadcrumb, the title and its count, the intro, the quick buttons its pieces call for, the
+// filter bar and the cards. A list page owns nothing of its own.
+/** the way back, drawn from the same trail Google is given; the page itself is the h1, so it is not repeated here */
+export const crumbsNav = trail => trail.length > 1 ? `<nav class="crumbs" aria-label="Breadcrumb">${trail.slice(0, -1).map(t => `<a href="${attr(t.href)}">${esc(t.name)}</a>`).join(' › ')}</nav>` : '';
+/**
+ * the quick buttons a list's own pieces call for: the ages when they are sized by age (children), else the sizes
+ * (adults), and the kind when there is more than one. A row with one choice is left out.
+ */
+function quickRows(cat, items, { ask, byAge } = {}) {
+  const aged = byAge != null ? byAge : items.some(p => Object.keys(p.size_months || {}).length);
+  const ages = aged ? (cat.ageGroups || []).filter(a => items.some(p => Object.values(p.size_months || {}).some(([lo, hi]) => a.months >= lo && a.months <= hi))) : [];
+  const sizes = aged ? [] : [...new Set(items.flatMap(p => (p.variants || []).filter(v => v.availability !== 'out').map(v => (p.size_free || {})[v.size] || v.size)))];
+  const kinds = [...items.reduce((m, p) => m.set(p.category, (m.get(p.category) || 0) + 1), new Map()).entries()].sort((x, y) => y[1] - x[1]);
+  const html = (ages.length > 1 ? chipRow({ title: ask || 'How old?', field: 'agem', options: ages.map(x => ({ value: String(x.months), label: x.name })), any: 'Any age' }) : '')
+    + (sizes.length > 1 ? chipRow({ title: ask || 'Which size?', field: 'size', options: sizes.map(z => ({ value: z, label: z })), any: 'Any size' }) : '')
+    + (kinds.length > 1 ? chipRow({ title: 'What kind?', field: 'kind', options: kinds.map(([k, n]) => ({ value: k, label: k, count: n })), any: 'Everything' }) : '')
+    + (ages.length > 1 ? '<p class="for-note">A piece shows when any of its sizes fits the age you pick.</p>' : '');
+  return { html, ageChips: ages.length > 1 };
 }
+/** one list page, whatever the list */
+export function listPage(cat, { title, products, canonical, trail, intro = '', description, page = 'p-list', publicData, ask, byAge, before = '', empty, head = '', noindex = false }) {
+  const store = cat.store;
+  const way = trail || [{ name: 'Home', href: '/' }, { name: title, href: canonical }];
+  const auto = listIntro(cat, products);
+  const q = products.length && feat(cat.store, 'quick_filters') ? quickRows(cat, products, { ask, byAge }) : { html: '', ageChips: false };   // P170
+  const n = products.length;
+  const body = `<div class="page-head">${crumbsNav(way)}<h1>${esc(title)}${n ? ` <small>${n} piece${n === 1 ? '' : 's'}</small>` : ''}</h1>${before}${intro ? `<p>${esc(intro)}</p>` : ''}${auto ? `<p class="list-intro">${esc(auto)}</p>` : ''}</div>
+    ${q.html}
+    ${grid(products, { ageGroups: cat.ageGroups, ageChips: q.ageChips, ...(empty ? { empty } : {}) })}`;
+  return layout(cat, { title, description: description || clip(`${title} at ${store.name}: ${auto || 'new pieces every week.'}`), canonical, page, body, publicData,
+    og: { image: (products.find(p => p.cover) || {}).cover },
+    head: (noindex ? NOINDEX : ldTag(breadcrumbLd(store, way)) + (n ? ldTag(itemListLd(store, products)) : '')) + head });
+}
+/** P164's name for it, kept for the callers that know it */
+export const listing = (cat, o) => listPage(cat, { ...o, trail: o.crumbs || o.trail });
 
 export function newArrivals(cat) {
-  return listing(cat, { title: 'New arrivals', products: (cat.listed || cat.products).filter(p => p.is_new).sort(byNewest), canonical: '/new/', intro: `Added in the last ${cat.store.new_days || 30} days.` });
+  return listPage(cat, { title: 'New arrivals', products: (cat.listed || cat.products).filter(p => p.is_new).sort(byNewest), canonical: '/new/', intro: `Added in the last ${cat.store.new_days || 30} days.` });
 }
 
 export function all(cat) {
-  return listing(cat, { title: 'Everything', products: (cat.listed || cat.products).slice().sort(byNewest), canonical: '/all/' });
+  return listPage(cat, { title: 'Everything', products: (cat.listed || cat.products).slice().sort(byNewest), canonical: '/all/' });
 }
 
-// P136 — a group's page: the age (children) or the size (adults), the kind, then the grid
+// P136 — a group's page: who it is for asks the question ("How old is she?"); the rest is any list page
 export function forPage(cat, key) {
   const g = (cat.groups || []).find(x => x.key === key);
   if (!g) return null;
-  const items = g.items;
-  // the ages the group's pieces actually cover, in the shop's own order
-  const ages = g.byAge ? (cat.ageGroups || []).filter(a => items.some(p => Object.values(p.size_months || {}).some(([lo, hi]) => a.months >= lo && a.months <= hi))) : [];
-  const sizes = g.byAge ? [] : [...new Set(items.flatMap(p => (p.variants || []).filter(v => v.availability !== 'out').map(v => (p.size_free || {})[v.size] || v.size)))];
-  const kinds = [...items.reduce((m, p) => m.set(p.category, (m.get(p.category) || 0) + 1), new Map()).entries()].sort((a, b) => b[1] - a[1]);
-  const body = `<div class="page-head"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(g.title)}</nav>
-    <h1>${esc(g.title)} <small>${items.length} piece${items.length === 1 ? '' : 's'}</small></h1>${items.length ? `<p class="list-intro">${esc(listIntro(cat, items))}</p>` : ''}</div>
-    ${g.byAge ? chipRow({ title: g.ask, field: 'agem', options: ages.map(a => ({ value: String(a.months), label: a.name })), any: 'Any age' }) : ''}
-    ${!g.byAge && sizes.length > 1 ? chipRow({ title: g.ask, field: 'size', options: sizes.map(s => ({ value: s, label: s })), any: 'Any size' }) : ''}
-    ${kinds.length > 1 ? chipRow({ title: 'What kind?', field: 'kind', options: kinds.map(([k, n]) => ({ value: k, label: k, count: n })), any: 'Everything' }) : ''}
-    ${g.byAge ? '<p class="for-note">A piece shows when any of its sizes fits the age you pick.</p>' : ''}
-    ${grid(items, { ageGroups: cat.ageGroups, ageChips: g.byAge })}`;
-  return layout(cat, { title: g.title, description: clip(`${g.title} at ${cat.store.name}: ${listIntro(cat, items)}`), canonical: `/for/${key}/`, page: 'p-list p-for', body,
-    og: { image: (items.find(p => p.cover) || {}).cover }, publicData: { forGroup: key },
-    head: ldTag(breadcrumbLd(cat.store, [{ name: 'Home', href: '/' }, { name: g.title, href: `/for/${key}/` }])) + ldTag(itemListLd(cat.store, items)) });   // P164
+  return listPage(cat, { title: g.title, products: g.items, canonical: `/for/${key}/`, page: 'p-list p-for', publicData: { forGroup: key }, ask: g.ask, byAge: g.byAge });
 }
 
 export function category(cat, slug) {
@@ -129,14 +147,14 @@ export function category(cat, slug) {
   if (!products) return null;
   const c = (cat.categories || []).find(x => x.slug === slug);
   const par = c && c.parent ? cat.parents.find(x => x.name === c.parent) : null;
-  const crumbs = [{ name: 'Home', href: '/' }, ...(par ? [{ name: par.name, href: `/c/${par.slug}/` }] : []), { name: c ? c.name : categoryTitle(cat, slug), href: `/c/${slug}/` }];   // P164
-  return listing(cat, { title: categoryTitle(cat, slug), products: products.sort(byNewest), canonical: `/c/${slug}/`, crumbs });
+  const trail = [{ name: 'Home', href: '/' }, ...(par ? [{ name: par.name, href: `/c/${par.slug}/` }] : []), { name: c ? c.name : categoryTitle(cat, slug), href: `/c/${slug}/` }];   // P164
+  return listPage(cat, { title: categoryTitle(cat, slug), products: products.sort(byNewest), canonical: `/c/${slug}/`, trail });
 }
 
 export function collection(cat, slug) {
   const c = cat.collections.find(x => x.slug === slug);
   if (!c) return null;
-  return listing(cat, { title: c.name, products: c.items, canonical: `/collection/${slug}/`, intro: c.blurb || '', description: c.blurb || `${c.name} — a set picked by ${cat.store.name}.` });
+  return listPage(cat, { title: c.name, products: c.items, canonical: `/collection/${slug}/`, intro: c.blurb || '', description: c.blurb || `${c.name} — a set picked by ${cat.store.name}.` });
 }
 
 // ── P168 — the parts every item page is built from (Fahad, 2026-09-29: "all pages on site should be build equally and
@@ -170,10 +188,10 @@ function freeLine(store, { free, price }) {
 const foldsBlock = sections => `<div class="prod-folds">${sections.filter(Boolean).map(x => `<details class="fold${x.cls ? ' ' + x.cls : ''}"${x.open ? ' open' : ''}><summary><h2${x.id ? ` id="${x.id}"` : ''}>${esc(x.title)}</h2></summary><div class="fold-body">${x.html}</div></details>`).join('')}</div>`;
 /** the delivery-and-exchange section, the same on every item page */
 const deliveryFold = (store, free) => ({ title: 'Delivery and exchange', html: `<dl class="details">
-        <dt>Delivery</dt><dd>${free ? 'Free — and on everything else in the same parcel' : esc(deliveryLine(store))} · 3–5 working days (Sundays not counted)</dd>
+        <dt>Delivery</dt><dd>${free ? 'Free — and on everything else in the same parcel' : esc(deliveryLine(store))} · ${esc(eta.detail(store))}</dd>
         <dt>Payment</dt><dd>Cash on delivery — pay the courier when it arrives.</dd>
-        <dt>Before dispatch</dt><dd>We call to confirm every order.</dd>
-        <dt>Exchange</dt><dd>Within 15 days of delivery, unworn with the tag.</dd>
+        ${call.detail(store) ? `<dt>Before dispatch</dt><dd>${esc(call.detail(store))}</dd>` : ''}
+        ${exchange.detail(store) ? `<dt>Exchange</dt><dd>${esc(exchange.detail(store))}</dd>` : ''}
       </dl>` });
 
 export function product(cat, slug) {
@@ -204,7 +222,7 @@ export function product(cat, slug) {
   const shown = new Set([p.code, ...related.map(x => x.code)]);
   const forChild = recommend(cat, p, { same: false, exclude: shown });
   const body = `
-<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a>${p.category_parent ? ` › <a href="/c/${attr(cat.parents.find(x => x.name === p.category_parent)?.slug || '')}/">${esc(p.category_parent)}</a>` : ''} › <a href="/c/${attr((cat.categories.find(c => c.name === p.category && (c.parent || null) === (p.category_parent || null)) || {}).slug || '')}/">${esc(p.category)}</a></nav>
+${crumbsNav(trail)}
 <article class="prod" data-code="${attr(p.code)}">
   ${/* P166 — Fahad, 2026-09-28: "make the overall feel of independent product page more premium". On a phone: one
         full-width photo you swipe (every photo is a slide, the size guide second), a counter and dots, share on the
@@ -213,7 +231,7 @@ export function product(cat, slug) {
   <div class="buy">
     <h1>${esc(p.name)}</h1>
     ${ratingLine(p.rating)}
-    <div class="buy-price-row"><div class="buy-price" id="price">${esc(priceLabel(p))}</div>${p.age_range ? `<span class="buy-fits">Fits ${esc(p.age_range)}</span>` : ''}</div>
+    <div class="buy-price-row"><div class="buy-price" id="price">${esc(priceLabel(p))}</div>${p.age_range && !p.hide_fits ? `<span class="buy-fits">Fits ${esc(p.age_range)}</span>` : ''}</div>
     ${freeLine(store, { free: p.free_delivery, price: p.price_min })}
     ${av === 'out' ? '<div class="soldout">Sold out — ask on WhatsApp when it is back.</div>' : ''}
     ${colours.length > 1 ? `<div class="opt"><div class="opt-label">Colour <span id="colourName"></span></div><div class="swatches" id="colours">${colours.map((c, i) => `<button class="swatch${i === 0 ? ' active' : ''}" data-colour="${attr(c.name)}" data-photo="${attr(c.photo || '')}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><span style="background:${attr(c.hex || '#ddd')}"></span></button>`).join('')}</div></div>` : colours.length === 1 ? `<div class="opt"><div class="opt-label">Colour <span>· ${esc(colours[0].name)}</span></div></div>` : ''}
@@ -226,7 +244,7 @@ export function product(cat, slug) {
       return `<button class="size${live.length ? (few ? ' is-few' : '') : ' is-out'}"${live.length ? '' : ' disabled'} data-size="${attr(s)}" title="${attr(p.size_ages && p.size_ages[s] ? `fits ${p.size_ages[s]}` : '')}">${esc(s)}${p.size_ages && p.size_ages[s] ? `<small>${esc(p.size_ages[s])}</small>` : ''}</button>`;
     }).join('')}</div><div class="opt-hint" id="sizeHint">${store.show_stock === false ? '' : 'Stock as of the last update from the shop.'}</div></div>
     <button class="btn btn-primary btn-block btn-lg buy-add" id="addBtn" ${av === 'out' ? 'disabled' : ''}>Add to cart</button>
-    ${av === 'out' ? '' : etaLine()}
+    ${av === 'out' ? '' : etaLine(store)}
     <div class="buy-actions">
       <a class="btn btn-outline" data-where="product" href="${attr(waLink(store, `Hi, I'm asking about ${p.name} (${p.code}) — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
     </div>
@@ -255,8 +273,8 @@ ${buyBar(p, store)}
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
 </div>
 ${reviewsBlock(cat, p)}
-${recRow('More like this', related)}
-${recRow(forWhom(p), forChild)}`;
+${recRow('More like this', related, store)}
+${recRow(forWhom(p), forChild, store)}`;
   return layout(cat, { title: p.name, description: clip(text.own ? `${text.own} ${priceLabel(p)}, cash on delivery all over Pakistan.` : text.facts), canonical: `/p/${p.slug}/`, page: 'p-product', body,
     og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: ldTag(ld) + ldTag(breadcrumbLd(store, trail)),
     publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos: galleryShown, guide: p.size_guide || null, free: !!p.free_delivery, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
@@ -279,6 +297,7 @@ export const reviewForm = (code, { compact = false } = {}) => `
     <button class="btn btn-primary${compact ? '' : ' btn-block'}" type="submit">Send review</button>
   </form>`;
 function reviewsBlock(cat, p) {
+  if (!feat(cat.store, 'reviews')) return '';   // P170 — the Reviews feature
   const r = p.rating && p.rating.count ? p.rating : null;
   const list = p.reviews || [];
   const bars = r ? [5, 4, 3, 2, 1].map(n => { const k = (r.dist && r.dist[n]) || 0; return `<div class="rv-bar"><span>${n} ★</span><i><b style="width:${r.count ? Math.round(k / r.count * 100) : 0}%"></b></i><span>${k}</span></div>`; }).join('') : '';
@@ -298,6 +317,7 @@ function reviewsBlock(cat, p) {
 
 /** /review/WEB-000123/ — the page a "please rate your order" WhatsApp opens; the number it was placed with unlocks it */
 export function reviewOrder(cat, no) {
+  if (!feat(cat.store, 'reviews')) return notFound(cat, 'Reviews are not open right now');   // P170
   const body = `<div class="page-head"><h1>Rate your order</h1><p>Order <strong>${esc(no)}</strong>. Tell other parents how the pieces fit — it takes a minute.</p></div>
 <form class="track-form" id="rvOrderForm"><label>Mobile number you ordered with <input name="phone" inputmode="tel" autocomplete="tel" placeholder="03xx xxxxxxx" required maxlength="16"></label><button class="btn btn-primary" type="submit">Show my pieces</button></form>
 <div class="co-err" id="rvOrderErr" hidden></div>
@@ -329,9 +349,10 @@ export function deal(cat, slug) {
   const facts = [`${d.name}: ${d.pieces} pieces of ${d.product || d.name}, all one size.`, d.fabric ? `In ${String(d.fabric).toLowerCase()}.` : '',
     `${d.sizes.length === 1 ? 'Size' : 'Sizes'} ${sizeList.join(', ')}.`, d.choose_own ? 'Mixed colours, or choose your own at the same price.' : 'Mixed colours.',
     `${from}${free ? ', free delivery' : ''}, cash on delivery all over Pakistan.`].filter(Boolean).join(' ');
-  const trail = [{ name: 'Home', href: '/' }, { name: d.name, href: `/d/${d.slug}/` }];
+  const dCat = (cat.categories || []).find(c => c.name === d.category && (c.parent || null) === (d.category_parent || null));   // P169
+  const trail = [{ name: 'Home', href: '/' }, ...(dCat ? [{ name: d.category, href: `/c/${dCat.slug}/` }] : []), { name: d.name, href: `/d/${d.slug}/` }];
   const body = `
-<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › ${esc(d.category)} › ${esc(d.name)}</nav>
+${crumbsNav(trail)}
 <article class="prod deal" data-deal="${attr(d.slug)}">
   ${galleryBlock({ shown: photos, name: d.name, badge: `<span class="badge badge-pack">Pack of ${d.pieces}</span>`, shareUrl: url,
     fallback: `<div class="deal-art" style="--kt-tint:${tint};--kt-ink:${ink}">${iconSvg(d.icon, ink, 120)}</div>` })}
@@ -356,7 +377,7 @@ export function deal(cat, slug) {
     </div>
     ${/* P154 — the button is live before a size is chosen: a tap takes her to what is still missing (site.js). P168 — on a phone the bar is the button, as on a product page */ ''}
     <button class="btn btn-primary btn-block btn-lg buy-add" id="dpAdd">Add pack to cart</button>
-    ${any ? etaLine() : ''}
+    ${any ? etaLine(store) : ''}
     <div class="buy-actions">
       <a class="btn btn-outline" data-where="deal" href="${attr(waLink(store, `Hi, I'm asking about ${d.name} — ${url}`))}" target="_blank" rel="noopener">Ask on WhatsApp</a>
     </div>
@@ -393,7 +414,7 @@ ${(() => {
     const groups = tiles.length ? tiles : groupsOf(self);
     const same = recommend(cat, self, { same: true, groups });
     const other = recommend(cat, self, { same: false, exclude: new Set(same.map(x => x.code)), groups });
-    return recRow('More like this', same) + recRow(forWhom(self, groups), other);
+    return recRow('More like this', same, store) + recRow(forWhom(self, groups), other, store);
   })()}`;
   const ld = productLd({ name: d.name, code: d.style_code, category: d.category, category_parent: d.category_parent, fabric: d.fabric, colours: [],
     price_min: lo, price_max: hi, variants: d.sizes.map(z => ({ size: z.size })), free_delivery: free, rating: d.rating, reviews: d.reviews }, store, { photos, url, text: facts, availability: any ? 'in' : 'out' });
@@ -402,20 +423,29 @@ ${(() => {
     publicData: { deal: { slug: d.slug, name: d.name, pieces: d.pieces, choose_own: d.choose_own, cover: photos[0] || null, photos, sizes: d.sizes, themes: d.themes || [], free_delivery: free } } });
 }
 
+// P169 — search is a list page too: the same cards, quick buttons and filters as a category, matched on the server by
+// the till's own rule (_lib/search.js is the POS's public/js/search.js, copied by the publish; 97er guards the copy)
 export function search(cat, q) {
-  const body = `<div class="page-head"><h1>Search</h1><form class="search-big" action="/search/" role="search"><input type="search" name="q" value="${attr(q)}" placeholder="boys shirt, 3 piece, navy, size 24…" aria-label="Search" autofocus><button class="btn btn-primary" type="submit">Search</button></form></div>
-<div id="searchOut">${q ? '<div class="empty">Searching…</div>' : '<p class="muted">Type what you are looking for — words in any order: a name, a colour, a size, a category.</p>'}</div>`;
-  return layout(cat, { title: q ? `Search: ${q}` : 'Search', page: 'p-search', body, publicData: { q }, head: NOINDEX });
+  const form = `<form class="search-big" action="/search/" role="search"><input type="search" name="q" value="${attr(q)}" placeholder="boys shirt, 3 piece, navy, size 24…" aria-label="Search" autofocus><button class="btn btn-primary" type="submit">Search</button></form>`;
+  const words = String(q || '').trim();
+  // a pack listed as a product is found like one ("tights", "pack") and opens its pack page
+  const pool = [...(cat.products || []), ...(cat.deal_cards || []).map(p => ({ ...p, name: p.name + ' pack', _name: p.name }))];
+  const hits = words ? pool.filter(p => matchProduct(p, words)).map(p => (p._name ? { ...p, name: p._name } : p)) : [];
+  return listPage(cat, { title: words ? `Search: ${words}` : 'Search', products: hits, canonical: '/search/', page: 'p-search', noindex: true,
+    trail: [{ name: 'Home', href: '/' }, { name: 'Search', href: '/search/' }], before: form,
+    intro: !words ? 'Type what you are looking for — words in any order: a name, a colour, a size, a category.' : '',
+    empty: `Nothing matches “${words}”. Try fewer words, or browse everything.`,
+    description: words ? `Search results for ${words}` : 'Search', publicData: { q: words, hits: hits.length } });
 }
 
 export function checkout(cat, turnstileKey) {
   const store = cat.store;
-  const body = `<div class="page-head"><h1>Checkout</h1><p>No account needed. We call this number to confirm before dispatch.</p></div>
+  const body = `<div class="page-head"><h1>Checkout</h1><p>No account needed. ${esc(call.checkoutHead(store))}</p></div>
 <div class="co">
   <form class="co-form" id="coForm" novalidate>
     <fieldset><legend>Your details</legend>
       <label>Full name <input name="name" required autocomplete="name" maxlength="80"></label>
-      <label>Mobile number <input name="phone" required inputmode="tel" autocomplete="tel" placeholder="03xx xxxxxxx" maxlength="16"><small>We call this number to confirm the order.</small></label>
+      <label>Mobile number <input name="phone" required inputmode="tel" autocomplete="tel" placeholder="03xx xxxxxxx" maxlength="16">${call.phoneHint(store) ? `<small>${esc(call.phoneHint(store))}</small>` : ''}</label>
       <label>Another number (optional) <input name="alt_phone" inputmode="tel" maxlength="16"></label>
     </fieldset>
     <fieldset><legend>Delivery</legend>
@@ -438,7 +468,7 @@ export function checkout(cat, turnstileKey) {
     ${turnstileKey ? `<div class="cf-turnstile" data-sitekey="${attr(turnstileKey)}" data-size="invisible" data-callback="onTurnstile"></div>` : ''}
     <div class="co-err" id="coErr" hidden></div>
     <button class="btn btn-primary btn-block btn-lg" id="coSubmit" type="submit">Place order</button>
-    <p class="muted small">By ordering you agree to a confirmation call and to our 15-day exchange policy.</p>
+    ${call.on(store) || exchange.policy(store) ? `<p class="muted small">By ordering you agree to ${[call.on(store) ? 'a confirmation call' : '', exchange.policy(store)].filter(Boolean).join(' and to ')}.</p>` : ''}
     ${/* P154 — on a phone the floating WhatsApp bubble is not shown here (it sat on Place order); this is its way out */ ''}
     <p class="co-help">Questions before you order? <a data-where="checkout" href="${attr(waLink(store, `Hi ${store.name}, I have a question about my order.`))}" target="_blank" rel="noopener">Ask us on WhatsApp</a></p>
   </form>
@@ -447,7 +477,7 @@ export function checkout(cat, turnstileKey) {
     <div class="row"><span id="coDelLabel">Delivery</span><strong id="coDel">—</strong></div>
     <div class="row total"><span>Total</span><strong id="coTotal">Rs 0</strong></div>
     <div class="muted small fd" id="coDelNote"></div>
-    ${etaLine('eta eta-co')}
+    ${etaLine(store, 'eta eta-co')}
   </aside>
 </div>`;
   return layout(cat, { title: 'Checkout', page: 'p-checkout', body, head: NOINDEX + (turnstileKey ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : '') });
@@ -462,8 +492,8 @@ export function thanks(cat, no) {
   <div id="thanksLines"></div>
   ${/* P154 — the number she typed, shown back: a mistyped digit is caught here, not by a call that never connects */ ''}
   <p class="thanks-phone" id="thanksPhone" hidden></p>
-  ${etaLine('eta eta-thanks')}
-  <ol class="steps"><li><strong>We call you</strong> on the number you gave, usually within a few hours during shop time, to confirm the pieces and the address.</li><li><strong>We pack and dispatch</strong> by Leopards courier; you get the tracking number on the <a href="/track/">Track</a> page.</li><li><strong>You pay the courier</strong> when it arrives. Wrong size? Exchange within 15 days.</li></ol>
+  ${etaLine(store, 'eta eta-thanks')}
+  <ol class="steps">${call.thanksStep(store) ? `<li><strong>${esc(call.thanksStep(store)[0])}</strong> ${esc(call.thanksStep(store)[1])}</li>` : ''}<li><strong>We pack and dispatch</strong> by Leopards courier; you get the tracking number on the <a href="/track/">Track</a> page.</li><li><strong>You pay the courier</strong> when it arrives.${exchange.short(store) ? ` Wrong size? E${exchange.short(store).slice(1)}.` : ''}</li></ol>
   <div class="thanks-actions"><a class="btn btn-primary" data-where="thanks" href="${attr(waLink(store, `Hi, I have just placed order ${no} on your website.`))}" target="_blank" rel="noopener">Send us the order on WhatsApp</a><a class="btn btn-outline" href="/">Keep browsing</a></div>
 </div>`;
   return layout(cat, { title: `Order ${no}`, page: 'p-thanks', body, publicData: { no }, head: NOINDEX });

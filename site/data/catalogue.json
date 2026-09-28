@@ -29,7 +29,20 @@
   "pixel_id": "",
   "tiktok_pixel_id": "",
   "google_tag_id": "",
-  "google_ads_purchase": ""
+  "google_ads_purchase": "",
+  "exchange_days": 15,
+  "delivery_days_min": 3,
+  "delivery_days_max": 5,
+  "closed_day": "SUNDAY",
+  "call_first": true,
+  "features": {
+   "reviews": true,
+   "recommend": true,
+   "wa_bubble": true,
+   "eta": true,
+   "fits": true,
+   "quick_filters": true
+  }
  },
  "categories": [
   {
@@ -10244,6 +10257,6 @@
   }
  ],
  "assets": {
-  "v": "756e028d6e"
+  "v": "b59e2579a9"
  }
 }

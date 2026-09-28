@@ -5,7 +5,7 @@ import { money, priceLabel, realColours, deliveryCharge, ageName } from './catal
 
 const WHO = { boys: 'boys', girls: 'girls', unisex: 'boys and girls', gents: 'men', ladies: 'women' };
 const SEASON = { SUMMER: 'summer', PRE_WINTER: 'the start of winter', WINTER: 'winter', ALL: 'every season' };
-export const EXCHANGE_TEXT = 'Exchange within 15 days of delivery, unworn with the tag.';
+import { rules, eta, exchange } from './rules.js';   // P169 — the shop's promises, set once
 
 export const siteOf = store => String((store && store.site_url) || '').replace(/\/$/, '');
 /** a meta description: whole words, about 155 characters */
@@ -34,7 +34,7 @@ export function productFacts(p, store) {
   const colours = realColours(p).map(c => c.name);
   if (colours.length) out.push(`${colours.length === 1 ? 'Colour' : 'Colours'}: ${colours.join(', ')}.`);
   if (p.season && SEASON[p.season]) out.push(`Made for ${SEASON[p.season]}.`);
-  out.push(`${priceLabel(p)}, cash on delivery all over Pakistan, delivered in 3–5 working days. ${EXCHANGE_TEXT}`);
+  out.push(`${priceLabel(p)}, cash on delivery all over Pakistan, ${eta.plain(store)}.${exchange.sentence(store) ? ' ' + exchange.sentence(store) : ''}`);
   return out.join(' ');
 }
 /** the words on the page and in the data: the shop's own first, then the facts */
@@ -49,8 +49,10 @@ export function breadcrumbLd(store, trail) {
     itemListElement: trail.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.name, item: site + t.href })) };
 }
 
-const returnPolicy = () => ({ '@type': 'MerchantReturnPolicy', applicableCountry: 'PK', returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-  merchantReturnDays: 15, refundType: 'https://schema.org/ExchangeRefund' });
+// P169 — the days the shop sets; none promised → Google is told no returns, never a window the shop does not keep
+const returnPolicy = store => rules(store).exchange
+  ? { '@type': 'MerchantReturnPolicy', applicableCountry: 'PK', returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow', merchantReturnDays: rules(store).exchange, refundType: 'https://schema.org/ExchangeRefund' }
+  : { '@type': 'MerchantReturnPolicy', applicableCountry: 'PK', returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted' };
 
 export function productLd(p, store, { photos, url, text, availability }) {
   const site = siteOf(store);
@@ -62,10 +64,10 @@ export function productLd(p, store, { photos, url, text, availability }) {
     shippingRate: { '@type': 'MonetaryAmount', value: charge, currency: 'PKR' },
     shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'PK' },
     deliveryTime: { '@type': 'ShippingDeliveryTime', handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' },
-      transitTime: { '@type': 'QuantitativeValue', minValue: 3, maxValue: 5, unitCode: 'DAY' } } } : null;
+      transitTime: { '@type': 'QuantitativeValue', minValue: rules(store).min, maxValue: rules(store).max, unitCode: 'DAY' } } } : null;
   const offers = one
     ? { '@type': 'Offer', price: Number(p.price_min), priceCurrency: 'PKR', availability: avail, itemCondition: 'https://schema.org/NewCondition', url,
-        ...(shipping ? { shippingDetails: shipping } : {}), hasMerchantReturnPolicy: returnPolicy(), seller: { '@type': 'Organization', name: store.name } }
+        ...(shipping ? { shippingDetails: shipping } : {}), hasMerchantReturnPolicy: returnPolicy(store), seller: { '@type': 'Organization', name: store.name } }
     : { '@type': 'AggregateOffer', priceCurrency: 'PKR', lowPrice: Number(p.price_min), highPrice: Number(p.price_max), offerCount: (p.variants || []).length, availability: avail, url };
   return { '@context': 'https://schema.org', '@type': 'Product', name: p.name, productID: p.code, url,   // the style code the page shows; never a POS stock code (97g guards the word)
     image: photos.map(x => `${site}/${String(x).replace(/^\//, '')}`), description: text,
@@ -90,7 +92,7 @@ export function storeLd(store) {
     ...(store.address ? { address: { '@type': 'PostalAddress', streetAddress: store.address, addressCountry: 'PK' } } : {}),
     ...(store.map_url ? { hasMap: store.map_url } : {}),
     areaServed: { '@type': 'Country', name: 'Pakistan' }, currenciesAccepted: 'PKR', paymentAccepted: 'Cash on delivery',
-    hasMerchantReturnPolicy: returnPolicy() };
+    hasMerchantReturnPolicy: returnPolicy(store) };
 }
 
 /** a listing's items, in page order (the first 30 — what a crawler reads first) */
@@ -110,5 +112,5 @@ export function listIntro(cat, products) {
   const b = months.length ? ageName(cat, Math.max(...months.map(m => m[1]))) : null;
   const ages = a && b ? (a === b ? `, fits ${a}` : `, ages ${a} to ${b}`) : '';
   const price = lo > 0 ? (lo === hi ? `, ${money(lo)}` : `, ${money(lo)} to ${money(hi)}`) : '';
-  return `${n} piece${n === 1 ? '' : 's'}${price}${ages}. Cash on delivery all over Pakistan; exchange within 15 days.`;
+  return `${n} piece${n === 1 ? '' : 's'}${price}${ages}. Cash on delivery all over Pakistan${exchange.short(cat.store) ? '; ' + exchange.short(cat.store) : ''}.`;
 }
