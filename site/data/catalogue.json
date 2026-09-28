@@ -8157,7 +8157,7 @@
    "name": "Frocks",
    "icon": "frock",
    "colour": "sky",
-   "total": 8,
+   "total": 9,
    "online": 2,
    "months": [
     24,
@@ -8241,33 +8241,33 @@
    ]
   },
   {
+   "key": "gents|Full Size",
+   "group": "gents",
+   "category": "Full Size",
+   "name": "Full size",
+   "icon": "fullsize",
+   "colour": "blue",
+   "total": 3,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "M",
+    "XL"
+   ]
+  },
+  {
    "key": "gents|Accessories",
    "group": "gents",
    "category": "Accessories",
    "name": "Accessories",
    "icon": "cap",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
    "sizes": [
     "34\\S",
     "42\\XXL"
-   ]
-  },
-  {
-   "key": "gents|Full Size",
-   "group": "gents",
-   "category": "Full Size",
-   "name": "Full size",
-   "icon": "fullsize",
-   "colour": "mint",
-   "total": 2,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "M",
-    "XL"
    ]
   },
   {
