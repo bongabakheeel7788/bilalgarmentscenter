@@ -81,8 +81,12 @@ export async function onRequestPost(context) {
   const byIp = ip ? await db.prepare(`SELECT count(*) AS n FROM orders WHERE ip = ? AND created_at > ?`).bind(ip, since).first() : { n: 0 };
   if ((byPhone && byPhone.n >= 3) || (byIp && byIp.n >= 6)) return json({ error: 'TOO_MANY', message: 'Too many orders in a short time — please wait a few minutes or message us on WhatsApp.' }, 429);
 
-  // P141 — a pack is sold with free delivery, so an order carrying one pays none
-  const del = packs.length ? 0 : paisa(deliveryCharge(cat.store, subtotal / 100, delivery));
+  // P141 — a pack is sold with free delivery, so an order carrying one pays none. P168 (Fahad, 2026-09-29): any
+  // product or pack switched to "Free delivery" does the same — the courier charges per parcel, whatever is in it,
+  // so everything bought with it ships free too. A pack from a catalogue older than the switch counts as free.
+  const freeDeal = id => { const d = (cat.deals || []).find(x => Number(x.id) === Number(id)); return !d || d.free_delivery !== false; };
+  const freeBy = out.some(l => { const h = cat.byVariant.get(Number(l.variant_id)); return h && h.p.free_delivery; }) || packs.some(p => freeDeal(p.deal_id));
+  const del = freeBy ? 0 : paisa(deliveryCharge(cat.store, subtotal / 100, delivery));
   const utm = body.utm || {};
   const r = await db.prepare(`INSERT INTO orders (name, phone, alt_phone, address, city, province, note, delivery, ref_code, ref_known, prepaid_ref,
       utm_source, utm_medium, utm_campaign, utm_content, campaign, landing, subtotal_paisa, delivery_paisa, total_paisa, ip, ua)
