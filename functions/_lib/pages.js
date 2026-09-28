@@ -1,5 +1,5 @@
 // Every HTML page of the site, rendered from the catalogue.
-import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, promiseRow, catTiles, buyBar, kindTiles, chipRow } from './html.js';
+import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, promiseRow, catTiles, buyBar, kindTiles, chipRow, freeFrom } from './html.js';
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours, groupsOf, FOR_GROUPS } from './catalogue.js';
 import { SWATCHES, iconSvg } from './kind-icons.js';   // P141 — a deal without a photo shows its tile's icon
 import { productText, productLd, breadcrumbLd, storeLd, itemListLd, listIntro, ldTag, clip } from './seo.js';   // P164
@@ -184,6 +184,7 @@ export function product(cat, slug) {
     <h1>${esc(p.name)}</h1>
     ${p.rating && p.rating.count ? `<a class="buy-rating" href="#reviews"><span class="stars" aria-hidden="true">${'★'.repeat(Math.round(p.rating.avg))}<span class="stars-off">${'★'.repeat(5 - Math.round(p.rating.avg))}</span></span> <b>${esc(p.rating.avg)}</b> <u>${p.rating.count} review${p.rating.count === 1 ? '' : 's'}</u></a>` : ''}
     <div class="buy-price-row"><div class="buy-price" id="price">${esc(priceLabel(p))}</div>${p.age_range ? `<span class="buy-fits">Fits ${esc(p.age_range)}</span>` : ''}</div>
+    ${/* P167 — the free-delivery amount where the decision is made, and whether this piece alone reaches it */ ''}${freeFrom(store) ? `<p class="buy-free">${Number(p.price_min) >= freeFrom(store) ? 'This piece gets <b>free delivery</b>' : `<b>Free delivery</b> on orders of ${esc(money(freeFrom(store)))} or more`}</p>` : ''}
     ${av === 'out' ? '<div class="soldout">Sold out — ask on WhatsApp when it is back.</div>' : ''}
     ${colours.length > 1 ? `<div class="opt"><div class="opt-label">Colour <span id="colourName"></span></div><div class="swatches" id="colours">${colours.map((c, i) => `<button class="swatch${i === 0 ? ' active' : ''}" data-colour="${attr(c.name)}" data-photo="${attr(c.photo || '')}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><span style="background:${attr(c.hex || '#ddd')}"></span></button>`).join('')}</div></div>` : colours.length === 1 ? `<div class="opt"><div class="opt-label">Colour <span>· ${esc(colours[0].name)}</span></div></div>` : ''}
     <div class="opt"><div class="opt-label opt-label-row"><span>Size</span>${p.size_guide ? `<a class="size-guide-link" id="sgOpen" href="/${attr(p.size_guide)}" target="_blank" rel="noopener">Size guide</a>` : ''}</div><div class="sizes" id="sizes">${sizes.map(s => {
@@ -395,7 +396,7 @@ export function checkout(cat, turnstileKey) {
     <div class="row"><span>Subtotal</span><strong id="coSub">Rs 0</strong></div>
     <div class="row"><span id="coDelLabel">Delivery</span><strong id="coDel">—</strong></div>
     <div class="row total"><span>Total</span><strong id="coTotal">Rs 0</strong></div>
-    <div class="muted small" id="coDelNote"></div>
+    <div class="muted small fd" id="coDelNote"></div>
     ${etaLine('eta eta-co')}
   </aside>
 </div>`;

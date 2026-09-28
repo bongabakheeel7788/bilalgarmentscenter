@@ -18,9 +18,12 @@ export function deliveryLine(store) {
   const free = Number(store.free_delivery_above || 0), charge = Number(store.delivery_charge || 0);
   if (charge <= 0 && free <= 0) return 'Cash on delivery all over Pakistan';
   if (charge <= 0) return 'Free delivery all over Pakistan · cash on delivery';
-  if (free > 0) return `Free delivery on orders above ${money(free)} · ${money(charge)} below that · cash on delivery`;
+  // P167 — "or more", not "above": an order of exactly the amount gets it, as the cart and the server charge it
+  if (free > 0) return `Free delivery on orders of ${money(free)} or more · ${money(charge)} below that · cash on delivery`;
   return `Delivery ${money(charge)} all over Pakistan · cash on delivery`;
 }
+/** P167 — the free-delivery amount, when the shop has one that means something (a charge below it); else 0 */
+export const freeFrom = store => (Number(store.delivery_charge || 0) > 0 && Number(store.free_delivery_above || 0) > 0 ? Number(store.free_delivery_above) : 0);
 
 /**
  * The page shell. `page` names the body class; `og` is { title, description,
@@ -133,7 +136,7 @@ ${body}
   <div class="drawer-body" id="cartLines"></div>
   <div class="drawer-foot">
     <div class="row"><span>Subtotal</span><strong id="cartSub">Rs 0</strong></div>
-    <div class="muted" id="cartDelivery"></div>
+    <div class="muted fd" id="cartDelivery"></div>
     <a class="btn btn-primary btn-block" href="/checkout/" id="cartCheckout">Checkout</a>
   </div>
 </aside>
@@ -262,7 +265,7 @@ export function promiseRow(store, { compact = false } = {}) {
     // P70 — the FIRST one's words are always the delivery rules, never Fahad's
     // free text: a promise that can be edited into disagreeing with what the
     // checkout actually charges is a promise that will one day be a refund.
-    ['\u{1F4B5}', (w && w[0].title) || 'Cash on delivery', deliveryLine(store)],
+    ['\u{1F4B5}', (w && w[0].title) || (freeFrom(store) ? `Free delivery from ${money(freeFrom(store))}` : 'Cash on delivery'), deliveryLine(store)],   // P167
     ['\u{1F4DE}', (w && w[1].title) || 'We call first', (w && w[1].text) || 'Every order is confirmed by phone before it leaves the shop.'],
     ['\u{1F501}', (w && w[2].title) || '15-day exchange', (w && w[2].text) || 'Wrong size? Exchange within 15 days of delivery, tag on.'],
   ];

@@ -110,9 +110,19 @@ function deliveryNote(sub) {
   if (cart.hasPack()) return 'Free delivery — a pack is in your cart.';   // P141
   const free = Number(S.free_delivery_above || 0), ch = Number(S.delivery_charge || 0);
   if (ch <= 0) return free > 0 ? '' : 'Delivery charge is confirmed on the call.';
-  if (free > 0 && sub >= free) return 'Free delivery — you are above ' + money(free) + '.';
+  if (free > 0 && sub >= free) return 'You get free delivery.';
   if (free > 0) return 'Add ' + money(free - sub) + ' more for free delivery.';
   return 'Delivery ' + money(ch) + ' per parcel.';
+}
+/** P167 — the note, and under it a bar filling toward the free-delivery amount (green once reached) */
+function paintDelivery(el, sub) {
+  if (!el) return;
+  const free = Number(S.free_delivery_above || 0), ch = Number(S.delivery_charge || 0);
+  const note = esc(deliveryNote(sub));
+  if (cart.hasPack() || ch <= 0 || free <= 0 || sub <= 0) { el.innerHTML = note; el.classList.remove('fd-done'); return; }
+  const done = sub >= free, pct = Math.min(100, Math.round(sub / free * 100));
+  el.classList.toggle('fd-done', done);
+  el.innerHTML = `<span class="fd-note">${note}</span><span class="fd-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${free}" aria-valuenow="${Math.min(sub, free)}" aria-label="Toward free delivery"><i style="width:${pct}%"></i></span>`;
 }
 function paintCart() {
   const n = cart.count(), c = $('#cartCount');
@@ -127,7 +137,7 @@ function paintCart() {
     : '<div class="cart-empty">Your cart is empty.<br><a href="/new/" style="color:var(--accent);font-weight:700">See what is new →</a></div>';
   const sub = cart.subtotal();
   $('#cartSub').textContent = money(sub);
-  $('#cartDelivery').textContent = deliveryNote(sub);
+  paintDelivery($('#cartDelivery'), sub);   // P167
   $('#cartCheckout').style.display = cart.lines.length ? '' : 'none';
   const qtyOf = k => (cart.lines.find(x => keyOf(x) === k) || {}).qty || 0;
   $$('[data-dec]', box).forEach(b => b.onclick = () => cart.setQty(b.dataset.dec, qtyOf(b.dataset.dec) - 1));
@@ -492,7 +502,8 @@ if (form) {
     $('#coDelLabel').textContent = mode === 'COLLECT' ? 'Collect from the shop' : 'Delivery';
     $('#coDel').textContent = mode === 'COLLECT' ? 'Rs 0' : del ? money(del) : (Number(S.delivery_charge || 0) <= 0 && !(Number(S.free_delivery_above || 0) > 0) ? 'told on the call' : 'Free');
     $('#coTotal').textContent = money(sub + del);
-    $('#coDelNote').textContent = mode === 'COLLECT' ? 'We keep the pieces aside once confirmed — bring the order number.' : deliveryNote(sub);
+    if (mode === 'COLLECT') $('#coDelNote').textContent = 'We keep the pieces aside once confirmed — bring the order number.';
+    else paintDelivery($('#coDelNote'), sub);   // P167
     const eta = $('.eta-co'); if (eta) eta.hidden = mode === 'COLLECT' || !cart.lines.length;   // P154 — no courier, no date
     $('#coSubmit').disabled = submitting || !cart.lines.length;
   };

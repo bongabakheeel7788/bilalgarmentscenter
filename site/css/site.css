@@ -820,3 +820,12 @@ main#main { padding-top: 30px; padding-bottom: 72px; }
   body.p-product:not(.p-deal) .prod { gap: 14px; }
 }
 @media (min-width: 821px) { .gal-dots, .gal-count { display: none; } .gal-track { overflow-x: hidden; } }
+
+/* ── P167 — free delivery from an amount: said on the product page, counted down in the cart and the checkout ── */
+.buy-free { margin: 6px 0 0; font-size: 13.5px; color: var(--accent); }
+.buy-free b { font-weight: 800; }
+.fd { display: grid; gap: 6px; }
+.fd-note { font-weight: 600; color: var(--ink-2); }
+.fd-bar { display: block; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.fd-bar i { display: block; height: 100%; border-radius: 3px; background: var(--accent); transition: width .3s ease; }
+.fd-done .fd-note { color: var(--ok); } .fd-done .fd-bar i { background: var(--ok); }
