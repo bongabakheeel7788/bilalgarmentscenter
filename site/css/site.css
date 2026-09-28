@@ -707,3 +707,53 @@ main#main { padding-top: 30px; padding-bottom: 72px; }
 .thumb-guide img { object-fit: contain; }
 .thumb-guide span { position: absolute; left: 0; right: 0; bottom: 0; padding: 2px 0; background: rgba(27, 74, 66, .88); color: #fff; font-size: 9.5px; font-weight: 700; text-align: center; letter-spacing: .02em; }
 .size-guide-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 6px; color: var(--accent); font-weight: 700; font-size: 14px; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ── P165 — reviews: a phone first. Stars in the shop's warm gold, everything else the page's own quiet ink ── */
+:root { --star: #c98a12; }
+.card-rating { margin-top: 3px; font-size: 12.5px; font-weight: 700; color: var(--ink); }
+.card-rating span { color: var(--star); } .card-rating small { color: var(--ink-3); font-weight: 600; }
+.rv { margin: 34px 0 8px; padding-top: 22px; border-top: 1px solid var(--line); }
+.rv-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.rv-head h2 { font-size: 20px; } .rv-head h2 small { color: var(--ink-3); font-weight: 600; font-size: 15px; }
+.rv-head .btn { min-height: 44px; }
+.stars { color: var(--star); letter-spacing: 1px; white-space: nowrap; } .stars-off { color: var(--line-2); }
+.rv-sum { display: grid; gap: 14px; padding: 16px; background: var(--bg-3); border-radius: var(--radius); margin-bottom: 16px; }
+.rv-avg { display: grid; justify-items: start; gap: 2px; }
+.rv-avg strong { font-size: 34px; line-height: 1; font-family: var(--serif); } .rv-avg .stars { font-size: 18px; } .rv-avg small { color: var(--ink-2); font-size: 13px; }
+.rv-bars { display: grid; gap: 5px; font-size: 12.5px; color: var(--ink-2); }
+.rv-bar { display: grid; grid-template-columns: 34px 1fr 26px; align-items: center; gap: 8px; }
+.rv-bar i { height: 7px; border-radius: 4px; background: var(--line); overflow: hidden; } .rv-bar b { display: block; height: 100%; background: var(--star); }
+.rv-bar span:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+@media (min-width: 761px) { .rv-sum { grid-template-columns: 220px 1fr; align-items: center; } }
+.rv-none { color: var(--ink-2); margin: 0 0 12px; }
+.rv-list { display: grid; }
+.rv-item { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.rv-top { display: flex; align-items: center; gap: 10px; }
+.rv-verified { font-size: 11.5px; font-weight: 700; color: var(--ok); background: #eaf4ee; padding: 2px 8px; border-radius: 999px; }
+.rv-item p { margin: 6px 0 4px; line-height: 1.6; overflow-wrap: anywhere; }
+.rv-by { font-size: 12.5px; color: var(--ink-3); }
+.rv-reply { margin-top: 8px; padding: 10px 12px; background: var(--accent-soft); border-radius: var(--radius); font-size: 13.5px; color: var(--ink-2); }
+#rvMore { margin-top: 12px; min-height: 44px; }
+.rv-form { display: grid; gap: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); }
+.rv-form label { display: grid; gap: 5px; font-weight: 600; font-size: 13.5px; }
+.rv-form label .muted { font-weight: 500; }
+.rv-form input, .rv-form textarea { min-height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--bg-2); color: var(--ink); font: inherit; font-size: 16px; }
+.rv-form small { color: var(--ink-3); font-weight: 500; }
+.rv-form .co-err { margin: 0; }
+.rv-pick { display: flex; align-items: center; gap: 2px; }
+.rv-star { width: 44px; height: 44px; border: 0; background: none; font-size: 30px; line-height: 1; color: var(--line-2); cursor: pointer; padding: 0; }
+.rv-star.on { color: var(--star); }
+.rv-star:focus-visible { outline: 2px solid var(--accent); border-radius: 8px; }
+.rv-pick-word { margin-left: 8px; font-size: 13.5px; font-weight: 700; color: var(--ink-2); }
+.rv-done { padding: 14px 16px; border-radius: var(--radius); background: #eaf4ee; color: var(--ok); font-weight: 700; margin-bottom: 16px; }
+@media (max-width: 480px) { .rv-form .two { grid-template-columns: 1fr; } }
+/* the "rate your order" page: one card per piece */
+.rvo-who { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0 6px; max-width: 760px; }
+.rvo-who label { display: grid; gap: 5px; font-weight: 600; font-size: 13.5px; }
+.rvo-who input { height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 0 12px; background: var(--bg-2); font: inherit; font-size: 16px; }
+.rvo-list { display: grid; gap: 14px; margin-top: 14px; max-width: 760px; }
+.rvo-item { display: grid; grid-template-columns: 72px 1fr; gap: 12px; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); }
+.rvo-item img { width: 72px; height: 90px; object-fit: cover; border-radius: var(--radius-sm); }
+.rvo-item h3 { font-size: 15px; margin-bottom: 6px; }
+.rvo-item .rv-form { grid-column: 1 / -1; margin: 0; padding: 0; border: 0; }
+@media (max-width: 480px) { .rvo-who { grid-template-columns: 1fr; } }

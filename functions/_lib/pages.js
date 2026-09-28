@@ -217,11 +217,55 @@ ${buyBar(p)}
   <img id="lbImg" src="" alt="${attr(p.name)}">
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
 </div>
+${reviewsBlock(cat, p)}
 ${recRow('More like this', related)}
 ${recRow(forWhom(p), forChild)}`;
   return layout(cat, { title: p.name, description: clip(text.own ? `${text.own} ${priceLabel(p)}, cash on delivery all over Pakistan.` : text.facts), canonical: `/p/${p.slug}/`, page: 'p-product', body,
     og: { type: 'product', title: `${p.name} — ${priceLabel(p)}`, image: photos[0] }, head: ldTag(ld) + ldTag(breadcrumbLd(store, trail)),
     publicData: { product: { code: p.code, slug: p.slug, name: p.name, cover: p.cover, photos: galleryShown, guide: p.size_guide || null, variants: variantsData, colours: colours.map(c => ({ name: c.name, photo: c.photo })) } } });
+}
+
+// ── P165 — reviews (Fahad, 2026-09-28: "online only, approve genuine ones, photos later") ──────────────────────
+// Only what the shop approved and published: first name, city, stars, words, date, the shop's reply. The first
+// three show; the rest are on the page too (Google reads them) behind "See all". The form checks the number
+// against a delivered order on the server — nobody else can post.
+const starRow = n => `<span class="stars" aria-hidden="true">${'★'.repeat(Math.round(n))}<span class="stars-off">${'★'.repeat(5 - Math.round(n))}</span></span>`;
+const reviewDate = d => { try { return new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }); } catch { return d; } };
+export const reviewForm = (code, { compact = false } = {}) => `
+  <form class="rv-form" ${compact ? '' : 'id="rvForm" hidden'} data-code="${attr(code)}" novalidate>
+    <div class="rv-pick" role="radiogroup" aria-label="Your stars">${[1, 2, 3, 4, 5].map(n => `<button type="button" class="rv-star" data-star="${n}" role="radio" aria-checked="false" aria-label="${n} star${n === 1 ? '' : 's'}">★</button>`).join('')}<span class="rv-pick-word" aria-live="polite"></span></div>
+    <label>Your words <span class="muted">(optional)</span><textarea name="text" rows="3" maxlength="600" placeholder="How was the fit, the fabric, the colour?"></textarea></label>
+    ${compact ? '' : `<div class="two"><label>First name <input name="name" maxlength="40" autocomplete="given-name"></label><label>City <input name="city" maxlength="40" autocomplete="address-level2"></label></div>
+    <label>Mobile number you ordered with <input name="phone" inputmode="tel" autocomplete="tel" placeholder="03xx xxxxxxx" maxlength="16"><small>Only to check the piece reached you — never shown.</small></label>`}
+    <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+    <div class="co-err" hidden></div>
+    <button class="btn btn-primary${compact ? '' : ' btn-block'}" type="submit">Send review</button>
+  </form>`;
+function reviewsBlock(cat, p) {
+  const r = p.rating && p.rating.count ? p.rating : null;
+  const list = p.reviews || [];
+  const bars = r ? [5, 4, 3, 2, 1].map(n => { const k = (r.dist && r.dist[n]) || 0; return `<div class="rv-bar"><span>${n} ★</span><i><b style="width:${r.count ? Math.round(k / r.count * 100) : 0}%"></b></i><span>${k}</span></div>`; }).join('') : '';
+  return `<section class="rv" id="reviews" aria-labelledby="rvH">
+  <div class="rv-head"><h2 id="rvH">Reviews${r ? ` <small>(${r.count})</small>` : ''}</h2><button type="button" class="btn btn-outline" id="rvWrite">Write a review</button></div>
+  ${r ? `<div class="rv-sum"><div class="rv-avg"><strong>${esc(r.avg)}</strong>${starRow(r.avg)}<small>${r.count} review${r.count === 1 ? '' : 's'} from customers who bought it</small></div><div class="rv-bars">${bars}</div></div>`
+    : '<p class="rv-none">No reviews yet. Bought this piece online? Tell other parents how it fits.</p>'}
+  ${reviewForm(p.code)}
+  ${list.length ? `<div class="rv-list">${list.map((x, i) => `<article class="rv-item"${i >= 3 ? ' hidden' : ''}>
+    <div class="rv-top">${starRow(x.stars)}<span class="sr-only">${x.stars} out of 5</span><span class="rv-verified">Verified buyer</span></div>
+    ${x.text ? `<p>${esc(x.text)}</p>` : ''}
+    <div class="rv-by">${esc(x.name)}${x.city ? ` · ${esc(x.city)}` : ''}${x.date ? ` · ${esc(reviewDate(x.date))}` : ''}</div>
+    ${x.reply ? `<div class="rv-reply"><strong>${esc(cat.store.name)}:</strong> ${esc(x.reply)}</div>` : ''}
+  </article>`).join('')}</div>${list.length > 3 ? `<button type="button" class="btn btn-outline btn-block" id="rvMore">See all ${list.length} reviews</button>` : ''}` : ''}
+</section>`;
+}
+
+/** /review/WEB-000123/ — the page a "please rate your order" WhatsApp opens; the number it was placed with unlocks it */
+export function reviewOrder(cat, no) {
+  const body = `<div class="page-head"><h1>Rate your order</h1><p>Order <strong>${esc(no)}</strong>. Tell other parents how the pieces fit — it takes a minute.</p></div>
+<form class="track-form" id="rvOrderForm"><label>Mobile number you ordered with <input name="phone" inputmode="tel" autocomplete="tel" placeholder="03xx xxxxxxx" required maxlength="16"></label><button class="btn btn-primary" type="submit">Show my pieces</button></form>
+<div class="co-err" id="rvOrderErr" hidden></div>
+<div id="rvOrderOut"></div>`;
+  return layout(cat, { title: 'Rate your order', page: 'p-review', body, publicData: { reviewOrder: no, reviewForm: reviewForm('', { compact: true }) }, head: NOINDEX });
 }
 
 // P141 — a deal's pack page: one size, six pieces, mixed colours or the customer's own (same price), free

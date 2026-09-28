@@ -101,7 +101,7 @@ ${canonical ? `<meta property="og:url" content="${attr(site + canonical)}">` : '
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"></noscript>
 <link rel="preload" href="/css/site.css${assetV(cat)}" as="style">
 <link rel="stylesheet" href="/css/site.css${assetV(cat)}">
-<script>window.STORE=${json({ name: store.name, whatsapp: store.whatsapp, whatsapp_intl: store.whatsapp_intl, free_delivery_above: Number(store.free_delivery_above || 0), delivery_charge: Number(store.delivery_charge || 0), payment_note: store.payment_note || '', site_url: site, pixel: !!store.pixel_id, tiktok: !!tiktok, google: google.length > 0, google_purchase: googlePurchase, agent_codes: [...cat.agentCodes] })};${publicData ? `window.PAGE=${json(publicData)};` : ''}</script>
+<script>window.STORE=${json({ name: store.name, whatsapp: store.whatsapp, whatsapp_intl: store.whatsapp_intl, free_delivery_above: Number(store.free_delivery_above || 0), delivery_charge: Number(store.delivery_charge || 0), payment_note: store.payment_note || '', site_url: site, turnstile: cat.turnstileKey || '', pixel: !!store.pixel_id, tiktok: !!tiktok, google: google.length > 0, google_purchase: googlePurchase, agent_codes: [...cat.agentCodes] })};${publicData ? `window.PAGE=${json(publicData)};` : ''}</script>
 ${pixel}${tiktokTag}${googleTag}
 ${head}
 </head>
@@ -198,6 +198,7 @@ export function card(p) {
   <a class="card-body" href="${attr(p.href || `/p/${p.slug}/`)}">
     <div class="card-name">${esc(p.name)}</div>
     <div class="card-price">${esc(priceLabel(p))}</div>${p.sub ? `<div class="card-sub">${esc(p.sub)}</div>` : ''}
+    ${p.rating && p.rating.count ? `<div class="card-rating" aria-label="Rated ${attr(p.rating.avg)} out of 5 by ${p.rating.count} customer${p.rating.count === 1 ? '' : 's'}"><span aria-hidden="true">★</span> ${esc(p.rating.avg)} <small>(${p.rating.count})</small></div>` : ''}
     ${sizeRow(p)}
   </a>
 </div>`;

@@ -4,6 +4,7 @@
 //   POST /api/pos/status  { no, status, tracking_no?, courier?, tracking_url? }   so the tracking page is honest
 //   PUT  /api/pos/blocked { phones: [{ phone, reason }] }   the whole block list, replaced
 //   GET  /api/pos/ping                                       are we configured, how many waiting
+//   GET  /api/pos/reviews?since=<id>                         P165 — reviews newer than the last one it has (≤ 100)
 import { ensureSchema, json, normalisePhone, posAuthorised, parseChoice } from '../../_lib/db.js';
 
 // P51 — the POS types the courier's own steps by hand (no API on the shop's
@@ -52,6 +53,13 @@ export async function onRequest(context) {
     const r = await db.prepare(`UPDATE orders SET status = ?, status_updated_at = ?, tracking_no = COALESCE(?, tracking_no), courier = COALESCE(?, courier), tracking_url = COALESCE(?, tracking_url) WHERE no = ?`)
       .bind(status, now, b.tracking_no ? String(b.tracking_no).slice(0, 40) : null, b.courier ? String(b.courier).slice(0, 40) : null, b.tracking_url ? String(b.tracking_url).slice(0, 300) : null, no).run();
     return json({ ok: true, updated: r.meta ? r.meta.changes : 1 });
+  }
+  // P165 — the reviews customers left, newer than the last one the POS has (≤ 100). The phone rides along so the
+  // POS can match the customer; the website itself never shows it.
+  if (action === 'reviews' && method === 'GET') {
+    const since = Number(new URL(request.url).searchParams.get('since') || 0);
+    const { results } = await db.prepare(`SELECT id, code, order_no, phone, name, city, stars, body, created_at FROM reviews WHERE id > ? ORDER BY id LIMIT 100`).bind(since).all();
+    return json({ reviews: results || [] });
   }
   if (action === 'blocked' && method === 'PUT') {
     const b = await request.json().catch(() => ({}));

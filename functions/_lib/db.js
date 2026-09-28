@@ -56,6 +56,19 @@ const SCHEMA = [
   `CREATE INDEX IF NOT EXISTS events_channel_day ON events(channel, day)`,
   `CREATE INDEX IF NOT EXISTS events_session ON events(session)`,
   `CREATE INDEX IF NOT EXISTS events_kind_day ON events(kind, day)`,
+  // P165 — a review from a customer whose order of that piece was delivered. One per number per product. The
+  // POS pulls them (with the phone, to match the customer) and decides; the website shows only what the POS
+  // approved and published — first name, city, stars, words — never the number.
+  `CREATE TABLE IF NOT EXISTS reviews (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    code TEXT NOT NULL, order_no TEXT NOT NULL, phone TEXT NOT NULL,
+    name TEXT NOT NULL, city TEXT, stars INTEGER NOT NULL CHECK (stars BETWEEN 1 AND 5), body TEXT,
+    ip TEXT, created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+    UNIQUE (phone, code)
+  )`,
+  // every attempt, kept an hour: a stranger guessing numbers is stopped after a handful
+  `CREATE TABLE IF NOT EXISTS review_tries (ip TEXT, phone TEXT, at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')))`,
+  `CREATE INDEX IF NOT EXISTS review_tries_ip ON review_tries(ip, at)`,
 ];
 
 /** the Karachi day — the shop's own date, and Pakistan keeps no summer time */

@@ -71,7 +71,12 @@ export function productLd(p, store, { photos, url, text, availability }) {
     image: photos.map(x => `${site}/${String(x).replace(/^\//, '')}`), description: text,
     brand: { '@type': 'Brand', name: store.name }, ...(p.category ? { category: [p.category_parent, p.category].filter(Boolean).join(' > ') } : {}),
     ...(realColours(p).length ? { color: realColours(p).map(c => c.name).join(', ') } : {}),
-    ...(p.fabric ? { material: p.fabric } : {}), offers };
+    ...(p.fabric ? { material: p.fabric } : {}), offers,
+    // P165 — only real, approved reviews, and only once there is one: never made up, never a default
+    ...(p.rating && p.rating.count > 0 ? {
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: p.rating.avg, reviewCount: p.rating.count, bestRating: 5, worstRating: 1 },
+      review: (p.reviews || []).slice(0, 10).map(r => ({ '@type': 'Review', reviewRating: { '@type': 'Rating', ratingValue: r.stars, bestRating: 5, worstRating: 1 },
+        author: { '@type': 'Person', name: r.name }, ...(r.date ? { datePublished: r.date } : {}), ...(r.text ? { reviewBody: r.text } : {}) })) } : {}) };
 }
 
 /** the shop itself — on the home page and the Visit page */

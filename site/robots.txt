@@ -4,5 +4,6 @@ Disallow: /checkout/
 Disallow: /thanks/
 Disallow: /track/
 Disallow: /search/
+Disallow: /review/
 Disallow: /api/
 Sitemap: https://bilalgarments.center/sitemap.xml

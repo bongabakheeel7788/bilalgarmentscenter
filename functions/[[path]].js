@@ -14,6 +14,7 @@ export async function onRequestGet(context) {
   let cat;
   try { cat = await loadCatalogue(context); }
   catch (e) { return html(`<!doctype html><meta charset="utf-8"><title>Opening soon</title><body style="font-family:system-ui;padding:40px;text-align:center"><h1>Opening soon</h1><p>The catalogue has not been published yet.</p>`, 503, { 'Cache-Control': 'no-store' }); }
+  cat.turnstileKey = context.env.TURNSTILE_SITE_KEY || '';   // P165 — the review forms' bot check (a public key)
   const seg = path.split('/').filter(Boolean);
   let out = null;
   if (seg.length === 0) out = pages.home(cat);
@@ -29,6 +30,7 @@ export async function onRequestGet(context) {
   else if (seg[0] === 'thanks' && seg.length === 2 && /^WEB-\d{6}$/.test(seg[1])) return html(pages.thanks(cat, seg[1]), 200, { 'Cache-Control': 'no-store' });
   else if (seg[0] === 'track' && seg.length === 1) return html(pages.track(cat, url.searchParams.get('no') || ''), 200, { 'Cache-Control': 'no-store' });
   else if (seg[0] === 'visit' && seg.length === 1) out = pages.visit(cat);
+  else if (seg[0] === 'review' && seg.length === 2 && /^WEB-\d{6}$/.test(seg[1])) return html(pages.reviewOrder(cat, seg[1]), 200, { 'Cache-Control': 'no-store' });   // P165
   if (out) return html(out);
   return html(pages.notFound(cat), 404, { 'Cache-Control': 'no-store' });
 }

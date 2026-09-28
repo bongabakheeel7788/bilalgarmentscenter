@@ -629,3 +629,97 @@ document.addEventListener('click', e => {
     });
   }, { passive: true });
 })();
+
+// ── P165 — reviews (Fahad, 2026-09-28: "online only, approve genuine ones, photos later") ──────────────────────
+// The stars, the form, and the "rate your order" page. The server checks the number against a delivered order;
+// this only collects and says what happened. The bot check is loaded the first time a review is sent, never on
+// page load, so a product page is no heavier for the parent who only looks.
+const RV_WORDS = ['', 'Poor', 'Not great', 'OK', 'Good', 'Loved it'];
+let tsLoad = null, tsId = null, tsWait = null;
+async function botToken(host) {
+  if (!S.turnstile) return '';
+  try {
+    if (!window.turnstile) {
+      tsLoad = tsLoad || new Promise((res, rej) => { const s = document.createElement('script'); s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async = true; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+      await tsLoad;
+    }
+    return await new Promise(res => {
+      const timer = setTimeout(() => { tsWait = null; res(''); }, 15000);
+      tsWait = t => { clearTimeout(timer); tsWait = null; res(t || ''); };
+      if (tsId == null) {
+        const d = document.createElement('div'); d.className = 'rv-ts'; host.appendChild(d);
+        tsId = window.turnstile.render(d, { sitekey: S.turnstile, execution: 'execute', callback: t => tsWait && tsWait(t), 'error-callback': () => tsWait && tsWait('') });
+      } else window.turnstile.reset(tsId);
+      window.turnstile.execute(tsId);
+    });
+  } catch { return ''; }            // the server decides
+}
+function wireStars(form) {
+  const btns = $$('.rv-star', form), word = $('.rv-pick-word', form);
+  form._stars = 0;
+  const paint = n => { btns.forEach(b => { const on = Number(b.dataset.star) <= n; b.classList.toggle('on', on); b.setAttribute('aria-checked', Number(b.dataset.star) === n ? 'true' : 'false'); }); if (word) word.textContent = RV_WORDS[n] || ''; };
+  btns.forEach(b => {
+    b.onclick = () => { form._stars = Number(b.dataset.star); paint(form._stars); };
+    b.onmouseenter = () => paint(Number(b.dataset.star));
+    b.onmouseleave = () => paint(form._stars);
+  });
+}
+/** send one review; resolves true when the shop has it */
+async function sendReview(form, extra) {
+  const err = $('.co-err', form), btn = $('button[type=submit]', form);
+  const say = m => { err.textContent = m; err.hidden = !m; };
+  say('');
+  if (!form._stars) return say('Tap the stars first — one to five.'), false;
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const token = await botToken(form);
+    const res = await fetch('/api/reviews', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: form.dataset.code, stars: form._stars, text: form.text ? form.text.value : '', website: form.website ? form.website.value : '', turnstile: token, ...extra }) });
+    const j = await res.json().catch(() => ({}));
+    if (res.ok) {
+      track('review', { label: form.dataset.code, value: form._stars });
+      const done = document.createElement('div'); done.className = 'rv-done'; done.textContent = j.message || 'Thank you!';
+      form.replaceWith(done);
+      return true;
+    }
+    say(j.fields ? Object.values(j.fields).join(' ') : (j.message || 'Could not send it — please try again.'));
+  } catch { say('No connection — please try again.'); }
+  btn.disabled = false; btn.textContent = 'Send review';
+  return false;
+}
+(function productReviews() {
+  const sec = $('#reviews'); if (!sec) return;
+  const more = $('#rvMore', sec);
+  if (more) more.onclick = () => { $$('.rv-item[hidden]', sec).forEach(x => { x.hidden = false; }); more.remove(); };
+  const form = $('#rvForm', sec), open = $('#rvWrite', sec);
+  if (!form || !open) return;
+  wireStars(form);
+  open.onclick = () => { form.hidden = false; open.hidden = true; const first = $('.rv-star', form); if (first) first.focus(); track('review_open', { label: form.dataset.code }); };
+  form.onsubmit = e => { e.preventDefault(); sendReview(form, { name: form.name.value, city: form.city.value, phone: form.phone.value }); };
+})();
+(function reviewOrderPage() {
+  const f = $('#rvOrderForm'); if (!f) return;
+  const PG = window.PAGE || {}, out = $('#rvOrderOut'), err = $('#rvOrderErr');
+  f.onsubmit = async e => {
+    e.preventDefault();
+    err.hidden = true;
+    const phone = f.phone.value, btn = $('button', f);
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/reviews/order', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ no: PG.reviewOrder, phone }) });
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok) { err.textContent = j.message || 'Could not find that order.'; err.hidden = false; return; }
+      f.hidden = true;
+      out.innerHTML = `<div class="rvo-who"><label>First name <input id="rvoName" maxlength="40" value="${esc(j.name)}"></label><label>City <input id="rvoCity" maxlength="40" value="${esc(j.city)}"></label></div>
+        <p class="muted small">Only your first name and city are shown with your review.</p>
+        <div class="rvo-list">${j.items.map(it => `<div class="rvo-item">${it.cover ? `<img src="/${esc(it.cover)}" alt="" loading="lazy" width="72" height="90">` : '<span></span>'}
+          <div><h3><a href="/p/${esc(it.slug)}/">${esc(it.name)}</a></h3>${it.reviewed ? '<div class="rv-done">Reviewed — thank you!</div>' : ''}</div>
+          ${it.reviewed ? '' : (PG.reviewForm || '').replace('data-code=""', `data-code="${esc(it.code)}"`)}</div>`).join('') || '<p class="muted">None of the pieces in this order are on the website any more.</p>'}</div>`;
+      $$('.rv-form', out).forEach(form => {
+        wireStars(form);
+        form.onsubmit = ev => { ev.preventDefault(); sendReview(form, { phone, name: $('#rvoName').value, city: $('#rvoCity').value }); };
+      });
+    } catch { err.textContent = 'No connection — please try again.'; err.hidden = false; }
+    finally { btn.disabled = false; }
+  };
+})();
