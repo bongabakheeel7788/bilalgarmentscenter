@@ -1298,10 +1298,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1242/d445808c-2b2b-4aa8-af09-5d3b37a90e06.webp",
+   "cover": "media/STY-1242/26fbbe10-e99d-4e98-97c1-42fd3cd37084.webp",
    "photos": [
     {
-     "src": "media/STY-1242/d445808c-2b2b-4aa8-af09-5d3b37a90e06.webp",
+     "src": "media/STY-1242/26fbbe10-e99d-4e98-97c1-42fd3cd37084.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -8004,7 +8004,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 86,
+   "total": 90,
    "online": 35,
    "months": [
     0,
@@ -8235,7 +8235,7 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "peach",
-   "total": 6,
+   "total": 7,
    "online": 1,
    "months": null,
    "sizes": [
