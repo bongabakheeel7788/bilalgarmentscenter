@@ -26,7 +26,10 @@
   "delivery_charge": 0,
   "show_stock": true,
   "payment_note": "",
-  "pixel_id": ""
+  "pixel_id": "",
+  "tiktok_pixel_id": "",
+  "google_tag_id": "",
+  "google_ads_purchase": ""
  },
  "categories": [
   {
@@ -2601,7 +2604,7 @@
      "size": "28",
      "colour": "Washable",
      "price": 650,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 671,
@@ -9954,6 +9957,6 @@
   }
  ],
  "assets": {
-  "v": "9f3a0cbcff"
+  "v": "a62e316a73"
  }
 }

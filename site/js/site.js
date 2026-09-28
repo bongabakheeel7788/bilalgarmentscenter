@@ -9,7 +9,26 @@ const S = window.STORE || {};
 const money = n => 'Rs ' + (Number.isInteger(Number(n)) ? Number(n).toLocaleString('en-PK') : Number(n).toLocaleString('en-PK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const store = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } } };
-const pixel = (ev, data) => { if (S.pixel && window.fbq) try { fbq('track', ev, data); } catch { /* ad blocker */ } };
+// P161 — one moment, three pixels. Facebook's event names are the source; TikTok and Google (Google Ads / YouTube and
+// Analytics) are sent the same moment in their own words. `order_id` rides along on a purchase so no platform ever
+// counts one order twice (Facebook eventID, TikTok event_id, Google transaction_id). No phone, name or address is sent.
+const TT_EVENT = { ViewContent: 'ViewContent', AddToCart: 'AddToCart', InitiateCheckout: 'InitiateCheckout', Search: 'Search', Purchase: 'CompletePayment' };
+const G_EVENT = { ViewContent: 'view_item', AddToCart: 'add_to_cart', InitiateCheckout: 'begin_checkout', Search: 'search', Purchase: 'purchase' };
+const pixel = (ev, data = {}) => {
+  const { order_id: orderId, ...fb } = data;
+  const ids = (fb.content_ids || []).map(String), value = Number(fb.value) || 0;
+  if (S.pixel && window.fbq) try { if (orderId) fbq('track', ev, fb, { eventID: 'order-' + orderId }); else fbq('track', ev, fb); } catch { /* ad blocker */ }
+  if (S.tiktok && window.ttq && TT_EVENT[ev]) try {
+    ttq.track(TT_EVENT[ev], ev === 'Search' ? { query: fb.search_string || '' }
+      : { contents: ids.map(id => ({ content_id: id, content_type: 'product' })), content_type: 'product', value, currency: 'PKR' },
+      orderId ? { event_id: 'order-' + orderId } : undefined);
+  } catch { /* ad blocker */ }
+  if (S.google && window.gtag && G_EVENT[ev]) try {
+    gtag('event', G_EVENT[ev], ev === 'Search' ? { search_term: fb.search_string || '' }
+      : { currency: 'PKR', value, items: ids.map(id => ({ item_id: id })), ...(orderId ? { transaction_id: String(orderId) } : {}) });
+    if (ev === 'Purchase' && S.google_purchase) gtag('event', 'conversion', { send_to: S.google_purchase, value, currency: 'PKR', ...(orderId ? { transaction_id: String(orderId) } : {}) });
+  } catch { /* ad blocker */ }
+};
 const track = (k, o) => { try { if (window.bgcTrack) window.bgcTrack(k, o); } catch (e) { /* the visit log never breaks a sale */ } };
 const waHref = text => `https://wa.me/${S.whatsapp_intl || String(S.whatsapp || '').replace(/^0/, '92').replace(/\D/g, '')}?text=${encodeURIComponent(text)}`;
 
@@ -503,7 +522,7 @@ if (form) {
       store.set('bgc_last_order', { no: j.no, phone: f.phone, total: j.total, lines: j.lines, packs: j.packs || [], delivery_charge: j.delivery_charge, delivery: f.delivery,
         px: { ids: cart.lines.map(l => l.pack ? 'pack:' + l.slug : l.code), items: cart.count(), sent: false } });
       const kept = store.get('bgc_last_order');
-      if (!kept || kept.no !== j.no) pixel('Purchase', { value: j.total, currency: 'PKR', content_ids: cart.lines.map(l => l.pack ? 'pack:' + l.slug : l.code), content_type: 'product', num_items: cart.count() });   // P154 — storage refused: the thanks page will not see it
+      if (!kept || kept.no !== j.no) pixel('Purchase', { value: j.total, currency: 'PKR', content_ids: cart.lines.map(l => l.pack ? 'pack:' + l.slug : l.code), content_type: 'product', num_items: cart.count(), order_id: j.no });   // P154 — storage refused: the thanks page will not see it
       track('order', { l: j.no, v: j.total, now: true });
       cart.clear();
       location.href = '/thanks/' + j.no + '/';
@@ -526,7 +545,7 @@ if (document.body.classList.contains('p-thanks')) {
     if (collect) { const e = $('.eta-thanks'); if (e) e.hidden = true; }
     // P154 — the Purchase event, sent here, once per order (the checkout used to send it as it left the page)
     if (last.px && !last.px.sent) {
-      pixel('Purchase', { value: last.total, currency: 'PKR', content_ids: last.px.ids, content_type: 'product', num_items: last.px.items });
+      pixel('Purchase', { value: last.total, currency: 'PKR', content_ids: last.px.ids, content_type: 'product', num_items: last.px.items, order_id: no });   // P161: one order, counted once
       store.set('bgc_last_order', { ...last, px: { ...last.px, sent: true } });
     }
   }

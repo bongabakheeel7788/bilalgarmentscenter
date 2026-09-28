@@ -31,6 +31,19 @@ export function deliveryLine(store) {
 // with the same address every time, a phone that opened the site before a fix kept running the old
 // script. A new fingerprint is a new address, so the fix reaches every phone at once — and a publish
 // that changed nothing keeps the same one, so nothing is fetched again for no reason.
+/** P161 — the ad-platform IDs, only in the shape each platform issues; anything else is ignored (and so never reaches
+ *  the page). TikTok: letters and digits. Google: G-/AW-/GT-/DC- IDs, comma- or space-separated. The purchase
+ *  conversion: AW-<digits>/<label>. */
+export function adIds(store = {}) {
+  const tt = String(store.tiktok_pixel_id || '').trim().toUpperCase();
+  const google = [...new Set(String(store.google_tag_id || '').split(/[\s,]+/).map(s => s.trim().toUpperCase()).filter(s => /^(G|AW|GT|DC)-[A-Z0-9]{4,20}$/.test(s)))].slice(0, 3);
+  const gp = String(store.google_ads_purchase || '').trim();
+  const googlePurchase = /^AW-\d{5,15}\/[A-Za-z0-9_-]{4,40}$/.test(gp) ? gp : '';
+  // the conversion carries its own AW- account: loaded even when only the conversion box was filled
+  if (googlePurchase && !google.includes(googlePurchase.split('/')[0])) google.push(googlePurchase.split('/')[0]);
+  return { tiktok: /^[A-Z0-9]{8,40}$/.test(tt) ? tt : '', google, googlePurchase };
+}
+
 export const assetV = cat => (cat && cat.assets && cat.assets.v ? `?v=${encodeURIComponent(cat.assets.v)}` : '');
 
 export function layout(cat, { title, description, canonical, og = {}, head = '', page = '', body, store = cat.store, publicData }) {
@@ -59,6 +72,11 @@ export function layout(cat, { title, description, canonical, og = {}, head = '',
   const chosen = Array.isArray(store.menu) ? store.menu.filter(m => m && m.href && m.label && live(m.href)) : [];
   const nav = chosen.length ? chosen : auto;
   const pixel = store.pixel_id ? `<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${esc(store.pixel_id)}');fbq('track','PageView');</script>` : '';
+  // P161 (Fahad, 2026-09-28: "build tiktok and if youtube/google also have pixel build that as well") — each loads only
+  // when its box holds an ID of the right shape: a typo loads nothing, and nothing typed can reach the page as code
+  const { tiktok, google, googlePurchase } = adIds(store);
+  const tiktokTag = tiktok ? `<script>!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};ttq.load('${tiktok}');ttq.page();}(window,document,'ttq');</script>` : '';
+  const googleTag = google.length ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${google[0]}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());${google.map(id => `gtag('config','${id}');`).join('')}</script>` : '';
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -83,8 +101,8 @@ ${canonical ? `<meta property="og:url" content="${attr(site + canonical)}">` : '
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"></noscript>
 <link rel="preload" href="/css/site.css${assetV(cat)}" as="style">
 <link rel="stylesheet" href="/css/site.css${assetV(cat)}">
-<script>window.STORE=${json({ name: store.name, whatsapp: store.whatsapp, whatsapp_intl: store.whatsapp_intl, free_delivery_above: Number(store.free_delivery_above || 0), delivery_charge: Number(store.delivery_charge || 0), payment_note: store.payment_note || '', site_url: site, pixel: !!store.pixel_id, agent_codes: [...cat.agentCodes] })};${publicData ? `window.PAGE=${json(publicData)};` : ''}</script>
-${pixel}
+<script>window.STORE=${json({ name: store.name, whatsapp: store.whatsapp, whatsapp_intl: store.whatsapp_intl, free_delivery_above: Number(store.free_delivery_above || 0), delivery_charge: Number(store.delivery_charge || 0), payment_note: store.payment_note || '', site_url: site, pixel: !!store.pixel_id, tiktok: !!tiktok, google: google.length > 0, google_purchase: googlePurchase, agent_codes: [...cat.agentCodes] })};${publicData ? `window.PAGE=${json(publicData)};` : ''}</script>
+${pixel}${tiktokTag}${googleTag}
 ${head}
 </head>
 <body class="${attr(page)}">
