@@ -1,0 +1,4 @@
+# P171 — a photo's name changes whenever the photo does (a new random name on every upload, replace, size guide
+# and logo), so a phone may keep each one for a year and never ask again. Pages and the catalogue are not cached here.
+/media/*
+  Cache-Control: public, max-age=31536000, immutable

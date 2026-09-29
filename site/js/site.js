@@ -6,6 +6,13 @@
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const S = window.STORE || {};
+// P171 — a product photo's smaller copies (<name>-320.webp, -480.webp) sit beside it on the website; a size guide and the logo have none
+const photoAt = (p, w) => /^\/?media\/.+\.webp$/.test(String(p || '')) && !/media\/size-guides\//.test(p) && !/\/logo-[^/]*$/.test(p) ? String(p).replace(/\.webp$/, `-${w}.webp`) : p;
+if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+  // the second photo on a card shows on hover — so only a device that can hover downloads it
+  const wake = () => $$('img.card-photo-alt[data-src]').forEach(i => { i.src = i.dataset.src; i.removeAttribute('data-src'); });
+  wake(); document.addEventListener('bgc:cards', wake);
+}
 const money = n => 'Rs ' + (Number.isInteger(Number(n)) ? Number(n).toLocaleString('en-PK') : Number(n).toLocaleString('en-PK', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const store = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } } };
@@ -136,7 +143,7 @@ function paintCart() {
   const box = $('#cartLines');
   if (!box) return;
   box.innerHTML = cart.lines.length ? cart.lines.map(l => `<div class="line">
-    ${l.cover ? `<img src="/${esc(l.cover)}" alt="">` : '<div class="noimg" style="width:56px;height:70px;border-radius:8px"></div>'}
+    ${l.cover ? `<img src="/${esc(photoAt(l.cover, 320))}" alt="">` : '<div class="noimg" style="width:56px;height:70px;border-radius:8px"></div>'}
     <div><a class="line-name" href="/${l.pack ? 'd' : 'p'}/${esc(l.slug)}/">${esc(l.name)}</a><div class="line-meta">${lineMeta(l)} · ${money(l.price)}</div>
       <div class="line-qty"><button data-dec="${esc(keyOf(l))}" aria-label="Less">−</button><span>${l.qty}</span><button data-inc="${esc(keyOf(l))}" aria-label="More">+</button></div></div>
     <div><div class="line-price">${money(l.price * l.qty)}</div><button class="line-rm" data-rm="${esc(keyOf(l))}">Remove</button></div></div>`).join('')
@@ -172,7 +179,7 @@ function wireGallery() {
     if (!src) return;
     const i = slides.findIndex(x => (x.querySelector('img').getAttribute('src') || '') === src);
     if (i >= 0) return goSlide(i);
-    const mi = $('#mainImg'); if (mi) { mi.src = src; goSlide(0); }
+    const mi = $('#mainImg'); if (mi) { mi.removeAttribute('srcset'); mi.src = src; goSlide(0); }   // P171: a photo with srcset ignores a new src
   };
   let at = 0;
   $$('.thumb').forEach(b => b.onclick = () => goSlide(Number(b.dataset.i) || 0));
@@ -617,7 +624,7 @@ document.addEventListener('click', e => {
   const card = sw.closest('.card');
   const img = card && card.querySelector('.card-photo');
   if (!img) return;
-  img.src = sw.dataset.photo;
+  img.removeAttribute('srcset'); img.src = sw.dataset.photo;   // P171: the card size of that colour's photo
   card.querySelectorAll('.sw-img').forEach(x => x.classList.toggle('on', x === sw));
 });
 
@@ -733,7 +740,7 @@ async function sendReview(form, extra) {
       f.hidden = true;
       out.innerHTML = `<div class="rvo-who"><label>First name <input id="rvoName" maxlength="40" value="${esc(j.name)}"></label><label>City <input id="rvoCity" maxlength="40" value="${esc(j.city)}"></label></div>
         <p class="muted small">Only your first name and city are shown with your review.</p>
-        <div class="rvo-list">${j.items.map(it => `<div class="rvo-item">${it.cover ? `<img src="/${esc(it.cover)}" alt="" loading="lazy" width="72" height="90">` : '<span></span>'}
+        <div class="rvo-list">${j.items.map(it => `<div class="rvo-item">${it.cover ? `<img src="/${esc(photoAt(it.cover, 320))}" alt="" loading="lazy" width="72" height="90">` : '<span></span>'}
           <div><h3><a href="${esc(it.href || `/p/${it.slug}/`)}">${esc(it.name)}</a></h3>${it.reviewed ? '<div class="rv-done">Reviewed — thank you!</div>' : ''}</div>
           ${it.reviewed ? '' : (PG.reviewForm || '').replace('data-code=""', `data-code="${esc(it.code)}"`)}</div>`).join('') || '<p class="muted">None of the pieces in this order are on the website any more.</p>'}</div>`;
       $$('.rv-form', out).forEach(form => {

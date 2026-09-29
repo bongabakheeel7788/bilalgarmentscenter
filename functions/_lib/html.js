@@ -8,6 +8,16 @@ import { SWATCHES, iconSvg } from './kind-icons.js';   // P139
 
 export const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export const attr = s => esc(s);
+// P171 — a product photo exists in three sizes on the website (modules/store/media-optimise.js): <name>-320.webp,
+// <name>-480.webp and <name>.webp (800). A size guide and the logo exist only as they are.
+const isPhoto = p => /^\/?media\/.+\.webp$/.test(String(p || '')) && !/media\/size-guides\//.test(p) && !/\/logo-[^/]*$/.test(p);
+/** the smaller copy of a photo, or the photo itself when it has none */
+export const photoAt = (p, width) => isPhoto(p) ? String(p).replace(/\.webp$/, `-${width}.webp`) : p;
+/** src, srcset and sizes for a photo: the phone picks the size it needs; `first` is the size a plain browser gets */
+export const photoAttrs = (p, sizes, first = 480) => isPhoto(p)
+  ? `src="/${attr(first >= 800 ? p : photoAt(p, first))}" srcset="/${attr(photoAt(p, 320))} 320w, /${attr(photoAt(p, 480))} 480w, /${attr(p)} 800w" sizes="${attr(sizes)}"`
+  : `src="/${attr(p)}"`;
+export const CARD_SIZES = '(max-width: 760px) 48vw, (max-width: 1180px) 30vw, 280px';
 const json = o => JSON.stringify(o).replace(/</g, '\\u003c');
 
 export function waLink(store, text) {
@@ -172,7 +182,7 @@ function swatches(p) {
   if (cs.length < 2) return '';
   const shown = cs.slice(0, SWATCH_CAP), rest = cs.length - shown.length;
   return `<div class="card-sw">${shown.map((c, i) => c.photo
-    ? `<button type="button" class="sw sw-img${i === 0 ? ' on' : ''}" data-photo="/${attr(c.photo)}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><img src="/${attr(c.photo)}" alt="" loading="lazy" width="56" height="56"></button>`
+    ? `<button type="button" class="sw sw-img${i === 0 ? ' on' : ''}" data-photo="/${attr(photoAt(c.photo, 480))}" title="${attr(c.name)}" aria-label="${attr(c.name)}"><img src="/${attr(photoAt(c.photo, 320))}" alt="" loading="lazy" width="56" height="56"></button>`
     : `<span class="sw sw-dot" title="${attr(c.name)}" aria-label="${attr(c.name)}"><i style="background:${attr(c.hex || '#ddd')}"></i></span>`).join('')}${
     rest > 0 ? `<span class="sw-more">+${rest} more</span>` : ''}</div>`;
 }
@@ -197,8 +207,8 @@ export function card(p) {
   const fits = !p.age_range || p.hide_fits ? '' : !rb ? shortAge(ra) : (/^\d+ /.test(ra) && ra.replace(/^\d+ /, '') === rb.replace(/^\d+ /, '')) ? ra.split(' ')[0] + '–' + shortAge(rb) : shortAge(ra) + '–' + shortAge(rb);
   return `<div class="card${av === 'out' ? ' is-out' : ''}" data-code="${attr(p.code)}" data-for="${attr(groupsOf(p).join(' '))}">
   <a class="card-img" href="${attr(p.href || `/p/${p.slug}/`)}" aria-label="${attr(p.name)}">
-    ${p.cover ? `<img class="card-photo" src="/${attr(p.cover)}" alt="${attr(p.name)}" loading="lazy" width="600" height="750">` : '<div class="noimg"></div>'}
-    ${alt ? `<img class="card-photo-alt" src="/${attr(alt)}" alt="" loading="lazy" width="600" height="750">` : ''}
+    ${p.cover ? `<img class="card-photo" ${photoAttrs(p.cover, CARD_SIZES)} alt="${attr(p.name)}" loading="lazy" width="600" height="750">` : '<div class="noimg"></div>'}
+    ${/* P171 — the second photo shows on hover, so only a device that can hover loads it (site.js) */ ''}${alt ? `<img class="card-photo-alt" data-src="/${attr(photoAt(alt, 480))}" alt="" loading="lazy" width="600" height="750">` : ''}
     ${p.badge ? `<span class="badge badge-pack">${esc(p.badge)}</span>` : p.is_new ? '<span class="badge">New</span>' : ''}${av === 'out' ? '<span class="badge badge-out">Sold out</span>' : av === 'few' ? '<span class="badge badge-few">Few left</span>' : ''}${fits ? `<span class="card-fits">${esc(fits)}</span>` : ''}</a>
   ${swatches(p)}
   <a class="card-body" href="${attr(p.href || `/p/${p.slug}/`)}">
@@ -337,7 +347,7 @@ export function catTiles(cat) {
   return `<div class="cat-grid">${cat.parents.map(p => {
     const shot = shotFor(p);
     return `<div class="cat-block${shot ? ' has-img' : ''}">
-      <a class="cat-parent" href="/c/${attr(p.slug)}/">${shot ? `<span class="cat-img"><img src="/${attr(shot)}" alt="" loading="lazy" width="400" height="400"></span>` : ''}<span class="cat-name">${esc(p.name)}</span></a>
+      <a class="cat-parent" href="/c/${attr(p.slug)}/">${shot ? `<span class="cat-img"><img src="/${attr(photoAt(shot, 320))}" alt="" loading="lazy" width="400" height="400"></span>` : ''}<span class="cat-name">${esc(p.name)}</span></a>
       ${p.children.length ? `<div class="cat-kids">${p.children.map(c => `<a class="cat-child" href="/c/${attr(c.slug)}/">${esc(c.name)}</a>`).join('')}</div>` : ''}
     </div>`;
   }).join('')}</div>`;

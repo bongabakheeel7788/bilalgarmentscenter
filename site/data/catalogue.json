@@ -21,7 +21,7 @@
   "hours": "",
   "map_url": "",
   "phone": "03030410303",
-  "new_days": 30,
+  "new_days": 7,
   "free_delivery_above": 1999,
   "delivery_charge": 200,
   "show_stock": true,
@@ -31,7 +31,7 @@
   "google_tag_id": "",
   "google_ads_purchase": "",
   "exchange_days": 15,
-  "delivery_days_min": 3,
+  "delivery_days_min": 2,
   "delivery_days_max": 5,
   "closed_day": "SUNDAY",
   "call_first": true,
@@ -125,7 +125,7 @@
     {
      "name": "Light Purple",
      "hex": "#e59eff",
-     "photo": "media/STY-1325/1728179f-c4f8-4e53-ad27-fbc1ce67411e.webp"
+     "photo": null
     },
     {
      "name": "pink",
@@ -146,22 +146,7 @@
      "colour": "Lemon"
     },
     {
-     "src": "media/STY-1325/1652436e-621a-42ba-99c4-22184479b202.webp",
-     "kind": "COLOUR",
-     "colour": "Lemon"
-    },
-    {
-     "src": "media/STY-1325/1728179f-c4f8-4e53-ad27-fbc1ce67411e.webp",
-     "kind": "COLOUR",
-     "colour": "Light Purple"
-    },
-    {
      "src": "media/STY-1325/8602c6a5-bea0-4ff9-a27d-b8233631a021.webp",
-     "kind": "COLOUR",
-     "colour": "pink"
-    },
-    {
-     "src": "media/STY-1325/eb47aa65-62ea-46e0-ad75-f5b0fc62b0c4.webp",
      "kind": "COLOUR",
      "colour": "pink"
     }
@@ -258,10 +243,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1324/1f9507be-8bdb-477d-8235-ee57e184c192.webp",
+   "cover": "media/STY-1324/763d5b22-6365-4aef-83cb-3b467eced86f.webp",
    "photos": [
     {
-     "src": "media/STY-1324/1f9507be-8bdb-477d-8235-ee57e184c192.webp",
+     "src": "media/STY-1324/763d5b22-6365-4aef-83cb-3b467eced86f.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -367,11 +352,6 @@
     },
     {
      "src": "media/STY-1323/457d80d3-733d-4615-8590-2ef2fe22968a.webp",
-     "kind": "COLOUR",
-     "colour": "C Green"
-    },
-    {
-     "src": "media/STY-1323/e55ef2a2-7923-4069-b70d-40587fcf0a23.webp",
      "kind": "COLOUR",
      "colour": "C Green"
     },
@@ -578,30 +558,15 @@
      "photo": "media/STY-1321/b1c97011-331c-46aa-96d1-1415fb1b7205.webp"
     }
    ],
-   "cover": "media/STY-1321/0d114f20-3aeb-4222-b9a8-031f872dde80.webp",
+   "cover": "media/STY-1321/9b3ca125-c332-4801-b15c-efe601a89a62.webp",
    "photos": [
-    {
-     "src": "media/STY-1321/0d114f20-3aeb-4222-b9a8-031f872dde80.webp",
-     "kind": "COVER",
-     "colour": null
-    },
     {
      "src": "media/STY-1321/9b3ca125-c332-4801-b15c-efe601a89a62.webp",
      "kind": "COLOUR",
      "colour": "Navy Blue"
     },
     {
-     "src": "media/STY-1321/7c77c622-49ed-4610-a96b-69ab5e12ce19.webp",
-     "kind": "COLOUR",
-     "colour": "Navy Blue"
-    },
-    {
      "src": "media/STY-1321/b1c97011-331c-46aa-96d1-1415fb1b7205.webp",
-     "kind": "COLOUR",
-     "colour": "Red"
-    },
-    {
-     "src": "media/STY-1321/616e3f59-6e83-40d1-bc16-82744250cec8.webp",
      "kind": "COLOUR",
      "colour": "Red"
     }
@@ -681,7 +646,7 @@
     {
      "name": "Sky",
      "hex": "#7e99d3",
-     "photo": "media/STY-1320/e3522b52-61ba-4089-aabc-2e43fb95fe57.webp"
+     "photo": "media/STY-1320/2866afb6-59b1-4c36-8a7c-8f0a8b56887d.webp"
     }
    ],
    "cover": "media/STY-1320/4316b838-880b-4514-8ba8-1a4d263ffb04.webp",
@@ -692,7 +657,7 @@
      "colour": null
     },
     {
-     "src": "media/STY-1320/e3522b52-61ba-4089-aabc-2e43fb95fe57.webp",
+     "src": "media/STY-1320/2866afb6-59b1-4c36-8a7c-8f0a8b56887d.webp",
      "kind": "COLOUR",
      "colour": "Sky"
     }
@@ -896,10 +861,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1259/258b277f-a371-4b31-8a9e-d5921fb993e7.webp",
+   "cover": "media/STY-1259/e1c48dda-f3a6-4729-94ab-2f918b0fbaf3.webp",
    "photos": [
     {
-     "src": "media/STY-1259/258b277f-a371-4b31-8a9e-d5921fb993e7.webp",
+     "src": "media/STY-1259/e1c48dda-f3a6-4729-94ab-2f918b0fbaf3.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -1011,10 +976,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1258/45089f34-d2d3-4dda-a542-5c8753d0eaf6.webp",
+   "cover": "media/STY-1258/25d0df6c-7f6b-4b8c-ad59-68de4c01780c.webp",
    "photos": [
     {
-     "src": "media/STY-1258/45089f34-d2d3-4dda-a542-5c8753d0eaf6.webp",
+     "src": "media/STY-1258/25d0df6c-7f6b-4b8c-ad59-68de4c01780c.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -1067,7 +1032,7 @@
    "first_published": "2026-09-22",
    "description": null,
    "free_delivery": false,
-   "updated": "2026-09-25",
+   "updated": "2026-09-29",
    "is_new": true
   },
   {
@@ -1145,7 +1110,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1244",
@@ -1546,221 +1511,6 @@
    "is_new": true
   },
   {
-   "code": "STY-1235",
-   "slug": "gents-china-shirt-casual-shirts-by-hm-sty-1235",
-   "name": "Gents China Shirt Casual Shirts by HM",
-   "category": "Casual Shirts",
-   "category_parent": null,
-   "size_group": "Boys Full Size Shirts",
-   "gender": "gents",
-   "fabric": "China",
-   "set_contents": "Shirt",
-   "age_group": null,
-   "season": "SUMMER",
-   "sizing": "FREE",
-   "size_months": {},
-   "size_free": {
-    "Medium": "M",
-    "Large": "L",
-    "X-Large": "XL"
-   },
-   "age_months": null,
-   "age_range": null,
-   "size_ages": {},
-   "price_min": 750,
-   "price_max": 750,
-   "sizes": [
-    "Medium",
-    "Large",
-    "X-Large"
-   ],
-   "colours": [
-    {
-     "name": "Brown",
-     "hex": "#92400E",
-     "photo": "media/STY-1235/7379bce3-b071-4815-bf59-f1ad1514a997.webp"
-    },
-    {
-     "name": "Camel",
-     "hex": "#C19A6B",
-     "photo": "media/STY-1235/6a10cff8-d394-46a1-9c9d-395977802851.webp"
-    },
-    {
-     "name": "Green",
-     "hex": "#16A34A",
-     "photo": "media/STY-1235/0bcc4316-28b7-474a-8c95-829f5de27670.webp"
-    },
-    {
-     "name": "Light Grey",
-     "hex": "#D1D5DB",
-     "photo": "media/STY-1235/7a5097c6-fc23-4d88-89bf-ec08b6add92f.webp"
-    },
-    {
-     "name": "Sky Blue",
-     "hex": "#7DD3FC",
-     "photo": "media/STY-1235/5c7d31e7-12da-4325-8a74-676666cfd288.webp"
-    },
-    {
-     "name": "Black",
-     "hex": "#000000",
-     "photo": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp"
-    }
-   ],
-   "cover": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp",
-   "photos": [
-    {
-     "src": "media/STY-1235/3e846f93-1eab-4650-9a4b-83fcf268f69d.webp",
-     "kind": "COLOUR",
-     "colour": "Black"
-    },
-    {
-     "src": "media/STY-1235/7379bce3-b071-4815-bf59-f1ad1514a997.webp",
-     "kind": "COLOUR",
-     "colour": "Brown"
-    },
-    {
-     "src": "media/STY-1235/6a10cff8-d394-46a1-9c9d-395977802851.webp",
-     "kind": "COLOUR",
-     "colour": "Camel"
-    },
-    {
-     "src": "media/STY-1235/0bcc4316-28b7-474a-8c95-829f5de27670.webp",
-     "kind": "COLOUR",
-     "colour": "Green"
-    },
-    {
-     "src": "media/STY-1235/7a5097c6-fc23-4d88-89bf-ec08b6add92f.webp",
-     "kind": "COLOUR",
-     "colour": "Light Grey"
-    },
-    {
-     "src": "media/STY-1235/5c7d31e7-12da-4325-8a74-676666cfd288.webp",
-     "kind": "COLOUR",
-     "colour": "Sky Blue"
-    }
-   ],
-   "size_guide": null,
-   "variants": [
-    {
-     "id": 1093,
-     "size": "Medium",
-     "colour": "Brown",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1096,
-     "size": "Medium",
-     "colour": "Camel",
-     "price": 750,
-     "availability": "out"
-    },
-    {
-     "id": 1099,
-     "size": "Medium",
-     "colour": "Green",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1102,
-     "size": "Medium",
-     "colour": "Light Grey",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1090,
-     "size": "Medium",
-     "colour": "Sky Blue",
-     "price": 750,
-     "availability": "out"
-    },
-    {
-     "id": 1094,
-     "size": "Large",
-     "colour": "Brown",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1097,
-     "size": "Large",
-     "colour": "Camel",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1100,
-     "size": "Large",
-     "colour": "Green",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1103,
-     "size": "Large",
-     "colour": "Light Grey",
-     "price": 750,
-     "availability": "out"
-    },
-    {
-     "id": 1091,
-     "size": "Large",
-     "colour": "Sky Blue",
-     "price": 750,
-     "availability": "out"
-    },
-    {
-     "id": 1089,
-     "size": "X-Large",
-     "colour": "Black",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1095,
-     "size": "X-Large",
-     "colour": "Brown",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1098,
-     "size": "X-Large",
-     "colour": "Camel",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1101,
-     "size": "X-Large",
-     "colour": "Green",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1104,
-     "size": "X-Large",
-     "colour": "Light Grey",
-     "price": 750,
-     "availability": "few"
-    },
-    {
-     "id": 1092,
-     "size": "X-Large",
-     "colour": "Sky Blue",
-     "price": 750,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-11",
-   "description": null,
-   "free_delivery": false,
-   "updated": "2026-09-24",
-   "is_new": true
-  },
-  {
    "code": "STY-1225",
    "slug": "girls-china-ladies-3piece-set-suit-by-coconet-sty-1225",
    "name": "Girls China Ladies 3piece Set / Suit by Coconet",
@@ -1806,10 +1556,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1225/fd4ec86b-56e5-47b9-81ae-8966df32f090.webp",
+   "cover": "media/STY-1225/4a50733c-99b1-4b4e-b140-6b0b5904cb51.webp",
    "photos": [
     {
-     "src": "media/STY-1225/fd4ec86b-56e5-47b9-81ae-8966df32f090.webp",
+     "src": "media/STY-1225/4a50733c-99b1-4b4e-b140-6b0b5904cb51.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -1835,7 +1585,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1224",
@@ -1889,10 +1639,10 @@
      "photo": "media/STY-1224/28eb911c-916f-4f4b-952d-6a15c8025da0.webp"
     }
    ],
-   "cover": "media/STY-1224/2e60d64e-85e9-4c69-b901-e62479b7aab9.webp",
+   "cover": "media/STY-1224/0e8ecd18-f9c0-484f-b376-f48fa6529fc7.webp",
    "photos": [
     {
-     "src": "media/STY-1224/2e60d64e-85e9-4c69-b901-e62479b7aab9.webp",
+     "src": "media/STY-1224/0e8ecd18-f9c0-484f-b376-f48fa6529fc7.webp",
      "kind": "COVER",
      "colour": null
     },
@@ -1930,7 +1680,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1223",
@@ -2007,7 +1757,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1222",
@@ -2084,7 +1834,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1221",
@@ -2161,7 +1911,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1220",
@@ -2238,7 +1988,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1218",
@@ -2333,7 +2083,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1208",
@@ -2462,7 +2212,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1207",
@@ -2591,7 +2341,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1191",
@@ -2782,7 +2532,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1187",
@@ -2830,10 +2580,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1187/aab68711-b7b4-4d0a-a629-58ee7a270e61.webp",
+   "cover": "media/STY-1187/e75967ba-e8bb-46f0-a8ed-50b076cb1e4f.webp",
    "photos": [
     {
-     "src": "media/STY-1187/aab68711-b7b4-4d0a-a629-58ee7a270e61.webp",
+     "src": "media/STY-1187/e75967ba-e8bb-46f0-a8ed-50b076cb1e4f.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -2859,7 +2609,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1186",
@@ -2901,10 +2651,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1186/151b4cf8-23ca-4355-b397-9742c7b0c78e.webp",
+   "cover": "media/STY-1186/7184ed7b-ab1c-49bc-aa14-62f5004b7116.webp",
    "photos": [
     {
-     "src": "media/STY-1186/151b4cf8-23ca-4355-b397-9742c7b0c78e.webp",
+     "src": "media/STY-1186/7184ed7b-ab1c-49bc-aa14-62f5004b7116.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -2923,7 +2673,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1185",
@@ -2971,10 +2721,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1185/15febe18-3e5c-4b14-b097-61e3d4ffb65f.webp",
+   "cover": "media/STY-1185/a1877a4e-c4e6-47a0-baa6-9f1f99451cb6.webp",
    "photos": [
     {
-     "src": "media/STY-1185/15febe18-3e5c-4b14-b097-61e3d4ffb65f.webp",
+     "src": "media/STY-1185/a1877a4e-c4e6-47a0-baa6-9f1f99451cb6.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -3000,7 +2750,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1184",
@@ -3064,7 +2814,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1183",
@@ -3112,10 +2862,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1183/b283b2f1-4484-45b8-96a4-49acf3ba19dc.webp",
+   "cover": "media/STY-1183/11387b64-e9d6-4dad-a032-8a4c4b017186.webp",
    "photos": [
     {
-     "src": "media/STY-1183/b283b2f1-4484-45b8-96a4-49acf3ba19dc.webp",
+     "src": "media/STY-1183/11387b64-e9d6-4dad-a032-8a4c4b017186.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -3141,7 +2891,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1178",
@@ -3218,7 +2968,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1177",
@@ -3313,7 +3063,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1176",
@@ -3408,84 +3158,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
-  },
-  {
-   "code": "STY-1165",
-   "slug": "girls-jersey-2-pcs-set-suit-by-aiman-koleksi-sty-1165",
-   "name": "Girls Jersey 2 pcs Set / Suit by Aiman Koleksi",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "Girls 30-34",
-   "gender": "girls",
-   "fabric": "Jersey",
-   "set_contents": "2 pcs",
-   "age_group": "8 Years",
-   "season": "ALL",
-   "sizing": "AGE",
-   "size_months": {
-    "32": [
-     108,
-     120
-    ],
-    "34": [
-     120,
-     144
-    ]
-   },
-   "size_free": {},
-   "age_months": [
-    108,
-    144
-   ],
-   "age_range": "9 Years–12 Years",
-   "size_ages": {
-    "32": "9 Years–10 Years",
-    "34": "10 Years–12 Years"
-   },
-   "price_min": 1400,
-   "price_max": 1400,
-   "sizes": [
-    "32",
-    "34"
-   ],
-   "colours": [
-    {
-     "name": "Standard",
-     "hex": "#e5e7eb",
-     "photo": null
-    }
-   ],
-   "cover": "media/STY-1165/c1013023-ffb5-4d70-893b-1adb28b51960.webp",
-   "photos": [
-    {
-     "src": "media/STY-1165/c1013023-ffb5-4d70-893b-1adb28b51960.webp",
-     "kind": "COVER",
-     "colour": null
-    }
-   ],
-   "size_guide": null,
-   "variants": [
-    {
-     "id": 574,
-     "size": "32",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "few"
-    },
-    {
-     "id": 575,
-     "size": "34",
-     "colour": "Standard",
-     "price": 1400,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-11",
-   "description": null,
-   "free_delivery": false,
-   "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1153",
@@ -3497,7 +3170,7 @@
    "gender": "boys",
    "fabric": "Embossed",
    "set_contents": null,
-   "age_group": "2 Years",
+   "age_group": "4 Years",
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
@@ -3548,7 +3221,7 @@
      "size": "20",
      "colour": "Standard",
      "price": 650,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 537,
@@ -3651,7 +3324,7 @@
    "gender": "boys",
    "fabric": "Inner Shirt",
    "set_contents": "Shirt",
-   "age_group": "2 Years",
+   "age_group": "4 Years",
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
@@ -3721,7 +3394,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 512,
@@ -3790,10 +3463,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1147/bcd2e012-33c5-4304-8a8f-c83d249c98e7.webp",
+   "cover": "media/STY-1147/bd8074e6-4f46-4d89-b35c-39f6422b3695.webp",
    "photos": [
     {
-     "src": "media/STY-1147/bcd2e012-33c5-4304-8a8f-c83d249c98e7.webp",
+     "src": "media/STY-1147/bd8074e6-4f46-4d89-b35c-39f6422b3695.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -3861,10 +3534,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1110/af9d68d2-4e8c-4289-8ca5-14a9ab77f31c.webp",
+   "cover": "media/STY-1110/7d39f1c5-f7d7-4d8a-9d38-c6c947a4008b.webp",
    "photos": [
     {
-     "src": "media/STY-1110/af9d68d2-4e8c-4289-8ca5-14a9ab77f31c.webp",
+     "src": "media/STY-1110/7d39f1c5-f7d7-4d8a-9d38-c6c947a4008b.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -4419,10 +4092,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1093/8feeae21-d9e0-4649-8da6-f482ce7e323e.webp",
+   "cover": "media/STY-1093/2969222e-150f-4c62-a485-42479e54e35d.webp",
    "photos": [
     {
-     "src": "media/STY-1093/8feeae21-d9e0-4649-8da6-f482ce7e323e.webp",
+     "src": "media/STY-1093/2969222e-150f-4c62-a485-42479e54e35d.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -4657,10 +4330,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1088/0048d995-58d8-4876-9ea7-017c7cb4abcd.webp",
+   "cover": "media/STY-1088/6d9834b2-521b-476a-9783-6e0474ad2ebe.webp",
    "photos": [
     {
-     "src": "media/STY-1088/0048d995-58d8-4876-9ea7-017c7cb4abcd.webp",
+     "src": "media/STY-1088/6d9834b2-521b-476a-9783-6e0474ad2ebe.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -4727,10 +4400,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1087/92a3f02b-8dd5-411d-8614-d57800fcb4fe.webp",
+   "cover": "media/STY-1087/412efa96-7a32-4dc8-b64d-5c870e11f418.webp",
    "photos": [
     {
-     "src": "media/STY-1087/92a3f02b-8dd5-411d-8614-d57800fcb4fe.webp",
+     "src": "media/STY-1087/412efa96-7a32-4dc8-b64d-5c870e11f418.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -4810,10 +4483,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1086/d368a2bf-5e5f-4ecc-83fd-b81a230a8de1.webp",
+   "cover": "media/STY-1086/c93b03f9-4298-41d5-b701-01845317cc99.webp",
    "photos": [
     {
-     "src": "media/STY-1086/d368a2bf-5e5f-4ecc-83fd-b81a230a8de1.webp",
+     "src": "media/STY-1086/c93b03f9-4298-41d5-b701-01845317cc99.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -4900,10 +4573,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1083/d4f24258-8d8b-4b91-aac5-09fa70e7d5df.webp",
+   "cover": "media/STY-1083/97ab7a20-33e7-4ee5-ae1f-6f60c3763bca.webp",
    "photos": [
     {
-     "src": "media/STY-1083/d4f24258-8d8b-4b91-aac5-09fa70e7d5df.webp",
+     "src": "media/STY-1083/97ab7a20-33e7-4ee5-ae1f-6f60c3763bca.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -5154,7 +4827,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1075",
@@ -5231,7 +4904,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1074",
@@ -5308,7 +4981,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1073",
@@ -5356,10 +5029,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1073/ef0817f1-3078-49f3-b2bf-e81202679e71.webp",
+   "cover": "media/STY-1073/8b896c9f-0e1f-4458-95d2-4ac99d38e73d.webp",
    "photos": [
     {
-     "src": "media/STY-1073/ef0817f1-3078-49f3-b2bf-e81202679e71.webp",
+     "src": "media/STY-1073/8b896c9f-0e1f-4458-95d2-4ac99d38e73d.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -5385,7 +5058,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1072",
@@ -5462,7 +5135,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1071",
@@ -5552,7 +5225,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1070",
@@ -5606,10 +5279,10 @@
      "photo": "media/STY-1070/a4cd1e6f-60f8-4ba5-9d55-046b30860dc8.webp"
     }
    ],
-   "cover": "media/STY-1070/7629165a-4b69-4e61-b396-29123dd4886b.webp",
+   "cover": "media/STY-1070/aaf43631-08f8-4a07-b78b-d64299c1ec0e.webp",
    "photos": [
     {
-     "src": "media/STY-1070/7629165a-4b69-4e61-b396-29123dd4886b.webp",
+     "src": "media/STY-1070/aaf43631-08f8-4a07-b78b-d64299c1ec0e.webp",
      "kind": "COVER",
      "colour": null
     },
@@ -5647,7 +5320,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1069",
@@ -5742,7 +5415,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1068",
@@ -5784,10 +5457,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1068/01184105-e40f-496b-9379-3ef2732468a1.webp",
+   "cover": "media/STY-1068/68a976db-7e7c-4e6c-8c00-3fd7eb8be6d5.webp",
    "photos": [
     {
-     "src": "media/STY-1068/01184105-e40f-496b-9379-3ef2732468a1.webp",
+     "src": "media/STY-1068/68a976db-7e7c-4e6c-8c00-3fd7eb8be6d5.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -5806,7 +5479,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1067",
@@ -5854,10 +5527,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1067/3d91901d-b966-40e9-85ee-51469d2be310.webp",
+   "cover": "media/STY-1067/0d75eb5e-9a7d-4cfa-a143-27a7875e3cec.webp",
    "photos": [
     {
-     "src": "media/STY-1067/3d91901d-b966-40e9-85ee-51469d2be310.webp",
+     "src": "media/STY-1067/0d75eb5e-9a7d-4cfa-a143-27a7875e3cec.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -5883,7 +5556,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1066",
@@ -5960,7 +5633,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1064",
@@ -6014,10 +5687,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1064/a62cd875-cd05-4fbd-b3c1-73bddac83759.webp",
+   "cover": "media/STY-1064/24e185ad-bd87-4099-b2d2-f8aec5fc5b95.webp",
    "photos": [
     {
-     "src": "media/STY-1064/a62cd875-cd05-4fbd-b3c1-73bddac83759.webp",
+     "src": "media/STY-1064/24e185ad-bd87-4099-b2d2-f8aec5fc5b95.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -6384,7 +6057,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1052",
@@ -6448,7 +6121,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1051",
@@ -6512,7 +6185,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1050",
@@ -6576,7 +6249,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1049",
@@ -6640,7 +6313,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1047",
@@ -6704,7 +6377,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1044",
@@ -7028,10 +6701,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1038/da3f2d46-37ec-457c-9406-ae5363609394.webp",
+   "cover": "media/STY-1038/a48669cb-bb01-4f47-b091-17d312336869.webp",
    "photos": [
     {
-     "src": "media/STY-1038/da3f2d46-37ec-457c-9406-ae5363609394.webp",
+     "src": "media/STY-1038/a48669cb-bb01-4f47-b091-17d312336869.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -7118,10 +6791,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1035/2c5e0c21-d11b-404b-912f-f52dfd4a657e.webp",
+   "cover": "media/STY-1035/0d5b18ce-d121-4d1a-bac9-96b6c8374b82.webp",
    "photos": [
     {
-     "src": "media/STY-1035/2c5e0c21-d11b-404b-912f-f52dfd4a657e.webp",
+     "src": "media/STY-1035/0d5b18ce-d121-4d1a-bac9-96b6c8374b82.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -7334,7 +7007,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1021",
@@ -7388,10 +7061,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1021/9f8a1231-3867-44f3-8243-68c6e320c1f9.webp",
+   "cover": "media/STY-1021/f5baab91-d1c7-4c03-baa3-71f34e13ff60.webp",
    "photos": [
     {
-     "src": "media/STY-1021/9f8a1231-3867-44f3-8243-68c6e320c1f9.webp",
+     "src": "media/STY-1021/f5baab91-d1c7-4c03-baa3-71f34e13ff60.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -7424,7 +7097,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1020",
@@ -7514,7 +7187,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1019",
@@ -7609,7 +7282,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1018",
@@ -7699,7 +7372,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1015",
@@ -7789,7 +7462,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1014",
@@ -7843,10 +7516,10 @@
      "photo": null
     }
    ],
-   "cover": "media/STY-1014/ab47e00c-3420-4555-be0b-3c1946165459.webp",
+   "cover": "media/STY-1014/39c0c3eb-e4fa-47cc-8e5c-a6a67695162a.webp",
    "photos": [
     {
-     "src": "media/STY-1014/ab47e00c-3420-4555-be0b-3c1946165459.webp",
+     "src": "media/STY-1014/39c0c3eb-e4fa-47cc-8e5c-a6a67695162a.webp",
      "kind": "COVER",
      "colour": null
     }
@@ -7879,7 +7552,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1013",
@@ -7974,7 +7647,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1006",
@@ -8038,7 +7711,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1004",
@@ -8115,7 +7788,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1002",
@@ -8179,7 +7852,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-23",
-   "is_new": true
+   "is_new": false
   }
  ],
  "collections": [],
@@ -8441,7 +8114,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 146,
-   "online": 47,
+   "online": 46,
    "months": [
     0,
     156
@@ -8531,7 +8204,7 @@
    "icon": "shirt",
    "colour": "peach",
    "total": 7,
-   "online": 1,
+   "online": 0,
    "months": null,
    "sizes": [
     "M",
@@ -10257,6 +9930,6 @@
   }
  ],
  "assets": {
-  "v": "b59e2579a9"
+  "v": "d0429f8ce7"
  }
 }

@@ -1,5 +1,5 @@
 // Every HTML page of the site, rendered from the catalogue.
-import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, promiseRow, catTiles, buyBar, kindTiles, chipRow, freeFrom } from './html.js';
+import { layout, card, grid, section, esc, attr, waLink, notFound, deliveryLine, promiseRow, catTiles, buyBar, kindTiles, chipRow, freeFrom, photoAt, photoAttrs } from './html.js';
 import { money, priceLabel, productsIn, categoryTitle, productAvailability, realColours, groupsOf, FOR_GROUPS } from './catalogue.js';
 import { SWATCHES, iconSvg } from './kind-icons.js';   // P141 — a deal without a photo shows its tile's icon
 import { productText, productLd, breadcrumbLd, storeLd, itemListLd, listIntro, ldTag, clip } from './seo.js';   // P164
@@ -80,7 +80,7 @@ ${/* P139 — Fahad, 2026-09-25: "at top show boys and then boys items … and l
 ${kindTiles(cat)}
 ${promiseRow(store)}
 ${fresh.length ? section('New arrivals', `<div class="grid grid-row">${fresh.slice(0, 8).map(card).join('')}</div>`, { href: '/new/', label: 'See all new' }) : ''}
-${cat.collections.length ? section('Collections', `<div class="coll-grid">${cat.collections.map(c => `<a class="coll" href="/collection/${attr(c.slug)}/">${c.cover ? `<img src="/${attr(c.cover)}" alt="" loading="lazy">` : '<div class="noimg"></div>'}<div class="coll-text"><strong>${esc(c.name)}</strong>${c.blurb ? `<span>${esc(c.blurb)}</span>` : ''}<em>${c.items.length} piece${c.items.length === 1 ? '' : 's'}</em></div></a>`).join('')}</div>`) : ''}
+${cat.collections.length ? section('Collections', `<div class="coll-grid">${cat.collections.map(c => `<a class="coll" href="/collection/${attr(c.slug)}/">${c.cover ? `<img ${photoAttrs(c.cover, '(max-width: 760px) 100vw, 400px')} alt="" loading="lazy">` : '<div class="noimg"></div>'}<div class="coll-text"><strong>${esc(c.name)}</strong>${c.blurb ? `<span>${esc(c.blurb)}</span>` : ''}<em>${c.items.length} piece${c.items.length === 1 ? '' : 's'}</em></div></a>`).join('')}</div>`) : ''}
 ${section('Shop by category', catTiles(cat))}
 ${section('Everything', `<div class="grid">${everything.slice(0, HOME_MAX).map(card).join('')}</div>${
   everything.length > HOME_MAX ? `<div class="more-row"><a class="btn btn-outline btn-lg" href="/all/">See everything (${everything.length} pieces)</a></div>` : ''}`,
@@ -163,13 +163,13 @@ export function collection(cat, slug) {
 /** the gallery: every photo a slide (the size guide second, shown whole), a counter and dots, share on the photo, thumbs */
 function galleryBlock({ shown, name, guide, badge, shareUrl, fallback }) {
   return `<div class="gallery">
-    <div class="gallery-main">${shown.length ? `<div class="gal-track" id="galTrack">${shown.map((x, i) => `<button type="button" class="gal-slide${x === guide && i > 0 ? ' is-guide' : ''}" data-i="${i}" aria-label="${i === 0 ? 'See the photo full screen' : x === guide ? 'Size guide, full screen' : `Photo ${i + 1}, full screen`}"><img${i === 0 ? ' id="mainImg"' : ''} src="/${attr(x)}" alt="${attr(name)}${i === 0 ? '' : x === guide ? ' — size guide' : ` — photo ${i + 1}`}" width="800" height="1000"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'}></button>`).join('')}</div>`
+    <div class="gallery-main">${shown.length ? `<div class="gal-track" id="galTrack">${shown.map((x, i) => `<button type="button" class="gal-slide${x === guide && i > 0 ? ' is-guide' : ''}" data-i="${i}" aria-label="${i === 0 ? 'See the photo full screen' : x === guide ? 'Size guide, full screen' : `Photo ${i + 1}, full screen`}"><img${i === 0 ? ' id="mainImg"' : ''} ${x === guide ? `src="/${attr(x)}"` : photoAttrs(x, '(max-width: 820px) 100vw, 560px', 800)} alt="${attr(name)}${i === 0 ? '' : x === guide ? ' — size guide' : ` — photo ${i + 1}`}" width="800" height="1000"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'}></button>`).join('')}</div>`
       : (fallback || '<div class="noimg"></div>')}${badge || ''}
       <button type="button" class="gal-share" id="shareBtn" data-url="${attr(shareUrl)}" data-title="${attr(name)}" aria-label="Share this piece"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>
       ${shown.length > 1 ? `<span class="gal-count" id="galCount" aria-hidden="true">1 / ${shown.length}</span><div class="gal-dots" id="galDots" aria-hidden="true">${shown.map((x, i) => `<i${i === 0 ? ' class="on"' : ''}></i>`).join('')}</div>` : ''}</div>
     ${shown.length > 1 ? `<div class="thumbs">${shown.map((x, i) => x === guide && i > 0
       ? `<button class="thumb thumb-guide" data-img="/${attr(x)}" data-i="${i}" data-guide="1" aria-label="Size guide"><img src="/${attr(x)}" alt="${attr(name)} — size guide" loading="lazy"><span>Size guide</span></button>`
-      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" data-i="${i}" aria-label="Photo ${i + 1}"><img src="/${attr(x)}" alt="${attr(name)} — photo ${i + 1}" loading="lazy"></button>`).join('')}</div>` : ''}
+      : `<button class="thumb${i === 0 ? ' active' : ''}" data-img="/${attr(x)}" data-i="${i}" aria-label="Photo ${i + 1}"><img src="/${attr(photoAt(x, 320))}" alt="${attr(name)} — photo ${i + 1}" loading="lazy"></button>`).join('')}</div>` : ''}
   </div>`;
 }
 /** the stars under the name, to the reviews — only when there are approved ones */
@@ -341,7 +341,7 @@ export function deal(cat, slug) {
   const photos = (d.photos && d.photos.length ? d.photos : d.cover ? [d.cover] : []);
   const hexOf = new Map(d.sizes.flatMap(z => z.colours.map(c => [c.name, c.hex])));
   const stripe = names => `<span class="dp-pic dp-stripe" aria-hidden="true">${names.slice(0, 6).map(n => `<i style="background:${attr(hexOf.get(n) || '#ddd')}"></i>`).join('')}</span>`;
-  const pic = src => `<span class="dp-pic" aria-hidden="true"><img src="/${attr(src)}" alt="" loading="lazy" width="120" height="150"></span>`;
+  const pic = src => `<span class="dp-pic" aria-hidden="true"><img src="/${attr(photoAt(src, 320))}" alt="" loading="lazy" width="120" height="150"></span>`;
   // P168 — the same parts as a product page: gallery, stars, price, the delivery line, the bar, the folding sections,
   // reviews. Only what a pack alone has — choosing the colours — is its own.
   const free = d.free_delivery !== false;
