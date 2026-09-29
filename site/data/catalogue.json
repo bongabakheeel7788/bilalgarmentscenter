@@ -448,11 +448,6 @@
    ],
    "colours": [
     {
-     "name": "Baby Pink",
-     "hex": "#ff9ee5",
-     "photo": null
-    },
-    {
      "name": "C Green",
      "hex": "#8cb087",
      "photo": null
@@ -460,6 +455,11 @@
     {
      "name": "Lemon",
      "hex": "#d2e63d",
+     "photo": null
+    },
+    {
+     "name": "Baby Pink",
+     "hex": "#ff9ee5",
      "photo": null
     }
    ],
@@ -473,13 +473,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 2783,
-     "size": "1",
-     "colour": "Baby Pink",
-     "price": 650,
-     "availability": "out"
-    },
     {
      "id": 2781,
      "size": "1",
@@ -8345,7 +8338,7 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "peach",
-   "total": 21,
+   "total": 22,
    "online": 7,
    "months": [
     24,
