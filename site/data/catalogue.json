@@ -2908,7 +2908,7 @@
      "size": "28",
      "colour": "Standard",
      "price": 1800,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 815,
@@ -7267,7 +7267,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 183,
@@ -7992,7 +7992,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 81,
@@ -8696,7 +8696,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 98,
+   "total": 99,
    "online": 41,
    "months": [
     0,
@@ -8838,7 +8838,7 @@
    "online": 0,
    "months": [
     24,
-    132
+    156
    ],
    "sizes": []
   },
@@ -9092,6 +9092,21 @@
    "months": null,
    "sizes": [
     "Belt"
+   ]
+  },
+  {
+   "key": "accessories|Feeder",
+   "group": "accessories",
+   "category": "Feeder",
+   "name": "Feeder",
+   "icon": "shirt",
+   "colour": "rose",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "M",
+    "L"
    ]
   }
  ],
