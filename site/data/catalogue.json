@@ -2429,7 +2429,7 @@
      "size": "22",
      "colour": "Washable",
      "price": 500,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-22",
@@ -3492,7 +3492,7 @@
      "size": "30",
      "colour": "Standard",
      "price": 2000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 804,
@@ -4650,7 +4650,7 @@
      "size": "20",
      "colour": "Standard",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 489,
