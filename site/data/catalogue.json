@@ -741,7 +741,7 @@
      "size": "2",
      "colour": "pink",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-27",
@@ -6146,7 +6146,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -6223,7 +6223,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 550,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-19",
