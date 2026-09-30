@@ -78,6 +78,454 @@
  ],
  "products": [
   {
+   "code": "STY-1362",
+   "slug": "girls-velvet-2-pcs-set-suit-sty-1362",
+   "name": "Girls Velvet 2 pcs Set / Suit",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N Zero Sizes",
+   "gender": "girls",
+   "fabric": "Velvet",
+   "set_contents": "2 pcs",
+   "age_group": "Newborn",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "1": [
+     0,
+     3
+    ],
+    "2": [
+     3,
+     6
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    0,
+    6
+   ],
+   "age_range": "Newborn–6 Months",
+   "size_ages": {
+    "1": "Newborn–3 Months",
+    "2": "3 Months–6 Months"
+   },
+   "price_min": 900,
+   "price_max": 900,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Baby Pink",
+     "hex": "#ff9ee5",
+     "photo": "media/STY-1362/184174f6-3ffe-4128-9dbc-8899b1b90658.webp"
+    },
+    {
+     "name": "Light Mint Green",
+     "hex": "#6fceb1",
+     "photo": "media/STY-1362/36298df9-7a64-4c5c-92e2-6329c4790333.webp"
+    },
+    {
+     "name": "Mint green",
+     "hex": "#14e6a7",
+     "photo": "media/STY-1362/56fc4a9b-d8a7-4092-8623-5c014c9547c5.webp"
+    }
+   ],
+   "cover": "media/STY-1362/56fc4a9b-d8a7-4092-8623-5c014c9547c5.webp",
+   "photos": [
+    {
+     "src": "media/STY-1362/184174f6-3ffe-4128-9dbc-8899b1b90658.webp",
+     "kind": "COLOUR",
+     "colour": "Baby Pink"
+    },
+    {
+     "src": "media/STY-1362/36298df9-7a64-4c5c-92e2-6329c4790333.webp",
+     "kind": "COLOUR",
+     "colour": "Light Mint Green"
+    },
+    {
+     "src": "media/STY-1362/56fc4a9b-d8a7-4092-8623-5c014c9547c5.webp",
+     "kind": "COLOUR",
+     "colour": "Mint green"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 3380,
+     "size": "1",
+     "colour": "Baby Pink",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3378,
+     "size": "1",
+     "colour": "Light Mint Green",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3376,
+     "size": "1",
+     "colour": "Mint green",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 3381,
+     "size": "2",
+     "colour": "Baby Pink",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3379,
+     "size": "2",
+     "colour": "Light Mint Green",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3377,
+     "size": "2",
+     "colour": "Mint green",
+     "price": 900,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-30",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-09-30",
+   "is_new": true
+  },
+  {
+   "code": "STY-1361",
+   "slug": "boys-winter-2-pcs-set-suit-sty-1361",
+   "name": "Boys Winter 2 pcs Set / Suit",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N Zero Sizes",
+   "gender": "boys",
+   "fabric": "Winter",
+   "set_contents": "2 pcs",
+   "age_group": "3 Months",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "2": [
+     3,
+     6
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    3,
+    6
+   ],
+   "age_range": "3 Months–6 Months",
+   "size_ages": {
+    "2": "3 Months–6 Months"
+   },
+   "price_min": 500,
+   "price_max": 500,
+   "sizes": [
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "White",
+     "hex": "#FFFFFF",
+     "photo": "media/STY-1361/261f1c6b-b90d-4ddd-9bda-06f62afd42d7.webp"
+    }
+   ],
+   "cover": "media/STY-1361/261f1c6b-b90d-4ddd-9bda-06f62afd42d7.webp",
+   "photos": [
+    {
+     "src": "media/STY-1361/261f1c6b-b90d-4ddd-9bda-06f62afd42d7.webp",
+     "kind": "COLOUR",
+     "colour": "White"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 3375,
+     "size": "2",
+     "colour": "White",
+     "price": 500,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-09-30",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-09-30",
+   "is_new": true
+  },
+  {
+   "code": "STY-1360",
+   "slug": "boys-velvet-2-pcs-set-suit-by-a-one-sty-1360",
+   "name": "Boys Velvet 2 pcs Set / Suit by A One",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N Zero Sizes",
+   "gender": "boys",
+   "fabric": "Velvet",
+   "set_contents": "2 pcs",
+   "age_group": "Newborn",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "1": [
+     0,
+     3
+    ],
+    "2": [
+     3,
+     6
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    0,
+    6
+   ],
+   "age_range": "Newborn–6 Months",
+   "size_ages": {
+    "1": "Newborn–3 Months",
+    "2": "3 Months–6 Months"
+   },
+   "price_min": 900,
+   "price_max": 900,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Blue",
+     "hex": "#2563eb",
+     "photo": "media/STY-1360/1e635415-9dac-4150-8e99-ef025c462791.webp"
+    },
+    {
+     "name": "brown",
+     "hex": "#6f561f",
+     "photo": "media/STY-1360/e3dd2b1f-6e8b-4646-9780-83904cb8b3e8.webp"
+    },
+    {
+     "name": "Dark Brown",
+     "hex": "#6c5513",
+     "photo": "media/STY-1360/cc37e734-ead1-447a-93c3-f36b2ef0fda4.webp"
+    },
+    {
+     "name": "Mahroon",
+     "hex": "#ae3b32",
+     "photo": "media/STY-1360/7c7b1310-b53c-48f3-bf8b-4f6c277a4d5c.webp"
+    },
+    {
+     "name": "Musterd",
+     "hex": "#da992b",
+     "photo": "media/STY-1360/6d8ca923-7aa5-4fa8-a457-d182967946f8.webp"
+    },
+    {
+     "name": "Navy Blue",
+     "hex": "#3d4861",
+     "photo": null
+    },
+    {
+     "name": "Orange",
+     "hex": "#ffae00",
+     "photo": "media/STY-1360/f0216fb4-046c-4fb6-b545-da500a393277.webp"
+    },
+    {
+     "name": "Royal Blue",
+     "hex": "#001eff",
+     "photo": "media/STY-1360/2c24d462-1694-45fd-987e-2c81025a2707.webp"
+    },
+    {
+     "name": "Zinc",
+     "hex": "#2b5543",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1360/1e635415-9dac-4150-8e99-ef025c462791.webp",
+   "photos": [
+    {
+     "src": "media/STY-1360/1e635415-9dac-4150-8e99-ef025c462791.webp",
+     "kind": "COLOUR",
+     "colour": "Blue"
+    },
+    {
+     "src": "media/STY-1360/e3dd2b1f-6e8b-4646-9780-83904cb8b3e8.webp",
+     "kind": "COLOUR",
+     "colour": "brown"
+    },
+    {
+     "src": "media/STY-1360/cc37e734-ead1-447a-93c3-f36b2ef0fda4.webp",
+     "kind": "COLOUR",
+     "colour": "Dark Brown"
+    },
+    {
+     "src": "media/STY-1360/7c7b1310-b53c-48f3-bf8b-4f6c277a4d5c.webp",
+     "kind": "COLOUR",
+     "colour": "Mahroon"
+    },
+    {
+     "src": "media/STY-1360/6d8ca923-7aa5-4fa8-a457-d182967946f8.webp",
+     "kind": "COLOUR",
+     "colour": "Musterd"
+    },
+    {
+     "src": "media/STY-1360/f0216fb4-046c-4fb6-b545-da500a393277.webp",
+     "kind": "COLOUR",
+     "colour": "Orange"
+    },
+    {
+     "src": "media/STY-1360/2c24d462-1694-45fd-987e-2c81025a2707.webp",
+     "kind": "COLOUR",
+     "colour": "Royal Blue"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 3371,
+     "size": "1",
+     "colour": "Blue",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3365,
+     "size": "1",
+     "colour": "brown",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3367,
+     "size": "1",
+     "colour": "Dark Brown",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3363,
+     "size": "1",
+     "colour": "Mahroon",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3359,
+     "size": "1",
+     "colour": "Musterd",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 3373,
+     "size": "1",
+     "colour": "Navy Blue",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3361,
+     "size": "1",
+     "colour": "Orange",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 3357,
+     "size": "1",
+     "colour": "Royal Blue",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3369,
+     "size": "1",
+     "colour": "Zinc",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3372,
+     "size": "2",
+     "colour": "Blue",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3366,
+     "size": "2",
+     "colour": "brown",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3368,
+     "size": "2",
+     "colour": "Dark Brown",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3364,
+     "size": "2",
+     "colour": "Mahroon",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 3360,
+     "size": "2",
+     "colour": "Musterd",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3374,
+     "size": "2",
+     "colour": "Navy Blue",
+     "price": 900,
+     "availability": "out"
+    },
+    {
+     "id": 3362,
+     "size": "2",
+     "colour": "Orange",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3358,
+     "size": "2",
+     "colour": "Royal Blue",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 3370,
+     "size": "2",
+     "colour": "Zinc",
+     "price": 900,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-09-30",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-09-30",
+   "is_new": true
+  },
+  {
    "code": "STY-1325",
    "slug": "girls-terry-2-pcs-set-suit-by-zaid-sty-1325",
    "name": "Girls Terry 2 pcs Set / Suit by Zaid",
@@ -1393,7 +1841,7 @@
      "size": "S",
      "colour": "Peach",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2343,
@@ -8696,8 +9144,8 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 99,
-   "online": 41,
+   "total": 100,
+   "online": 43,
    "months": [
     0,
     96
@@ -8864,8 +9312,8 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 152,
-   "online": 46,
+   "total": 153,
+   "online": 47,
    "months": [
     0,
     156
