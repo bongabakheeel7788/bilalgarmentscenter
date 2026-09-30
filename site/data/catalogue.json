@@ -8828,12 +8828,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Pent coat",
+   "group": "boys",
+   "category": "Pent coat",
+   "name": "Pent coat",
+   "icon": "shirt",
+   "colour": "lilac",
+   "total": 1,
+   "online": 0,
+   "months": [
+    24,
+    132
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Tracksuit",
    "group": "boys",
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
