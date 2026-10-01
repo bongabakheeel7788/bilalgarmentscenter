@@ -168,13 +168,6 @@
      "availability": "few"
     },
     {
-     "id": 3376,
-     "size": "1",
-     "colour": "Mint green",
-     "price": 900,
-     "availability": "out"
-    },
-    {
      "id": 3381,
      "size": "2",
      "colour": "Baby Pink",
@@ -327,19 +320,9 @@
      "photo": "media/STY-1360/7c7b1310-b53c-48f3-bf8b-4f6c277a4d5c.webp"
     },
     {
-     "name": "Musterd",
-     "hex": "#da992b",
-     "photo": "media/STY-1360/6d8ca923-7aa5-4fa8-a457-d182967946f8.webp"
-    },
-    {
      "name": "Navy Blue",
      "hex": "#3d4861",
      "photo": null
-    },
-    {
-     "name": "Orange",
-     "hex": "#ffae00",
-     "photo": "media/STY-1360/f0216fb4-046c-4fb6-b545-da500a393277.webp"
     },
     {
      "name": "Royal Blue",
@@ -350,6 +333,16 @@
      "name": "Zinc",
      "hex": "#2b5543",
      "photo": null
+    },
+    {
+     "name": "Musterd",
+     "hex": "#da992b",
+     "photo": "media/STY-1360/6d8ca923-7aa5-4fa8-a457-d182967946f8.webp"
+    },
+    {
+     "name": "Orange",
+     "hex": "#ffae00",
+     "photo": "media/STY-1360/f0216fb4-046c-4fb6-b545-da500a393277.webp"
     }
    ],
    "cover": "media/STY-1360/1e635415-9dac-4150-8e99-ef025c462791.webp",
@@ -421,25 +414,11 @@
      "availability": "few"
     },
     {
-     "id": 3359,
-     "size": "1",
-     "colour": "Musterd",
-     "price": 900,
-     "availability": "out"
-    },
-    {
      "id": 3373,
      "size": "1",
      "colour": "Navy Blue",
      "price": 900,
      "availability": "few"
-    },
-    {
-     "id": 3361,
-     "size": "1",
-     "colour": "Orange",
-     "price": 900,
-     "availability": "out"
     },
     {
      "id": 3357,
@@ -477,25 +456,11 @@
      "availability": "few"
     },
     {
-     "id": 3364,
-     "size": "2",
-     "colour": "Mahroon",
-     "price": 900,
-     "availability": "out"
-    },
-    {
      "id": 3360,
      "size": "2",
      "colour": "Musterd",
      "price": 900,
      "availability": "few"
-    },
-    {
-     "id": 3374,
-     "size": "2",
-     "colour": "Navy Blue",
-     "price": 900,
-     "availability": "out"
     },
     {
      "id": 3362,
@@ -510,13 +475,6 @@
      "colour": "Royal Blue",
      "price": 900,
      "availability": "few"
-    },
-    {
-     "id": 3370,
-     "size": "2",
-     "colour": "Zinc",
-     "price": 900,
-     "availability": "out"
     }
    ],
    "first_published": "2026-09-30",
