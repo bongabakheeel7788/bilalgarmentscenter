@@ -6946,6 +6946,83 @@
    "is_new": true
   },
   {
+   "code": "STY-1060",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-jhun-jhun-sty-1060",
+   "name": "Boys China Denim 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Boys 20-22",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "6 Years",
+   "season": null,
+   "sizing": "AGE",
+   "size_months": {
+    "20": [
+     72,
+     84
+    ],
+    "22": [
+     84,
+     96
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    72,
+    96
+   ],
+   "age_range": "6 Years–8 Years",
+   "size_ages": {
+    "20": "6 Years–7 Years",
+    "22": "7 Years–8 Years"
+   },
+   "price_min": 1350,
+   "price_max": 1350,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1060/061d90ed-7666-4689-a1dc-29970cdfbed8.webp",
+   "photos": [
+    {
+     "src": "media/STY-1060/061d90ed-7666-4689-a1dc-29970cdfbed8.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 217,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1350,
+     "availability": "few"
+    },
+    {
+     "id": 218,
+     "size": "22",
+     "colour": "Standard",
+     "price": 1350,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
    "code": "STY-1056",
    "slug": "girls-china-yarn-romper-set-suit-by-coconet-sty-1056",
    "name": "Girls China yarn Romper Set / Suit by Coconet",
@@ -7033,6 +7110,96 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
+   "is_new": true
+  },
+  {
+   "code": "STY-1055",
+   "slug": "girls-jersey-denim-2-pcs-set-suit-by-yt-sty-1055",
+   "name": "Girls Jersey Denim 2 pcs Set / Suit by Y.T",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "Jersey Denim",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 750,
+   "price_max": 750,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1055/3b947b7c-0aee-4129-9cb0-a857df073214.webp",
+   "photos": [
+    {
+     "src": "media/STY-1055/3b947b7c-0aee-4129-9cb0-a857df073214.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 203,
+     "size": "S",
+     "colour": "Standard",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 204,
+     "size": "M",
+     "colour": "Standard",
+     "price": 750,
+     "availability": "few"
+    },
+    {
+     "id": 205,
+     "size": "L",
+     "colour": "Standard",
+     "price": 750,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
    "is_new": true
   },
   {
@@ -7508,6 +7675,96 @@
    "free_delivery": false,
    "updated": "2026-09-23",
    "is_new": false
+  },
+  {
+   "code": "STY-1045",
+   "slug": "girls-jersey-2-pcs-set-suit-by-first-girl-sty-1045",
+   "name": "Girls Jersey 2 pcs Set / Suit by First Girl",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls SML",
+   "gender": "girls",
+   "fabric": "Jersey",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 900,
+   "price_max": 900,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1045/15263f01-e0a7-4c4d-933a-3a29b142b1ad.webp",
+   "photos": [
+    {
+     "src": "media/STY-1045/15263f01-e0a7-4c4d-933a-3a29b142b1ad.webp",
+     "kind": "COVER",
+     "colour": null
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 187,
+     "size": "S",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 188,
+     "size": "M",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    },
+    {
+     "id": 189,
+     "size": "L",
+     "colour": "Standard",
+     "price": 900,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
   },
   {
    "code": "STY-1044",
@@ -9103,7 +9360,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 100,
-   "online": 43,
+   "online": 44,
    "months": [
     0,
     96
@@ -9271,7 +9528,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 153,
-   "online": 47,
+   "online": 49,
    "months": [
     0,
     156
