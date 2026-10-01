@@ -1113,6 +1113,814 @@
    "is_new": true
   },
   {
+   "code": "STY-1315",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-jhun-jhun-sty-1315",
+   "name": "Boys China Denim 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": null,
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {},
+   "size_free": {},
+   "age_months": null,
+   "age_range": null,
+   "size_ages": {},
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "brown",
+     "hex": "#6f561f",
+     "photo": "media/STY-1315/f1eca03a-ed4b-4233-b991-6724c05b0feb.webp"
+    },
+    {
+     "name": "C Green",
+     "hex": "#8cb087",
+     "photo": "media/STY-1315/f70256dd-34da-4ca0-9dc1-758dbf429852.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1315/24cf6a58-11c7-4144-af5e-90cf26c16111.webp"
+    }
+   ],
+   "cover": "media/STY-1315/f1eca03a-ed4b-4233-b991-6724c05b0feb.webp",
+   "photos": [
+    {
+     "src": "media/STY-1315/f1eca03a-ed4b-4233-b991-6724c05b0feb.webp",
+     "kind": "COLOUR",
+     "colour": "brown"
+    },
+    {
+     "src": "media/STY-1315/f70256dd-34da-4ca0-9dc1-758dbf429852.webp",
+     "kind": "COLOUR",
+     "colour": "C Green"
+    },
+    {
+     "src": "media/STY-1315/24cf6a58-11c7-4144-af5e-90cf26c16111.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2535,
+     "size": "S",
+     "colour": "brown",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2529,
+     "size": "S",
+     "colour": "C Green",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2532,
+     "size": "S",
+     "colour": "skin",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2536,
+     "size": "M",
+     "colour": "brown",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2530,
+     "size": "M",
+     "colour": "C Green",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2537,
+     "size": "L",
+     "colour": "brown",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2531,
+     "size": "L",
+     "colour": "C Green",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2534,
+     "size": "L",
+     "colour": "skin",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1313",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-jhun-jhun-sty-1313",
+   "name": "Boys China Denim 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": null,
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {},
+   "size_free": {},
+   "age_months": null,
+   "age_range": null,
+   "size_ages": {},
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "M",
+    "L",
+    "20"
+   ],
+   "colours": [
+    {
+     "name": "Off White",
+     "hex": "#fbf7ee",
+     "photo": "media/STY-1313/aa29b672-3c1b-4bbc-b3a7-335bb14d426d.webp"
+    }
+   ],
+   "cover": "media/STY-1313/aa29b672-3c1b-4bbc-b3a7-335bb14d426d.webp",
+   "photos": [
+    {
+     "src": "media/STY-1313/aa29b672-3c1b-4bbc-b3a7-335bb14d426d.webp",
+     "kind": "COLOUR",
+     "colour": "Off White"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2517,
+     "size": "M",
+     "colour": "Off White",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2518,
+     "size": "L",
+     "colour": "Off White",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2519,
+     "size": "20",
+     "colour": "Off White",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1312",
+   "slug": "boys-china-shirt-pajama-set-suit-by-jhun-jhun-sty-1312",
+   "name": "Boys China Shirt Pajama Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China",
+   "set_contents": "Shirt Pajama",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Camel",
+     "hex": "#C19A6B",
+     "photo": "media/STY-1312/7d94f45e-4e4c-4fbf-8695-b3cc369f865f.webp"
+    },
+    {
+     "name": "Mahndi",
+     "hex": "#1b4206",
+     "photo": null
+    },
+    {
+     "name": "Denim Blue",
+     "hex": "#7289a1",
+     "photo": "media/STY-1312/5257d0d4-27b1-4fd7-9320-90716ce3a6cd.webp"
+    }
+   ],
+   "cover": "media/STY-1312/7d94f45e-4e4c-4fbf-8695-b3cc369f865f.webp",
+   "photos": [
+    {
+     "src": "media/STY-1312/7d94f45e-4e4c-4fbf-8695-b3cc369f865f.webp",
+     "kind": "COLOUR",
+     "colour": "Camel"
+    },
+    {
+     "src": "media/STY-1312/5257d0d4-27b1-4fd7-9320-90716ce3a6cd.webp",
+     "kind": "COLOUR",
+     "colour": "Denim Blue"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2508,
+     "size": "S",
+     "colour": "Camel",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2514,
+     "size": "S",
+     "colour": "Mahndi",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2512,
+     "size": "M",
+     "colour": "Denim Blue",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2515,
+     "size": "M",
+     "colour": "Mahndi",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2510,
+     "size": "L",
+     "colour": "Camel",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2513,
+     "size": "L",
+     "colour": "Denim Blue",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1308",
+   "slug": "boys-china-terry-2-pcs-set-suit-by-jhun-jhun-sty-1308",
+   "name": "Boys China Terry 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Terry",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Camel",
+     "hex": "#C19A6B",
+     "photo": "media/STY-1308/5af4855b-f4e9-45e1-a21c-ce40bf357877.webp"
+    }
+   ],
+   "cover": "media/STY-1308/5af4855b-f4e9-45e1-a21c-ce40bf357877.webp",
+   "photos": [
+    {
+     "src": "media/STY-1308/5af4855b-f4e9-45e1-a21c-ce40bf357877.webp",
+     "kind": "COLOUR",
+     "colour": "Camel"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2481,
+     "size": "S",
+     "colour": "Camel",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2482,
+     "size": "M",
+     "colour": "Camel",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2483,
+     "size": "L",
+     "colour": "Camel",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1307",
+   "slug": "boys-jersey-denim-2-pcs-set-suit-by-jhun-jhun-sty-1307",
+   "name": "Boys Jersey Denim 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "Jersey Denim",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 950,
+   "price_max": 950,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Green",
+     "hex": "#16A34A",
+     "photo": "media/STY-1307/8a66da91-8104-4b16-9ff6-781c33fd9534.webp"
+    },
+    {
+     "name": "Mahroon",
+     "hex": "#ae3b32",
+     "photo": "media/STY-1307/209522d0-c8d0-45d4-acd1-1b773af94144.webp"
+    },
+    {
+     "name": "Zinc",
+     "hex": "#2b5543",
+     "photo": "media/STY-1307/c4dd9502-05cb-4542-b874-18ad20a3a230.webp"
+    }
+   ],
+   "cover": "media/STY-1307/209522d0-c8d0-45d4-acd1-1b773af94144.webp",
+   "photos": [
+    {
+     "src": "media/STY-1307/8a66da91-8104-4b16-9ff6-781c33fd9534.webp",
+     "kind": "COLOUR",
+     "colour": "Green"
+    },
+    {
+     "src": "media/STY-1307/209522d0-c8d0-45d4-acd1-1b773af94144.webp",
+     "kind": "COLOUR",
+     "colour": "Mahroon"
+    },
+    {
+     "src": "media/STY-1307/c4dd9502-05cb-4542-b874-18ad20a3a230.webp",
+     "kind": "COLOUR",
+     "colour": "Zinc"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2475,
+     "size": "S",
+     "colour": "Green",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2472,
+     "size": "S",
+     "colour": "Mahroon",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2478,
+     "size": "S",
+     "colour": "Zinc",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2473,
+     "size": "M",
+     "colour": "Mahroon",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2479,
+     "size": "M",
+     "colour": "Zinc",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2477,
+     "size": "L",
+     "colour": "Green",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2474,
+     "size": "L",
+     "colour": "Mahroon",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2480,
+     "size": "L",
+     "colour": "Zinc",
+     "price": 950,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1306",
+   "slug": "boys-china-terry-2-pcs-set-suit-by-jhun-jhun-sty-1306",
+   "name": "Boys China Terry 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Terry",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 950,
+   "price_max": 950,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Skin & Brown",
+     "hex": "#b9914b",
+     "photo": "media/STY-1306/d63f6a5e-a144-4390-ac5c-e31436dc9a16.webp"
+    },
+    {
+     "name": "Skin & Green",
+     "hex": "#f59e0b",
+     "photo": "media/STY-1306/4fc35e02-657a-4067-b3da-287d8b6923ae.webp"
+    }
+   ],
+   "cover": "media/STY-1306/4fc35e02-657a-4067-b3da-287d8b6923ae.webp",
+   "photos": [
+    {
+     "src": "media/STY-1306/d63f6a5e-a144-4390-ac5c-e31436dc9a16.webp",
+     "kind": "COLOUR",
+     "colour": "Skin & Brown"
+    },
+    {
+     "src": "media/STY-1306/4fc35e02-657a-4067-b3da-287d8b6923ae.webp",
+     "kind": "COLOUR",
+     "colour": "Skin & Green"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2466,
+     "size": "S",
+     "colour": "Skin & Brown",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2469,
+     "size": "S",
+     "colour": "Skin & Green",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2467,
+     "size": "M",
+     "colour": "Skin & Brown",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2470,
+     "size": "M",
+     "colour": "Skin & Green",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2468,
+     "size": "L",
+     "colour": "Skin & Brown",
+     "price": 950,
+     "availability": "few"
+    },
+    {
+     "id": 2471,
+     "size": "L",
+     "colour": "Skin & Green",
+     "price": 950,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1305",
+   "slug": "boys-china-terry-2-pcs-set-suit-by-jhun-jhun-sty-1305",
+   "name": "Boys China Terry 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Terry",
+   "set_contents": "2 pcs",
+   "age_group": "2 Years",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "20": [
+     48,
+     72
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    24,
+    72
+   ],
+   "age_range": "2 Years–6 Years",
+   "size_ages": {
+    "20": "4 Years–6 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "M",
+    "L",
+    "20"
+   ],
+   "colours": [
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1305/976c79eb-6f34-42e2-a2c1-58277bb2b0bd.webp"
+    },
+    {
+     "name": "Sky Blue",
+     "hex": "#7DD3FC",
+     "photo": "media/STY-1305/a2117bb7-9d54-44f0-8897-a886bc5ba1bf.webp"
+    },
+    {
+     "name": "Mahndi",
+     "hex": "#1b4206",
+     "photo": "media/STY-1305/ce6017cf-f8f7-4e21-a57d-e2be93afc58e.webp"
+    }
+   ],
+   "cover": "media/STY-1305/a2117bb7-9d54-44f0-8897-a886bc5ba1bf.webp",
+   "photos": [
+    {
+     "src": "media/STY-1305/ce6017cf-f8f7-4e21-a57d-e2be93afc58e.webp",
+     "kind": "COLOUR",
+     "colour": "Mahndi"
+    },
+    {
+     "src": "media/STY-1305/976c79eb-6f34-42e2-a2c1-58277bb2b0bd.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    },
+    {
+     "src": "media/STY-1305/a2117bb7-9d54-44f0-8897-a886bc5ba1bf.webp",
+     "kind": "COLOUR",
+     "colour": "Sky Blue"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2460,
+     "size": "M",
+     "colour": "skin",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2457,
+     "size": "M",
+     "colour": "Sky Blue",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2464,
+     "size": "L",
+     "colour": "Mahndi",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2461,
+     "size": "L",
+     "colour": "skin",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2465,
+     "size": "20",
+     "colour": "Mahndi",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2459,
+     "size": "20",
+     "colour": "Sky Blue",
+     "price": 1100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
    "code": "STY-1303",
    "slug": "boys-china-2-pcs-set-suit-by-jhun-jhun-sty-1303",
    "name": "Boys china 2 pcs Set / Suit by Jhun Jhun",
@@ -1481,6 +2289,420 @@
    "is_new": true
   },
   {
+   "code": "STY-1300",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-jhun-jhun-sty-1300",
+   "name": "Boys China Denim 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "brown",
+     "hex": "#6f561f",
+     "photo": "media/STY-1300/8134d6b9-ed29-4654-9bfe-09926b5a309e.webp"
+    },
+    {
+     "name": "Grey",
+     "hex": "#6B7280",
+     "photo": "media/STY-1300/30343d44-ad27-4e77-9faf-a2e73f167038.webp"
+    },
+    {
+     "name": "White",
+     "hex": "#FFFFFF",
+     "photo": "media/STY-1300/4278d083-dbe0-4d7b-9ede-c63a335c6e9e.webp"
+    }
+   ],
+   "cover": "media/STY-1300/4278d083-dbe0-4d7b-9ede-c63a335c6e9e.webp",
+   "photos": [
+    {
+     "src": "media/STY-1300/8134d6b9-ed29-4654-9bfe-09926b5a309e.webp",
+     "kind": "COLOUR",
+     "colour": "brown"
+    },
+    {
+     "src": "media/STY-1300/30343d44-ad27-4e77-9faf-a2e73f167038.webp",
+     "kind": "COLOUR",
+     "colour": "Grey"
+    },
+    {
+     "src": "media/STY-1300/4278d083-dbe0-4d7b-9ede-c63a335c6e9e.webp",
+     "kind": "COLOUR",
+     "colour": "White"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2421,
+     "size": "S",
+     "colour": "brown",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2424,
+     "size": "S",
+     "colour": "Grey",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2425,
+     "size": "M",
+     "colour": "Grey",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2419,
+     "size": "M",
+     "colour": "White",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2423,
+     "size": "L",
+     "colour": "brown",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2420,
+     "size": "L",
+     "colour": "White",
+     "price": 1100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1299",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-nomi-care-sty-1299",
+   "name": "Boys China Denim 2 pcs Set / Suit by Nomi Care",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "2 Years",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "20": [
+     48,
+     72
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    24,
+    72
+   ],
+   "age_range": "2 Years–6 Years",
+   "size_ages": {
+    "20": "4 Years–6 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "M",
+    "L",
+    "20"
+   ],
+   "colours": [
+    {
+     "name": "brown",
+     "hex": "#6f561f",
+     "photo": "media/STY-1299/70d3e423-28f3-4bcb-9426-1c855a1b27c7.webp"
+    },
+    {
+     "name": "Camel",
+     "hex": "#C19A6B",
+     "photo": "media/STY-1299/78861905-5ca6-4c1d-87e4-bd75c1bdff5f.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1299/b1daf8ea-565a-4cd0-ab2e-1ea90c67e2d9.webp"
+    }
+   ],
+   "cover": "media/STY-1299/78861905-5ca6-4c1d-87e4-bd75c1bdff5f.webp",
+   "photos": [
+    {
+     "src": "media/STY-1299/70d3e423-28f3-4bcb-9426-1c855a1b27c7.webp",
+     "kind": "COLOUR",
+     "colour": "brown"
+    },
+    {
+     "src": "media/STY-1299/78861905-5ca6-4c1d-87e4-bd75c1bdff5f.webp",
+     "kind": "COLOUR",
+     "colour": "Camel"
+    },
+    {
+     "src": "media/STY-1299/b1daf8ea-565a-4cd0-ab2e-1ea90c67e2d9.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2415,
+     "size": "M",
+     "colour": "brown",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2412,
+     "size": "M",
+     "colour": "Camel",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2409,
+     "size": "M",
+     "colour": "skin",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2416,
+     "size": "L",
+     "colour": "brown",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2413,
+     "size": "L",
+     "colour": "Camel",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2410,
+     "size": "L",
+     "colour": "skin",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2417,
+     "size": "20",
+     "colour": "brown",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2414,
+     "size": "20",
+     "colour": "Camel",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2411,
+     "size": "20",
+     "colour": "skin",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1298",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-nomi-care-sty-1298",
+   "name": "Boys China Denim 2 pcs Set / Suit by Nomi Care",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "2 Years",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "20": [
+     48,
+     72
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    24,
+    72
+   ],
+   "age_range": "2 Years–6 Years",
+   "size_ages": {
+    "20": "4 Years–6 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "M",
+    "L",
+    "20"
+   ],
+   "colours": [
+    {
+     "name": "brown",
+     "hex": "#6f561f",
+     "photo": "media/STY-1298/d7e6faa1-141b-4300-898a-c5c11dfc1adf.webp"
+    },
+    {
+     "name": "Green",
+     "hex": "#16A34A",
+     "photo": "media/STY-1298/df99f45e-cc98-4776-ad43-c6f11d9620e1.webp"
+    },
+    {
+     "name": "Copper",
+     "hex": "#a76e0c",
+     "photo": "media/STY-1298/a225b51d-f345-43b7-a1e1-a3053fffd8c7.webp"
+    }
+   ],
+   "cover": "media/STY-1298/a225b51d-f345-43b7-a1e1-a3053fffd8c7.webp",
+   "photos": [
+    {
+     "src": "media/STY-1298/d7e6faa1-141b-4300-898a-c5c11dfc1adf.webp",
+     "kind": "COLOUR",
+     "colour": "brown"
+    },
+    {
+     "src": "media/STY-1298/a225b51d-f345-43b7-a1e1-a3053fffd8c7.webp",
+     "kind": "COLOUR",
+     "colour": "Copper"
+    },
+    {
+     "src": "media/STY-1298/df99f45e-cc98-4776-ad43-c6f11d9620e1.webp",
+     "kind": "COLOUR",
+     "colour": "Green"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2403,
+     "size": "M",
+     "colour": "brown",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2400,
+     "size": "M",
+     "colour": "Green",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2407,
+     "size": "L",
+     "colour": "Copper",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2401,
+     "size": "L",
+     "colour": "Green",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2405,
+     "size": "20",
+     "colour": "brown",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2408,
+     "size": "20",
+     "colour": "Copper",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
    "code": "STY-1297",
    "slug": "boys-china-denim-2-pcs-set-suit-by-jhun-jhun-sty-1297",
    "name": "Boys China Denim 2 pcs Set / Suit by Jhun Jhun",
@@ -1599,6 +2821,310 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-29",
+   "is_new": true
+  },
+  {
+   "code": "STY-1296",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-nomi-care-sty-1296",
+   "name": "Boys China Denim 2 pcs Set / Suit by Nomi Care",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "2 Years",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "20": [
+     48,
+     72
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    24,
+    72
+   ],
+   "age_range": "2 Years–6 Years",
+   "size_ages": {
+    "20": "4 Years–6 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1200,
+   "price_max": 1200,
+   "sizes": [
+    "M",
+    "L",
+    "20"
+   ],
+   "colours": [
+    {
+     "name": "C Green",
+     "hex": "#8cb087",
+     "photo": "media/STY-1296/0361c80d-c935-4ce6-b555-34d3a5781731.webp"
+    },
+    {
+     "name": "Grey",
+     "hex": "#6B7280",
+     "photo": "media/STY-1296/f3295c0b-3dab-4126-bbcb-d24feb0fc95c.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1296/3087a69b-c99f-4fd7-9d4e-04f4caec2244.webp"
+    }
+   ],
+   "cover": "media/STY-1296/0361c80d-c935-4ce6-b555-34d3a5781731.webp",
+   "photos": [
+    {
+     "src": "media/STY-1296/0361c80d-c935-4ce6-b555-34d3a5781731.webp",
+     "kind": "COLOUR",
+     "colour": "C Green"
+    },
+    {
+     "src": "media/STY-1296/f3295c0b-3dab-4126-bbcb-d24feb0fc95c.webp",
+     "kind": "COLOUR",
+     "colour": "Grey"
+    },
+    {
+     "src": "media/STY-1296/3087a69b-c99f-4fd7-9d4e-04f4caec2244.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2388,
+     "size": "M",
+     "colour": "C Green",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2385,
+     "size": "M",
+     "colour": "Grey",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2382,
+     "size": "M",
+     "colour": "skin",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2389,
+     "size": "L",
+     "colour": "C Green",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2386,
+     "size": "L",
+     "colour": "Grey",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2383,
+     "size": "L",
+     "colour": "skin",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2390,
+     "size": "20",
+     "colour": "C Green",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2387,
+     "size": "20",
+     "colour": "Grey",
+     "price": 1200,
+     "availability": "few"
+    },
+    {
+     "id": 2384,
+     "size": "20",
+     "colour": "skin",
+     "price": 1200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
+   "code": "STY-1294",
+   "slug": "boys-china-terry-2-pcs-set-suit-by-jhun-jhun-sty-1294",
+   "name": "Boys China Terry 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Terry",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Copper",
+     "hex": "#a76e0c",
+     "photo": "media/STY-1294/02fc4583-7cd4-4210-a3b4-7bf09e77701a.webp"
+    },
+    {
+     "name": "Mahndi",
+     "hex": "#1b4206",
+     "photo": "media/STY-1294/edc7c512-57b1-4397-9bdf-8e8a00726f2b.webp"
+    },
+    {
+     "name": "Radish",
+     "hex": "#bb2f0c",
+     "photo": "media/STY-1294/19a636c9-43c5-4977-ae91-7c178ecbb15f.webp"
+    }
+   ],
+   "cover": "media/STY-1294/edc7c512-57b1-4397-9bdf-8e8a00726f2b.webp",
+   "photos": [
+    {
+     "src": "media/STY-1294/02fc4583-7cd4-4210-a3b4-7bf09e77701a.webp",
+     "kind": "COLOUR",
+     "colour": "Copper"
+    },
+    {
+     "src": "media/STY-1294/edc7c512-57b1-4397-9bdf-8e8a00726f2b.webp",
+     "kind": "COLOUR",
+     "colour": "Mahndi"
+    },
+    {
+     "src": "media/STY-1294/19a636c9-43c5-4977-ae91-7c178ecbb15f.webp",
+     "kind": "COLOUR",
+     "colour": "Radish"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2367,
+     "size": "S",
+     "colour": "Copper",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2373,
+     "size": "S",
+     "colour": "Mahndi",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2370,
+     "size": "S",
+     "colour": "Radish",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2368,
+     "size": "M",
+     "colour": "Copper",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2374,
+     "size": "M",
+     "colour": "Mahndi",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2371,
+     "size": "M",
+     "colour": "Radish",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2369,
+     "size": "L",
+     "colour": "Copper",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2375,
+     "size": "L",
+     "colour": "Mahndi",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2372,
+     "size": "L",
+     "colour": "Radish",
+     "price": 1100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
    "is_new": true
   },
   {
@@ -1723,6 +3249,127 @@
    "is_new": true
   },
   {
+   "code": "STY-1292",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-jhun-jhun-sty-1292",
+   "name": "Boys China Denim 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "PRE_WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1150,
+   "price_max": 1150,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Grey",
+     "hex": "#6B7280",
+     "photo": "media/STY-1292/4cf85aa3-56f9-4a33-b8f3-eaf7af082ec5.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1292/6f9b31a3-eae2-4f23-930e-1700b81d9f15.webp"
+    }
+   ],
+   "cover": "media/STY-1292/4cf85aa3-56f9-4a33-b8f3-eaf7af082ec5.webp",
+   "photos": [
+    {
+     "src": "media/STY-1292/4cf85aa3-56f9-4a33-b8f3-eaf7af082ec5.webp",
+     "kind": "COLOUR",
+     "colour": "Grey"
+    },
+    {
+     "src": "media/STY-1292/6f9b31a3-eae2-4f23-930e-1700b81d9f15.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2352,
+     "size": "S",
+     "colour": "Grey",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 2349,
+     "size": "S",
+     "colour": "skin",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 2353,
+     "size": "M",
+     "colour": "Grey",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 2350,
+     "size": "M",
+     "colour": "skin",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 2354,
+     "size": "L",
+     "colour": "Grey",
+     "price": 1150,
+     "availability": "few"
+    },
+    {
+     "id": 2351,
+     "size": "L",
+     "colour": "skin",
+     "price": 1150,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
+   "is_new": true
+  },
+  {
    "code": "STY-1290",
    "slug": "boys-china-terry-denim-2-pcs-set-suit-by-jhun-jhun-sty-1290",
    "name": "Boys China terry Denim 2 pcs Set / Suit by Jhun Jhun",
@@ -1841,6 +3488,127 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-29",
+   "is_new": true
+  },
+  {
+   "code": "STY-1280",
+   "slug": "boys-china-denim-2-pcs-set-suit-by-jhun-jhun-sty-1280",
+   "name": "Boys China Denim 2 pcs Set / Suit by Jhun Jhun",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "China Denim",
+   "set_contents": "2 pcs",
+   "age_group": "2 Years",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "20": [
+     60,
+     72
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    24,
+    72
+   ],
+   "age_range": "2 Years–6 Years",
+   "size_ages": {
+    "20": "5 Years–6 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "M",
+    "L",
+    "20"
+   ],
+   "colours": [
+    {
+     "name": "Cream",
+     "hex": "#edf995",
+     "photo": "media/STY-1280/8a48d827-1d89-47eb-beb9-6806b0320da2.webp"
+    },
+    {
+     "name": "Red",
+     "hex": "#ff3f0f",
+     "photo": "media/STY-1280/ea736645-a14f-4705-8d73-bec34619eb05.webp"
+    }
+   ],
+   "cover": "media/STY-1280/8a48d827-1d89-47eb-beb9-6806b0320da2.webp",
+   "photos": [
+    {
+     "src": "media/STY-1280/8a48d827-1d89-47eb-beb9-6806b0320da2.webp",
+     "kind": "COLOUR",
+     "colour": "Cream"
+    },
+    {
+     "src": "media/STY-1280/ea736645-a14f-4705-8d73-bec34619eb05.webp",
+     "kind": "COLOUR",
+     "colour": "Red"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 2358,
+     "size": "M",
+     "colour": "Cream",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2355,
+     "size": "M",
+     "colour": "Red",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2359,
+     "size": "L",
+     "colour": "Cream",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2356,
+     "size": "L",
+     "colour": "Red",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2360,
+     "size": "20",
+     "colour": "Cream",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 2357,
+     "size": "20",
+     "colour": "Red",
+     "price": 1100,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-01",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-01",
    "is_new": true
   },
   {
@@ -4853,7 +6621,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1101",
@@ -5007,7 +6775,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1098",
@@ -5084,7 +6852,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1095",
@@ -5328,7 +7096,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1089",
@@ -5482,7 +7250,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1087",
@@ -5559,7 +7327,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1086",
@@ -5649,7 +7417,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1083",
@@ -5803,7 +7571,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1080",
@@ -5867,7 +7635,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1076",
@@ -7290,7 +9058,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1053",
@@ -7854,7 +9622,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1043",
@@ -8124,7 +9892,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1035",
@@ -8304,7 +10072,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1023",
@@ -9360,7 +11128,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 100,
-   "online": 44,
+   "online": 58,
    "months": [
     0,
     96
