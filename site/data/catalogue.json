@@ -3204,7 +3204,7 @@
      "size": "S",
      "colour": "Black",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2364,
@@ -4001,7 +4001,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -6049,7 +6049,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 1500,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-18",
@@ -6685,7 +6685,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1099",
@@ -6942,7 +6942,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1093",
@@ -7019,7 +7019,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1090",
@@ -7186,7 +7186,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1088",
@@ -8621,7 +8621,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1063",
@@ -8711,7 +8711,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1060",
@@ -8878,7 +8878,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1055",
@@ -9712,7 +9712,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1042",
@@ -9982,7 +9982,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-24",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1034",
@@ -10321,7 +10321,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 83,
@@ -10859,7 +10859,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -11178,12 +11178,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Belts",
+   "group": "boys",
+   "category": "Belts",
+   "name": "Belts",
+   "icon": "cap",
+   "colour": "peach",
+   "total": 4,
+   "online": 0,
+   "months": [
+    48,
+    216
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Baby Kit",
    "group": "boys",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "rose",
+   "colour": "sky",
    "total": 2,
    "online": 0,
    "months": [
@@ -11198,7 +11213,7 @@
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": [
@@ -11213,7 +11228,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11225,7 +11240,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11237,25 +11252,13 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
     0,
     3
    ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Belts",
-   "group": "boys",
-   "category": "Belts",
-   "name": "Belts",
-   "icon": "cap",
-   "colour": "sand",
-   "total": 1,
-   "online": 0,
-   "months": null,
    "sizes": []
   },
   {
@@ -11483,12 +11486,26 @@
    ]
   },
   {
+   "key": "accessories|Belts",
+   "group": "accessories",
+   "category": "Belts",
+   "name": "Belts",
+   "icon": "cap",
+   "colour": "sand",
+   "total": 4,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Belt"
+   ]
+  },
+  {
    "key": "accessories|Accessories",
    "group": "accessories",
    "category": "Accessories",
    "name": "Accessories",
    "icon": "cap",
-   "colour": "sand",
+   "colour": "blue",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11503,26 +11520,12 @@
    "category": "Handkerchief",
    "name": "Handkerchiefs",
    "icon": "hanky",
-   "colour": "sand",
+   "colour": "blue",
    "total": 2,
    "online": 0,
    "months": null,
    "sizes": [
     "Handkerchief"
-   ]
-  },
-  {
-   "key": "accessories|Belts",
-   "group": "accessories",
-   "category": "Belts",
-   "name": "Belts",
-   "icon": "cap",
-   "colour": "mint",
-   "total": 1,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "Belt"
    ]
   },
   {
