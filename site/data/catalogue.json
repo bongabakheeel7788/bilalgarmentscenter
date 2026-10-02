@@ -6454,7 +6454,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-25",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1109",
@@ -9802,7 +9802,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-25",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1038",
