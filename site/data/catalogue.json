@@ -11142,11 +11142,11 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "peach",
-   "total": 22,
+   "total": 24,
    "online": 7,
    "months": [
     24,
-    144
+    168
    ],
    "sizes": []
   },
