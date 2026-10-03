@@ -592,7 +592,7 @@
      "size": "2",
      "colour": "Light Purple",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2802,
@@ -3232,7 +3232,7 @@
      "size": "L",
      "colour": "Black",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2366,
@@ -8447,7 +8447,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 800,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -11127,7 +11127,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 102,
+   "total": 103,
    "online": 58,
    "months": [
     0,
@@ -11298,7 +11298,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 156,
+   "total": 161,
    "online": 49,
    "months": [
     0,
