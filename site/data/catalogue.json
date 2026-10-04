@@ -919,7 +919,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-27",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1321",
@@ -1005,7 +1005,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-27",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1320",
@@ -11127,11 +11127,11 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 106,
+   "total": 107,
    "online": 58,
    "months": [
     0,
-    168
+    192
    ],
    "sizes": []
   },
@@ -11298,7 +11298,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 161,
+   "total": 167,
    "online": 49,
    "months": [
     0,
