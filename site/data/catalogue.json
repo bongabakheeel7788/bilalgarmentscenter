@@ -599,7 +599,7 @@
      "size": "2",
      "colour": "pink",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-27",
@@ -4974,7 +4974,7 @@
      "size": "2XL",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-18",
@@ -5852,7 +5852,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 613,
@@ -11127,11 +11127,11 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 103,
+   "total": 104,
    "online": 58,
    "months": [
     0,
-    96
+    156
    ],
    "sizes": []
   },
