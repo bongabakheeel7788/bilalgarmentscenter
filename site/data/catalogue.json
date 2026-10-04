@@ -606,7 +606,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-27",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1324",
@@ -706,7 +706,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-27",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1323",
@@ -826,7 +826,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-27",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1322",
@@ -1110,7 +1110,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-27",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1315",
@@ -10610,7 +10610,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 1000,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-19",
@@ -10859,7 +10859,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-19",
@@ -11127,11 +11127,11 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 104,
+   "total": 106,
    "online": 58,
    "months": [
     0,
-    156
+    168
    ],
    "sizes": []
   },
