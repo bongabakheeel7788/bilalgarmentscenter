@@ -46,12 +46,13 @@ export const isBarcodeQuery = q => /^\d{6,}$/.test(String(q || '').trim());
 // P58 — the counter tags. Eight digits starting 99 are never a product (six,
 // at most seven); the same table lives in server/lib/barcode.js.
 const COMMANDS = { '99000001': 'PAY', '99000002': 'CLEAR', '99000003': 'MINUS' };
-/** { kind: 'PAY'|'CLEAR'|'MINUS'|'SP', user_id? } for a command code, else null */
+/** { kind: 'PAY'|'CLEAR'|'MINUS'|'SP'|'LOC', user_id?, location_id? } for a command code, else null */
 export function commandOf(code) {
   const c = String(code || '').trim();
   if (!/^99\d{6}$/.test(c)) return null;
   if (COMMANDS[c]) return { kind: COMMANDS[c] };
   if (c.startsWith('991')) return { kind: 'SP', user_id: Number(c.slice(3)) };
+  if (c.startsWith('992')) return { kind: 'LOC', location_id: Number(c.slice(3)) };   // P184 — a rack's tag
   return null;
 }
 /** a scanned burst that is a product tag OR a command — what the routers act on */
