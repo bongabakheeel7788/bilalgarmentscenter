@@ -1075,7 +1075,7 @@
      "size": "1",
      "colour": "Parrot",
      "price": 600,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 2773,
@@ -4641,7 +4641,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1026,
@@ -6196,7 +6196,7 @@
      "size": "20",
      "colour": "Standard",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 521,
