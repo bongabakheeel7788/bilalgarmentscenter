@@ -564,7 +564,7 @@
      "size": "1",
      "colour": "Lemon",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2797,
@@ -578,14 +578,14 @@
      "size": "1",
      "colour": "pink",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2800,
      "size": "2",
      "colour": "Lemon",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2798,
@@ -685,7 +685,7 @@
      "size": "2",
      "colour": "C Green",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2794,
@@ -1987,7 +1987,7 @@
      "size": "S",
      "colour": "Skin & Brown",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2446,
@@ -5075,7 +5075,7 @@
      "size": "26",
      "colour": "Standard",
      "price": 1800,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 814,
@@ -5089,7 +5089,7 @@
      "size": "30",
      "colour": "Standard",
      "price": 1800,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 816,
