@@ -2092,7 +2092,7 @@
      "size": "S",
      "colour": "brown",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2436,
@@ -3211,7 +3211,7 @@
      "size": "S",
      "colour": "Red",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2362,
@@ -11127,7 +11127,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 107,
+   "total": 108,
    "online": 58,
    "months": [
     0,
@@ -11208,12 +11208,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Pent coat",
+   "group": "boys",
+   "category": "Pent coat",
+   "name": "Pent coat",
+   "icon": "shirt",
+   "colour": "sand",
+   "total": 2,
+   "online": 0,
+   "months": [
+    24,
+    180
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Shalwar Kameez",
    "group": "boys",
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "mint",
+   "colour": "peach",
    "total": 2,
    "online": 0,
    "months": [
@@ -11228,7 +11243,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "sand",
+   "colour": "blue",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11240,7 +11255,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "sand",
+   "colour": "blue",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11252,27 +11267,12 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
     0,
     3
-   ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Pent coat",
-   "group": "boys",
-   "category": "Pent coat",
-   "name": "Pent coat",
-   "icon": "shirt",
-   "colour": "lilac",
-   "total": 1,
-   "online": 0,
-   "months": [
-    24,
-    156
    ],
    "sizes": []
   },
