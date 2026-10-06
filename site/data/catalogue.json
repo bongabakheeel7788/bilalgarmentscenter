@@ -998,7 +998,7 @@
      "size": "2",
      "colour": "Red",
      "price": 550,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-27",
@@ -2008,7 +2008,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1302",
@@ -2155,7 +2155,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1301",
@@ -2821,7 +2821,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1296",
@@ -11298,7 +11298,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 176,
+   "total": 178,
    "online": 49,
    "months": [
     0,
