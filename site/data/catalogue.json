@@ -664,7 +664,7 @@
      "size": "1",
      "colour": "C Green",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2793,
@@ -898,7 +898,7 @@
      "size": "2",
      "colour": "Baby Pink",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2782,
@@ -3460,7 +3460,7 @@
      "size": "M",
      "colour": "Peach",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2344,
@@ -11298,7 +11298,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 175,
+   "total": 176,
    "online": 49,
    "months": [
     0,
