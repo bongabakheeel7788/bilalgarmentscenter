@@ -1921,96 +1921,6 @@
    "is_new": true
   },
   {
-   "code": "STY-1303",
-   "slug": "boys-china-2-pcs-set-suit-by-jhun-jhun-sty-1303",
-   "name": "Boys china 2 pcs Set / Suit by Jhun Jhun",
-   "category": "Set / Suit",
-   "category_parent": null,
-   "size_group": "N SML",
-   "gender": "boys",
-   "fabric": "china",
-   "set_contents": "2 pcs",
-   "age_group": "1 Year",
-   "season": "PRE_WINTER",
-   "sizing": "AGE",
-   "size_months": {
-    "S": [
-     12,
-     24
-    ],
-    "M": [
-     24,
-     36
-    ],
-    "L": [
-     36,
-     48
-    ]
-   },
-   "size_free": {},
-   "age_months": [
-    12,
-    48
-   ],
-   "age_range": "1 Year–4 Years",
-   "size_ages": {
-    "S": "1 Year–2 Years",
-    "M": "2 Years–3 Years",
-    "L": "3 Years–4 Years"
-   },
-   "price_min": 1200,
-   "price_max": 1200,
-   "sizes": [
-    "S",
-    "M",
-    "L"
-   ],
-   "colours": [
-    {
-     "name": "Skin & Brown",
-     "hex": "#b9914b",
-     "photo": "media/STY-1303/1c6da407-f911-4a0f-b89e-09113d92495c.webp"
-    }
-   ],
-   "cover": "media/STY-1303/1c6da407-f911-4a0f-b89e-09113d92495c.webp",
-   "photos": [
-    {
-     "src": "media/STY-1303/1c6da407-f911-4a0f-b89e-09113d92495c.webp",
-     "kind": "COLOUR",
-     "colour": "Skin & Brown"
-    }
-   ],
-   "size_guide": null,
-   "variants": [
-    {
-     "id": 2445,
-     "size": "S",
-     "colour": "Skin & Brown",
-     "price": 1200,
-     "availability": "out"
-    },
-    {
-     "id": 2446,
-     "size": "M",
-     "colour": "Skin & Brown",
-     "price": 1200,
-     "availability": "few"
-    },
-    {
-     "id": 2447,
-     "size": "L",
-     "colour": "Skin & Brown",
-     "price": 1200,
-     "availability": "few"
-    }
-   ],
-   "first_published": "2026-09-29",
-   "description": null,
-   "free_delivery": false,
-   "updated": "2026-10-04",
-   "is_new": false
-  },
-  {
    "code": "STY-1302",
    "slug": "boys-china-denim-2-pcs-set-suit-by-jhun-jhun-sty-1302",
    "name": "Boys China Denim 2 pcs Set / Suit by Jhun Jhun",
@@ -2286,7 +2196,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1300",
@@ -3246,7 +3156,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1292",
@@ -3488,7 +3398,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1280",
@@ -4564,7 +4474,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1029,
@@ -11127,8 +11037,8 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 108,
-   "online": 58,
+   "total": 107,
+   "online": 57,
    "months": [
     0,
     192
