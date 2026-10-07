@@ -193,7 +193,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-30",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1361",
@@ -257,7 +257,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-30",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1360",
@@ -481,7 +481,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-09-30",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1325",
