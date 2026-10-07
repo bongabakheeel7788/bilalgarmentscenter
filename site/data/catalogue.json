@@ -3256,7 +3256,7 @@
      "size": "L",
      "colour": "skin",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -9677,7 +9677,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 179,
@@ -11062,30 +11062,30 @@
    "sizes": []
   },
   {
-   "key": "boys|Uniform Shirts",
-   "group": "boys",
-   "category": "Uniform Shirts",
-   "name": "Uniform shirts",
-   "icon": "uniform",
-   "colour": "lilac",
-   "total": 5,
-   "online": 0,
-   "months": null,
-   "sizes": []
-  },
-  {
    "key": "boys|Belts",
    "group": "boys",
    "category": "Belts",
    "name": "Belts",
    "icon": "cap",
-   "colour": "peach",
-   "total": 4,
+   "colour": "mint",
+   "total": 5,
    "online": 0,
    "months": [
     48,
     216
    ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Uniform Shirts",
+   "group": "boys",
+   "category": "Uniform Shirts",
+   "name": "Uniform shirts",
+   "icon": "uniform",
+   "colour": "lemon",
+   "total": 5,
+   "online": 0,
+   "months": null,
    "sizes": []
   },
   {
@@ -11388,7 +11388,7 @@
    "name": "Belts",
    "icon": "cap",
    "colour": "sand",
-   "total": 4,
+   "total": 5,
    "online": 0,
    "months": null,
    "sizes": [
