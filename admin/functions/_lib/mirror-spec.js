@@ -286,7 +286,7 @@ export default {
         "key"
       ],
       "watermark": "ts",
-      "filter": "t.key IN ('shop.name','shop.short','shop.address','shop.phone','shop.day_ends_at','stock.low_threshold','stock.critical_threshold','credit.lapsed_days','store.site_url')"
+      "filter": "t.key IN ('shop.name','shop.short','shop.address','shop.phone','shop.day_ends_at','stock.low_threshold','stock.critical_threshold','credit.lapsed_days','store.site_url','display.time_format')"
     },
     "ad_spend": {
       "key": [

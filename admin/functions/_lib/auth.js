@@ -3,7 +3,7 @@
 // derive()), a signed cookie for the session, and the POS's own permission
 // engine run over the mirrored role/user tables. Nothing here can write to
 // the shop; nothing here can approve anything.
-import { json, timingSafeEqual, lastPush, TABLE } from './db.js';
+import { json, timingSafeEqual, lastPush, timeFormat, TABLE } from './db.js';
 
 const COOKIE = 'bgc_admin';
 const HOURS = 12;
@@ -118,7 +118,7 @@ export async function login(context, db, { username, password }) {
   const exp = Date.now() + HOURS * 3600e3;
   const token = await sign(secret, { uid: u.id, exp });
   const perms = await loadEffective(db, u.id); permCache.set(u.id, { perms, at: Date.now() });
-  return json({ ok: true, user: { id: u.id, name: u.name, username: u.username, role: u.role }, perms, as_of: await lastPush(db) },
+  return json({ ok: true, user: { id: u.id, name: u.name, username: u.username, role: u.role }, perms, as_of: await lastPush(db), time_format: await timeFormat(db) },
     200, { 'Set-Cookie': setCookie(token, HOURS * 3600) });
 }
 /** P97 — a short, stable name for the browser: 12 hex of SHA-256(user agent) */
@@ -181,9 +181,9 @@ export function guard(key, handler) {
     if (!user) return json({ error: 'UNAUTHENTICATED' }, 401);
     if (key && !can(user, key)) return json({ error: 'FORBIDDEN', permission: key }, 403);
     try {
-      const [out, asOf] = await Promise.all([handler(user, db, context), lastPush(db)]);
+      const [out, asOf, tf] = await Promise.all([handler(user, db, context), lastPush(db), timeFormat(db)]);
       const extra = user.renew ? { 'Set-Cookie': setCookie(user.renew, HOURS * 3600) } : {};
-      return json({ ...out, as_of: asOf }, 200, extra);
+      return json({ ...out, as_of: asOf, time_format: tf }, 200, extra);   // P192 — the pages write times the shop's way
     } catch (e) {
       if (e && e.status) return json({ error: e.error || 'ERROR', hint: e.hint }, e.status);
       return json({ error: 'PORTAL_ERROR', hint: String(e && e.message || e).slice(0, 200) }, 500);

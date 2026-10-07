@@ -7,14 +7,18 @@ const app = $('#app');
 const esc = s => String(s ?? '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 const rs = v => { if (v == null || v === '') return '—'; const n = Number(v); if (!Number.isFinite(n)) return esc(v); const neg = n < 0; const s = Math.abs(n).toLocaleString('en-PK', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); return (neg ? '−' : '') + 'Rs ' + s; };
 const n0 = v => Number(v || 0).toLocaleString('en-PK');
-const dt = iso => { if (!iso) return '—'; const d = new Date(iso); if (Number.isNaN(d.getTime())) return esc(iso); return d.toLocaleString('en-GB', { timeZone: 'Asia/Karachi', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }); };
+// P192 — times the shop's way (Settings ▸ The shop ▸ Time format on the POS): "3:45 pm" or "15:45"
+const tOpts = () => (TF === '24' ? { hour: '2-digit', minute: '2-digit', hour12: false } : { hour: 'numeric', minute: '2-digit', hour12: true });
+const tm = iso => { if (!iso) return ''; const d = new Date(iso); if (Number.isNaN(d.getTime())) return esc(iso); return d.toLocaleTimeString('en-GB', { timeZone: 'Asia/Karachi', ...tOpts() }); };
+const dt = iso => { if (!iso) return '—'; const d = new Date(iso); if (Number.isNaN(d.getTime())) return esc(iso); return d.toLocaleDateString('en-GB', { timeZone: 'Asia/Karachi', day: '2-digit', month: 'short' }) + ', ' + tm(iso); };
+const hr = h => (TF === '24' ? `${String(h).padStart(2, '0')}:00` : `${Number(h) % 12 || 12} ${Number(h) < 12 ? 'am' : 'pm'}`);
 const dd = ymd => { if (!ymd) return '—'; const d = new Date(String(ymd).slice(0, 10) + 'T00:00:00Z'); return d.toLocaleDateString('en-GB', { timeZone: 'UTC', day: '2-digit', month: 'short', year: 'numeric' }); };
 const pct = v => v == null ? '' : (v > 0 ? '▲ ' : v < 0 ? '▼ ' : '') + Math.abs(v) + '%';
 const cls = v => v > 0 ? 'pos' : v < 0 ? 'neg' : '';
 const pill = (t, k = '') => `<span class="pill ${k}">${esc(t)}</span>`;
 const statusPill = s => pill(s, { POSTED: 'g', PAID: 'g', OPEN: 'b', CLOSED: '', VOID: 'r', UNPAID: 'a', PARTIAL: 'a', NEW: 'b', DELIVERED: 'g', CANCELLED: 'r', RTO: 'r' }[s] || '');
 
-let me = null, asOf = null, toastT = null;
+let me = null, asOf = null, toastT = null, TF = '12';   // P192 — the shop's time format, from every answer
 function toast(msg) { let t = $('.toast'); if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); } t.textContent = msg; clearTimeout(toastT); toastT = setTimeout(() => t.remove(), 3500); }
 // P96 — the last answer for each page is kept on the phone (sessionStorage,
 // this tab only) and painted at once; the fresh answer replaces it when it
@@ -26,7 +30,7 @@ const cacheGet = path => { try { const v = sessionStorage.getItem(cacheKey(path)
 const cachePut = (path, body) => { try { sessionStorage.setItem(cacheKey(path), JSON.stringify(body)); } catch { /* full or blocked — fine */ } };
 const cacheClear = () => { try { Object.keys(sessionStorage).filter(k => k.startsWith('bgc_admin:')).forEach(k => sessionStorage.removeItem(k)); } catch { /* fine */ } };
 async function api(path, opts = {}) {
-  if (paintingFromCache) { const hit = cacheGet(path); if (hit) { if (hit.as_of) asOf = hit.as_of; return hit; } throw Object.assign(new Error('NOCACHE'), { body: {} }); }
+  if (paintingFromCache) { const hit = cacheGet(path); if (hit) { if (hit.as_of) asOf = hit.as_of; if (hit.time_format) TF = hit.time_format; return hit; } throw Object.assign(new Error('NOCACHE'), { body: {} }); }
   let r;
   try { r = await fetch(path, { credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, ...opts }); }
   catch (e) { throw Object.assign(new Error('NETWORK'), { body: { error: 'NETWORK', hint: 'Could not reach the portal — check the internet connection and try again.' } }); }
@@ -34,6 +38,7 @@ async function api(path, opts = {}) {
   if (r.status === 401 && !path.startsWith('/api/auth/')) { me = null; loginPage('Your session has ended — log in again.'); throw Object.assign(new Error('UNAUTHENTICATED'), { body }); }
   if (!r.ok) throw Object.assign(new Error(body.error || 'ERROR'), { status: r.status, body });
   if (body.as_of) asOf = body.as_of;
+  if (body.time_format) TF = body.time_format;   // P192
   if ((!opts.method || opts.method === 'GET') && !path.startsWith('/api/auth/')) cachePut(path, body);
   return body;
 }
@@ -146,7 +151,7 @@ const pages = {
     const attention = d.orders && d.orders.attention.length ? `<div class="card"><h2>Needs a call</h2><ul style="margin:0;padding-left:18px">${d.orders.attention.map(a => `<li>${esc(a)}</li>`).join('')}</ul></div>` : '';
     const hourRange = d.hours.length ? Array.from({ length: Math.max(23, ...d.hours.map(h => h.hour)) - Math.min(9, ...d.hours.map(h => h.hour)) + 1 }, (_, i) => Math.min(9, ...d.hours.map(h => h.hour)) + i) : [];
     const hoursFilled = hourRange.map(h => d.hours.find(x => x.hour === h) || { hour: h, bills: 0, net: '0' });
-    const hours = d.hours.length ? `<div class="card"><h2>By hour</h2>${barChart(hoursFilled, 'net', p => `${p.hour}:00`)}</div>` : '';
+    const hours = d.hours.length ? `<div class="card"><h2>By hour</h2>${barChart(hoursFilled, 'net', p => hr(p.hour))}</div>` : '';
     const methods = `<div class="card"><h2>How the money came in</h2>${table(d.methods, [{ k: 'method', t: 'Method' }, { k: 'bills', t: 'Bills', num: true }, { k: 'amount', t: 'Amount', num: true, f: rs }], { empty: 'No bills yet today.' })}</div>`;
     const staff = `<div class="card"><h2>Salesmen</h2>${table(d.staff, [{ k: 'name', t: 'Name' }, { k: 'bills', t: 'Bills', num: true }, { k: 'units', t: 'Pcs', num: true }, { k: 'net', t: 'Sales', num: true, f: rs }, { k: 'abv', t: 'Avg bill', num: true, f: rs }], { empty: 'No sales yet today.' })}</div>`;
     const devices = (d.new_devices || []).length ? `<div class="card notice"><b>New device.</b> ${d.new_devices.map(x => `<b>${esc(x.username)}</b> logged in from a device that username had not used before, at ${dt(x.at)}`).join('; ')}. Not you? Change that password on the POS — the portal follows at the next push.</div>` : '';
@@ -165,7 +170,7 @@ const pages = {
       tile('Discounts', rs(s.discount), `gross ${rs(s.gross)} · round-off ${rs(s.round_off)}`),
       tile('Returns', rs(s.refunds), `refunded in the period`),
     ].join('');
-    const series = d.series.points.length ? `<div class="card"><h2>${d.series.by === 'hour' ? 'By hour' : 'By day'}<span class="tools">${csvBtn('sales-series', d.series.points, [{ k: 'k', t: d.series.by }, { k: 'net', t: 'Net' }, { k: 'bills', t: 'Bills' }, ...(s.profit !== undefined ? [{ k: 'profit', t: 'Profit' }] : [])])}</span></h2>${barChart(d.series.points, 'net', p => d.series.by === 'hour' ? `${p.k}:00` : dd(p.k))}</div>` : '';
+    const series = d.series.points.length ? `<div class="card"><h2>${d.series.by === 'hour' ? 'By hour' : 'By day'}<span class="tools">${csvBtn('sales-series', d.series.points, [{ k: 'k', t: d.series.by }, { k: 'net', t: 'Net' }, { k: 'bills', t: 'Bills' }, ...(s.profit !== undefined ? [{ k: 'profit', t: 'Profit' }] : [])])}</span></h2>${barChart(d.series.points, 'net', p => d.series.by === 'hour' ? hr(p.k) : dd(p.k))}</div>` : '';
     const moneyCols = [{ k: 'units', t: 'Pcs', num: true }, { k: 'net', t: 'Net', num: true, f: rs }, ...(s.profit !== undefined ? [{ k: 'profit', t: 'Profit', num: true, f: rs }] : [])];
     const catCols = [{ k: 'label', t: 'Category' }, ...moneyCols];
     const itemCols = [{ k: 'style', t: 'Product' }, { k: 'size', t: 'Size' }, { k: 'colour', t: 'Colour' }, ...moneyCols];
@@ -292,7 +297,7 @@ const pages = {
     shell('staff', loading('Staff'));
     const d = await api('/api/staff?' + qs({ month: q.month }));
     const pCols = [{ k: 'name', t: 'Name', f: (v, r) => `${esc(v)}<div class="xs mut">${esc(r.role)}${r.status !== 'ACTIVE' ? ' · ' + esc(r.status) : ''}</div>` }, { k: 'days', t: 'Days', num: true }, { k: 'hours', t: 'Hours', num: true }, { k: 'last_in', t: 'Last in', f: dt }];
-    const aCols = [{ k: 'business_date', t: 'Day', f: dd }, { k: 'name', t: 'Name' }, { k: 'punch_in', t: 'In', f: v => v ? dt(v).slice(-5) : '' }, { k: 'punch_out', t: 'Out', f: v => v ? dt(v).slice(-5) : '<span class="pill b">in</span>' }, { k: 'break_minutes', t: 'Break', num: true, f: v => v ? `${v} min` : '' }, { k: 'hours', t: 'Hours', num: true }, { k: 'source', t: '', f: v => v && v !== 'PUNCH' ? pill(v) : '' }];
+    const aCols = [{ k: 'business_date', t: 'Day', f: dd }, { k: 'name', t: 'Name' }, { k: 'punch_in', t: 'In', f: v => v ? tm(v) : '' }, { k: 'punch_out', t: 'Out', f: v => v ? tm(v) : '<span class="pill b">in</span>' }, { k: 'break_minutes', t: 'Break', num: true, f: v => v ? `${v} min` : '' }, { k: 'hours', t: 'Hours', num: true }, { k: 'source', t: '', f: v => v && v !== 'PUNCH' ? pill(v) : '' }];
     const advCols = [{ k: 'advance_date', t: 'Date', f: dd }, { k: 'name', t: 'Name' }, { k: 'amount', t: 'Amount', num: true, f: rs }, { k: 'note', t: 'Note' }, { k: 'settled', t: '', f: (v, r) => v ? pill('settled ' + dd(r.settled_at), 'g') : pill('open', 'a') }];
     const salCols = [{ k: 'period_month', t: 'Month', f: v => String(v).slice(0, 7) }, { k: 'name', t: 'Name' }, { k: 'gross', t: 'Gross', num: true, f: rs }, { k: 'advances_deducted', t: 'Advances', num: true, f: rs }, { k: 'absence_deduction', t: 'Absence', num: true, f: rs }, { k: 'net', t: 'Net', num: true, f: rs }, { k: 'paid_at', t: 'Paid', f: v => v ? dt(v) : pill('unpaid', 'a') }];
     shell('staff', `<h1 class="pt">Staff <small>${esc(d.month)}</small></h1><form class="bar" id="sf"><input type="month" id="sm" value="${esc(d.month)}"><button class="btn sm">Show</button></form>

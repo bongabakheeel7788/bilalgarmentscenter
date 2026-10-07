@@ -1967,11 +1967,6 @@
    ],
    "colours": [
     {
-     "name": "brown",
-     "hex": "#6f561f",
-     "photo": "media/STY-1302/98360c3c-8b63-4e13-bf88-36889ba7711a.webp"
-    },
-    {
      "name": "C Green",
      "hex": "#8cb087",
      "photo": null
@@ -1980,6 +1975,11 @@
      "name": "Grey",
      "hex": "#6B7280",
      "photo": "media/STY-1302/33164e6f-eac9-4019-8a27-54fc747f2256.webp"
+    },
+    {
+     "name": "brown",
+     "hex": "#6f561f",
+     "photo": "media/STY-1302/98360c3c-8b63-4e13-bf88-36889ba7711a.webp"
     }
    ],
    "cover": "media/STY-1302/33164e6f-eac9-4019-8a27-54fc747f2256.webp",
@@ -1997,13 +1997,6 @@
    ],
    "size_guide": null,
    "variants": [
-    {
-     "id": 2442,
-     "size": "S",
-     "colour": "brown",
-     "price": 1100,
-     "availability": "out"
-    },
     {
      "id": 2436,
      "size": "S",
@@ -3113,13 +3106,6 @@
      "id": 2361,
      "size": "S",
      "colour": "Black",
-     "price": 1150,
-     "availability": "out"
-    },
-    {
-     "id": 2364,
-     "size": "S",
-     "colour": "Red",
      "price": 1150,
      "availability": "out"
     },

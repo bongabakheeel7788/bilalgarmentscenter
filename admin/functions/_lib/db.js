@@ -110,6 +110,11 @@ export function timingSafeEqual(a, b) {
 }
 
 /** when the portal last received anything — the freshness every page shows */
+// P192 — the shop's time format (display.time_format, mirrored from the POS): '12' or '24'
+export async function timeFormat(db) {
+  const r = await db.prepare(`SELECT json_extract(s.data, '$.value') AS v FROM ${TABLE('settings')} s WHERE key = 'display.time_format'`).first().catch(() => null);
+  return String(r && r.v) === '24' ? '24' : '12';
+}
 export async function lastPush(db) {
   const r = await db.prepare(`SELECT MAX(received_at) AS at FROM mirror_runs WHERE kind = 'rows'`).first();
   return r && r.at ? r.at : null;
