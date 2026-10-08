@@ -571,7 +571,7 @@
      "size": "1",
      "colour": "Light Purple",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2801,
@@ -7838,7 +7838,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 550,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 252,
