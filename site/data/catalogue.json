@@ -8684,7 +8684,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1056",
@@ -8864,7 +8864,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1054",
@@ -9428,7 +9428,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-04",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1044",
@@ -11274,7 +11274,7 @@
    "months": null,
    "sizes": [
     "M",
-    "4XL"
+    "38 Waist"
    ]
   },
   {
@@ -11344,12 +11344,12 @@
    "name": "Full size",
    "icon": "fullsize",
    "colour": "sky",
-   "total": 9,
+   "total": 11,
    "online": 0,
    "months": null,
    "sizes": [
     "Standard Size",
-    "M"
+    "L"
    ]
   },
   {
@@ -11359,7 +11359,7 @@
    "name": "Stoller",
    "icon": "stole",
    "colour": "lemon",
-   "total": 1,
+   "total": 2,
    "online": 0,
    "months": null,
    "sizes": [
