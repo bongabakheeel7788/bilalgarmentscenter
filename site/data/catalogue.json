@@ -891,7 +891,7 @@
      "size": "1",
      "colour": "Lemon",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2784,
@@ -3249,7 +3249,7 @@
      "size": "L",
      "colour": "Grey",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2351,
@@ -3890,7 +3890,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1189,
@@ -7998,7 +7998,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 900,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 247,
@@ -11263,33 +11263,33 @@
    "sizes": []
   },
   {
+   "key": "gents|Casual Shirts",
+   "group": "gents",
+   "category": "Casual Shirts",
+   "name": "Shirts",
+   "icon": "shirt",
+   "colour": "mint",
+   "total": 8,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "L",
+    "2XL"
+   ]
+  },
+  {
    "key": "gents|Trousers",
    "group": "gents",
    "category": "Trousers",
    "name": "Trousers",
    "icon": "pants",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 8,
    "online": 1,
    "months": null,
    "sizes": [
     "M",
     "38 Waist"
-   ]
-  },
-  {
-   "key": "gents|Casual Shirts",
-   "group": "gents",
-   "category": "Casual Shirts",
-   "name": "Shirts",
-   "icon": "shirt",
-   "colour": "peach",
-   "total": 7,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "M",
-    "2XL"
    ]
   },
   {
