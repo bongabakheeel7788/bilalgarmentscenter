@@ -791,7 +791,7 @@
      "size": "1",
      "colour": "Peach",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2787,
@@ -5243,7 +5243,7 @@
      "size": "30",
      "colour": "Washable",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 672,
@@ -8940,7 +8940,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 800,
-     "availability": "few"
+     "availability": "in"
     },
     {
      "id": 202,
