@@ -5601,7 +5601,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 1300,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-20",
@@ -9331,7 +9331,7 @@
      "size": "20",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-20",
@@ -9504,7 +9504,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 186,
@@ -11038,7 +11038,7 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "peach",
-   "total": 24,
+   "total": 25,
    "online": 7,
    "months": [
     24,
@@ -11194,7 +11194,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 178,
+   "total": 182,
    "online": 49,
    "months": [
     0,
