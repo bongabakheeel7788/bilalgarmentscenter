@@ -912,7 +912,7 @@
      "size": "2",
      "colour": "Lemon",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-27",
@@ -1068,7 +1068,7 @@
      "size": "1",
      "colour": "Baby Pink",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2771,
@@ -2979,7 +2979,7 @@
      "size": "S",
      "colour": "Radish",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2368,
@@ -4453,7 +4453,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1028,
@@ -11194,7 +11194,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 189,
+   "total": 191,
    "online": 49,
    "months": [
     0,
