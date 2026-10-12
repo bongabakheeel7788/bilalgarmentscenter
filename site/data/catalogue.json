@@ -5147,7 +5147,7 @@
    "gender": "boys",
    "fabric": "Jeans",
    "set_contents": "pent",
-   "age_group": "1 Year",
+   "age_group": "4 Years",
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
@@ -5243,14 +5243,14 @@
      "size": "30",
      "colour": "Washable",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 672,
      "size": "32",
      "colour": "Washable",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 673,
@@ -5988,12 +5988,17 @@
     "26": "9 Years–10 Years"
    },
    "price_min": 650,
-   "price_max": 650,
+   "price_max": 700,
    "sizes": [
     "20",
     "26"
    ],
    "colours": [
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": null
+    },
     {
      "name": "Standard",
      "hex": "#e5e7eb",
@@ -6011,10 +6016,24 @@
    "size_guide": null,
    "variants": [
     {
+     "id": 4365,
+     "size": "20",
+     "colour": "skin",
+     "price": 650,
+     "availability": "out"
+    },
+    {
      "id": 534,
      "size": "20",
      "colour": "Standard",
      "price": 650,
+     "availability": "few"
+    },
+    {
+     "id": 4366,
+     "size": "26",
+     "colour": "skin",
+     "price": 700,
      "availability": "few"
     },
     {
@@ -6188,7 +6207,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 512,
