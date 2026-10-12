@@ -5093,7 +5093,7 @@
      "size": "24",
      "colour": "Standard",
      "price": 2000,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 801,
@@ -5850,7 +5850,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 1400,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-18",
@@ -11038,7 +11038,7 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "peach",
-   "total": 25,
+   "total": 26,
    "online": 7,
    "months": [
     24,
