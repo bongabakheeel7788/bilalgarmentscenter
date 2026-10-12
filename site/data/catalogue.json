@@ -884,7 +884,7 @@
      "size": "1",
      "colour": "C Green",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2779,
@@ -6207,7 +6207,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 512,
@@ -8112,7 +8112,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 244,
