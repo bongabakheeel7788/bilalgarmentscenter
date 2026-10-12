@@ -11089,12 +11089,27 @@
    "sizes": []
   },
   {
+   "key": "boys|High Neck",
+   "group": "boys",
+   "category": "High Neck",
+   "name": "High Neck",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 4,
+   "online": 0,
+   "months": [
+    24,
+    60
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Baby Kit",
    "group": "boys",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": [
@@ -11109,7 +11124,7 @@
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 2,
    "online": 0,
    "months": [
@@ -11124,7 +11139,7 @@
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 2,
    "online": 0,
    "months": [
@@ -11139,7 +11154,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11151,7 +11166,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11163,7 +11178,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": [
@@ -11178,7 +11193,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -11218,12 +11233,27 @@
    "sizes": []
   },
   {
+   "key": "girls|High Neck",
+   "group": "girls",
+   "category": "High Neck",
+   "name": "High Neck",
+   "icon": "shirt",
+   "colour": "lilac",
+   "total": 4,
+   "online": 0,
+   "months": [
+    24,
+    60
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Baby Kit",
    "group": "girls",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": [
@@ -11238,7 +11268,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -11253,7 +11283,7 @@
    "category": "Casual Pants",
    "name": "Pants",
    "icon": "pants",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
