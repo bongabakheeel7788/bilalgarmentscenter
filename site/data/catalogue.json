@@ -3677,7 +3677,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 800,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 1454,
@@ -5243,7 +5243,7 @@
      "size": "30",
      "colour": "Washable",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 672,
@@ -10851,7 +10851,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 700,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-19",
