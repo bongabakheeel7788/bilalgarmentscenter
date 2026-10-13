@@ -7633,7 +7633,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 700,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-07",
@@ -8119,7 +8119,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 850,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 245,
