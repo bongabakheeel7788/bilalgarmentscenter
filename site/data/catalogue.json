@@ -6522,7 +6522,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 364,
@@ -9433,7 +9433,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 189,
@@ -9786,14 +9786,14 @@
      "size": "S",
      "colour": "Standard",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 167,
      "size": "M",
      "colour": "Standard",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 168,
@@ -9876,14 +9876,14 @@
      "size": "S",
      "colour": "Standard",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 158,
      "size": "M",
      "colour": "Standard",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 159,
@@ -10236,7 +10236,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 83,
@@ -10915,7 +10915,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -11207,12 +11207,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Caps",
+   "group": "boys",
+   "category": "Caps",
+   "name": "Caps",
+   "icon": "cap",
+   "colour": "peach",
+   "total": 1,
+   "online": 0,
+   "months": [
+    0,
+    12
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Tracksuit",
    "group": "boys",
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": [
@@ -11297,12 +11312,27 @@
    "sizes": []
   },
   {
+   "key": "girls|Caps",
+   "group": "girls",
+   "category": "Caps",
+   "name": "Caps",
+   "icon": "cap",
+   "colour": "lilac",
+   "total": 1,
+   "online": 0,
+   "months": [
+    0,
+    12
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Casual Pants",
    "group": "girls",
    "category": "Casual Pants",
    "name": "Pants",
    "icon": "pants",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
