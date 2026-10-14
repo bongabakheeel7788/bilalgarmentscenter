@@ -1659,7 +1659,7 @@
      "size": "L",
      "colour": "Zinc",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -2855,7 +2855,7 @@
      "size": "20",
      "colour": "C Green",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2387,
@@ -10774,7 +10774,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -11222,12 +11222,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Frocks",
+   "group": "boys",
+   "category": "Frocks",
+   "name": "Frocks",
+   "icon": "frock",
+   "colour": "peach",
+   "total": 1,
+   "online": 0,
+   "months": [
+    60,
+    132
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Tracksuit",
    "group": "boys",
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "mint",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": [
@@ -11258,7 +11273,7 @@
    "name": "Frocks",
    "icon": "frock",
    "colour": "sky",
-   "total": 10,
+   "total": 11,
    "online": 2,
    "months": [
     24,
