@@ -467,7 +467,7 @@
      "size": "2",
      "colour": "Orange",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3358,
@@ -784,7 +784,7 @@
      "size": "1",
      "colour": "C Green",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2789,
@@ -905,7 +905,7 @@
      "size": "2",
      "colour": "C Green",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2780,
@@ -1082,7 +1082,7 @@
      "size": "1",
      "colour": "Sky",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2770,
@@ -3007,14 +3007,14 @@
      "size": "L",
      "colour": "Copper",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2375,
      "size": "L",
      "colour": "Mahndi",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2372,
@@ -5243,7 +5243,7 @@
      "size": "30",
      "colour": "Washable",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 672,
@@ -8515,7 +8515,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 229,
@@ -8689,7 +8689,7 @@
      "size": "20",
      "colour": "Standard",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 218,
@@ -11138,12 +11138,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Blanket",
+   "group": "boys",
+   "category": "Blanket",
+   "name": "Blanket",
+   "icon": "shawl",
+   "colour": "mint",
+   "total": 2,
+   "online": 0,
+   "months": [
+    0,
+    24
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Pent coat",
    "group": "boys",
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": [
@@ -11158,7 +11173,7 @@
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": [
@@ -11173,7 +11188,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "mint",
+   "colour": "peach",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11185,7 +11200,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "mint",
+   "colour": "peach",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11197,7 +11212,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -11212,7 +11227,7 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -11227,7 +11242,7 @@
    "category": "Frocks",
    "name": "Frocks",
    "icon": "frock",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -11242,7 +11257,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -11312,12 +11327,27 @@
    "sizes": []
   },
   {
+   "key": "girls|Blanket",
+   "group": "girls",
+   "category": "Blanket",
+   "name": "Blanket",
+   "icon": "shawl",
+   "colour": "sky",
+   "total": 2,
+   "online": 0,
+   "months": [
+    0,
+    24
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Baby Shawls",
    "group": "girls",
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -11332,7 +11362,7 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
@@ -11347,7 +11377,7 @@
    "category": "Casual Pants",
    "name": "Pants",
    "icon": "pants",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": [
