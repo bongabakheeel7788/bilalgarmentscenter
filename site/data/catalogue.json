@@ -172,7 +172,7 @@
      "size": "2",
      "colour": "Baby Pink",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3379,
@@ -2002,7 +2002,7 @@
      "size": "S",
      "colour": "C Green",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2439,
@@ -2682,7 +2682,7 @@
      "size": "S",
      "colour": "Green",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2394,
