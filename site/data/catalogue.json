@@ -11042,7 +11042,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 139,
+   "total": 140,
    "online": 57,
    "months": [
     0,
@@ -11081,12 +11081,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Shalwar Kameez",
+   "group": "boys",
+   "category": "Shalwar Kameez",
+   "name": "Shalwar Kameez",
+   "icon": "shalwar",
+   "colour": "sky",
+   "total": 8,
+   "online": 0,
+   "months": [
+    12,
+    204
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Belts",
    "group": "boys",
    "category": "Belts",
    "name": "Belts",
    "icon": "cap",
-   "colour": "mint",
+   "colour": "peach",
    "total": 5,
    "online": 0,
    "months": [
@@ -11101,7 +11116,7 @@
    "category": "Uniform Shirts",
    "name": "Uniform shirts",
    "icon": "uniform",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 5,
    "online": 0,
    "months": null,
@@ -11113,7 +11128,7 @@
    "category": "High Neck",
    "name": "High Neck",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 4,
    "online": 0,
    "months": [
@@ -11128,7 +11143,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 4,
    "online": 0,
    "months": [
@@ -11143,7 +11158,7 @@
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": [
@@ -11158,7 +11173,7 @@
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 2,
    "online": 0,
    "months": [
@@ -11173,27 +11188,12 @@
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 2,
    "online": 0,
    "months": [
     24,
     180
-   ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Shalwar Kameez",
-   "group": "boys",
-   "category": "Shalwar Kameez",
-   "name": "Shalwar Kameez",
-   "icon": "shalwar",
-   "colour": "rose",
-   "total": 2,
-   "online": 0,
-   "months": [
-    12,
-    204
    ],
    "sizes": []
   },
@@ -11273,7 +11273,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 197,
+   "total": 199,
    "online": 49,
    "months": [
     0,
