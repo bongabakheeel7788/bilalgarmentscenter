@@ -3684,7 +3684,7 @@
      "size": "24",
      "colour": "Standard",
      "price": 800,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 1455,
@@ -6515,7 +6515,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 363,
@@ -6593,7 +6593,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -6669,21 +6669,21 @@
      "size": "S",
      "colour": "Standard",
      "price": 1700,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 327,
      "size": "M",
      "colour": "Standard",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 328,
      "size": "L",
      "colour": "Standard",
      "price": 1700,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-24",
@@ -6836,7 +6836,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 315,
@@ -7004,7 +7004,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 700,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-24",
@@ -7080,21 +7080,21 @@
      "size": "S",
      "colour": "Standard",
      "price": 1600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 297,
      "size": "M",
      "colour": "Standard",
      "price": 1600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 298,
      "size": "L",
      "colour": "Standard",
      "price": 1600,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
