@@ -1291,7 +1291,7 @@
      "size": "L",
      "colour": "Off White",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2519,
@@ -11123,12 +11123,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "peach",
+   "total": 4,
+   "online": 0,
+   "months": [
+    36,
+    168
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Baby Kit",
    "group": "boys",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "sand",
+   "colour": "blue",
    "total": 2,
    "online": 0,
    "months": [
@@ -11143,7 +11158,7 @@
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "mint",
+   "colour": "peach",
    "total": 2,
    "online": 0,
    "months": [
@@ -11158,7 +11173,7 @@
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "mint",
+   "colour": "peach",
    "total": 2,
    "online": 0,
    "months": [
@@ -11173,7 +11188,7 @@
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": [
@@ -11188,7 +11203,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11200,7 +11215,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 2,
    "online": 0,
    "months": null,
@@ -11212,7 +11227,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -11227,7 +11242,7 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
@@ -11242,27 +11257,12 @@
    "category": "Frocks",
    "name": "Frocks",
    "icon": "frock",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
     60,
     132
-   ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Tracksuit",
-   "group": "boys",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "lilac",
-   "total": 1,
-   "online": 0,
-   "months": [
-    36,
-    156
    ],
    "sizes": []
   },
@@ -11273,7 +11273,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 195,
+   "total": 197,
    "online": 49,
    "months": [
     0,
@@ -11383,6 +11383,21 @@
    "months": [
     60,
     168
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Tracksuit",
+   "group": "girls",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": [
+    108,
+    156
    ],
    "sizes": []
   },
