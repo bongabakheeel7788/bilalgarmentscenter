@@ -8112,7 +8112,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 244,
@@ -11042,7 +11042,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 133,
+   "total": 139,
    "online": 57,
    "months": [
     0,
@@ -11273,7 +11273,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 191,
+   "total": 194,
    "online": 49,
    "months": [
     0,
@@ -11288,7 +11288,7 @@
    "name": "Frocks",
    "icon": "frock",
    "colour": "sky",
-   "total": 11,
+   "total": 12,
    "online": 2,
    "months": [
     24,
