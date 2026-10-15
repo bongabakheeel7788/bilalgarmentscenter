@@ -1186,7 +1186,7 @@
      "size": "S",
      "colour": "C Green",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2532,
@@ -7633,7 +7633,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "in"
     }
    ],
    "first_published": "2026-09-07",
@@ -11273,7 +11273,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 194,
+   "total": 195,
    "online": 49,
    "months": [
     0,
