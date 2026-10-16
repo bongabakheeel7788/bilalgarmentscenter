@@ -2037,7 +2037,7 @@
      "size": "L",
      "colour": "brown",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2438,
@@ -4453,7 +4453,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 1028,
@@ -11042,7 +11042,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 140,
+   "total": 143,
    "online": 57,
    "months": [
     0,
