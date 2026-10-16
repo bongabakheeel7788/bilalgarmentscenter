@@ -4453,7 +4453,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1028,
@@ -11042,7 +11042,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 143,
+   "total": 149,
    "online": 57,
    "months": [
     0,
@@ -11273,7 +11273,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 199,
+   "total": 201,
    "online": 49,
    "months": [
     0,
