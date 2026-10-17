@@ -78,6 +78,131 @@
  ],
  "products": [
   {
+   "code": "STY-1429",
+   "slug": "boys-velvet-2-pcs-set-suit-by-a-one-sty-1429",
+   "name": "Boys Velvet 2 pcs Set / Suit by A One",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N Zero Sizes",
+   "gender": "boys",
+   "fabric": "Velvet",
+   "set_contents": "2 pcs",
+   "age_group": "Newborn",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "1": [
+     0,
+     3
+    ],
+    "2": [
+     3,
+     6
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    0,
+    6
+   ],
+   "age_range": "Newborn–6 Months",
+   "size_ages": {
+    "1": "Newborn–3 Months",
+    "2": "3 Months–6 Months"
+   },
+   "price_min": 850,
+   "price_max": 850,
+   "sizes": [
+    "1",
+    "2"
+   ],
+   "colours": [
+    {
+     "name": "Golden",
+     "hex": "#eeb95d",
+     "photo": "media/STY-1429/e6021745-48f8-42d3-99a0-2f11585f05f6.webp"
+    },
+    {
+     "name": "Royal Blue",
+     "hex": "#001eff",
+     "photo": "media/STY-1429/2387ab4d-0275-4529-8752-1ff78680e910.webp"
+    },
+    {
+     "name": "T Pink",
+     "hex": "#f457df",
+     "photo": "media/STY-1429/7b10b688-32d0-4da7-8595-a0d6a8626e19.webp"
+    }
+   ],
+   "cover": "media/STY-1429/e6021745-48f8-42d3-99a0-2f11585f05f6.webp",
+   "photos": [
+    {
+     "src": "media/STY-1429/e6021745-48f8-42d3-99a0-2f11585f05f6.webp",
+     "kind": "COLOUR",
+     "colour": "Golden"
+    },
+    {
+     "src": "media/STY-1429/2387ab4d-0275-4529-8752-1ff78680e910.webp",
+     "kind": "COLOUR",
+     "colour": "Royal Blue"
+    },
+    {
+     "src": "media/STY-1429/7b10b688-32d0-4da7-8595-a0d6a8626e19.webp",
+     "kind": "COLOUR",
+     "colour": "T Pink"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 4221,
+     "size": "1",
+     "colour": "Golden",
+     "price": 850,
+     "availability": "few"
+    },
+    {
+     "id": 4223,
+     "size": "1",
+     "colour": "Royal Blue",
+     "price": 850,
+     "availability": "few"
+    },
+    {
+     "id": 4225,
+     "size": "1",
+     "colour": "T Pink",
+     "price": 850,
+     "availability": "few"
+    },
+    {
+     "id": 4222,
+     "size": "2",
+     "colour": "Golden",
+     "price": 850,
+     "availability": "few"
+    },
+    {
+     "id": 4224,
+     "size": "2",
+     "colour": "Royal Blue",
+     "price": 850,
+     "availability": "few"
+    },
+    {
+     "id": 4226,
+     "size": "2",
+     "colour": "T Pink",
+     "price": 850,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-17",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-17",
+   "is_new": true
+  },
+  {
    "code": "STY-1362",
    "slug": "girls-velvet-2-pcs-set-suit-sty-1362",
    "name": "Girls Velvet 2 pcs Set / Suit",
@@ -3000,7 +3125,7 @@
      "size": "M",
      "colour": "Radish",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2369,
@@ -9703,7 +9828,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 180,
@@ -11043,7 +11168,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 149,
-   "online": 57,
+   "online": 58,
    "months": [
     0,
     192
@@ -11222,12 +11347,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Baby Bibs",
+   "group": "boys",
+   "category": "Baby Bibs",
+   "name": "Baby Bibs",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 1,
+   "online": 0,
+   "months": [
+    0,
+    9
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Baby Shawls",
    "group": "boys",
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -11242,7 +11382,7 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": [
@@ -11257,7 +11397,7 @@
    "category": "Frocks",
    "name": "Frocks",
    "icon": "frock",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": [
@@ -11342,12 +11482,27 @@
    "sizes": []
   },
   {
+   "key": "girls|Baby Bibs",
+   "group": "girls",
+   "category": "Baby Bibs",
+   "name": "Baby Bibs",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 1,
+   "online": 0,
+   "months": [
+    0,
+    9
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Baby Shawls",
    "group": "girls",
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -11362,7 +11517,7 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": [
@@ -11377,7 +11532,7 @@
    "category": "Casual Pants",
    "name": "Pants",
    "icon": "pants",
-   "colour": "mint",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": [
@@ -11392,7 +11547,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": [
@@ -11506,6 +11661,34 @@
    ]
   },
   {
+   "key": "ladies|Gallace",
+   "group": "ladies",
+   "category": "Gallace",
+   "name": "Gallace",
+   "icon": "shirt",
+   "colour": "lilac",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Baby Accssories"
+   ]
+  },
+  {
+   "key": "ladies|Matha Patti",
+   "group": "ladies",
+   "category": "Matha Patti",
+   "name": "Matha Patti",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Accessories"
+   ]
+  },
+  {
    "key": "accessories|Towels",
    "group": "accessories",
    "category": "Towels",
@@ -11576,6 +11759,20 @@
    "sizes": [
     "M",
     "L"
+   ]
+  },
+  {
+   "key": "accessories|Matha Patti",
+   "group": "accessories",
+   "category": "Matha Patti",
+   "name": "Matha Patti",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Accessories"
    ]
   }
  ],
