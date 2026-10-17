@@ -4849,7 +4849,7 @@
      "size": "Large",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 978,
@@ -4870,7 +4870,7 @@
      "size": "2XL",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-18",
