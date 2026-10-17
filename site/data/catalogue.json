@@ -2127,7 +2127,7 @@
      "size": "S",
      "colour": "C Green",
      "price": 1100,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 2439,
@@ -2590,7 +2590,7 @@
      "size": "20",
      "colour": "skin",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
