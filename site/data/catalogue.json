@@ -422,7 +422,7 @@
      "size": "1",
      "colour": "Sky Blue",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4388,
@@ -3391,7 +3391,7 @@
      "size": "M",
      "colour": "Zinc",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2477,
@@ -4601,7 +4601,7 @@
      "size": "L",
      "colour": "skin",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2390,
@@ -13044,8 +13044,8 @@
    "total": 1,
    "online": 0,
    "months": [
-    12,
-    120
+    3,
+    180
    ],
    "sizes": []
   },
@@ -13194,8 +13194,8 @@
    "total": 1,
    "online": 0,
    "months": [
-    12,
-    120
+    3,
+    180
    ],
    "sizes": []
   },
