@@ -158,7 +158,7 @@
      "size": "1",
      "colour": "brown",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4395,
@@ -3505,7 +3505,7 @@
      "size": "S",
      "colour": "Skin & Green",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2467,
@@ -3519,7 +3519,7 @@
      "size": "M",
      "colour": "Skin & Green",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2468,
@@ -4197,14 +4197,14 @@
      "size": "L",
      "colour": "skin",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2417,
      "size": "20",
      "colour": "brown",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2414,
@@ -6602,7 +6602,7 @@
      "size": "Large",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 978,
@@ -7290,7 +7290,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 1300,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-20",
@@ -7431,7 +7431,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-20",
@@ -8282,7 +8282,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -10629,7 +10629,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 750,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -13035,6 +13035,21 @@
    "sizes": []
   },
   {
+   "key": "boys|Tights",
+   "group": "boys",
+   "category": "Tights",
+   "name": "Tights",
+   "icon": "shirt",
+   "colour": "peach",
+   "total": 1,
+   "online": 0,
+   "months": [
+    12,
+    120
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Set / Suit",
    "group": "girls",
    "category": "Set / Suit",
@@ -13170,12 +13185,27 @@
    "sizes": []
   },
   {
+   "key": "girls|Tights",
+   "group": "girls",
+   "category": "Tights",
+   "name": "Tights",
+   "icon": "shirt",
+   "colour": "peach",
+   "total": 1,
+   "online": 0,
+   "months": [
+    12,
+    120
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Tracksuit",
    "group": "girls",
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
