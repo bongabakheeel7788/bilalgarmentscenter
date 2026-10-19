@@ -1068,7 +1068,7 @@
      "size": "1",
      "colour": "C Green",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4393,
@@ -5412,7 +5412,7 @@
      "size": "20",
      "colour": "Mahndi",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2459,
