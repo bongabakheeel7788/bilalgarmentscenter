@@ -266,7 +266,7 @@
     {
      "name": "skin",
      "hex": "#f8e49b",
-     "photo": null
+     "photo": "media/STY-1496/f70b8b46-ad61-4e9d-8387-88ba2cb079e1.webp"
     }
    ],
    "cover": "media/STY-1496/5e21c0a4-de49-46c6-a93f-8ecce6426852.webp",
@@ -275,6 +275,11 @@
      "src": "media/STY-1496/5e21c0a4-de49-46c6-a93f-8ecce6426852.webp",
      "kind": "COLOUR",
      "colour": "Grey"
+    },
+    {
+     "src": "media/STY-1496/f70b8b46-ad61-4e9d-8387-88ba2cb079e1.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
     }
    ],
    "size_guide": null,
@@ -966,7 +971,7 @@
      "size": "2",
      "colour": "Camel",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4398,
@@ -1188,7 +1193,7 @@
      "size": "1",
      "colour": "Musterd",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4383,
@@ -2539,7 +2544,7 @@
      "size": "1",
      "colour": "Lemon",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4227,
