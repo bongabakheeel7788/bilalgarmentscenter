@@ -203,6 +203,174 @@
    "is_new": true
   },
   {
+   "code": "STY-1496",
+   "slug": "boys-wool-2-pcs-set-suit-by-t-m-clothing-brand-sty-1496",
+   "name": "Boys Wool 2 pcs Set / Suit by T . M CLOTHING BRAND",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "Wool",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1400,
+   "price_max": 1700,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "C Green",
+     "hex": "#8cb087",
+     "photo": null
+    },
+    {
+     "name": "Grey",
+     "hex": "#6B7280",
+     "photo": "media/STY-1496/5e21c0a4-de49-46c6-a93f-8ecce6426852.webp"
+    },
+    {
+     "name": "Light Skin",
+     "hex": "#fffdc7",
+     "photo": null
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1496/5e21c0a4-de49-46c6-a93f-8ecce6426852.webp",
+   "photos": [
+    {
+     "src": "media/STY-1496/5e21c0a4-de49-46c6-a93f-8ecce6426852.webp",
+     "kind": "COLOUR",
+     "colour": "Grey"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 4810,
+     "size": "S",
+     "colour": "C Green",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 4813,
+     "size": "S",
+     "colour": "Grey",
+     "price": 1400,
+     "availability": "few"
+    },
+    {
+     "id": 4807,
+     "size": "S",
+     "colour": "Light Skin",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 4804,
+     "size": "S",
+     "colour": "skin",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 4811,
+     "size": "M",
+     "colour": "C Green",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 4814,
+     "size": "M",
+     "colour": "Grey",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 4808,
+     "size": "M",
+     "colour": "Light Skin",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 4805,
+     "size": "M",
+     "colour": "skin",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 4812,
+     "size": "L",
+     "colour": "C Green",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 4815,
+     "size": "L",
+     "colour": "Grey",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 4809,
+     "size": "L",
+     "colour": "Light Skin",
+     "price": 1700,
+     "availability": "out"
+    },
+    {
+     "id": 4806,
+     "size": "L",
+     "colour": "skin",
+     "price": 1700,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-10-19",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-19",
+   "is_new": true
+  },
+  {
    "code": "STY-1494",
    "slug": "boys-wool-2-pcs-set-suit-by-t-m-clothing-brand-sty-1494",
    "name": "Boys Wool 2 pcs Set / Suit by T . M CLOTHING BRAND",
@@ -383,6 +551,158 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
+   "is_new": true
+  },
+  {
+   "code": "STY-1455",
+   "slug": "boys-fleece-3-pcs-set-suit-by-nadeem-sty-1455",
+   "name": "Boys Fleece 3 pcs Set / Suit by Nadeem",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "boys",
+   "fabric": "Fleece",
+   "set_contents": "3 pcs",
+   "age_group": "1 Year",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1100,
+   "price_max": 1100,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "C Green",
+     "hex": "#8cb087",
+     "photo": "media/STY-1455/b6045b30-2447-44ff-acf6-87317396da91.webp"
+    },
+    {
+     "name": "Camel",
+     "hex": "#C19A6B",
+     "photo": "media/STY-1455/ce439b59-eba1-4e9a-a689-c608b85abb5f.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1455/05033811-2a14-4813-a629-1a4c48d3d422.webp"
+    }
+   ],
+   "cover": "media/STY-1455/05033811-2a14-4813-a629-1a4c48d3d422.webp",
+   "photos": [
+    {
+     "src": "media/STY-1455/b6045b30-2447-44ff-acf6-87317396da91.webp",
+     "kind": "COLOUR",
+     "colour": "C Green"
+    },
+    {
+     "src": "media/STY-1455/ce439b59-eba1-4e9a-a689-c608b85abb5f.webp",
+     "kind": "COLOUR",
+     "colour": "Camel"
+    },
+    {
+     "src": "media/STY-1455/05033811-2a14-4813-a629-1a4c48d3d422.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 4413,
+     "size": "S",
+     "colour": "C Green",
+     "price": 1100,
+     "availability": "out"
+    },
+    {
+     "id": 4416,
+     "size": "S",
+     "colour": "Camel",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 4410,
+     "size": "S",
+     "colour": "skin",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 4414,
+     "size": "M",
+     "colour": "C Green",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 4417,
+     "size": "M",
+     "colour": "Camel",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 4411,
+     "size": "M",
+     "colour": "skin",
+     "price": 1100,
+     "availability": "out"
+    },
+    {
+     "id": 4415,
+     "size": "L",
+     "colour": "C Green",
+     "price": 1100,
+     "availability": "few"
+    },
+    {
+     "id": 4418,
+     "size": "L",
+     "colour": "Camel",
+     "price": 1100,
+     "availability": "out"
+    },
+    {
+     "id": 4412,
+     "size": "L",
+     "colour": "skin",
+     "price": 1100,
+     "availability": "out"
+    }
+   ],
+   "first_published": "2026-10-19",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-19",
    "is_new": true
   },
   {
@@ -1038,6 +1358,158 @@
    "is_new": true
   },
   {
+   "code": "STY-1441",
+   "slug": "girls-winter-2-pcs-set-suit-by-my-style-sty-1441",
+   "name": "Girls Winter 2 pcs Set / Suit by MY STYLE",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Girls 24-28",
+   "gender": "girls",
+   "fabric": "Winter",
+   "set_contents": "2 pcs",
+   "age_group": "5 Years",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "24": [
+     60,
+     72
+    ],
+    "26": [
+     72,
+     84
+    ],
+    "28": [
+     84,
+     96
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    60,
+    96
+   ],
+   "age_range": "5 Years–8 Years",
+   "size_ages": {
+    "24": "5 Years–6 Years",
+    "26": "6 Years–7 Years",
+    "28": "7 Years–8 Years"
+   },
+   "price_min": 2350,
+   "price_max": 2350,
+   "sizes": [
+    "24",
+    "26",
+    "28"
+   ],
+   "colours": [
+    {
+     "name": "Cream",
+     "hex": "#edf995",
+     "photo": "media/STY-1441/f8312368-20c1-4e16-b21e-298f38125f3f.webp"
+    },
+    {
+     "name": "Light Skin",
+     "hex": "#fffdc7",
+     "photo": "media/STY-1441/591448a7-ca12-4afb-a5af-03415960f0ca.webp"
+    },
+    {
+     "name": "T Pink",
+     "hex": "#f457df",
+     "photo": "media/STY-1441/3ef2de3b-d7d4-4305-a0ce-2863eb436091.webp"
+    }
+   ],
+   "cover": "media/STY-1441/3ef2de3b-d7d4-4305-a0ce-2863eb436091.webp",
+   "photos": [
+    {
+     "src": "media/STY-1441/f8312368-20c1-4e16-b21e-298f38125f3f.webp",
+     "kind": "COLOUR",
+     "colour": "Cream"
+    },
+    {
+     "src": "media/STY-1441/591448a7-ca12-4afb-a5af-03415960f0ca.webp",
+     "kind": "COLOUR",
+     "colour": "Light Skin"
+    },
+    {
+     "src": "media/STY-1441/3ef2de3b-d7d4-4305-a0ce-2863eb436091.webp",
+     "kind": "COLOUR",
+     "colour": "T Pink"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 4285,
+     "size": "24",
+     "colour": "Cream",
+     "price": 2350,
+     "availability": "out"
+    },
+    {
+     "id": 4282,
+     "size": "24",
+     "colour": "Light Skin",
+     "price": 2350,
+     "availability": "few"
+    },
+    {
+     "id": 4288,
+     "size": "24",
+     "colour": "T Pink",
+     "price": 2350,
+     "availability": "few"
+    },
+    {
+     "id": 4286,
+     "size": "26",
+     "colour": "Cream",
+     "price": 2350,
+     "availability": "few"
+    },
+    {
+     "id": 4283,
+     "size": "26",
+     "colour": "Light Skin",
+     "price": 2350,
+     "availability": "few"
+    },
+    {
+     "id": 4289,
+     "size": "26",
+     "colour": "T Pink",
+     "price": 2350,
+     "availability": "out"
+    },
+    {
+     "id": 4287,
+     "size": "28",
+     "colour": "Cream",
+     "price": 2350,
+     "availability": "few"
+    },
+    {
+     "id": 4284,
+     "size": "28",
+     "colour": "Light Skin",
+     "price": 2350,
+     "availability": "out"
+    },
+    {
+     "id": 4290,
+     "size": "28",
+     "colour": "T Pink",
+     "price": 2350,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-19",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-19",
+   "is_new": true
+  },
+  {
    "code": "STY-1440",
    "slug": "girls-wool-denim-2-pcs-set-suit-by-pinktex-sty-1440",
    "name": "Girls Wool Denim 2 pcs Set / Suit by PINKTEX",
@@ -1241,6 +1713,145 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
+   "is_new": true
+  },
+  {
+   "code": "STY-1438",
+   "slug": "boys-velvet-2-pcs-set-suit-by-aiwa-sty-1438",
+   "name": "Boys Velvet 2 pcs Set / Suit by Aiwa",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "Boys 20-22",
+   "gender": "boys",
+   "fabric": "Velvet",
+   "set_contents": "2 pcs",
+   "age_group": "5 Years",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "20": [
+     60,
+     72
+    ],
+    "22": [
+     72,
+     84
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    60,
+    84
+   ],
+   "age_range": "5 Years–7 Years",
+   "size_ages": {
+    "20": "5 Years–6 Years",
+    "22": "6 Years–7 Years"
+   },
+   "price_min": 1600,
+   "price_max": 1600,
+   "sizes": [
+    "20",
+    "22"
+   ],
+   "colours": [
+    {
+     "name": "Green",
+     "hex": "#16A34A",
+     "photo": null
+    },
+    {
+     "name": "Orange",
+     "hex": "#ffae00",
+     "photo": "media/STY-1438/13222f7e-23b1-40a4-866a-b04ad5fb8348.webp"
+    },
+    {
+     "name": "Sky",
+     "hex": "#7e99d3",
+     "photo": null
+    },
+    {
+     "name": "Yellow",
+     "hex": "#f9f57b",
+     "photo": "media/STY-1438/bf906510-c6e6-468f-b946-72fd3fcae33e.webp"
+    }
+   ],
+   "cover": "media/STY-1438/13222f7e-23b1-40a4-866a-b04ad5fb8348.webp",
+   "photos": [
+    {
+     "src": "media/STY-1438/13222f7e-23b1-40a4-866a-b04ad5fb8348.webp",
+     "kind": "COLOUR",
+     "colour": "Orange"
+    },
+    {
+     "src": "media/STY-1438/bf906510-c6e6-468f-b946-72fd3fcae33e.webp",
+     "kind": "COLOUR",
+     "colour": "Yellow"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 4550,
+     "size": "20",
+     "colour": "Green",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
+     "id": 4269,
+     "size": "20",
+     "colour": "Orange",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
+     "id": 4267,
+     "size": "20",
+     "colour": "Sky",
+     "price": 1600,
+     "availability": "out"
+    },
+    {
+     "id": 4271,
+     "size": "20",
+     "colour": "Yellow",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
+     "id": 4551,
+     "size": "22",
+     "colour": "Green",
+     "price": 1600,
+     "availability": "out"
+    },
+    {
+     "id": 4270,
+     "size": "22",
+     "colour": "Orange",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
+     "id": 4268,
+     "size": "22",
+     "colour": "Sky",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
+     "id": 4272,
+     "size": "22",
+     "colour": "Yellow",
+     "price": 1600,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-19",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-19",
    "is_new": true
   },
   {
@@ -1603,7 +2214,7 @@
      "size": "2",
      "colour": "Yellow",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-17",
@@ -2081,7 +2692,7 @@
      "size": "2",
      "colour": "Royal Blue",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4226,
@@ -2196,6 +2807,127 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-17",
+   "is_new": true
+  },
+  {
+   "code": "STY-1399",
+   "slug": "girls-velvet-2-pcs-set-suit-by-zoya-fashion-sty-1399",
+   "name": "Girls Velvet 2 pcs Set / Suit by ZOYA FASHION",
+   "category": "Set / Suit",
+   "category_parent": null,
+   "size_group": "N SML",
+   "gender": "girls",
+   "fabric": "Velvet",
+   "set_contents": "2 pcs",
+   "age_group": "1 Year",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "S": [
+     12,
+     24
+    ],
+    "M": [
+     24,
+     36
+    ],
+    "L": [
+     36,
+     48
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    12,
+    48
+   ],
+   "age_range": "1 Year–4 Years",
+   "size_ages": {
+    "S": "1 Year–2 Years",
+    "M": "2 Years–3 Years",
+    "L": "3 Years–4 Years"
+   },
+   "price_min": 1700,
+   "price_max": 1700,
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ],
+   "colours": [
+    {
+     "name": "Cream",
+     "hex": "#edf995",
+     "photo": "media/STY-1399/4beb4d45-18e1-4bc8-b166-1a0787491709.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1399/d638ac18-9cd6-4aa4-bb11-a5e86815fc51.webp"
+    }
+   ],
+   "cover": "media/STY-1399/d638ac18-9cd6-4aa4-bb11-a5e86815fc51.webp",
+   "photos": [
+    {
+     "src": "media/STY-1399/4beb4d45-18e1-4bc8-b166-1a0787491709.webp",
+     "kind": "COLOUR",
+     "colour": "Cream"
+    },
+    {
+     "src": "media/STY-1399/d638ac18-9cd6-4aa4-bb11-a5e86815fc51.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 3777,
+     "size": "S",
+     "colour": "Cream",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 3780,
+     "size": "S",
+     "colour": "skin",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 3778,
+     "size": "M",
+     "colour": "Cream",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 3781,
+     "size": "M",
+     "colour": "skin",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 3779,
+     "size": "L",
+     "colour": "Cream",
+     "price": 1700,
+     "availability": "few"
+    },
+    {
+     "id": 3782,
+     "size": "L",
+     "colour": "skin",
+     "price": 1700,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-19",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-19",
    "is_new": true
   },
   {
@@ -4516,7 +5248,7 @@
      "size": "S",
      "colour": "Skin & Brown",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2469,
@@ -4682,7 +5414,7 @@
      "size": "20",
      "colour": "Sky Blue",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -9775,7 +10507,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -13282,7 +14014,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 38,
@@ -13814,7 +14546,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 153,
-   "online": 74,
+   "online": 77,
    "months": [
     0,
     192
@@ -13954,12 +14686,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Jersey",
+   "group": "boys",
+   "category": "Jersey",
+   "name": "Jersey",
+   "icon": "shirt",
+   "colour": "lilac",
+   "total": 2,
+   "online": 0,
+   "months": [
+    24,
+    216
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Pent coat",
    "group": "boys",
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": [
@@ -13974,7 +14721,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": null,
@@ -13986,7 +14733,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": null,
@@ -13998,7 +14745,7 @@
    "category": "Baby Bibs",
    "name": "Baby Bibs",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -14013,7 +14760,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": [
@@ -14028,7 +14775,7 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -14043,7 +14790,7 @@
    "category": "Frocks",
    "name": "Frocks",
    "icon": "frock",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -14058,7 +14805,7 @@
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -14075,7 +14822,7 @@
    "icon": "suit",
    "colour": "blue",
    "total": 201,
-   "online": 57,
+   "online": 59,
    "months": [
     0,
     180
@@ -14293,12 +15040,41 @@
    ]
   },
   {
+   "key": "gents|Jersey",
+   "group": "gents",
+   "category": "Jersey",
+   "name": "Jersey",
+   "icon": "shirt",
+   "colour": "rose",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "L"
+   ]
+  },
+  {
+   "key": "gents|Sweater",
+   "group": "gents",
+   "category": "Sweater",
+   "name": "Sweater",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "M",
+    "L"
+   ]
+  },
+  {
    "key": "gents|Tracksuit",
    "group": "gents",
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "blue",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": null,
@@ -14323,12 +15099,27 @@
    ]
   },
   {
+   "key": "ladies|Jersey",
+   "group": "ladies",
+   "category": "Jersey",
+   "name": "Jersey",
+   "icon": "shirt",
+   "colour": "peach",
+   "total": 3,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "XL",
+    "Short"
+   ]
+  },
+  {
    "key": "ladies|Stoller",
    "group": "ladies",
    "category": "Stoller",
    "name": "Stoller",
    "icon": "stole",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": null,
@@ -14342,7 +15133,7 @@
    "category": "Gallace",
    "name": "Gallace",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": null,
@@ -14356,12 +15147,26 @@
    "category": "Matha Patti",
    "name": "Matha Patti",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
     "Accessories"
+   ]
+  },
+  {
+   "key": "ladies|Sweater",
+   "group": "ladies",
+   "category": "Sweater",
+   "name": "Sweater",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "XL"
    ]
   },
   {
