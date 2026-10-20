@@ -4806,7 +4806,7 @@
      "size": "20",
      "colour": "Off White",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -14661,12 +14661,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Socks",
+   "group": "boys",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "sky",
+   "total": 3,
+   "online": 0,
+   "months": [
+    0,
+    12
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Baby Kit",
    "group": "boys",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "mint",
+   "colour": "peach",
    "total": 2,
    "online": 0,
    "months": [
@@ -14681,7 +14696,7 @@
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": [
@@ -14696,7 +14711,7 @@
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": [
@@ -14711,7 +14726,7 @@
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": [
@@ -14726,7 +14741,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": null,
@@ -14738,7 +14753,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": null,
@@ -14750,7 +14765,7 @@
    "category": "Baby Bibs",
    "name": "Baby Bibs",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -14765,7 +14780,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "mint",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": [
@@ -14780,7 +14795,7 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -14795,7 +14810,7 @@
    "category": "Frocks",
    "name": "Frocks",
    "icon": "frock",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -14810,7 +14825,7 @@
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
@@ -14865,12 +14880,27 @@
    "sizes": []
   },
   {
+   "key": "girls|Socks",
+   "group": "girls",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "mint",
+   "total": 3,
+   "online": 0,
+   "months": [
+    0,
+    12
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Baby Kit",
    "group": "girls",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": [
@@ -14885,7 +14915,7 @@
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": [
@@ -14900,7 +14930,7 @@
    "category": "Baby Bibs",
    "name": "Baby Bibs",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -14915,7 +14945,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": [
@@ -14930,7 +14960,7 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -14945,7 +14975,7 @@
    "category": "Casual Pants",
    "name": "Pants",
    "icon": "pants",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -14960,7 +14990,7 @@
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -14975,7 +15005,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -15161,12 +15191,26 @@
    ]
   },
   {
+   "key": "ladies|Socks",
+   "group": "ladies",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "lilac",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Socks"
+   ]
+  },
+  {
    "key": "ladies|Sweater",
    "group": "ladies",
    "category": "Sweater",
    "name": "Sweater",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": null,
@@ -15204,12 +15248,26 @@
    ]
   },
   {
+   "key": "accessories|Socks",
+   "group": "accessories",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "blue",
+   "total": 4,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Socks"
+   ]
+  },
+  {
    "key": "accessories|Accessories",
    "group": "accessories",
    "category": "Accessories",
    "name": "Accessories",
    "icon": "cap",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
@@ -15224,7 +15282,7 @@
    "category": "Handkerchief",
    "name": "Handkerchiefs",
    "icon": "hanky",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
@@ -15238,7 +15296,7 @@
    "category": "Feeder",
    "name": "Feeder",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
@@ -15253,7 +15311,7 @@
    "category": "Matha Patti",
    "name": "Matha Patti",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": null,
