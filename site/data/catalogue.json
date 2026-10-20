@@ -1214,7 +1214,7 @@
      "size": "2",
      "colour": "Musterd",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4384,
@@ -3160,7 +3160,7 @@
      "size": "S",
      "colour": "Silver",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3700,
@@ -15103,12 +15103,26 @@
    ]
   },
   {
+   "key": "gents|Socks",
+   "group": "gents",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "FULL SIZE"
+   ]
+  },
+  {
    "key": "gents|Sweater",
    "group": "gents",
    "category": "Sweater",
    "name": "Sweater",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": null,
@@ -15123,7 +15137,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": null,
@@ -15248,32 +15262,32 @@
    ]
   },
   {
-   "key": "accessories|Belts",
-   "group": "accessories",
-   "category": "Belts",
-   "name": "Belts",
-   "icon": "cap",
-   "colour": "sand",
-   "total": 5,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "Belt"
-   ]
-  },
-  {
    "key": "accessories|Socks",
    "group": "accessories",
    "category": "Socks",
    "name": "Socks",
+   "icon": "cap",
+   "colour": "sand",
+   "total": 6,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "S",
+    "FULL SIZE"
+   ]
+  },
+  {
+   "key": "accessories|Belts",
+   "group": "accessories",
+   "category": "Belts",
+   "name": "Belts",
    "icon": "cap",
    "colour": "blue",
    "total": 5,
    "online": 0,
    "months": null,
    "sizes": [
-    "S",
-    "FULL SIZE"
+    "Belt"
    ]
   },
   {
