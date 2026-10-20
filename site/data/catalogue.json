@@ -6321,7 +6321,7 @@
      "size": "M",
      "colour": "C Green",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2385,
@@ -7006,7 +7006,7 @@
      "size": "20",
      "colour": "Red",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -12934,7 +12934,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 188,
@@ -14646,32 +14646,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Tracksuit",
-   "group": "boys",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "lilac",
-   "total": 4,
-   "online": 0,
-   "months": [
-    36,
-    168
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Socks",
    "group": "boys",
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "sky",
-   "total": 3,
+   "colour": "rose",
+   "total": 4,
    "online": 0,
    "months": [
     0,
     12
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "lemon",
+   "total": 4,
+   "online": 0,
+   "months": [
+    36,
+    168
    ],
    "sizes": []
   },
@@ -14886,7 +14886,7 @@
    "name": "Socks",
    "icon": "cap",
    "colour": "mint",
-   "total": 3,
+   "total": 4,
    "online": 0,
    "months": [
     0,
@@ -15075,12 +15075,26 @@
    ]
   },
   {
+   "key": "gents|Half socks",
+   "group": "gents",
+   "category": "Half socks",
+   "name": "Half socks",
+   "icon": "cap",
+   "colour": "peach",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "FULL SIZE"
+   ]
+  },
+  {
    "key": "gents|Jersey",
    "group": "gents",
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
@@ -15094,7 +15108,7 @@
    "category": "Sweater",
    "name": "Sweater",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": null,
@@ -15109,7 +15123,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": null,
@@ -15254,11 +15268,12 @@
    "name": "Socks",
    "icon": "cap",
    "colour": "blue",
-   "total": 4,
+   "total": 5,
    "online": 0,
    "months": null,
    "sizes": [
-    "Socks"
+    "S",
+    "FULL SIZE"
    ]
   },
   {
@@ -15306,12 +15321,26 @@
    ]
   },
   {
+   "key": "accessories|Half socks",
+   "group": "accessories",
+   "category": "Half socks",
+   "name": "Half socks",
+   "icon": "cap",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "FULL SIZE"
+   ]
+  },
+  {
    "key": "accessories|Matha Patti",
    "group": "accessories",
    "category": "Matha Patti",
    "name": "Matha Patti",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": null,
