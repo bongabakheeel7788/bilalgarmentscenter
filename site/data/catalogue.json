@@ -2898,7 +2898,7 @@
      "size": "S",
      "colour": "skin",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3778,
@@ -3982,7 +3982,7 @@
      "size": "S",
      "colour": "skin",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-17",
@@ -5288,7 +5288,7 @@
      "size": "L",
      "colour": "Skin & Green",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -5559,7 +5559,7 @@
      "size": "L",
      "colour": "Grey",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-29",
@@ -9708,7 +9708,7 @@
      "size": "20",
      "colour": "Standard",
      "price": 700,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 511,
@@ -14841,7 +14841,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 201,
+   "total": 204,
    "online": 59,
    "months": [
     0,
