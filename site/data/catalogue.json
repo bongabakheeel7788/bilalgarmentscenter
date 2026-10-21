@@ -1228,7 +1228,7 @@
      "size": "2",
      "colour": "Sky Blue",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-17",
@@ -3299,7 +3299,7 @@
      "size": "2",
      "colour": "Golden",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3695,
@@ -5153,7 +5153,7 @@
      "size": "L",
      "colour": "Green",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2474,
@@ -9446,7 +9446,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1500,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 608,
