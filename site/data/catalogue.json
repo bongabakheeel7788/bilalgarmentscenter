@@ -5690,7 +5690,7 @@
      "size": "L",
      "colour": "Parrot",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-29",
@@ -5924,7 +5924,7 @@
      "size": "M",
      "colour": "Camel",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2409,
@@ -11947,7 +11947,7 @@
      "size": "2",
      "colour": "Standard",
      "price": 750,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
@@ -14550,7 +14550,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 159,
+   "total": 161,
    "online": 77,
    "months": [
     0,
