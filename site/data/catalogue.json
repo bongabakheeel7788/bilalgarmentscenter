@@ -5945,7 +5945,7 @@
      "size": "L",
      "colour": "Camel",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2410,
@@ -14550,7 +14550,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 153,
+   "total": 159,
    "online": 77,
    "months": [
     0,
@@ -14619,12 +14619,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "mint",
+   "total": 5,
+   "online": 0,
+   "months": [
+    36,
+    168
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Uniform Shirts",
    "group": "boys",
    "category": "Uniform Shirts",
    "name": "Uniform shirts",
    "icon": "uniform",
-   "colour": "rose",
+   "colour": "sky",
    "total": 5,
    "online": 0,
    "months": null,
@@ -14636,7 +14651,7 @@
    "category": "High Neck",
    "name": "High Neck",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 4,
    "online": 0,
    "months": [
@@ -14651,27 +14666,12 @@
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "rose",
+   "colour": "sky",
    "total": 4,
    "online": 0,
    "months": [
     0,
     12
-   ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Tracksuit",
-   "group": "boys",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "lemon",
-   "total": 4,
-   "online": 0,
-   "months": [
-    36,
-    168
    ],
    "sizes": []
   },
@@ -14841,7 +14841,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 204,
+   "total": 206,
    "online": 59,
    "months": [
     0,
