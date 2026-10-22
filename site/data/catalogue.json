@@ -6090,7 +6090,7 @@
      "size": "L",
      "colour": "Green",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2405,
@@ -7199,7 +7199,7 @@
      "size": "26",
      "colour": "Standard",
      "price": 800,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-22",
@@ -8122,7 +8122,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 550,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1024,
@@ -11211,7 +11211,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 550,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 256,
@@ -14835,6 +14835,18 @@
    "sizes": []
   },
   {
+   "key": "boys|Towels",
+   "group": "boys",
+   "category": "Towels",
+   "name": "Towels",
+   "icon": "towel",
+   "colour": "blue",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "girls|Set / Suit",
    "group": "girls",
    "category": "Set / Suit",
@@ -15000,12 +15012,24 @@
    "sizes": []
   },
   {
+   "key": "girls|Towels",
+   "group": "girls",
+   "category": "Towels",
+   "name": "Towels",
+   "icon": "towel",
+   "colour": "sand",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "girls|Tracksuit",
    "group": "girls",
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -15253,7 +15277,7 @@
    "name": "Towels",
    "icon": "towel",
    "colour": "lemon",
-   "total": 11,
+   "total": 12,
    "online": 0,
    "months": null,
    "sizes": [
