@@ -14550,7 +14550,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 161,
+   "total": 169,
    "online": 77,
    "months": [
     0,
@@ -14841,7 +14841,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 207,
+   "total": 212,
    "online": 59,
    "months": [
     0,
@@ -14856,7 +14856,7 @@
    "name": "Frocks",
    "icon": "frock",
    "colour": "sky",
-   "total": 12,
+   "total": 13,
    "online": 2,
    "months": [
     24,
