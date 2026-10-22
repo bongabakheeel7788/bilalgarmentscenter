@@ -5807,7 +5807,7 @@
      "size": "M",
      "colour": "White",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2423,
@@ -7559,7 +7559,7 @@
      "size": "22",
      "colour": "Washable",
      "price": 500,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
