@@ -15766,12 +15766,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Jersey",
+   "group": "boys",
+   "category": "Jersey",
+   "name": "Jersey",
+   "icon": "shirt",
+   "colour": "rose",
+   "total": 6,
+   "online": 0,
+   "months": [
+    24,
+    216
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Belts",
    "group": "boys",
    "category": "Belts",
    "name": "Belts",
    "icon": "cap",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 5,
    "online": 0,
    "months": [
@@ -15786,7 +15801,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "mint",
+   "colour": "peach",
    "total": 5,
    "online": 0,
    "months": [
@@ -15801,7 +15816,7 @@
    "category": "Uniform Shirts",
    "name": "Uniform shirts",
    "icon": "uniform",
-   "colour": "sky",
+   "colour": "sand",
    "total": 5,
    "online": 0,
    "months": null,
@@ -15813,7 +15828,7 @@
    "category": "High Neck",
    "name": "High Neck",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "mint",
    "total": 4,
    "online": 0,
    "months": [
@@ -15828,7 +15843,7 @@
    "category": "Round Neck",
    "name": "Round Neck",
    "icon": "shirt",
-   "colour": "mint",
+   "colour": "peach",
    "total": 4,
    "online": 4,
    "months": [
@@ -15843,7 +15858,7 @@
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "sand",
+   "colour": "blue",
    "total": 4,
    "online": 0,
    "months": [
@@ -15858,7 +15873,7 @@
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": [
@@ -15873,27 +15888,12 @@
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "rose",
+   "colour": "sky",
    "total": 2,
    "online": 0,
    "months": [
     0,
     24
-   ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Jersey",
-   "group": "boys",
-   "category": "Jersey",
-   "name": "Jersey",
-   "icon": "shirt",
-   "colour": "rose",
-   "total": 2,
-   "online": 0,
-   "months": [
-    24,
-    216
    ],
    "sizes": []
   },
