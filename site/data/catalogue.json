@@ -46,6 +46,11 @@
  },
  "categories": [
   {
+   "name": "Round Neck",
+   "parent": null,
+   "slug": "round-neck"
+  },
+  {
    "name": "Set / Suit",
    "parent": null,
    "slug": "set-suit"
@@ -77,6 +82,636 @@
   }
  ],
  "products": [
+  {
+   "code": "STY-1560",
+   "slug": "unisex-lycra-round-neck-by-fareed-garments-sty-1560",
+   "name": "Unisex LYCRA Round Neck by Fareed Garments",
+   "category": "Round Neck",
+   "category_parent": null,
+   "size_group": "High Neck \\Round Neck",
+   "gender": "unisex",
+   "fabric": "LYCRA",
+   "set_contents": null,
+   "age_group": "8 Years",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "30": [
+     96,
+     108
+    ],
+    "32": [
+     108,
+     120
+    ],
+    "34": [
+     132,
+     144
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    96,
+    144
+   ],
+   "age_range": "8 Years–12 Years",
+   "size_ages": {
+    "30": "8 Years–9 Years",
+    "32": "9 Years–10 Years",
+    "34": "11 Years–12 Years"
+   },
+   "price_min": 500,
+   "price_max": 500,
+   "sizes": [
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Baby Pink",
+     "hex": "#ff9ee5",
+     "photo": "media/STY-1560/a6860a7c-0a86-4e82-9ba3-bea92a4a5936.webp"
+    },
+    {
+     "name": "Black",
+     "hex": "#000000",
+     "photo": "media/STY-1560/6e978537-f450-4e96-b0ea-f96f1d30b425.webp"
+    },
+    {
+     "name": "Navy Blue",
+     "hex": "#3d4861",
+     "photo": "media/STY-1560/9b22caaa-610c-45f3-8330-5623446686da.webp"
+    },
+    {
+     "name": "Off White",
+     "hex": "#fbf7ee",
+     "photo": "media/STY-1560/f499e18f-21e7-4cb9-a5b1-cc2fee2ac67a.webp"
+    },
+    {
+     "name": "Red",
+     "hex": "#ff3f0f",
+     "photo": "media/STY-1560/214fc416-45ab-46b8-b5b1-758c74991fa0.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": null
+    },
+    {
+     "name": "White",
+     "hex": "#FFFFFF",
+     "photo": "media/STY-1560/57fe1a7f-1c33-40cb-8701-8da8cea53e29.webp"
+    }
+   ],
+   "cover": "media/STY-1560/214fc416-45ab-46b8-b5b1-758c74991fa0.webp",
+   "photos": [
+    {
+     "src": "media/STY-1560/a6860a7c-0a86-4e82-9ba3-bea92a4a5936.webp",
+     "kind": "COLOUR",
+     "colour": "Baby Pink"
+    },
+    {
+     "src": "media/STY-1560/6e978537-f450-4e96-b0ea-f96f1d30b425.webp",
+     "kind": "COLOUR",
+     "colour": "Black"
+    },
+    {
+     "src": "media/STY-1560/9b22caaa-610c-45f3-8330-5623446686da.webp",
+     "kind": "COLOUR",
+     "colour": "Navy Blue"
+    },
+    {
+     "src": "media/STY-1560/f499e18f-21e7-4cb9-a5b1-cc2fee2ac67a.webp",
+     "kind": "COLOUR",
+     "colour": "Off White"
+    },
+    {
+     "src": "media/STY-1560/214fc416-45ab-46b8-b5b1-758c74991fa0.webp",
+     "kind": "COLOUR",
+     "colour": "Red"
+    },
+    {
+     "src": "media/STY-1560/57fe1a7f-1c33-40cb-8701-8da8cea53e29.webp",
+     "kind": "COLOUR",
+     "colour": "White"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 5337,
+     "size": "30",
+     "colour": "Baby Pink",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5319,
+     "size": "30",
+     "colour": "Black",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5325,
+     "size": "30",
+     "colour": "Navy Blue",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5331,
+     "size": "30",
+     "colour": "Off White",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5334,
+     "size": "30",
+     "colour": "Red",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5322,
+     "size": "30",
+     "colour": "skin",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5328,
+     "size": "30",
+     "colour": "White",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5338,
+     "size": "32",
+     "colour": "Baby Pink",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5320,
+     "size": "32",
+     "colour": "Black",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5326,
+     "size": "32",
+     "colour": "Navy Blue",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5332,
+     "size": "32",
+     "colour": "Off White",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5335,
+     "size": "32",
+     "colour": "Red",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5323,
+     "size": "32",
+     "colour": "skin",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5329,
+     "size": "32",
+     "colour": "White",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5339,
+     "size": "34",
+     "colour": "Baby Pink",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5321,
+     "size": "34",
+     "colour": "Black",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5327,
+     "size": "34",
+     "colour": "Navy Blue",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5333,
+     "size": "34",
+     "colour": "Off White",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5336,
+     "size": "34",
+     "colour": "Red",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5324,
+     "size": "34",
+     "colour": "skin",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 5330,
+     "size": "34",
+     "colour": "White",
+     "price": 500,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-23",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-23",
+   "is_new": true
+  },
+  {
+   "code": "STY-1559",
+   "slug": "unisex-lycra-round-neck-by-fareed-garments-sty-1559",
+   "name": "Unisex LYCRA Round Neck by Fareed Garments",
+   "category": "Round Neck",
+   "category_parent": null,
+   "size_group": "High Neck \\Round Neck",
+   "gender": "unisex",
+   "fabric": "LYCRA",
+   "set_contents": null,
+   "age_group": "5 Years",
+   "season": "WINTER",
+   "sizing": "AGE",
+   "size_months": {
+    "24": [
+     60,
+     72
+    ],
+    "26": [
+     72,
+     84
+    ],
+    "28": [
+     84,
+     96
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    60,
+    96
+   ],
+   "age_range": "5 Years–8 Years",
+   "size_ages": {
+    "24": "5 Years–6 Years",
+    "26": "6 Years–7 Years",
+    "28": "7 Years–8 Years"
+   },
+   "price_min": 450,
+   "price_max": 450,
+   "sizes": [
+    "24",
+    "26",
+    "28"
+   ],
+   "colours": [
+    {
+     "name": "Baby Pink",
+     "hex": "#ff9ee5",
+     "photo": "media/STY-1559/04810dba-e3e5-44a6-9f12-383ca8f30045.webp"
+    },
+    {
+     "name": "Black",
+     "hex": "#000000",
+     "photo": null
+    },
+    {
+     "name": "Cream",
+     "hex": "#edf995",
+     "photo": "media/STY-1559/361f932c-b67d-415f-acb5-34a1a4ff5994.webp"
+    },
+    {
+     "name": "Mahroon",
+     "hex": "#ae3b32",
+     "photo": "media/STY-1559/048b22d1-f72f-4cab-866e-50125ccf3f37.webp"
+    },
+    {
+     "name": "Navy Blue",
+     "hex": "#3d4861",
+     "photo": "media/STY-1559/7e48e455-11bc-42dc-8215-682498b67d7d.webp"
+    },
+    {
+     "name": "Off White",
+     "hex": "#fbf7ee",
+     "photo": null
+    },
+    {
+     "name": "Peach",
+     "hex": "#e2b86e",
+     "photo": "media/STY-1559/c5599b98-c272-4ce2-93bc-97fb5aa4e17f.webp"
+    },
+    {
+     "name": "Red",
+     "hex": "#ff3f0f",
+     "photo": "media/STY-1559/f40e2371-8dfc-48b9-9fea-f50963d9e477.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1559/f4c7bc99-9e34-4afe-a335-435a6f8f1ce4.webp"
+    },
+    {
+     "name": "White",
+     "hex": "#FFFFFF",
+     "photo": "media/STY-1559/b3643bdd-8a10-402a-8f7d-c890fad38b51.webp"
+    }
+   ],
+   "cover": "media/STY-1559/c5599b98-c272-4ce2-93bc-97fb5aa4e17f.webp",
+   "photos": [
+    {
+     "src": "media/STY-1559/04810dba-e3e5-44a6-9f12-383ca8f30045.webp",
+     "kind": "COLOUR",
+     "colour": "Baby Pink"
+    },
+    {
+     "src": "media/STY-1559/361f932c-b67d-415f-acb5-34a1a4ff5994.webp",
+     "kind": "COLOUR",
+     "colour": "Cream"
+    },
+    {
+     "src": "media/STY-1559/048b22d1-f72f-4cab-866e-50125ccf3f37.webp",
+     "kind": "COLOUR",
+     "colour": "Mahroon"
+    },
+    {
+     "src": "media/STY-1559/7e48e455-11bc-42dc-8215-682498b67d7d.webp",
+     "kind": "COLOUR",
+     "colour": "Navy Blue"
+    },
+    {
+     "src": "media/STY-1559/c5599b98-c272-4ce2-93bc-97fb5aa4e17f.webp",
+     "kind": "COLOUR",
+     "colour": "Peach"
+    },
+    {
+     "src": "media/STY-1559/f40e2371-8dfc-48b9-9fea-f50963d9e477.webp",
+     "kind": "COLOUR",
+     "colour": "Red"
+    },
+    {
+     "src": "media/STY-1559/f4c7bc99-9e34-4afe-a335-435a6f8f1ce4.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    },
+    {
+     "src": "media/STY-1559/b3643bdd-8a10-402a-8f7d-c890fad38b51.webp",
+     "kind": "COLOUR",
+     "colour": "White"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 5304,
+     "size": "24",
+     "colour": "Baby Pink",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5289,
+     "size": "24",
+     "colour": "Black",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5316,
+     "size": "24",
+     "colour": "Cream",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5298,
+     "size": "24",
+     "colour": "Mahroon",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5295,
+     "size": "24",
+     "colour": "Navy Blue",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5301,
+     "size": "24",
+     "colour": "Off White",
+     "price": 450,
+     "availability": "out"
+    },
+    {
+     "id": 5310,
+     "size": "24",
+     "colour": "Peach",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5292,
+     "size": "24",
+     "colour": "Red",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5307,
+     "size": "24",
+     "colour": "skin",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5313,
+     "size": "24",
+     "colour": "White",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5305,
+     "size": "26",
+     "colour": "Baby Pink",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5290,
+     "size": "26",
+     "colour": "Black",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5317,
+     "size": "26",
+     "colour": "Cream",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5299,
+     "size": "26",
+     "colour": "Mahroon",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5296,
+     "size": "26",
+     "colour": "Navy Blue",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5302,
+     "size": "26",
+     "colour": "Off White",
+     "price": 450,
+     "availability": "out"
+    },
+    {
+     "id": 5311,
+     "size": "26",
+     "colour": "Peach",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5293,
+     "size": "26",
+     "colour": "Red",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5308,
+     "size": "26",
+     "colour": "skin",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5314,
+     "size": "26",
+     "colour": "White",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5306,
+     "size": "28",
+     "colour": "Baby Pink",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5291,
+     "size": "28",
+     "colour": "Black",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5318,
+     "size": "28",
+     "colour": "Cream",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5300,
+     "size": "28",
+     "colour": "Mahroon",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5297,
+     "size": "28",
+     "colour": "Navy Blue",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5303,
+     "size": "28",
+     "colour": "Off White",
+     "price": 450,
+     "availability": "out"
+    },
+    {
+     "id": 5312,
+     "size": "28",
+     "colour": "Peach",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5294,
+     "size": "28",
+     "colour": "Red",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5309,
+     "size": "28",
+     "colour": "skin",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 5315,
+     "size": "28",
+     "colour": "White",
+     "price": 450,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-23",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-23",
+   "is_new": true
+  },
   {
    "code": "STY-1498",
    "slug": "boys-velvet-2-pcs-set-suit-by-zain-sty-1498",
@@ -5800,7 +6435,7 @@
      "size": "M",
      "colour": "Grey",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2419,
@@ -6978,7 +7613,7 @@
      "size": "M",
      "colour": "Red",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2359,
@@ -14668,7 +15303,7 @@
    "icon": "shirt",
    "colour": "mint",
    "total": 4,
-   "online": 0,
+   "online": 2,
    "months": [
     0,
     144
@@ -14914,7 +15549,7 @@
    "icon": "shirt",
    "colour": "lemon",
    "total": 4,
-   "online": 0,
+   "online": 2,
    "months": [
     0,
     144
