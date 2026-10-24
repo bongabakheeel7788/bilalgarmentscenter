@@ -3866,7 +3866,7 @@
      "size": "2",
      "colour": "T Pink",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-17",
@@ -8019,7 +8019,7 @@
      "size": "S",
      "colour": "Sky Blue",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2347,
@@ -11981,7 +11981,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 750,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 288,
