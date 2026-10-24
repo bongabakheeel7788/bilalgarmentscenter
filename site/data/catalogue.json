@@ -15751,32 +15751,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Shalwar Kameez",
-   "group": "boys",
-   "category": "Shalwar Kameez",
-   "name": "Shalwar Kameez",
-   "icon": "shalwar",
-   "colour": "sky",
-   "total": 8,
-   "online": 0,
-   "months": [
-    12,
-    204
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Jersey",
    "group": "boys",
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "rose",
-   "total": 6,
+   "colour": "lemon",
+   "total": 9,
    "online": 0,
    "months": [
     24,
     216
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Shalwar Kameez",
+   "group": "boys",
+   "category": "Shalwar Kameez",
+   "name": "Shalwar Kameez",
+   "icon": "shalwar",
+   "colour": "sand",
+   "total": 8,
+   "online": 0,
+   "months": [
+    12,
+    204
    ],
    "sizes": []
   },
