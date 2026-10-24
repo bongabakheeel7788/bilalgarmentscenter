@@ -3873,7 +3873,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-17",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1428",
@@ -6301,7 +6301,7 @@
      "size": "M",
      "colour": "Mahroon",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2479,
@@ -9512,7 +9512,7 @@
      "size": "Medium",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 972,
@@ -10697,7 +10697,7 @@
      "size": "20",
      "colour": "Standard",
      "price": 650,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4366,
