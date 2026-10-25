@@ -1362,7 +1362,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1496",
@@ -1718,7 +1718,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1455",
@@ -2764,7 +2764,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1439",
@@ -4226,7 +4226,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1393",
@@ -4357,7 +4357,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1392",
@@ -15751,12 +15751,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "sand",
+   "total": 10,
+   "online": 0,
+   "months": [
+    36,
+    168
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Jersey",
    "group": "boys",
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 9,
    "online": 0,
    "months": [
@@ -15771,27 +15786,12 @@
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "sand",
+   "colour": "blue",
    "total": 8,
    "online": 0,
    "months": [
     12,
     204
-   ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Tracksuit",
-   "group": "boys",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "mint",
-   "total": 6,
-   "online": 0,
-   "months": [
-    36,
-    168
    ],
    "sizes": []
   },
