@@ -2022,7 +2022,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1453",
@@ -2880,7 +2880,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1438",
@@ -3109,7 +3109,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-18",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1435",
@@ -7539,7 +7539,7 @@
      "size": "20",
      "colour": "skin",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -14816,7 +14816,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 800,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 86,
@@ -15757,7 +15757,7 @@
    "name": "Tracksuits",
    "icon": "tracksuit",
    "colour": "sand",
-   "total": 10,
+   "total": 12,
    "online": 0,
    "months": [
     36,
