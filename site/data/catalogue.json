@@ -3499,7 +3499,7 @@
      "size": "2",
      "colour": "Lemon",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4240,
@@ -4053,7 +4053,7 @@
      "size": "S",
      "colour": "Cream",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3780,
@@ -5137,7 +5137,7 @@
      "size": "S",
      "colour": "brown",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3214,
@@ -7259,7 +7259,7 @@
      "size": "20",
      "colour": "brown",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2408,
@@ -12796,7 +12796,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 850,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-18",
