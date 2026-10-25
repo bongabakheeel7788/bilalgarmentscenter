@@ -2112,7 +2112,7 @@
      "size": "1",
      "colour": "Camel",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4397,
@@ -2140,7 +2140,7 @@
      "size": "2",
      "colour": "Grey",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-17",
@@ -5870,7 +5870,7 @@
      "size": "M",
      "colour": "brown",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2530,
@@ -6693,7 +6693,7 @@
      "size": "M",
      "colour": "C Green",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2440,
@@ -7497,7 +7497,7 @@
      "size": "M",
      "colour": "skin",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2389,
@@ -8168,7 +8168,7 @@
      "size": "20",
      "colour": "Red",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
