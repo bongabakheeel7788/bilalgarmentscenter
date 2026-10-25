@@ -2625,7 +2625,7 @@
      "size": "24",
      "colour": "T Pink",
      "price": 2350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4286,
@@ -3617,7 +3617,7 @@
      "size": "2",
      "colour": "brown",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4236,
@@ -3734,7 +3734,7 @@
      "size": "2",
      "colour": "Orange",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4230,
@@ -3852,7 +3852,7 @@
      "size": "2",
      "colour": "Golden",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4224,
@@ -7504,7 +7504,7 @@
      "size": "L",
      "colour": "C Green",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2386,
@@ -15781,32 +15781,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Belts",
-   "group": "boys",
-   "category": "Belts",
-   "name": "Belts",
-   "icon": "cap",
-   "colour": "lilac",
-   "total": 5,
-   "online": 0,
-   "months": [
-    48,
-    216
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Tracksuit",
    "group": "boys",
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "peach",
-   "total": 5,
+   "colour": "mint",
+   "total": 6,
    "online": 0,
    "months": [
     36,
     168
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Belts",
+   "group": "boys",
+   "category": "Belts",
+   "name": "Belts",
+   "icon": "cap",
+   "colour": "lemon",
+   "total": 5,
+   "online": 0,
+   "months": [
+    48,
+    216
    ],
    "sizes": []
   },
