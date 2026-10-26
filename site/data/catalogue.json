@@ -4454,7 +4454,7 @@
      "size": "1",
      "colour": "pink",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3693,
@@ -4844,7 +4844,7 @@
      "size": "2",
      "colour": "White",
      "price": 500,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-30",
