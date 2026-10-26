@@ -221,7 +221,7 @@
      "size": "Zero",
      "colour": "White",
      "price": 250,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-10-23",
@@ -2119,14 +2119,14 @@
      "size": "1",
      "colour": "Grey",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4400,
      "size": "2",
      "colour": "brown",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4396,
@@ -2258,7 +2258,7 @@
      "size": "2",
      "colour": "Grey",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4390,
@@ -2494,7 +2494,7 @@
      "size": "1",
      "colour": "Yellow",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4378,
@@ -5891,7 +5891,7 @@
      "size": "L",
      "colour": "C Green",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2534,
@@ -6066,7 +6066,7 @@
      "size": "S",
      "colour": "Mahndi",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2512,
@@ -15712,7 +15712,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 171,
+   "total": 174,
    "online": 77,
    "months": [
     0,
@@ -16030,7 +16030,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 215,
+   "total": 216,
    "online": 59,
    "months": [
     0,
