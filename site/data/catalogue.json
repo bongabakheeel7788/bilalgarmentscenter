@@ -15796,12 +15796,42 @@
    "sizes": []
   },
   {
+   "key": "boys|Caps",
+   "group": "boys",
+   "category": "Caps",
+   "name": "Caps",
+   "icon": "cap",
+   "colour": "lemon",
+   "total": 6,
+   "online": 0,
+   "months": [
+    0,
+    24
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Socks",
+   "group": "boys",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "rose",
+   "total": 6,
+   "online": 0,
+   "months": [
+    0,
+    12
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Belts",
    "group": "boys",
    "category": "Belts",
    "name": "Belts",
    "icon": "cap",
-   "colour": "lemon",
+   "colour": "sky",
    "total": 5,
    "online": 0,
    "months": [
@@ -15816,7 +15846,7 @@
    "category": "Uniform Shirts",
    "name": "Uniform shirts",
    "icon": "uniform",
-   "colour": "sand",
+   "colour": "mint",
    "total": 5,
    "online": 0,
    "months": null,
@@ -15828,7 +15858,7 @@
    "category": "High Neck",
    "name": "High Neck",
    "icon": "shirt",
-   "colour": "mint",
+   "colour": "lilac",
    "total": 4,
    "online": 0,
    "months": [
@@ -15843,7 +15873,7 @@
    "category": "Round Neck",
    "name": "Round Neck",
    "icon": "shirt",
-   "colour": "peach",
+   "colour": "lemon",
    "total": 4,
    "online": 4,
    "months": [
@@ -15853,27 +15883,12 @@
    "sizes": []
   },
   {
-   "key": "boys|Socks",
-   "group": "boys",
-   "category": "Socks",
-   "name": "Socks",
-   "icon": "cap",
-   "colour": "blue",
-   "total": 4,
-   "online": 0,
-   "months": [
-    0,
-    12
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Baby Kit",
    "group": "boys",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": [
@@ -15888,7 +15903,7 @@
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": [
@@ -15903,7 +15918,7 @@
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": [
@@ -15918,7 +15933,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": null,
@@ -15930,7 +15945,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": null,
@@ -15942,7 +15957,7 @@
    "category": "Baby Bibs",
    "name": "Baby Bibs",
    "icon": "shirt",
-   "colour": "mint",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": [
@@ -15957,27 +15972,12 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
     0,
     3
-   ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Caps",
-   "group": "boys",
-   "category": "Caps",
-   "name": "Caps",
-   "icon": "cap",
-   "colour": "blue",
-   "total": 1,
-   "online": 0,
-   "months": [
-    0,
-    12
    ],
    "sizes": []
   },
@@ -16054,12 +16054,42 @@
    "sizes": []
   },
   {
+   "key": "girls|Caps",
+   "group": "girls",
+   "category": "Caps",
+   "name": "Caps",
+   "icon": "cap",
+   "colour": "blue",
+   "total": 6,
+   "online": 0,
+   "months": [
+    0,
+    24
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Socks",
+   "group": "girls",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "mint",
+   "total": 6,
+   "online": 0,
+   "months": [
+    0,
+    12
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|High Neck",
    "group": "girls",
    "category": "High Neck",
    "name": "High Neck",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "rose",
    "total": 4,
    "online": 0,
    "months": [
@@ -16074,7 +16104,7 @@
    "category": "Round Neck",
    "name": "Round Neck",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "sky",
    "total": 4,
    "online": 4,
    "months": [
@@ -16084,27 +16114,12 @@
    "sizes": []
   },
   {
-   "key": "girls|Socks",
-   "group": "girls",
-   "category": "Socks",
-   "name": "Socks",
-   "icon": "cap",
-   "colour": "peach",
-   "total": 4,
-   "online": 0,
-   "months": [
-    0,
-    12
-   ],
-   "sizes": []
-  },
-  {
    "key": "girls|Baby Kit",
    "group": "girls",
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": [
@@ -16119,7 +16134,7 @@
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": [
@@ -16134,7 +16149,7 @@
    "category": "Baby Bibs",
    "name": "Baby Bibs",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": [
@@ -16149,27 +16164,12 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
     0,
     3
-   ],
-   "sizes": []
-  },
-  {
-   "key": "girls|Caps",
-   "group": "girls",
-   "category": "Caps",
-   "name": "Caps",
-   "icon": "cap",
-   "colour": "sand",
-   "total": 1,
-   "online": 0,
-   "months": [
-    0,
-    12
    ],
    "sizes": []
   },
@@ -16484,7 +16484,7 @@
    "name": "Socks",
    "icon": "cap",
    "colour": "sand",
-   "total": 6,
+   "total": 8,
    "online": 0,
    "months": null,
    "sizes": [
