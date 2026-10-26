@@ -4475,7 +4475,7 @@
      "size": "2",
      "colour": "pink",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-17",
@@ -7245,7 +7245,7 @@
      "size": "L",
      "colour": "Copper",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2401,
@@ -12782,7 +12782,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 244,
@@ -15712,7 +15712,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 178,
+   "total": 184,
    "online": 77,
    "months": [
     0,
@@ -16030,7 +16030,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 227,
+   "total": 229,
    "online": 59,
    "months": [
     0,
