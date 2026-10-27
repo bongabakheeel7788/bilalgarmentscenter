@@ -1814,7 +1814,7 @@
      "size": "S",
      "colour": "Camel",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4410,
@@ -7656,7 +7656,7 @@
      "size": "M",
      "colour": "Copper",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2374,
@@ -12782,7 +12782,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 244,
