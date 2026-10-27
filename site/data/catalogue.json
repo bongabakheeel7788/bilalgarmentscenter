@@ -707,7 +707,7 @@
     {
      "name": "Rose Red",
      "hex": "#ec0909",
-     "photo": null
+     "photo": "media/STY-1610/922fc114-6ac5-4b2b-887e-a61321442120.webp"
     }
    ],
    "cover": "media/STY-1610/2b759e5d-e451-4395-b020-dd08c65fee5a.webp",
@@ -726,6 +726,11 @@
      "src": "media/STY-1610/e5dc2455-36ec-425c-9615-4b6f38f2136c.webp",
      "kind": "COLOUR",
      "colour": "Musterd"
+    },
+    {
+     "src": "media/STY-1610/922fc114-6ac5-4b2b-887e-a61321442120.webp",
+     "kind": "COLOUR",
+     "colour": "Rose Red"
     }
    ],
    "size_guide": null,
@@ -896,6 +901,291 @@
      "size": "34",
      "colour": "Rose Red",
      "price": 2200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-27",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-27",
+   "is_new": true
+  },
+  {
+   "code": "STY-1609",
+   "slug": "girls-silk-lahnga-frocks-by-green-classic-sty-1609",
+   "name": "Girls Silk lahnga Frocks by Green Classic",
+   "category": "Frocks",
+   "category_parent": null,
+   "size_group": "Girls Fancy Frocks",
+   "gender": "girls",
+   "fabric": "Silk",
+   "set_contents": "lahnga",
+   "age_group": "4 Years",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "24": [
+     48,
+     60
+    ],
+    "26": [
+     60,
+     72
+    ],
+    "28": [
+     72,
+     84
+    ],
+    "30": [
+     96,
+     108
+    ],
+    "32": [
+     108,
+     120
+    ],
+    "34": [
+     120,
+     132
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    48,
+    132
+   ],
+   "age_range": "4 Years–11 Years",
+   "size_ages": {
+    "24": "4 Years–5 Years",
+    "26": "5 Years–6 Years",
+    "28": "6 Years–7 Years",
+    "30": "8 Years–9 Years",
+    "32": "9 Years–10 Years",
+    "34": "10 Years–11 Years"
+   },
+   "price_min": 2450,
+   "price_max": 2550,
+   "sizes": [
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Musterd",
+     "hex": "#da992b",
+     "photo": "media/STY-1609/6faf811c-26a7-444e-8365-f3178c32ea1e.webp"
+    },
+    {
+     "name": "Purple",
+     "hex": "#9f2ad5",
+     "photo": "media/STY-1609/766d3faa-2caa-4924-a560-902f5c8c860c.webp"
+    },
+    {
+     "name": "Red",
+     "hex": "#ff3f0f",
+     "photo": "media/STY-1609/3badb736-8f46-4fbe-b36d-6feeee2e67dc.webp"
+    },
+    {
+     "name": "skin",
+     "hex": "#f8e49b",
+     "photo": "media/STY-1609/00a65afd-7c74-4ffe-83fc-d57c88ebe1af.webp"
+    }
+   ],
+   "cover": "media/STY-1609/00a65afd-7c74-4ffe-83fc-d57c88ebe1af.webp",
+   "photos": [
+    {
+     "src": "media/STY-1609/6faf811c-26a7-444e-8365-f3178c32ea1e.webp",
+     "kind": "COLOUR",
+     "colour": "Musterd"
+    },
+    {
+     "src": "media/STY-1609/766d3faa-2caa-4924-a560-902f5c8c860c.webp",
+     "kind": "COLOUR",
+     "colour": "Purple"
+    },
+    {
+     "src": "media/STY-1609/3badb736-8f46-4fbe-b36d-6feeee2e67dc.webp",
+     "kind": "COLOUR",
+     "colour": "Red"
+    },
+    {
+     "src": "media/STY-1609/00a65afd-7c74-4ffe-83fc-d57c88ebe1af.webp",
+     "kind": "COLOUR",
+     "colour": "skin"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 5683,
+     "size": "24",
+     "colour": "Musterd",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5689,
+     "size": "24",
+     "colour": "Purple",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5677,
+     "size": "24",
+     "colour": "Red",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5695,
+     "size": "24",
+     "colour": "skin",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5684,
+     "size": "26",
+     "colour": "Musterd",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5690,
+     "size": "26",
+     "colour": "Purple",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5678,
+     "size": "26",
+     "colour": "Red",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5696,
+     "size": "26",
+     "colour": "skin",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5685,
+     "size": "28",
+     "colour": "Musterd",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5691,
+     "size": "28",
+     "colour": "Purple",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5679,
+     "size": "28",
+     "colour": "Red",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5697,
+     "size": "28",
+     "colour": "skin",
+     "price": 2450,
+     "availability": "few"
+    },
+    {
+     "id": 5686,
+     "size": "30",
+     "colour": "Musterd",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5692,
+     "size": "30",
+     "colour": "Purple",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5680,
+     "size": "30",
+     "colour": "Red",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5698,
+     "size": "30",
+     "colour": "skin",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5687,
+     "size": "32",
+     "colour": "Musterd",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5693,
+     "size": "32",
+     "colour": "Purple",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5681,
+     "size": "32",
+     "colour": "Red",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5699,
+     "size": "32",
+     "colour": "skin",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5688,
+     "size": "34",
+     "colour": "Musterd",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5694,
+     "size": "34",
+     "colour": "Purple",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5682,
+     "size": "34",
+     "colour": "Red",
+     "price": 2550,
+     "availability": "few"
+    },
+    {
+     "id": 5700,
+     "size": "34",
+     "colour": "skin",
+     "price": 2550,
      "availability": "few"
     }
    ],
@@ -16869,7 +17159,7 @@
    "icon": "frock",
    "colour": "sky",
    "total": 18,
-   "online": 6,
+   "online": 7,
    "months": [
     24,
     144
