@@ -46,6 +46,11 @@
  },
  "categories": [
   {
+   "name": "Frocks",
+   "parent": null,
+   "slug": "frocks"
+  },
+  {
    "name": "Round Neck",
    "parent": null,
    "slug": "round-neck"
@@ -71,17 +76,835 @@
    "slug": "trousers"
   },
   {
-   "name": "Frocks",
-   "parent": null,
-   "slug": "frocks"
-  },
-  {
    "name": "Tights",
    "parent": null,
    "slug": "tights"
   }
  ],
  "products": [
+  {
+   "code": "STY-1613",
+   "slug": "girls-silk-frocks-by-al-hira-sty-1613",
+   "name": "Girls Silk Frocks by Al Hira",
+   "category": "Frocks",
+   "category_parent": null,
+   "size_group": "Girls Fancy Frocks",
+   "gender": "girls",
+   "fabric": "Silk",
+   "set_contents": null,
+   "age_group": "4 Years",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "24": [
+     48,
+     60
+    ],
+    "26": [
+     60,
+     72
+    ],
+    "28": [
+     72,
+     84
+    ],
+    "30": [
+     84,
+     96
+    ],
+    "32": [
+     96,
+     108
+    ],
+    "34": [
+     108,
+     120
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    48,
+    120
+   ],
+   "age_range": "4 Years–10 Years",
+   "size_ages": {
+    "24": "4 Years–5 Years",
+    "26": "5 Years–6 Years",
+    "28": "6 Years–7 Years",
+    "30": "7 Years–8 Years",
+    "32": "8 Years–9 Years",
+    "34": "9 Years–10 Years"
+   },
+   "price_min": 2100,
+   "price_max": 2200,
+   "sizes": [
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Musterd",
+     "hex": "#da992b",
+     "photo": "media/STY-1613/4e36e9e6-31b3-48b7-bf4e-628aedbaa743.webp"
+    },
+    {
+     "name": "Peach",
+     "hex": "#e2b86e",
+     "photo": "media/STY-1613/fec0d790-2262-4046-89c9-48c05a297609.webp"
+    },
+    {
+     "name": "Purple",
+     "hex": "#9f2ad5",
+     "photo": "media/STY-1613/2eade7be-bdff-4cb8-a3d7-ea91b989da4b.webp"
+    }
+   ],
+   "cover": "media/STY-1613/fec0d790-2262-4046-89c9-48c05a297609.webp",
+   "photos": [
+    {
+     "src": "media/STY-1613/4e36e9e6-31b3-48b7-bf4e-628aedbaa743.webp",
+     "kind": "COLOUR",
+     "colour": "Musterd"
+    },
+    {
+     "src": "media/STY-1613/fec0d790-2262-4046-89c9-48c05a297609.webp",
+     "kind": "COLOUR",
+     "colour": "Peach"
+    },
+    {
+     "src": "media/STY-1613/2eade7be-bdff-4cb8-a3d7-ea91b989da4b.webp",
+     "kind": "COLOUR",
+     "colour": "Purple"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 5743,
+     "size": "24",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5749,
+     "size": "24",
+     "colour": "Peach",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5755,
+     "size": "24",
+     "colour": "Purple",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5744,
+     "size": "26",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5750,
+     "size": "26",
+     "colour": "Peach",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5756,
+     "size": "26",
+     "colour": "Purple",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5745,
+     "size": "28",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5751,
+     "size": "28",
+     "colour": "Peach",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5757,
+     "size": "28",
+     "colour": "Purple",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5746,
+     "size": "30",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5752,
+     "size": "30",
+     "colour": "Peach",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5758,
+     "size": "30",
+     "colour": "Purple",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5747,
+     "size": "32",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5753,
+     "size": "32",
+     "colour": "Peach",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5759,
+     "size": "32",
+     "colour": "Purple",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5748,
+     "size": "34",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5754,
+     "size": "34",
+     "colour": "Peach",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5760,
+     "size": "34",
+     "colour": "Purple",
+     "price": 2200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-27",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-27",
+   "is_new": true
+  },
+  {
+   "code": "STY-1612",
+   "slug": "girls-silk-frocks-by-al-hira-sty-1612",
+   "name": "Girls Silk Frocks by Al Hira",
+   "category": "Frocks",
+   "category_parent": null,
+   "size_group": "Girls Fancy Frocks",
+   "gender": "girls",
+   "fabric": "Silk",
+   "set_contents": null,
+   "age_group": "4 Years",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "24": [
+     48,
+     60
+    ],
+    "26": [
+     60,
+     72
+    ],
+    "28": [
+     72,
+     84
+    ],
+    "30": [
+     84,
+     96
+    ],
+    "32": [
+     96,
+     108
+    ],
+    "34": [
+     108,
+     120
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    48,
+    120
+   ],
+   "age_range": "4 Years–10 Years",
+   "size_ages": {
+    "24": "4 Years–5 Years",
+    "26": "5 Years–6 Years",
+    "28": "6 Years–7 Years",
+    "30": "7 Years–8 Years",
+    "32": "8 Years–9 Years",
+    "34": "9 Years–10 Years"
+   },
+   "price_min": 2100,
+   "price_max": 2200,
+   "sizes": [
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Musterd",
+     "hex": "#da992b",
+     "photo": "media/STY-1612/89398490-0fb2-4f9c-a5e7-320fac600684.webp"
+    },
+    {
+     "name": "Purple",
+     "hex": "#9f2ad5",
+     "photo": "media/STY-1612/ef93057f-f681-46ef-b6c2-6fd21a42c37c.webp"
+    }
+   ],
+   "cover": "media/STY-1612/89398490-0fb2-4f9c-a5e7-320fac600684.webp",
+   "photos": [
+    {
+     "src": "media/STY-1612/89398490-0fb2-4f9c-a5e7-320fac600684.webp",
+     "kind": "COLOUR",
+     "colour": "Musterd"
+    },
+    {
+     "src": "media/STY-1612/ef93057f-f681-46ef-b6c2-6fd21a42c37c.webp",
+     "kind": "COLOUR",
+     "colour": "Purple"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 5737,
+     "size": "24",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5731,
+     "size": "24",
+     "colour": "Purple",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5738,
+     "size": "26",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5732,
+     "size": "26",
+     "colour": "Purple",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5739,
+     "size": "28",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5733,
+     "size": "28",
+     "colour": "Purple",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5740,
+     "size": "30",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5734,
+     "size": "30",
+     "colour": "Purple",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5741,
+     "size": "32",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5735,
+     "size": "32",
+     "colour": "Purple",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5742,
+     "size": "34",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5736,
+     "size": "34",
+     "colour": "Purple",
+     "price": 2200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-27",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-27",
+   "is_new": true
+  },
+  {
+   "code": "STY-1611",
+   "slug": "girls-silk-frocks-by-al-hira-sty-1611",
+   "name": "Girls silk Frocks by Al Hira",
+   "category": "Frocks",
+   "category_parent": null,
+   "size_group": "Girls Fancy Frocks",
+   "gender": "girls",
+   "fabric": "silk",
+   "set_contents": null,
+   "age_group": "4 Years",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "24": [
+     48,
+     60
+    ],
+    "26": [
+     60,
+     72
+    ],
+    "28": [
+     72,
+     84
+    ],
+    "30": [
+     84,
+     96
+    ],
+    "32": [
+     96,
+     108
+    ],
+    "34": [
+     108,
+     120
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    48,
+    120
+   ],
+   "age_range": "4 Years–10 Years",
+   "size_ages": {
+    "24": "4 Years–5 Years",
+    "26": "5 Years–6 Years",
+    "28": "6 Years–7 Years",
+    "30": "7 Years–8 Years",
+    "32": "8 Years–9 Years",
+    "34": "9 Years–10 Years"
+   },
+   "price_min": 2300,
+   "price_max": 2400,
+   "sizes": [
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "White",
+     "hex": "#FFFFFF",
+     "photo": "media/STY-1611/c9aead0a-32f4-48dd-b043-10d7d6fce6c8.webp"
+    }
+   ],
+   "cover": "media/STY-1611/c9aead0a-32f4-48dd-b043-10d7d6fce6c8.webp",
+   "photos": [
+    {
+     "src": "media/STY-1611/c9aead0a-32f4-48dd-b043-10d7d6fce6c8.webp",
+     "kind": "COLOUR",
+     "colour": "White"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 5725,
+     "size": "24",
+     "colour": "White",
+     "price": 2300,
+     "availability": "few"
+    },
+    {
+     "id": 5726,
+     "size": "26",
+     "colour": "White",
+     "price": 2300,
+     "availability": "few"
+    },
+    {
+     "id": 5727,
+     "size": "28",
+     "colour": "White",
+     "price": 2300,
+     "availability": "few"
+    },
+    {
+     "id": 5728,
+     "size": "30",
+     "colour": "White",
+     "price": 2400,
+     "availability": "few"
+    },
+    {
+     "id": 5729,
+     "size": "32",
+     "colour": "White",
+     "price": 2400,
+     "availability": "few"
+    },
+    {
+     "id": 5730,
+     "size": "34",
+     "colour": "White",
+     "price": 2400,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-27",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-27",
+   "is_new": true
+  },
+  {
+   "code": "STY-1610",
+   "slug": "girls-silk-2-pcs-frocks-by-green-classic-sty-1610",
+   "name": "Girls Silk 2 pcs Frocks by Green Classic",
+   "category": "Frocks",
+   "category_parent": null,
+   "size_group": "Girls Fancy Frocks",
+   "gender": "girls",
+   "fabric": "Silk",
+   "set_contents": "2 pcs",
+   "age_group": "4 Years",
+   "season": "ALL",
+   "sizing": "AGE",
+   "size_months": {
+    "24": [
+     48,
+     60
+    ],
+    "26": [
+     60,
+     72
+    ],
+    "28": [
+     72,
+     84
+    ],
+    "30": [
+     84,
+     96
+    ],
+    "32": [
+     96,
+     108
+    ],
+    "34": [
+     108,
+     120
+    ]
+   },
+   "size_free": {},
+   "age_months": [
+    48,
+    120
+   ],
+   "age_range": "4 Years–10 Years",
+   "size_ages": {
+    "24": "4 Years–5 Years",
+    "26": "5 Years–6 Years",
+    "28": "6 Years–7 Years",
+    "30": "7 Years–8 Years",
+    "32": "8 Years–9 Years",
+    "34": "9 Years–10 Years"
+   },
+   "price_min": 2100,
+   "price_max": 2200,
+   "sizes": [
+    "24",
+    "26",
+    "28",
+    "30",
+    "32",
+    "34"
+   ],
+   "colours": [
+    {
+     "name": "Black",
+     "hex": "#000000",
+     "photo": "media/STY-1610/a819e75b-33d2-45d2-887f-4fd048322eb3.webp"
+    },
+    {
+     "name": "brown",
+     "hex": "#6f561f",
+     "photo": "media/STY-1610/2b759e5d-e451-4395-b020-dd08c65fee5a.webp"
+    },
+    {
+     "name": "Musterd",
+     "hex": "#da992b",
+     "photo": "media/STY-1610/e5dc2455-36ec-425c-9615-4b6f38f2136c.webp"
+    },
+    {
+     "name": "Rose Red",
+     "hex": "#ec0909",
+     "photo": null
+    }
+   ],
+   "cover": "media/STY-1610/2b759e5d-e451-4395-b020-dd08c65fee5a.webp",
+   "photos": [
+    {
+     "src": "media/STY-1610/a819e75b-33d2-45d2-887f-4fd048322eb3.webp",
+     "kind": "COLOUR",
+     "colour": "Black"
+    },
+    {
+     "src": "media/STY-1610/2b759e5d-e451-4395-b020-dd08c65fee5a.webp",
+     "kind": "COLOUR",
+     "colour": "brown"
+    },
+    {
+     "src": "media/STY-1610/e5dc2455-36ec-425c-9615-4b6f38f2136c.webp",
+     "kind": "COLOUR",
+     "colour": "Musterd"
+    }
+   ],
+   "size_guide": null,
+   "variants": [
+    {
+     "id": 5707,
+     "size": "24",
+     "colour": "Black",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5719,
+     "size": "24",
+     "colour": "brown",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5713,
+     "size": "24",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5701,
+     "size": "24",
+     "colour": "Rose Red",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5708,
+     "size": "26",
+     "colour": "Black",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5720,
+     "size": "26",
+     "colour": "brown",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5714,
+     "size": "26",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5702,
+     "size": "26",
+     "colour": "Rose Red",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5709,
+     "size": "28",
+     "colour": "Black",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5721,
+     "size": "28",
+     "colour": "brown",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5715,
+     "size": "28",
+     "colour": "Musterd",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5703,
+     "size": "28",
+     "colour": "Rose Red",
+     "price": 2100,
+     "availability": "few"
+    },
+    {
+     "id": 5710,
+     "size": "30",
+     "colour": "Black",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5722,
+     "size": "30",
+     "colour": "brown",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5716,
+     "size": "30",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5704,
+     "size": "30",
+     "colour": "Rose Red",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5711,
+     "size": "32",
+     "colour": "Black",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5723,
+     "size": "32",
+     "colour": "brown",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5717,
+     "size": "32",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5705,
+     "size": "32",
+     "colour": "Rose Red",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5712,
+     "size": "34",
+     "colour": "Black",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5724,
+     "size": "34",
+     "colour": "brown",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5718,
+     "size": "34",
+     "colour": "Musterd",
+     "price": 2200,
+     "availability": "few"
+    },
+    {
+     "id": 5706,
+     "size": "34",
+     "colour": "Rose Red",
+     "price": 2200,
+     "availability": "few"
+    }
+   ],
+   "first_published": "2026-10-27",
+   "description": null,
+   "free_delivery": false,
+   "updated": "2026-10-27",
+   "is_new": true
+  },
   {
    "code": "STY-1561",
    "slug": "unisex-lycra-round-neck-by-fareed-garments-sty-1561",
@@ -5863,7 +6686,7 @@
      "size": "S",
      "colour": "skin",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2536,
@@ -16045,8 +16868,8 @@
    "name": "Frocks",
    "icon": "frock",
    "colour": "sky",
-   "total": 13,
-   "online": 2,
+   "total": 18,
+   "online": 6,
    "months": [
     24,
     144
