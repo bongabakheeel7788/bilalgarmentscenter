@@ -2217,7 +2217,7 @@
      "size": "20",
      "colour": "Black",
      "price": 400,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5284,
@@ -2754,7 +2754,7 @@
      "size": "M",
      "colour": "Grey",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4780,
@@ -5893,7 +5893,7 @@
      "size": "2",
      "colour": "Mint green",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-30",
@@ -8624,7 +8624,7 @@
      "size": "L",
      "colour": "Grey",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2383,
@@ -17110,12 +17110,39 @@
    "sizes": []
   },
   {
+   "key": "boys|GLOVES",
+   "group": "boys",
+   "category": "GLOVES",
+   "name": "GLOVES",
+   "icon": "shirt",
+   "colour": "rose",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
+   "key": "boys|KNIT WEAR",
+   "group": "boys",
+   "category": "KNIT WEAR",
+   "name": "KNIT WEAR",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 1,
+   "online": 0,
+   "months": [
+    6,
+    144
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Tights",
    "group": "boys",
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -17130,7 +17157,7 @@
    "category": "Towels",
    "name": "Towels",
    "icon": "towel",
-   "colour": "mint",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17143,7 +17170,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 229,
+   "total": 230,
    "online": 59,
    "months": [
     0,
@@ -17302,12 +17329,39 @@
    "sizes": []
   },
   {
+   "key": "girls|GLOVES",
+   "group": "girls",
+   "category": "GLOVES",
+   "name": "GLOVES",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
+   "key": "girls|KNIT WEAR",
+   "group": "girls",
+   "category": "KNIT WEAR",
+   "name": "KNIT WEAR",
+   "icon": "shirt",
+   "colour": "rose",
+   "total": 1,
+   "online": 0,
+   "months": [
+    6,
+    144
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Tights",
    "group": "girls",
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -17322,7 +17376,7 @@
    "category": "Towels",
    "name": "Towels",
    "icon": "towel",
-   "colour": "blue",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17334,7 +17388,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "mint",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -17404,12 +17458,26 @@
    ]
   },
   {
+   "key": "gents|NIKER",
+   "group": "gents",
+   "category": "NIKER",
+   "name": "NIKER",
+   "icon": "shirt",
+   "colour": "rose",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "NIKER"
+   ]
+  },
+  {
    "key": "gents|Half socks",
    "group": "gents",
    "category": "Half socks",
    "name": "Half socks",
    "icon": "cap",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17423,7 +17491,7 @@
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17432,12 +17500,27 @@
    ]
   },
   {
+   "key": "gents|KNIT WEAR",
+   "group": "gents",
+   "category": "KNIT WEAR",
+   "name": "KNIT WEAR",
+   "icon": "shirt",
+   "colour": "blue",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "M / 40",
+    "XL / 44"
+   ]
+  },
+  {
    "key": "gents|Socks",
    "group": "gents",
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "lemon",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17451,7 +17534,7 @@
    "category": "Sweater",
    "name": "Sweater",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17466,13 +17549,28 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "lemon",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
     "M",
     "XL"
+   ]
+  },
+  {
+   "key": "gents|UNDERWEAR",
+   "group": "gents",
+   "category": "UNDERWEAR",
+   "name": "UNDERWEAR",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "NIKER",
+    "UNDERWEAR"
    ]
   },
   {
@@ -17649,12 +17747,41 @@
    ]
   },
   {
+   "key": "accessories|KNIT WEAR",
+   "group": "accessories",
+   "category": "KNIT WEAR",
+   "name": "KNIT WEAR",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "16",
+    "XL / 44"
+   ]
+  },
+  {
+   "key": "accessories|NIKER",
+   "group": "accessories",
+   "category": "NIKER",
+   "name": "NIKER",
+   "icon": "shirt",
+   "colour": "sand",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "NIKER"
+   ]
+  },
+  {
    "key": "accessories|Feeder",
    "group": "accessories",
    "category": "Feeder",
    "name": "Feeder",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17664,12 +17791,26 @@
    ]
   },
   {
+   "key": "accessories|GLOVES",
+   "group": "accessories",
+   "category": "GLOVES",
+   "name": "GLOVES",
+   "icon": "shirt",
+   "colour": "mint",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "GLOVES"
+   ]
+  },
+  {
    "key": "accessories|Half socks",
    "group": "accessories",
    "category": "Half socks",
    "name": "Half socks",
    "icon": "cap",
-   "colour": "lemon",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17683,12 +17824,27 @@
    "category": "Matha Patti",
    "name": "Matha Patti",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
     "Accessories"
+   ]
+  },
+  {
+   "key": "accessories|UNDERWEAR",
+   "group": "accessories",
+   "category": "UNDERWEAR",
+   "name": "UNDERWEAR",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "NIKER",
+    "UNDERWEAR"
    ]
   }
  ],
