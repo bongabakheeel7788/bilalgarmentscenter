@@ -3614,7 +3614,7 @@
      "size": "2",
      "colour": "Blue",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4380,
@@ -7407,7 +7407,7 @@
      "size": "S",
      "colour": "Zinc",
      "price": 950,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2473,
@@ -7659,7 +7659,7 @@
      "size": "M",
      "colour": "skin",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2457,
@@ -7951,7 +7951,7 @@
      "size": "M",
      "colour": "Peach",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2432,
@@ -14479,7 +14479,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -16211,7 +16211,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 800,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 78,
