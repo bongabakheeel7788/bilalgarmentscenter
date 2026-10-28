@@ -9699,7 +9699,7 @@
    "gender": "boys",
    "fabric": "Jeans",
    "set_contents": "pent",
-   "age_group": "2 Years",
+   "age_group": "3 Years",
    "season": "ALL",
    "sizing": "AGE",
    "size_months": {
@@ -16855,7 +16855,7 @@
    "name": "Pants",
    "icon": "pants",
    "colour": "lemon",
-   "total": 16,
+   "total": 17,
    "online": 6,
    "months": [
     12,
