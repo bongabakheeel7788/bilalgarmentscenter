@@ -6976,7 +6976,7 @@
      "size": "S",
      "colour": "skin",
      "price": 1200,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 2536,
@@ -8344,7 +8344,7 @@
      "size": "M",
      "colour": "brown",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2400,
@@ -9260,7 +9260,7 @@
      "size": "L",
      "colour": "Cream",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2356,
@@ -11626,7 +11626,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1400,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 611,
