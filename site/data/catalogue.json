@@ -424,7 +424,7 @@
      "size": "26",
      "colour": "Musterd",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5732,
@@ -8061,7 +8061,7 @@
      "size": "S",
      "colour": "brown",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2424,
@@ -8089,7 +8089,7 @@
      "size": "L",
      "colour": "brown",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2420,
@@ -8493,7 +8493,7 @@
      "size": "L",
      "colour": "Blue",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2399,
