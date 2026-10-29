@@ -2927,7 +2927,7 @@
      "size": "S",
      "colour": "Camel",
      "price": 1100,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4410,
@@ -6976,7 +6976,7 @@
      "size": "S",
      "colour": "skin",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2536,
@@ -7207,7 +7207,7 @@
      "size": "L",
      "colour": "Denim Blue",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -9474,7 +9474,7 @@
      "size": "26",
      "colour": "Standard",
      "price": 800,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-22",
@@ -16384,7 +16384,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1150,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 35,
@@ -16864,32 +16864,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Tracksuit",
-   "group": "boys",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "sand",
-   "total": 12,
-   "online": 0,
-   "months": [
-    36,
-    168
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Jersey",
    "group": "boys",
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "rose",
-   "total": 9,
+   "colour": "lemon",
+   "total": 12,
    "online": 0,
    "months": [
-    24,
+    12,
     216
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "blue",
+   "total": 12,
+   "online": 0,
+   "months": [
+    36,
+    168
    ],
    "sizes": []
   },
