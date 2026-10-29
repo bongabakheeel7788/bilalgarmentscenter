@@ -7666,7 +7666,7 @@
      "size": "M",
      "colour": "Sky Blue",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2464,
@@ -8344,7 +8344,7 @@
      "size": "M",
      "colour": "brown",
      "price": 1200,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 2400,
