@@ -1341,7 +1341,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1560",
@@ -2350,7 +2350,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1498",
@@ -9589,7 +9589,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1448,
@@ -17428,11 +17428,11 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "mint",
-   "total": 8,
+   "total": 9,
    "online": 0,
    "months": null,
    "sizes": [
-    "L",
+    "M",
     "2XL"
    ]
   },
