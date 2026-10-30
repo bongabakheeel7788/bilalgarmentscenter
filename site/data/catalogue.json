@@ -6165,7 +6165,7 @@
      "size": "2",
      "colour": "Dark Brown",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3360,
@@ -16909,32 +16909,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Caps",
-   "group": "boys",
-   "category": "Caps",
-   "name": "Caps",
-   "icon": "cap",
-   "colour": "lemon",
-   "total": 6,
-   "online": 0,
-   "months": [
-    0,
-    24
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Socks",
    "group": "boys",
    "category": "Socks",
    "name": "Socks",
+   "icon": "cap",
+   "colour": "lemon",
+   "total": 7,
+   "online": 0,
+   "months": [
+    0,
+    120
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Caps",
+   "group": "boys",
+   "category": "Caps",
+   "name": "Caps",
    "icon": "cap",
    "colour": "rose",
    "total": 6,
    "online": 0,
    "months": [
     0,
-    12
+    24
    ],
    "sizes": []
   },
@@ -17095,12 +17095,24 @@
    "sizes": []
   },
   {
+   "key": "boys|BABY SHOES",
+   "group": "boys",
+   "category": "BABY SHOES",
+   "name": "BABY SHOES",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "boys|Frocks",
    "group": "boys",
    "category": "Frocks",
    "name": "Frocks",
    "icon": "frock",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": [
@@ -17115,7 +17127,7 @@
    "category": "GLOVES",
    "name": "GLOVES",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17127,7 +17139,7 @@
    "category": "KNIT WEAR",
    "name": "KNIT WEAR",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -17142,7 +17154,7 @@
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -17157,7 +17169,7 @@
    "category": "Towels",
    "name": "Towels",
    "icon": "towel",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17194,32 +17206,32 @@
    "sizes": []
   },
   {
-   "key": "girls|Caps",
-   "group": "girls",
-   "category": "Caps",
-   "name": "Caps",
-   "icon": "cap",
-   "colour": "blue",
-   "total": 6,
-   "online": 0,
-   "months": [
-    0,
-    24
-   ],
-   "sizes": []
-  },
-  {
    "key": "girls|Socks",
    "group": "girls",
    "category": "Socks",
    "name": "Socks",
+   "icon": "cap",
+   "colour": "blue",
+   "total": 7,
+   "online": 0,
+   "months": [
+    0,
+    120
+   ],
+   "sizes": []
+  },
+  {
+   "key": "girls|Caps",
+   "group": "girls",
+   "category": "Caps",
+   "name": "Caps",
    "icon": "cap",
    "colour": "mint",
    "total": 6,
    "online": 0,
    "months": [
     0,
-    12
+    24
    ],
    "sizes": []
   },
@@ -17314,12 +17326,24 @@
    "sizes": []
   },
   {
+   "key": "girls|BABY SHOES",
+   "group": "girls",
+   "category": "BABY SHOES",
+   "name": "BABY SHOES",
+   "icon": "shirt",
+   "colour": "lilac",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "girls|Casual Pants",
    "group": "girls",
    "category": "Casual Pants",
    "name": "Pants",
    "icon": "pants",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": [
@@ -17334,7 +17358,7 @@
    "category": "GLOVES",
    "name": "GLOVES",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17346,7 +17370,7 @@
    "category": "KNIT WEAR",
    "name": "KNIT WEAR",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -17361,7 +17385,7 @@
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -17376,7 +17400,7 @@
    "category": "Towels",
    "name": "Towels",
    "icon": "towel",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17388,7 +17412,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
@@ -17472,12 +17496,27 @@
    ]
   },
   {
+   "key": "gents|Socks",
+   "group": "gents",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "lilac",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Socks",
+    "FULL SIZE"
+   ]
+  },
+  {
    "key": "gents|Half socks",
    "group": "gents",
    "category": "Half socks",
    "name": "Half socks",
    "icon": "cap",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17491,7 +17530,7 @@
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17505,27 +17544,13 @@
    "category": "KNIT WEAR",
    "name": "KNIT WEAR",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
     "M / 40",
     "XL / 44"
-   ]
-  },
-  {
-   "key": "gents|Socks",
-   "group": "gents",
-   "category": "Socks",
-   "name": "Socks",
-   "icon": "cap",
-   "colour": "sky",
-   "total": 1,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "FULL SIZE"
    ]
   },
   {
@@ -17604,12 +17629,26 @@
    ]
   },
   {
+   "key": "ladies|Socks",
+   "group": "ladies",
+   "category": "Socks",
+   "name": "Socks",
+   "icon": "cap",
+   "colour": "blue",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Socks"
+   ]
+  },
+  {
    "key": "ladies|Stoller",
    "group": "ladies",
    "category": "Stoller",
    "name": "Stoller",
    "icon": "stole",
-   "colour": "rose",
+   "colour": "sky",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17623,7 +17662,7 @@
    "category": "Gallace",
    "name": "Gallace",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17637,26 +17676,12 @@
    "category": "Matha Patti",
    "name": "Matha Patti",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
     "Accessories"
-   ]
-  },
-  {
-   "key": "ladies|Socks",
-   "group": "ladies",
-   "category": "Socks",
-   "name": "Socks",
-   "icon": "cap",
-   "colour": "lilac",
-   "total": 1,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "Socks"
    ]
   },
   {
@@ -17695,7 +17720,7 @@
    "name": "Socks",
    "icon": "cap",
    "colour": "sand",
-   "total": 8,
+   "total": 11,
    "online": 0,
    "months": null,
    "sizes": [
