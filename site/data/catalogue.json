@@ -1612,7 +1612,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1559",
@@ -1981,7 +1981,7 @@
    "description": null,
    "free_delivery": false,
    "updated": "2026-10-23",
-   "is_new": true
+   "is_new": false
   },
   {
    "code": "STY-1558",
@@ -2564,14 +2564,14 @@
      "size": "S",
      "colour": "C Green",
      "price": 1400,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4813,
      "size": "S",
      "colour": "Grey",
      "price": 1400,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4807,
@@ -2948,7 +2948,7 @@
      "size": "M",
      "colour": "Camel",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4411,
@@ -6158,7 +6158,7 @@
      "size": "2",
      "colour": "brown",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3368,
@@ -8061,7 +8061,7 @@
      "size": "S",
      "colour": "brown",
      "price": 1100,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 2424,
@@ -16825,7 +16825,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 184,
+   "total": 186,
    "online": 77,
    "months": [
     0,
