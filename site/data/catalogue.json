@@ -4051,6 +4051,11 @@
      "photo": null
     },
     {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    },
+    {
      "name": "Yellow",
      "hex": "#f9f57b",
      "photo": "media/STY-1438/bf906510-c6e6-468f-b946-72fd3fcae33e.webp"
@@ -4093,6 +4098,13 @@
      "availability": "out"
     },
     {
+     "id": 5862,
+     "size": "20",
+     "colour": "Standard",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
      "id": 4271,
      "size": "20",
      "colour": "Yellow",
@@ -4117,6 +4129,13 @@
      "id": 4268,
      "size": "22",
      "colour": "Sky",
+     "price": 1600,
+     "availability": "few"
+    },
+    {
+     "id": 5863,
+     "size": "22",
+     "colour": "Standard",
      "price": 1600,
      "availability": "few"
     },
@@ -17182,7 +17201,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 230,
+   "total": 231,
    "online": 59,
    "months": [
     0,
