@@ -5704,7 +5704,7 @@
      "size": "1",
      "colour": "Light Yellow",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3684,
@@ -11052,7 +11052,7 @@
      "size": "32",
      "colour": "Washable",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 673,
@@ -13736,7 +13736,7 @@
      "size": "1",
      "colour": "Standard",
      "price": 500,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 250,
