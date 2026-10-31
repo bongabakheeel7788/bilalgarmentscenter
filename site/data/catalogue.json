@@ -2343,7 +2343,7 @@
      "size": "22",
      "colour": "White",
      "price": 400,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-23",
@@ -2761,7 +2761,7 @@
      "size": "M",
      "colour": "Light Skin",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4783,
@@ -2810,7 +2810,7 @@
      "size": "20",
      "colour": "Grey",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4782,
@@ -2941,7 +2941,7 @@
      "size": "M",
      "colour": "C Green",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4417,
@@ -3086,7 +3086,7 @@
      "size": "S",
      "colour": "Grey",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4405,
@@ -3107,7 +3107,7 @@
      "size": "M",
      "colour": "Grey",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4406,
@@ -4478,7 +4478,7 @@
      "size": "1",
      "colour": "Orange",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4245,
@@ -5697,7 +5697,7 @@
      "size": "1",
      "colour": "Baby Pink",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3688,
@@ -5718,7 +5718,7 @@
      "size": "2",
      "colour": "Baby Pink",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3689,
@@ -7316,7 +7316,7 @@
      "size": "L",
      "colour": "Camel",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-01",
@@ -7804,7 +7804,7 @@
      "size": "S",
      "colour": "C Green",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2439,
@@ -8491,7 +8491,7 @@
      "size": "S",
      "colour": "Red",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2392,
@@ -9776,7 +9776,7 @@
      "size": "22",
      "colour": "Washable",
      "price": 850,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-22",
@@ -10090,7 +10090,7 @@
      "size": "16",
      "colour": "Standard",
      "price": 650,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 1131,
@@ -12555,7 +12555,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1500,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 324,
@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 186,
+   "total": 187,
    "online": 77,
    "months": [
     0,
@@ -17530,12 +17530,27 @@
    ]
   },
   {
+   "key": "gents|Tracksuit",
+   "group": "gents",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "peach",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "M",
+    "XL"
+   ]
+  },
+  {
    "key": "gents|Half socks",
    "group": "gents",
    "category": "Half socks",
    "name": "Half socks",
    "icon": "cap",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17549,7 +17564,7 @@
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17563,7 +17578,7 @@
    "category": "KNIT WEAR",
    "name": "KNIT WEAR",
    "icon": "shirt",
-   "colour": "mint",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17578,28 +17593,13 @@
    "category": "Sweater",
    "name": "Sweater",
    "icon": "shirt",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
     "M",
     "L"
-   ]
-  },
-  {
-   "key": "gents|Tracksuit",
-   "group": "gents",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "sky",
-   "total": 1,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "M",
-    "XL"
    ]
   },
   {
@@ -17724,7 +17724,7 @@
    "name": "Towels",
    "icon": "towel",
    "colour": "lemon",
-   "total": 12,
+   "total": 13,
    "online": 0,
    "months": null,
    "sizes": [
