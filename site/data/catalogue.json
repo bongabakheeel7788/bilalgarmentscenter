@@ -2817,7 +2817,7 @@
      "size": "20",
      "colour": "Light Skin",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4785,
@@ -3731,7 +3731,7 @@
      "size": "24",
      "colour": "Light Skin",
      "price": 2350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4288,
@@ -3745,7 +3745,7 @@
      "size": "26",
      "colour": "Cream",
      "price": 2350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4283,
@@ -5468,7 +5468,7 @@
      "size": "M",
      "colour": "Silver",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3701,
@@ -9037,7 +9037,7 @@
      "size": "M",
      "colour": "Grey",
      "price": 1150,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 2350,
