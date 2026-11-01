@@ -16898,32 +16898,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Tracksuit",
-   "group": "boys",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "blue",
-   "total": 12,
-   "online": 0,
-   "months": [
-    36,
-    168
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Shalwar Kameez",
    "group": "boys",
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "blue",
-   "total": 10,
+   "colour": "sand",
+   "total": 12,
    "online": 0,
    "months": [
     12,
     204
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "mint",
+   "total": 12,
+   "online": 0,
+   "months": [
+    36,
+    168
    ],
    "sizes": []
   },
