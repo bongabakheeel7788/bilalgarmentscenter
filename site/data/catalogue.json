@@ -11740,7 +11740,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1500,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 608,
@@ -16859,7 +16859,7 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "peach",
-   "total": 30,
+   "total": 31,
    "online": 7,
    "months": [
     24,
@@ -17447,11 +17447,11 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "mint",
-   "total": 9,
+   "total": 10,
    "online": 0,
    "months": null,
    "sizes": [
-    "M",
+    "Medium",
     "2XL"
    ]
   },
