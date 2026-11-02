@@ -4499,7 +4499,7 @@
      "size": "2",
      "colour": "Orange",
      "price": 1050,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4246,
@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 196,
+   "total": 200,
    "online": 77,
    "months": [
     0,
@@ -16883,12 +16883,27 @@
    "sizes": []
   },
   {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "sand",
+   "total": 14,
+   "online": 0,
+   "months": [
+    36,
+    168
+   ],
+   "sizes": []
+  },
+  {
    "key": "boys|Jersey",
    "group": "boys",
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 12,
    "online": 0,
    "months": [
@@ -16903,27 +16918,12 @@
    "category": "Shalwar Kameez",
    "name": "Shalwar Kameez",
    "icon": "shalwar",
-   "colour": "sand",
+   "colour": "blue",
    "total": 12,
    "online": 0,
    "months": [
     12,
     204
-   ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Tracksuit",
-   "group": "boys",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "mint",
-   "total": 12,
-   "online": 0,
-   "months": [
-    36,
-    168
    ],
    "sizes": []
   },
@@ -17201,7 +17201,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 234,
+   "total": 239,
    "online": 59,
    "months": [
     0,
@@ -17447,7 +17447,7 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "mint",
-   "total": 10,
+   "total": 12,
    "online": 0,
    "months": null,
    "sizes": [
