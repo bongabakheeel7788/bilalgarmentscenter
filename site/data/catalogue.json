@@ -187,7 +187,7 @@
      "size": "24",
      "colour": "Musterd",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5749,
@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 200,
+   "total": 204,
    "online": 77,
    "months": [
     0,
