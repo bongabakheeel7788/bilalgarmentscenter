@@ -5461,7 +5461,7 @@
      "size": "M",
      "colour": "Golden",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3703,
@@ -16889,7 +16889,7 @@
    "name": "Tracksuits",
    "icon": "tracksuit",
    "colour": "sand",
-   "total": 14,
+   "total": 15,
    "online": 0,
    "months": [
     36,
@@ -17201,7 +17201,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 239,
+   "total": 248,
    "online": 59,
    "months": [
     0,
@@ -17216,7 +17216,7 @@
    "name": "Frocks",
    "icon": "frock",
    "colour": "sky",
-   "total": 18,
+   "total": 19,
    "online": 7,
    "months": [
     24,
