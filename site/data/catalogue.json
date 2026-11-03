@@ -3766,7 +3766,7 @@
      "size": "28",
      "colour": "Cream",
      "price": 2350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4284,
@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 204,
+   "total": 205,
    "online": 77,
    "months": [
     0,
