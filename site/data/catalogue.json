@@ -3752,7 +3752,7 @@
      "size": "26",
      "colour": "Light Skin",
      "price": 2350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4289,
@@ -3780,7 +3780,7 @@
      "size": "28",
      "colour": "T Pink",
      "price": 2350,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-19",
