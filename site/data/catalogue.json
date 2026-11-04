@@ -201,7 +201,7 @@
      "size": "24",
      "colour": "Purple",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5744,
@@ -4742,7 +4742,7 @@
      "size": "1",
      "colour": "Mahroon",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4238,
@@ -5461,7 +5461,7 @@
      "size": "M",
      "colour": "Golden",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3703,
