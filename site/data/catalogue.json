@@ -243,7 +243,7 @@
      "size": "28",
      "colour": "Purple",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5746,
@@ -3072,7 +3072,7 @@
      "size": "S",
      "colour": "Camel",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4407,
