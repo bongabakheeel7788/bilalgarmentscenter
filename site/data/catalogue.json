@@ -12562,7 +12562,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1500,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-24",
@@ -15685,7 +15685,7 @@
      "size": "M",
      "colour": "Standard",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 159,
@@ -16889,7 +16889,7 @@
    "name": "Tracksuits",
    "icon": "tracksuit",
    "colour": "sand",
-   "total": 19,
+   "total": 21,
    "online": 0,
    "months": [
     36,
@@ -17486,12 +17486,27 @@
    ]
   },
   {
+   "key": "gents|Tracksuit",
+   "group": "gents",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "sand",
+   "total": 3,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "M",
+    "XL"
+   ]
+  },
+  {
    "key": "gents|Accessories",
    "group": "gents",
    "category": "Accessories",
    "name": "Accessories",
    "icon": "cap",
-   "colour": "mint",
+   "colour": "peach",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17506,7 +17521,7 @@
    "category": "NIKER",
    "name": "NIKER",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17520,28 +17535,13 @@
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": null,
    "sizes": [
     "Socks",
     "FULL SIZE"
-   ]
-  },
-  {
-   "key": "gents|Tracksuit",
-   "group": "gents",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "peach",
-   "total": 2,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "M",
-    "XL"
    ]
   },
   {
