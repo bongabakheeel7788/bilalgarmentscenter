@@ -5482,7 +5482,7 @@
      "size": "L",
      "colour": "Rust",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-18",
@@ -15962,7 +15962,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 800,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-18",
