@@ -3121,7 +3121,7 @@
      "size": "L",
      "colour": "Dark Skin",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4403,
@@ -11045,14 +11045,14 @@
      "size": "30",
      "colour": "Washable",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 672,
      "size": "32",
      "colour": "Washable",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 673,
@@ -15678,7 +15678,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 1150,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 158,
