@@ -438,7 +438,7 @@
      "size": "28",
      "colour": "Musterd",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5733,
@@ -5316,7 +5316,7 @@
      "size": "S",
      "colour": "Lemon",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3720,
@@ -11045,7 +11045,7 @@
      "size": "30",
      "colour": "Washable",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 672,
