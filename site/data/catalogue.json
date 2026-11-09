@@ -1771,7 +1771,7 @@
      "size": "24",
      "colour": "Baby Pink",
      "price": 450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5289,
@@ -4963,7 +4963,7 @@
      "size": "1",
      "colour": "Golden",
      "price": 850,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4223,
@@ -13914,7 +13914,7 @@
      "size": "S",
      "colour": "Standard",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 244,
