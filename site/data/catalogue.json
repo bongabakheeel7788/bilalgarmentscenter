@@ -1025,7 +1025,7 @@
      "size": "24",
      "colour": "Musterd",
      "price": 2450,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 5689,
@@ -1039,7 +1039,7 @@
      "size": "24",
      "colour": "Red",
      "price": 2450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5695,
@@ -1095,7 +1095,7 @@
      "size": "28",
      "colour": "Red",
      "price": 2450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5697,
@@ -2606,7 +2606,7 @@
      "size": "M",
      "colour": "Light Skin",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4805,
@@ -7818,7 +7818,7 @@
      "size": "M",
      "colour": "brown",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2437,
@@ -13833,7 +13833,7 @@
      "size": "L",
      "colour": "Standard",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-19",
