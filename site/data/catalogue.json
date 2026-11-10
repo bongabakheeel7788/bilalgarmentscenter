@@ -229,7 +229,7 @@
      "size": "28",
      "colour": "Musterd",
      "price": 2100,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 5751,
@@ -250,7 +250,7 @@
      "size": "30",
      "colour": "Musterd",
      "price": 2200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5752,
@@ -1025,7 +1025,7 @@
      "size": "24",
      "colour": "Musterd",
      "price": 2450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5689,
@@ -2927,7 +2927,7 @@
      "size": "S",
      "colour": "Camel",
      "price": 1100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4410,
@@ -3958,7 +3958,7 @@
      "size": "S",
      "colour": "Peach",
      "price": 1800,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4274,
@@ -5206,7 +5206,7 @@
      "size": "M",
      "colour": "skin",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3779,
@@ -5725,7 +5725,7 @@
      "size": "2",
      "colour": "Light Yellow",
      "price": 1350,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3685,
@@ -7956,7 +7956,7 @@
      "size": "S",
      "colour": "Peach",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2431,
@@ -7977,7 +7977,7 @@
      "size": "L",
      "colour": "Lemon",
      "price": 1000,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2429,
