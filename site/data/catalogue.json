@@ -1306,7 +1306,7 @@
      "size": "Zero",
      "colour": "Navy Blue",
      "price": 250,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 5344,
@@ -3253,7 +3253,7 @@
      "size": "2",
      "colour": "Grey",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-17",
@@ -4081,7 +4081,7 @@
      "size": "20",
      "colour": "Green",
      "price": 1600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4269,
@@ -5213,7 +5213,7 @@
      "size": "L",
      "colour": "Cream",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3782,
@@ -7191,7 +7191,7 @@
      "size": "S",
      "colour": "Camel",
      "price": 1200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 2514,
