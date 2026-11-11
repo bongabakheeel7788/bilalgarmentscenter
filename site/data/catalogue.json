@@ -466,7 +466,7 @@
      "size": "32",
      "colour": "Musterd",
      "price": 2200,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 5735,
@@ -480,7 +480,7 @@
      "size": "34",
      "colour": "Musterd",
      "price": 2200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5736,
