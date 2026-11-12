@@ -8823,7 +8823,7 @@
      "size": "L",
      "colour": "Radish",
      "price": 1100,
-     "availability": "out"
+     "availability": "few"
     }
    ],
    "first_published": "2026-10-01",
@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 227,
+   "total": 226,
    "online": 77,
    "months": [
     0,
@@ -17201,7 +17201,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 261,
+   "total": 262,
    "online": 59,
    "months": [
     0,
