@@ -10766,7 +10766,7 @@
      "size": "24",
      "colour": "Standard",
      "price": 1800,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 813,
@@ -10930,7 +10930,7 @@
      "size": "34",
      "colour": "Standard",
      "price": 2000,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-16",
