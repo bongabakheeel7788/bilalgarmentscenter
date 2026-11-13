@@ -5213,7 +5213,7 @@
      "size": "L",
      "colour": "Cream",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 3782,
@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 231,
+   "total": 240,
    "online": 77,
    "months": [
     0,
@@ -17201,7 +17201,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 274,
+   "total": 290,
    "online": 59,
    "months": [
     0,
