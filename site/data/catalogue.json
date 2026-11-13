@@ -1904,7 +1904,7 @@
      "size": "26",
      "colour": "White",
      "price": 450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5306,
@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 240,
+   "total": 243,
    "online": 77,
    "months": [
     0,
