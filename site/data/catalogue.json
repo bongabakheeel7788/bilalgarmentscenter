@@ -845,7 +845,7 @@
      "size": "30",
      "colour": "Rose Red",
      "price": 2200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5711,
@@ -1067,7 +1067,7 @@
      "size": "26",
      "colour": "Red",
      "price": 2450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5696,
@@ -2468,7 +2468,7 @@
      "size": "22",
      "colour": "Mahroon",
      "price": 1750,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-18",
