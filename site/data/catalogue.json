@@ -11024,7 +11024,7 @@
      "size": "24",
      "colour": "Washable",
      "price": 650,
-     "availability": "out"
+     "availability": "in"
     },
     {
      "id": 669,
@@ -11038,21 +11038,21 @@
      "size": "28",
      "colour": "Washable",
      "price": 650,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 671,
      "size": "30",
      "colour": "Washable",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 672,
      "size": "32",
      "colour": "Washable",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 673,
@@ -12009,7 +12009,7 @@
      "size": "22",
      "colour": "Standard",
      "price": 700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 512,
@@ -16859,7 +16859,7 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "peach",
-   "total": 31,
+   "total": 32,
    "online": 7,
    "months": [
     24,
