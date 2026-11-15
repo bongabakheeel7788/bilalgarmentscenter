@@ -1265,6 +1265,11 @@
      "photo": null
     },
     {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    },
+    {
      "name": "White",
      "hex": "#FFFFFF",
      "photo": null
@@ -1326,6 +1331,13 @@
      "id": 5341,
      "size": "Zero",
      "colour": "skin",
+     "price": 250,
+     "availability": "few"
+    },
+    {
+     "id": 7151,
+     "size": "Zero",
+     "colour": "Standard",
      "price": 250,
      "availability": "few"
     },
@@ -1420,6 +1432,11 @@
      "photo": null
     },
     {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
+    },
+    {
      "name": "White",
      "hex": "#FFFFFF",
      "photo": "media/STY-1560/57fe1a7f-1c33-40cb-8701-8da8cea53e29.webp"
@@ -1503,6 +1520,13 @@
      "availability": "few"
     },
     {
+     "id": 7152,
+     "size": "30",
+     "colour": "Standard",
+     "price": 500,
+     "availability": "few"
+    },
+    {
      "id": 5328,
      "size": "30",
      "colour": "White",
@@ -1552,6 +1576,13 @@
      "availability": "few"
     },
     {
+     "id": 7153,
+     "size": "32",
+     "colour": "Standard",
+     "price": 500,
+     "availability": "few"
+    },
+    {
      "id": 5329,
      "size": "32",
      "colour": "White",
@@ -1597,6 +1628,13 @@
      "id": 5324,
      "size": "34",
      "colour": "skin",
+     "price": 500,
+     "availability": "few"
+    },
+    {
+     "id": 7154,
+     "size": "34",
+     "colour": "Standard",
      "price": 500,
      "availability": "few"
     },
@@ -1704,6 +1742,11 @@
      "name": "skin",
      "hex": "#f8e49b",
      "photo": "media/STY-1559/f4c7bc99-9e34-4afe-a335-435a6f8f1ce4.webp"
+    },
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
     },
     {
      "name": "White",
@@ -1830,6 +1873,13 @@
      "availability": "few"
     },
     {
+     "id": 7155,
+     "size": "24",
+     "colour": "Standard",
+     "price": 450,
+     "availability": "few"
+    },
+    {
      "id": 5313,
      "size": "24",
      "colour": "White",
@@ -1900,6 +1950,13 @@
      "availability": "few"
     },
     {
+     "id": 7156,
+     "size": "26",
+     "colour": "Standard",
+     "price": 450,
+     "availability": "few"
+    },
+    {
      "id": 5314,
      "size": "26",
      "colour": "White",
@@ -1966,6 +2023,13 @@
      "id": 5309,
      "size": "28",
      "colour": "skin",
+     "price": 450,
+     "availability": "few"
+    },
+    {
+     "id": 7157,
+     "size": "28",
+     "colour": "Standard",
      "price": 450,
      "availability": "few"
     },
@@ -2073,6 +2137,11 @@
      "name": "skin",
      "hex": "#f8e49b",
      "photo": "media/STY-1558/5543f1f1-2130-44b3-8905-089226e09a62.webp"
+    },
+    {
+     "name": "Standard",
+     "hex": "#e5e7eb",
+     "photo": null
     },
     {
      "name": "White",
@@ -2199,6 +2268,13 @@
      "availability": "few"
     },
     {
+     "id": 7158,
+     "size": "18",
+     "colour": "Standard",
+     "price": 400,
+     "availability": "few"
+    },
+    {
      "id": 5265,
      "size": "18",
      "colour": "White",
@@ -2269,6 +2345,13 @@
      "availability": "few"
     },
     {
+     "id": 7159,
+     "size": "20",
+     "colour": "Standard",
+     "price": 400,
+     "availability": "few"
+    },
+    {
      "id": 5266,
      "size": "20",
      "colour": "White",
@@ -2335,6 +2418,13 @@
      "id": 5261,
      "size": "22",
      "colour": "skin",
+     "price": 400,
+     "availability": "few"
+    },
+    {
+     "id": 7160,
+     "size": "22",
+     "colour": "Standard",
      "price": 400,
      "availability": "few"
     },
@@ -4388,7 +4478,7 @@
      "size": "2",
      "colour": "Grey",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-17",
