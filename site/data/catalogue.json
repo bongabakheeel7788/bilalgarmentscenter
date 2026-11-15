@@ -2627,7 +2627,7 @@
      "size": "L",
      "colour": "Grey",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4809,
@@ -5206,7 +5206,7 @@
      "size": "M",
      "colour": "skin",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 3779,
@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 248,
+   "total": 251,
    "online": 77,
    "months": [
     0,
