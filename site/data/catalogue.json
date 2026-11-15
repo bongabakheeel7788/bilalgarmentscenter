@@ -16844,7 +16844,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 243,
+   "total": 248,
    "online": 77,
    "months": [
     0,
@@ -16904,7 +16904,7 @@
    "name": "Jersey",
    "icon": "shirt",
    "colour": "rose",
-   "total": 12,
+   "total": 14,
    "online": 0,
    "months": [
     12,
