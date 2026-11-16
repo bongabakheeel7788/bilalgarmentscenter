@@ -2349,7 +2349,7 @@
      "size": "20",
      "colour": "Standard",
      "price": 400,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5266,
@@ -4220,7 +4220,7 @@
      "size": "22",
      "colour": "Sky",
      "price": 1600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5863,
@@ -5053,7 +5053,7 @@
      "size": "1",
      "colour": "Golden",
      "price": 850,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4223,
@@ -5296,14 +5296,14 @@
      "size": "M",
      "colour": "skin",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3779,
      "size": "L",
      "colour": "Cream",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3782,
@@ -5815,7 +5815,7 @@
      "size": "2",
      "colour": "Light Yellow",
      "price": 1350,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 3685,
@@ -17729,7 +17729,7 @@
    "name": "Jersey",
    "icon": "shirt",
    "colour": "peach",
-   "total": 8,
+   "total": 11,
    "online": 0,
    "months": null,
    "sizes": [
