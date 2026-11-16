@@ -11114,7 +11114,7 @@
      "size": "24",
      "colour": "Washable",
      "price": 650,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 669,
@@ -17729,12 +17729,27 @@
    "name": "Jersey",
    "icon": "shirt",
    "colour": "peach",
-   "total": 3,
+   "total": 8,
    "online": 0,
    "months": null,
    "sizes": [
-    "XL",
+    "Standard Size",
     "Short"
+   ]
+  },
+  {
+   "key": "ladies|Sweater",
+   "group": "ladies",
+   "category": "Sweater",
+   "name": "Sweater",
+   "icon": "shirt",
+   "colour": "lilac",
+   "total": 6,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Standard Size",
+    "XL"
    ]
   },
   {
@@ -17743,7 +17758,7 @@
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17757,7 +17772,7 @@
    "category": "Stoller",
    "name": "Stoller",
    "icon": "stole",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17771,7 +17786,7 @@
    "category": "Gallace",
    "name": "Gallace",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17785,26 +17800,12 @@
    "category": "Matha Patti",
    "name": "Matha Patti",
    "icon": "shirt",
-   "colour": "sky",
-   "total": 1,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "Accessories"
-   ]
-  },
-  {
-   "key": "ladies|Sweater",
-   "group": "ladies",
-   "category": "Sweater",
-   "name": "Sweater",
-   "icon": "shirt",
    "colour": "sand",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
-    "XL"
+    "Accessories"
    ]
   },
   {
