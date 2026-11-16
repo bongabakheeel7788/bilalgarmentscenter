@@ -17405,12 +17405,27 @@
    "sizes": []
   },
   {
+   "key": "girls|Jersey",
+   "group": "girls",
+   "category": "Jersey",
+   "name": "Jersey",
+   "icon": "shirt",
+   "colour": "mint",
+   "total": 2,
+   "online": 0,
+   "months": [
+    96,
+    144
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Baby Bibs",
    "group": "girls",
    "category": "Baby Bibs",
    "name": "Baby Bibs",
    "icon": "shirt",
-   "colour": "mint",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": [
@@ -17425,7 +17440,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
@@ -17440,7 +17455,7 @@
    "category": "BABY SHOES",
    "name": "BABY SHOES",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17452,7 +17467,7 @@
    "category": "Casual Pants",
    "name": "Pants",
    "icon": "pants",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -17467,7 +17482,7 @@
    "category": "GLOVES",
    "name": "GLOVES",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17479,7 +17494,7 @@
    "category": "KNIT WEAR",
    "name": "KNIT WEAR",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
@@ -17494,7 +17509,7 @@
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -17509,7 +17524,7 @@
    "category": "Towels",
    "name": "Towels",
    "icon": "towel",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17521,7 +17536,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 1,
    "online": 0,
    "months": [
@@ -17744,7 +17759,7 @@
    "name": "Sweater",
    "icon": "shirt",
    "colour": "lilac",
-   "total": 6,
+   "total": 7,
    "online": 0,
    "months": null,
    "sizes": [
