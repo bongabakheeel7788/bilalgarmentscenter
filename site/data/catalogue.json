@@ -17723,12 +17723,27 @@
    ]
   },
   {
+   "key": "ladies|Jersey",
+   "group": "ladies",
+   "category": "Jersey",
+   "name": "Jersey",
+   "icon": "shirt",
+   "colour": "mint",
+   "total": 15,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "Standard Size",
+    "Short"
+   ]
+  },
+  {
    "key": "ladies|Full Size",
    "group": "ladies",
    "category": "Full Size",
    "name": "Full size",
    "icon": "fullsize",
-   "colour": "sky",
+   "colour": "sand",
    "total": 11,
    "online": 0,
    "months": null,
@@ -17738,28 +17753,13 @@
    ]
   },
   {
-   "key": "ladies|Jersey",
-   "group": "ladies",
-   "category": "Jersey",
-   "name": "Jersey",
-   "icon": "shirt",
-   "colour": "peach",
-   "total": 11,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "Standard Size",
-    "Short"
-   ]
-  },
-  {
    "key": "ladies|Sweater",
    "group": "ladies",
    "category": "Sweater",
    "name": "Sweater",
    "icon": "shirt",
    "colour": "lilac",
-   "total": 7,
+   "total": 11,
    "online": 0,
    "months": null,
    "sizes": [
