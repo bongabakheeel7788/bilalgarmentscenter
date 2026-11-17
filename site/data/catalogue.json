@@ -1643,7 +1643,7 @@
      "size": "34",
      "colour": "White",
      "price": 500,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-23",
@@ -5053,7 +5053,7 @@
      "size": "1",
      "colour": "Golden",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4223,
@@ -17729,7 +17729,7 @@
    "name": "Jersey",
    "icon": "shirt",
    "colour": "mint",
-   "total": 15,
+   "total": 16,
    "online": 0,
    "months": null,
    "sizes": [
