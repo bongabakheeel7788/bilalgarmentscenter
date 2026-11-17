@@ -1137,7 +1137,7 @@
      "size": "32",
      "colour": "Musterd",
      "price": 2550,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5693,
@@ -6246,7 +6246,7 @@
      "size": "1",
      "colour": "Royal Blue",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3369,
