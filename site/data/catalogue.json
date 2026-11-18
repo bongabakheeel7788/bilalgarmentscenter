@@ -4178,7 +4178,7 @@
      "size": "20",
      "colour": "Orange",
      "price": 1600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4267,
@@ -12010,7 +12010,7 @@
      "size": "26",
      "colour": "Standard",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-09-22",
@@ -17315,32 +17315,32 @@
    "sizes": []
   },
   {
-   "key": "girls|Socks",
+   "key": "girls|Caps",
    "group": "girls",
-   "category": "Socks",
-   "name": "Socks",
+   "category": "Caps",
+   "name": "Caps",
    "icon": "cap",
    "colour": "blue",
    "total": 7,
    "online": 0,
    "months": [
     0,
-    120
+    24
    ],
    "sizes": []
   },
   {
-   "key": "girls|Caps",
+   "key": "girls|Socks",
    "group": "girls",
-   "category": "Caps",
-   "name": "Caps",
+   "category": "Socks",
+   "name": "Socks",
    "icon": "cap",
    "colour": "mint",
-   "total": 6,
+   "total": 7,
    "online": 0,
    "months": [
     0,
-    24
+    120
    ],
    "sizes": []
   },
