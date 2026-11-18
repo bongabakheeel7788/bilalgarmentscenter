@@ -5289,7 +5289,7 @@
      "size": "M",
      "colour": "Cream",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3781,
@@ -16949,7 +16949,7 @@
    "name": "Shirts",
    "icon": "shirt",
    "colour": "peach",
-   "total": 32,
+   "total": 34,
    "online": 7,
    "months": [
     24,
