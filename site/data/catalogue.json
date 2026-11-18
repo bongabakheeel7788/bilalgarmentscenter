@@ -901,7 +901,7 @@
      "size": "34",
      "colour": "Rose Red",
      "price": 2200,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-27",
@@ -2530,7 +2530,7 @@
      "size": "20",
      "colour": "Green",
      "price": 1750,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4830,
@@ -16994,7 +16994,7 @@
    "name": "Jersey",
    "icon": "shirt",
    "colour": "rose",
-   "total": 19,
+   "total": 20,
    "online": 0,
    "months": [
     12,
