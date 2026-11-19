@@ -1137,7 +1137,7 @@
      "size": "32",
      "colour": "Musterd",
      "price": 2550,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 5693,
@@ -1151,7 +1151,7 @@
      "size": "32",
      "colour": "Red",
      "price": 2550,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5699,
@@ -3960,7 +3960,7 @@
      "size": "28",
      "colour": "White",
      "price": 2050,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-18",
@@ -16973,32 +16973,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Tracksuit",
-   "group": "boys",
-   "category": "Tracksuit",
-   "name": "Tracksuits",
-   "icon": "tracksuit",
-   "colour": "sand",
-   "total": 21,
-   "online": 0,
-   "months": [
-    36,
-    168
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Jersey",
    "group": "boys",
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "rose",
-   "total": 20,
+   "colour": "lemon",
+   "total": 22,
    "online": 0,
    "months": [
     12,
     216
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Tracksuit",
+   "group": "boys",
+   "category": "Tracksuit",
+   "name": "Tracksuits",
+   "icon": "tracksuit",
+   "colour": "blue",
+   "total": 21,
+   "online": 0,
+   "months": [
+    36,
+    168
    ],
    "sizes": []
   },
@@ -17306,7 +17306,7 @@
    "name": "Frocks",
    "icon": "frock",
    "colour": "sky",
-   "total": 19,
+   "total": 20,
    "online": 7,
    "months": [
     24,
@@ -17621,12 +17621,26 @@
    ]
   },
   {
+   "key": "gents|Jersey",
+   "group": "gents",
+   "category": "Jersey",
+   "name": "Jersey",
+   "icon": "shirt",
+   "colour": "sky",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "L"
+   ]
+  },
+  {
    "key": "gents|NIKER",
    "group": "gents",
    "category": "NIKER",
    "name": "NIKER",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17640,7 +17654,7 @@
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17655,26 +17669,12 @@
    "category": "Half socks",
    "name": "Half socks",
    "icon": "cap",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
     "FULL SIZE"
-   ]
-  },
-  {
-   "key": "gents|Jersey",
-   "group": "gents",
-   "category": "Jersey",
-   "name": "Jersey",
-   "icon": "shirt",
-   "colour": "mint",
-   "total": 1,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "L"
    ]
   },
   {
@@ -17729,7 +17729,7 @@
    "name": "Jersey",
    "icon": "shirt",
    "colour": "mint",
-   "total": 18,
+   "total": 22,
    "online": 0,
    "months": null,
    "sizes": [
