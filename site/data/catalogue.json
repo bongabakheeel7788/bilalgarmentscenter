@@ -740,7 +740,7 @@
      "size": "24",
      "colour": "Black",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5719,
@@ -4589,7 +4589,7 @@
      "size": "2",
      "colour": "Orange",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4246,
@@ -6260,7 +6260,7 @@
      "size": "2",
      "colour": "Blue",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3366,
@@ -16979,7 +16979,7 @@
    "name": "Jersey",
    "icon": "shirt",
    "colour": "lemon",
-   "total": 22,
+   "total": 23,
    "online": 0,
    "months": [
     12,
@@ -17774,7 +17774,7 @@
    "name": "Socks",
    "icon": "cap",
    "colour": "mint",
-   "total": 2,
+   "total": 3,
    "online": 0,
    "months": null,
    "sizes": [
@@ -17845,7 +17845,7 @@
    "name": "Socks",
    "icon": "cap",
    "colour": "sand",
-   "total": 11,
+   "total": 12,
    "online": 0,
    "months": null,
    "sizes": [
