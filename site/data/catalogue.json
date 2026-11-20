@@ -1545,7 +1545,7 @@
      "size": "32",
      "colour": "Black",
      "price": 500,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5326,
@@ -5420,7 +5420,7 @@
      "size": "M",
      "colour": "Baby Red",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3721,
@@ -5434,7 +5434,7 @@
      "size": "L",
      "colour": "Baby Red",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3725,
@@ -16934,7 +16934,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 254,
+   "total": 255,
    "online": 77,
    "months": [
     0,
