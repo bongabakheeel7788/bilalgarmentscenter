@@ -5067,7 +5067,7 @@
      "size": "1",
      "colour": "T Pink",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4222,
@@ -9936,7 +9936,7 @@
      "size": "20",
      "colour": "Washable",
      "price": 500,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 1164,
