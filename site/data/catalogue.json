@@ -17048,30 +17048,30 @@
    "sizes": []
   },
   {
+   "key": "boys|Uniform Shirts",
+   "group": "boys",
+   "category": "Uniform Shirts",
+   "name": "Uniform shirts",
+   "icon": "uniform",
+   "colour": "blue",
+   "total": 6,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "boys|Belts",
    "group": "boys",
    "category": "Belts",
    "name": "Belts",
    "icon": "cap",
-   "colour": "sky",
+   "colour": "sand",
    "total": 5,
    "online": 0,
    "months": [
     48,
     216
    ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Uniform Shirts",
-   "group": "boys",
-   "category": "Uniform Shirts",
-   "name": "Uniform shirts",
-   "icon": "uniform",
-   "colour": "mint",
-   "total": 5,
-   "online": 0,
-   "months": null,
    "sizes": []
   },
   {
@@ -17591,12 +17591,26 @@
    ]
   },
   {
+   "key": "gents|Jersey",
+   "group": "gents",
+   "category": "Jersey",
+   "name": "Jersey",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 3,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "L"
+   ]
+  },
+  {
    "key": "gents|Tracksuit",
    "group": "gents",
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "sand",
+   "colour": "blue",
    "total": 3,
    "online": 0,
    "months": null,
@@ -17611,7 +17625,7 @@
    "category": "WAIST COATS",
    "name": "WAIST COATS",
    "icon": "waist",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 3,
    "online": 0,
    "months": null,
@@ -17626,27 +17640,13 @@
    "category": "Accessories",
    "name": "Accessories",
    "icon": "cap",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": null,
    "sizes": [
     "34\\S",
     "42\\XXL"
-   ]
-  },
-  {
-   "key": "gents|Jersey",
-   "group": "gents",
-   "category": "Jersey",
-   "name": "Jersey",
-   "icon": "shirt",
-   "colour": "sand",
-   "total": 2,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "L"
    ]
   },
   {
@@ -17679,12 +17679,27 @@
    ]
   },
   {
+   "key": "gents|Sweater",
+   "group": "gents",
+   "category": "Sweater",
+   "name": "Sweater",
+   "icon": "shirt",
+   "colour": "peach",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "FULL SIZE",
+    "L"
+   ]
+  },
+  {
    "key": "gents|Half socks",
    "group": "gents",
    "category": "Half socks",
    "name": "Half socks",
    "icon": "cap",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17698,28 +17713,13 @@
    "category": "KNIT WEAR",
    "name": "KNIT WEAR",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": null,
    "sizes": [
     "M / 40",
     "XL / 44"
-   ]
-  },
-  {
-   "key": "gents|Sweater",
-   "group": "gents",
-   "category": "Sweater",
-   "name": "Sweater",
-   "icon": "shirt",
-   "colour": "lemon",
-   "total": 1,
-   "online": 0,
-   "months": null,
-   "sizes": [
-    "M",
-    "L"
    ]
   },
   {
