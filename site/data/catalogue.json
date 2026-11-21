@@ -1339,7 +1339,7 @@
      "size": "Zero",
      "colour": "Standard",
      "price": 250,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5343,
@@ -2530,7 +2530,7 @@
      "size": "20",
      "colour": "Green",
      "price": 1750,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4830,
@@ -2551,7 +2551,7 @@
      "size": "22",
      "colour": "Green",
      "price": 1750,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4831,
@@ -17009,7 +17009,7 @@
    "name": "Shalwar Kameez",
    "icon": "shalwar",
    "colour": "blue",
-   "total": 12,
+   "total": 13,
    "online": 0,
    "months": [
     12,
