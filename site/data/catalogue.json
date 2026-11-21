@@ -1877,7 +1877,7 @@
      "size": "24",
      "colour": "Standard",
      "price": 450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5313,
@@ -3440,7 +3440,7 @@
      "size": "1",
      "colour": "Grey",
      "price": 600,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4389,
@@ -4575,7 +4575,7 @@
      "size": "1",
      "colour": "Sky",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4247,
