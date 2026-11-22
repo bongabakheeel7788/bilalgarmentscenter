@@ -2544,7 +2544,7 @@
      "size": "22",
      "colour": "Copper",
      "price": 1750,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4829,
@@ -4317,7 +4317,7 @@
      "size": "M",
      "colour": "Grey",
      "price": 1300,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4257,
