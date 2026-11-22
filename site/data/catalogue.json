@@ -2523,7 +2523,7 @@
      "size": "20",
      "colour": "Copper",
      "price": 1750,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4828,
@@ -3953,7 +3953,7 @@
      "size": "26",
      "colour": "White",
      "price": 2050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4281,
@@ -4041,7 +4041,7 @@
      "size": "S",
      "colour": "brown",
      "price": 1800,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4276,
@@ -4582,7 +4582,7 @@
      "size": "1",
      "colour": "Yellow",
      "price": 1050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4250,
@@ -5310,7 +5310,7 @@
      "size": "L",
      "colour": "skin",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     }
    ],
    "first_published": "2026-10-19",
@@ -9677,7 +9677,7 @@
      "size": "16",
      "colour": "Standard",
      "price": 600,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 1445,
@@ -10187,7 +10187,7 @@
      "size": "18",
      "colour": "Standard",
      "price": 650,
-     "availability": "in"
+     "availability": "few"
     }
    ],
    "first_published": "2026-09-22",
