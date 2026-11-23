@@ -16934,7 +16934,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 267,
+   "total": 271,
    "online": 77,
    "months": [
     0,
@@ -17420,12 +17420,24 @@
    "sizes": []
   },
   {
+   "key": "girls|Stoller",
+   "group": "girls",
+   "category": "Stoller",
+   "name": "Stoller",
+   "icon": "stole",
+   "colour": "lemon",
+   "total": 2,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "girls|Towels",
    "group": "girls",
    "category": "Towels",
    "name": "Towels",
    "icon": "towel",
-   "colour": "rose",
+   "colour": "sky",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17437,7 +17449,7 @@
    "category": "Baby Bibs",
    "name": "Baby Bibs",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
@@ -17452,7 +17464,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -17467,7 +17479,7 @@
    "category": "BABY SHOES",
    "name": "BABY SHOES",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17479,7 +17491,7 @@
    "category": "Casual Pants",
    "name": "Pants",
    "icon": "pants",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -17494,7 +17506,7 @@
    "category": "GLOVES",
    "name": "GLOVES",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17506,7 +17518,7 @@
    "category": "KNIT WEAR",
    "name": "KNIT WEAR",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": [
@@ -17521,7 +17533,7 @@
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "mint",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": [
@@ -17536,7 +17548,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
