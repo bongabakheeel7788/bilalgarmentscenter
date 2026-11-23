@@ -3953,7 +3953,7 @@
      "size": "26",
      "colour": "White",
      "price": 2050,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4281,
@@ -5067,7 +5067,7 @@
      "size": "1",
      "colour": "T Pink",
      "price": 850,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4222,
@@ -6253,7 +6253,7 @@
      "size": "1",
      "colour": "Zinc",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3372,
@@ -17105,32 +17105,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Baby Kit",
-   "group": "boys",
-   "category": "Baby Kit",
-   "name": "Baby Kit",
-   "icon": "babykit",
-   "colour": "rose",
-   "total": 2,
-   "online": 0,
-   "months": [
-    0,
-    12
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Blanket",
    "group": "boys",
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "sand",
-   "total": 2,
+   "colour": "sky",
+   "total": 3,
    "online": 0,
    "months": [
     0,
     24
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Baby Kit",
+   "group": "boys",
+   "category": "Baby Kit",
+   "name": "Baby Kit",
+   "icon": "babykit",
+   "colour": "sky",
+   "total": 2,
+   "online": 0,
+   "months": [
+    0,
+    12
    ],
    "sizes": []
   },
@@ -17291,7 +17291,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 307,
+   "total": 308,
    "online": 59,
    "months": [
     0,
@@ -17375,12 +17375,27 @@
    "sizes": []
   },
   {
+   "key": "girls|Blanket",
+   "group": "girls",
+   "category": "Blanket",
+   "name": "Blanket",
+   "icon": "shawl",
+   "colour": "blue",
+   "total": 3,
+   "online": 0,
+   "months": [
+    0,
+    24
+   ],
+   "sizes": []
+  },
+  {
    "key": "girls|Jersey",
    "group": "girls",
    "category": "Jersey",
    "name": "Jersey",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "blue",
    "total": 3,
    "online": 0,
    "months": [
@@ -17395,27 +17410,12 @@
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": [
     0,
     12
-   ],
-   "sizes": []
-  },
-  {
-   "key": "girls|Blanket",
-   "group": "girls",
-   "category": "Blanket",
-   "name": "Blanket",
-   "icon": "shawl",
-   "colour": "peach",
-   "total": 2,
-   "online": 0,
-   "months": [
-    0,
-    24
    ],
    "sizes": []
   },
