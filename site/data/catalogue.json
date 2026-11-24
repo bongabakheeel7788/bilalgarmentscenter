@@ -789,7 +789,7 @@
      "size": "26",
      "colour": "Rose Red",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5709,
@@ -1821,7 +1821,7 @@
      "size": "24",
      "colour": "Black",
      "price": 450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5316,
@@ -1870,7 +1870,7 @@
      "size": "24",
      "colour": "skin",
      "price": 450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 7155,
@@ -4041,7 +4041,7 @@
      "size": "S",
      "colour": "brown",
      "price": 1800,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 4276,
@@ -4069,7 +4069,7 @@
      "size": "L",
      "colour": "brown",
      "price": 1800,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4278,
@@ -7908,7 +7908,7 @@
      "size": "M",
      "colour": "brown",
      "price": 1100,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 2437,
@@ -11142,7 +11142,7 @@
      "size": "32",
      "colour": "Washable",
      "price": 700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 673,
@@ -16964,7 +16964,7 @@
    "name": "Jersey",
    "icon": "shirt",
    "colour": "lilac",
-   "total": 24,
+   "total": 25,
    "online": 0,
    "months": [
     12,
