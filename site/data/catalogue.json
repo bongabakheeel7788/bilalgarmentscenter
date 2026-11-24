@@ -6218,7 +6218,7 @@
      "size": "1",
      "colour": "brown",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3367,
@@ -17120,32 +17120,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Baby Kit",
-   "group": "boys",
-   "category": "Baby Kit",
-   "name": "Baby Kit",
-   "icon": "babykit",
-   "colour": "sky",
-   "total": 2,
-   "online": 0,
-   "months": [
-    0,
-    12
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Pent coat",
    "group": "boys",
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "sand",
-   "total": 2,
+   "colour": "sky",
+   "total": 3,
    "online": 0,
    "months": [
     24,
     180
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Baby Kit",
+   "group": "boys",
+   "category": "Baby Kit",
+   "name": "Baby Kit",
+   "icon": "babykit",
+   "colour": "sand",
+   "total": 2,
+   "online": 0,
+   "months": [
+    0,
+    12
    ],
    "sizes": []
   },
