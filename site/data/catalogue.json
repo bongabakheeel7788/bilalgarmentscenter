@@ -1524,7 +1524,7 @@
      "size": "30",
      "colour": "Standard",
      "price": 500,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5328,
@@ -9859,7 +9859,7 @@
      "size": "20",
      "colour": "Washable",
      "price": 850,
-     "availability": "in"
+     "availability": "few"
     },
     {
      "id": 1176,
@@ -17255,12 +17255,24 @@
    "sizes": []
   },
   {
+   "key": "boys|Jackets",
+   "group": "boys",
+   "category": "Jackets",
+   "name": "Jackets",
+   "icon": "shirt",
+   "colour": "blue",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "boys|KNIT WEAR",
    "group": "boys",
    "category": "KNIT WEAR",
    "name": "KNIT WEAR",
    "icon": "shirt",
-   "colour": "blue",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": [
@@ -17275,7 +17287,7 @@
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "mint",
+   "colour": "peach",
    "total": 1,
    "online": 0,
    "months": [
