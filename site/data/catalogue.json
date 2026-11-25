@@ -229,7 +229,7 @@
      "size": "28",
      "colour": "Musterd",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5751,
@@ -873,7 +873,7 @@
      "size": "32",
      "colour": "Rose Red",
      "price": 2200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5712,
@@ -5067,7 +5067,7 @@
      "size": "1",
      "colour": "T Pink",
      "price": 850,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4222,
@@ -10741,7 +10741,7 @@
      "size": "Large",
      "colour": "Cotton Terry",
      "price": 1700,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 978,
@@ -16934,7 +16934,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 275,
+   "total": 276,
    "online": 77,
    "months": [
     0,
@@ -17282,12 +17282,24 @@
    "sizes": []
   },
   {
+   "key": "boys|Koti",
+   "group": "boys",
+   "category": "Koti",
+   "name": "Koti",
+   "icon": "shirt",
+   "colour": "peach",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "boys|Tights",
    "group": "boys",
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -17318,7 +17330,7 @@
    "name": "Frocks",
    "icon": "frock",
    "colour": "sky",
-   "total": 20,
+   "total": 21,
    "online": 7,
    "months": [
     24,
@@ -17540,12 +17552,24 @@
    "sizes": []
   },
   {
+   "key": "girls|Koti",
+   "group": "girls",
+   "category": "Koti",
+   "name": "Koti",
+   "icon": "shirt",
+   "colour": "peach",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "girls|Tights",
    "group": "girls",
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -17560,7 +17584,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "sky",
+   "colour": "sand",
    "total": 1,
    "online": 0,
    "months": [
