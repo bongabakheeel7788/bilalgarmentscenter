@@ -16934,7 +16934,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 276,
+   "total": 277,
    "online": 77,
    "months": [
     0,
@@ -17075,32 +17075,32 @@
    "sizes": []
   },
   {
-   "key": "boys|High Neck",
-   "group": "boys",
-   "category": "High Neck",
-   "name": "High Neck",
-   "icon": "shirt",
-   "colour": "lilac",
-   "total": 4,
-   "online": 0,
-   "months": [
-    24,
-    60
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Round Neck",
    "group": "boys",
    "category": "Round Neck",
    "name": "Round Neck",
    "icon": "shirt",
-   "colour": "lemon",
-   "total": 4,
+   "colour": "lilac",
+   "total": 5,
    "online": 4,
    "months": [
     0,
     144
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|High Neck",
+   "group": "boys",
+   "category": "High Neck",
+   "name": "High Neck",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 4,
+   "online": 0,
+   "months": [
+    24,
+    60
    ],
    "sizes": []
   },
@@ -17306,6 +17306,18 @@
     3,
     180
    ],
+   "sizes": []
+  },
+  {
+   "key": "boys|UPPER",
+   "group": "boys",
+   "category": "UPPER",
+   "name": "UPPER",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 1,
+   "online": 0,
+   "months": null,
    "sizes": []
   },
   {
