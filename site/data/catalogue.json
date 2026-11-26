@@ -208,7 +208,7 @@
      "size": "26",
      "colour": "Musterd",
      "price": 2100,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5750,
@@ -17048,12 +17048,24 @@
    "sizes": []
   },
   {
+   "key": "boys|Jackets",
+   "group": "boys",
+   "category": "Jackets",
+   "name": "Jackets",
+   "icon": "shirt",
+   "colour": "mint",
+   "total": 6,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "boys|Uniform Shirts",
    "group": "boys",
    "category": "Uniform Shirts",
    "name": "Uniform shirts",
    "icon": "uniform",
-   "colour": "blue",
+   "colour": "mint",
    "total": 6,
    "online": 0,
    "months": null,
@@ -17065,7 +17077,7 @@
    "category": "Belts",
    "name": "Belts",
    "icon": "cap",
-   "colour": "sand",
+   "colour": "blue",
    "total": 5,
    "online": 0,
    "months": [
@@ -17080,7 +17092,7 @@
    "category": "Round Neck",
    "name": "Round Neck",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 5,
    "online": 4,
    "months": [
@@ -17095,25 +17107,13 @@
    "category": "High Neck",
    "name": "High Neck",
    "icon": "shirt",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 4,
    "online": 0,
    "months": [
     24,
     60
    ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Jackets",
-   "group": "boys",
-   "category": "Jackets",
-   "name": "Jackets",
-   "icon": "shirt",
-   "colour": "rose",
-   "total": 4,
-   "online": 0,
-   "months": null,
    "sizes": []
   },
   {
