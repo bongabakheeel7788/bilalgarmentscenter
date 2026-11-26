@@ -1842,7 +1842,7 @@
      "size": "24",
      "colour": "Navy Blue",
      "price": 450,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5301,
@@ -3946,7 +3946,7 @@
      "size": "24",
      "colour": "White",
      "price": 2050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4280,
@@ -5413,7 +5413,7 @@
      "size": "S",
      "colour": "Sky",
      "price": 1700,
-     "availability": "out"
+     "availability": "few"
     },
     {
      "id": 3727,
@@ -16934,7 +16934,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 277,
+   "total": 283,
    "online": 77,
    "months": [
     0,
@@ -17105,12 +17105,24 @@
    "sizes": []
   },
   {
+   "key": "boys|Jackets",
+   "group": "boys",
+   "category": "Jackets",
+   "name": "Jackets",
+   "icon": "shirt",
+   "colour": "rose",
+   "total": 4,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "boys|Blanket",
    "group": "boys",
    "category": "Blanket",
    "name": "Blanket",
    "icon": "shawl",
-   "colour": "sky",
+   "colour": "sand",
    "total": 3,
    "online": 0,
    "months": [
@@ -17125,7 +17137,7 @@
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "sand",
    "total": 3,
    "online": 0,
    "months": [
@@ -17140,7 +17152,7 @@
    "category": "Baby Kit",
    "name": "Baby Kit",
    "icon": "babykit",
-   "colour": "sand",
+   "colour": "blue",
    "total": 2,
    "online": 0,
    "months": [
@@ -17155,7 +17167,7 @@
    "category": "Towels",
    "name": "Towels",
    "icon": "towel",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17167,7 +17179,7 @@
    "category": "Uniform Pants",
    "name": "Uniform pants",
    "icon": "uniform",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17179,7 +17191,7 @@
    "category": "Waist Pants",
    "name": "Waist Pants",
    "icon": "waist",
-   "colour": "blue",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17191,7 +17203,7 @@
    "category": "Baby Bibs",
    "name": "Baby Bibs",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
@@ -17206,7 +17218,7 @@
    "category": "Baby Shawls",
    "name": "Baby shawls",
    "icon": "shawl",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": [
@@ -17221,7 +17233,7 @@
    "category": "BABY SHOES",
    "name": "BABY SHOES",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17233,7 +17245,7 @@
    "category": "Frocks",
    "name": "Frocks",
    "icon": "frock",
-   "colour": "peach",
+   "colour": "lilac",
    "total": 1,
    "online": 0,
    "months": [
@@ -17247,18 +17259,6 @@
    "group": "boys",
    "category": "GLOVES",
    "name": "GLOVES",
-   "icon": "shirt",
-   "colour": "sand",
-   "total": 1,
-   "online": 0,
-   "months": null,
-   "sizes": []
-  },
-  {
-   "key": "boys|Jackets",
-   "group": "boys",
-   "category": "Jackets",
-   "name": "Jackets",
    "icon": "shirt",
    "colour": "blue",
    "total": 1,
