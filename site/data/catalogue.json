@@ -16934,7 +16934,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 283,
+   "total": 292,
    "online": 77,
    "months": [
     0,
@@ -17018,12 +17018,24 @@
    "sizes": []
   },
   {
+   "key": "boys|Jackets",
+   "group": "boys",
+   "category": "Jackets",
+   "name": "Jackets",
+   "icon": "shirt",
+   "colour": "sand",
+   "total": 7,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "boys|Socks",
    "group": "boys",
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "lemon",
+   "colour": "rose",
    "total": 7,
    "online": 0,
    "months": [
@@ -17038,25 +17050,13 @@
    "category": "Caps",
    "name": "Caps",
    "icon": "cap",
-   "colour": "rose",
+   "colour": "sky",
    "total": 6,
    "online": 0,
    "months": [
     0,
     24
    ],
-   "sizes": []
-  },
-  {
-   "key": "boys|Jackets",
-   "group": "boys",
-   "category": "Jackets",
-   "name": "Jackets",
-   "icon": "shirt",
-   "colour": "mint",
-   "total": 6,
-   "online": 0,
-   "months": null,
    "sizes": []
   },
   {
@@ -17117,32 +17117,32 @@
    "sizes": []
   },
   {
-   "key": "boys|Blanket",
-   "group": "boys",
-   "category": "Blanket",
-   "name": "Blanket",
-   "icon": "shawl",
-   "colour": "sand",
-   "total": 3,
-   "online": 0,
-   "months": [
-    0,
-    24
-   ],
-   "sizes": []
-  },
-  {
    "key": "boys|Pent coat",
    "group": "boys",
    "category": "Pent coat",
    "name": "Pent coat",
    "icon": "shirt",
-   "colour": "sand",
-   "total": 3,
+   "colour": "sky",
+   "total": 4,
    "online": 0,
    "months": [
     24,
     180
+   ],
+   "sizes": []
+  },
+  {
+   "key": "boys|Blanket",
+   "group": "boys",
+   "category": "Blanket",
+   "name": "Blanket",
+   "icon": "shawl",
+   "colour": "blue",
+   "total": 3,
+   "online": 0,
+   "months": [
+    0,
+    24
    ],
    "sizes": []
   },
@@ -17327,7 +17327,7 @@
    "name": "Suits",
    "icon": "suit",
    "colour": "blue",
-   "total": 313,
+   "total": 317,
    "online": 59,
    "months": [
     0,
