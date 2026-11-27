@@ -6239,7 +6239,7 @@
      "size": "1",
      "colour": "Navy Blue",
      "price": 900,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 3357,
@@ -17576,12 +17576,24 @@
    "sizes": []
   },
   {
+   "key": "girls|Scarf",
+   "group": "girls",
+   "category": "Scarf",
+   "name": "Scarf",
+   "icon": "stole",
+   "colour": "rose",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": []
+  },
+  {
    "key": "girls|Tights",
    "group": "girls",
    "category": "Tights",
    "name": "Tights",
    "icon": "shirt",
-   "colour": "lilac",
+   "colour": "lemon",
    "total": 1,
    "online": 0,
    "months": [
@@ -17596,7 +17608,7 @@
    "category": "Tracksuit",
    "name": "Tracksuits",
    "icon": "tracksuit",
-   "colour": "sand",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": [
@@ -18074,12 +18086,27 @@
    ]
   },
   {
+   "key": "accessories|Scarf",
+   "group": "accessories",
+   "category": "Scarf",
+   "name": "Scarf",
+   "icon": "stole",
+   "colour": "sand",
+   "total": 1,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "S",
+    "L"
+   ]
+  },
+  {
    "key": "accessories|UNDERWEAR",
    "group": "accessories",
    "category": "UNDERWEAR",
    "name": "UNDERWEAR",
    "icon": "shirt",
-   "colour": "rose",
+   "colour": "sky",
    "total": 1,
    "online": 0,
    "months": null,
