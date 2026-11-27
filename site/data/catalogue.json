@@ -3953,7 +3953,7 @@
      "size": "26",
      "colour": "White",
      "price": 2050,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 4281,
@@ -17855,12 +17855,40 @@
    ]
   },
   {
+   "key": "ladies|Mama Size Jersey",
+   "group": "ladies",
+   "category": "Mama Size Jersey",
+   "name": "Mama Size Jersey",
+   "icon": "shirt",
+   "colour": "lemon",
+   "total": 3,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "STD"
+   ]
+  },
+  {
+   "key": "ladies|Mama Size Sweater",
+   "group": "ladies",
+   "category": "Mama Size Sweater",
+   "name": "Mama Size Sweater",
+   "icon": "shirt",
+   "colour": "rose",
+   "total": 3,
+   "online": 0,
+   "months": null,
+   "sizes": [
+    "STD"
+   ]
+  },
+  {
    "key": "ladies|Socks",
    "group": "ladies",
    "category": "Socks",
    "name": "Socks",
    "icon": "cap",
-   "colour": "mint",
+   "colour": "lilac",
    "total": 3,
    "online": 0,
    "months": null,
@@ -17874,7 +17902,7 @@
    "category": "Stoller",
    "name": "Stoller",
    "icon": "stole",
-   "colour": "sand",
+   "colour": "mint",
    "total": 2,
    "online": 0,
    "months": null,
@@ -17888,7 +17916,7 @@
    "category": "Gallace",
    "name": "Gallace",
    "icon": "shirt",
-   "colour": "sky",
+   "colour": "blue",
    "total": 1,
    "online": 0,
    "months": null,
@@ -17902,7 +17930,7 @@
    "category": "Matha Patti",
    "name": "Matha Patti",
    "icon": "shirt",
-   "colour": "sand",
+   "colour": "mint",
    "total": 1,
    "online": 0,
    "months": null,
