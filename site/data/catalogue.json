@@ -473,7 +473,7 @@
      "size": "32",
      "colour": "Purple",
      "price": 2200,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5742,
@@ -2377,7 +2377,7 @@
      "size": "22",
      "colour": "Cream",
      "price": 400,
-     "availability": "few"
+     "availability": "out"
     },
     {
      "id": 5282,
